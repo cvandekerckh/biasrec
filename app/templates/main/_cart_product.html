@@ -1,0 +1,28 @@
+<table class="table table-hover">
+    <tr>
+        <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
+            <img src="{{ url_for('static', filename='prod_{}.jpg'.format(p.im))}}"  height="160px" width="200px">
+        </td>
+        <td style="float:left;width:30%;">
+            <h1><b><a class = "titlecolor", href="{{ url_for('main.product', title=p.title) }}">{{p.title}}</a></b></h1> 
+            <h2> {{p.price}}</h2>
+            <br>
+            <img src="{{ url_for('static', filename='nutri_{}.jpg'.format(p.nutri))}}"  height="80px" width="100px">
+        </td>
+        <td style="float:left;width:30%;">
+            {% if current_user.has_bought(p) %}
+            <br>
+            <br>
+            <br>
+            <br> 
+            <p><form action="{{ url_for('main.unpurchase', title= p.title) }}" method="post">
+                {{ form1.hidden_tag() }}
+                <span aria-hidden="true">{{ form1.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+            </form></p>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+
+
+

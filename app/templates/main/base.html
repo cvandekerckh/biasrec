@@ -1,0 +1,40 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    DELCam
+{% endblock %}
+
+{% block navbar %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <nav class="navbar navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.main') }}"><p class = "plabel"><b>DELCam</b></p></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('main.main') }}"><p class = "pnavbut">Home</p></a></li>
+                    <li><a href="{{ url_for('main.sandw') }}"><p class = "pnavbut">Sandwiches</p></a></li>
+                    <li><a href="{{ url_for('main.salade') }}"><p class = "pnavbut">Salads</p></a></li>
+                    <li><a href="{{ url_for('main.salade') }}"><p class = "pnavbut">Prepared dishes</p></a></li>
+                    <li><a href="{{ url_for('main.salade') }}"><p class = "pnavbut">Burgers</p></a></li>
+                    <li><a href="{{ url_for('main.salade') }}"><p class = "pnavbut">Wraps</p></a></li>
+                    <li><a href="{{ url_for('main.salade') }}"><p class = "pnavbut">Soups</p></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url_for('main.cart') }}"><p class = "pnavbut">Cart</p></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+{% endblock %}

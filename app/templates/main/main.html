@@ -1,0 +1,68 @@
+{% extends "main/base.html" %}
+
+{% block app_content %}
+    <h1 class = "titlecolor"><b> Here are the products we recommend to you : </b></h1>
+        <br>
+        <br>
+        <table class="table table-hover">
+            <tr>
+                <td ALIGN="CENTER", style="float:left;width:20%;">
+                    <img src="{{ url_for('static', filename='prod_2.jpg')}}"  height="250px" width="300px">
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco1.title) }}">{{reco1.title}}</a></b></h3> 
+                    <h4 class = "titlecolor"> {{ reco1.price}}</h4>
+                    <a>
+                        <form action="{{ url_for('main.purchase', title= reco1.title) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                        </form>
+                    </a>
+                </td>
+                <td ALIGN="CENTER", style="float:left;width:20%;">
+                    <img src="{{ url_for('static', filename='prod_1.jpg')}}"  height="250px" width="300px">
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco2.title) }}">{{reco2.title}}</a></b></h3> 
+                    <h4 class = "titlecolor"> {{ reco2.price}}</h4>
+                    <a>
+                        <form action="{{ url_for('main.purchase', title= reco2.title) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                        </form>
+                    </a>
+                </td>
+                <td ALIGN="CENTER", style="float:left;width:20%;">
+                    <img src="{{ url_for('static', filename='prod_3.jpg')}}"  height="250px" width="300px">
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco3.title) }}">{{reco3.title}}</a></b></h3> 
+                    <h4 class = "titlecolor"> {{ reco3.price}}</h4>
+                    <a>
+                        <form action="{{ url_for('main.purchase', title= reco3.title) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                        </form>
+                    </a>
+                </td>
+                <td ALIGN="CENTER", style="float:left;width:20%;">
+                    <img src="{{ url_for('static', filename='prod_4.jpg')}}"  height="250px" width="300px">
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco4.title) }}">{{reco4.title}}</a></b></h3> 
+                    <h4 class = "titlecolor"> {{ reco4.price}}</h4>
+                    <a>
+                        <form action="{{ url_for('main.purchase', title= reco5.title) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                        </form>
+                    </a>
+                </td>
+                <td ALIGN="CENTER", style="float:left;width:20%;">
+                    <img src="{{ url_for('static', filename='prod_6.jpg')}}"  height="250px" width="300px">
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco5.title) }}">{{reco5.title}}</a></b></h3> 
+                    <h4 class = "titlecolor"> {{ reco5.price}}</h4>
+                    <a>
+                        <form action="{{ url_for('main.purchase', title= reco5.title) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                        </form>
+                    </a>
+                </td>
+            </tr>
+         </table>
+{% endblock %}
+
+

@@ -1,0 +1,32 @@
+.plabel {
+    color:rgb(249, 250, 248);
+    font-size: 25px
+  }
+.pnavbut {
+  color: rgb(249, 250, 248);
+  font-size: 20px
+}
+.navbar-custom {
+    background-color: rgb(142, 202, 132);
+}
+body{ 
+  background-color: rgb(240, 252, 239);
+  border-radius: 30px;
+}
+.button{
+  background-color: rgb(109, 110, 109);
+  color:rgb(249, 250, 248);
+}
+
+.blocktext {
+  margin-left: auto;
+  margin-right: auto;
+  width: 6em;
+}
+.align {
+  text-align : center;
+}
+.titlecolor {
+  color:rgb(89, 108, 71)
+}
+
