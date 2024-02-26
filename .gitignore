@@ -163,3 +163,6 @@ cython_debug/
 *.jpg
 *.db
 *.csv
+
+# Mac files
+.DS_Store
