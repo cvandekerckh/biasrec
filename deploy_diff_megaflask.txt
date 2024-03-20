@@ -1,0 +1,80 @@
+sudo apt-get -y update
+
+sudo apt-get install mariadb-server
+
+sudo apt-get -y install postfix supervisor nginx git
+
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
+libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
+
+sudo apt install python3-openssl
+
+curl https://pyenv.run | bash
+
+pyenv install -v 3.10.1
+pyenv global 3.10.1
+
+pip install --user pipenv
+
+vim ~/.profile
+PATH=$PATH:/home/cvandekerckh/.local/bin
+source ~/.profile
+pipenv install
+
+vim .env
+SECRET_KEY= secret-key
+DATABASE_URL=mysql+pymysql://microblog:n4T6-s2C@localhost:3306/microblog
+
+vim .flaskenv
+FLASK_APP=microapp.py
+
+create user 'microblog'@'localhost' identified by 'n4T6-s2C';
+
+[program:microblog]
+command=/home/cvandekerckh/.local/share/virtualenvs/biasrec-0gOARrar/bin/gunicorn -b localhost:8000 -w 4 microapp:app
+directory=/home/cvandekerckh/biasrec
+user=cvandekerckh
+autostart=true
+autorestart=true
+stopasgroup=true
+killasgroup=true
+
+
+server {
+    # listen on port 80 (http)
+    listen 80;
+    server_name _;
+    location / {
+        # redirect any requests to the same URL but on https
+        return 301 https://$host$request_uri;
+    }
+}
+server {
+    # listen on port 443 (https)
+    listen 443 ssl;
+    server_name _;
+
+    # location of the self-signed SSL certificate
+    ssl_certificate /home/cvandekerckh/certs/cert.pem;
+    ssl_certificate_key /home/cvandekerckh/certs/key.pem;
+
+    # write access and error logs to /var/log
+    access_log /var/log/microblog_access.log;
+    error_log /var/log/microblog_error.log;
+
+    location / {
+        # forward application requests to the gunicorn server
+        proxy_pass http://localhost:8000;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /static {
+        # handle static files directly, without forwarding to the application
+        alias /home/cvandekerckh/biasrec/app/static;
+        expires 30d;
+    }
+}
