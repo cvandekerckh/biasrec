@@ -1,11 +1,13 @@
 from app.main import bp
-from flask import render_template, flash, redirect, url_for, current_app
+from flask import render_template, flash, redirect, url_for, current_app, make_response
 from flask_login import current_user, login_required
 from app.models import User, Product
 from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
+import S2_star_lib as starz
+
 
 #Route vers la page d'accueil
 @bp.route('/main')
@@ -47,6 +49,48 @@ def salade():
         if sal.has_prev else None
     return render_template('main/salades.html', sal = sal.items, next_url=next_url,
                            prev_url=prev_url)
+
+#route vers la première phase de l'experience
+@bp.route('/phase1')
+@login_required
+def phase1():
+    # (B1) GET AVERAGE + USER STARS
+    #pid = 1
+    uid = current_user.code
+    produit1 = Product.query.filter_by(im = current_user.prod4).first()
+    pid = int(produit1.id)
+    astar = starz.avg(pid) #On appelle la fonction avg
+    ustar = starz.get(pid, uid) #On appelle la fonction get
+    produit2 = Product.query.filter_by(im = current_user.prod5).first()
+    pid = int(produit2.id)
+    astarbis = starz.avg(pid) #On appelle la fonction avg
+    ustarbis = starz.get(pid, uid) #On appelle la fonction get
+    #user = User.query.filter_by(usercode = current_user.usercode).first()
+    # (B2) RENDER HTML PAGE
+    return render_template("S4A_page.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
+
+
+# (C) SAVE STARS
+@bp.route("/save/", methods=["POST"])
+def save():
+  #pid = 1
+  uid = current_user.code
+  prod1 = Product.query.filter_by(im = current_user.prod4).first()
+  pid = int(prod1.id)
+  data = dict(request.form)
+  starz.save(pid, uid, data["stars"])
+  return make_response("OK", 200)
+
+
+@bp.route("/save2/", methods=["POST"])
+def save2():
+  uid = current_user.code
+  prod2 = Product.query.filter_by(im = current_user.prod5).first()
+  pid2 = int(prod2.id)
+  data = dict(request.form)
+  starz.save(pid2, uid, data["stars2"])
+  return make_response("OK", 200)
+
 
 #Route vers une page produit
 @bp.route('/product/<title>')

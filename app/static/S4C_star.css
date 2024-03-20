@@ -1,0 +1,47 @@
+/* (A) ENTIRE PAGE */
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  background: #d9d9d9;
+}
+
+/* (B) PRODUCT DOCKET */
+.product {
+  padding: 20px;
+  max-width: 300px;
+  border: 2px solid #eee;
+  background: #fff;
+}
+.product .img {
+  display: block;
+  width: 100%;
+}
+.product .name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.product .desc { color: #7c7c7c; }
+.product .avg { margin: 15px 0 5px 0; }
+.product .rate {
+  display: flex;
+  align-items: center;
+}
+
+/* (C) STAR RATING */
+/* (C1) STAR RATING WRAPPER */
+.starwrap { display: flex; }
+
+/* (C2) STAR ICON */
+.star {
+  font-family: "Material Icons" !important;
+  font-size: 24px; color: #d1d1d1;
+  font-style: normal; font-weight: normal; font-variant: normal;
+  text-transform: none; line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.star::before { content: "star"; }
+.star.on { color: #ffe000; }

@@ -14,6 +14,11 @@ purchase = db.Table('purchase',
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     code = db.Column(db.String(4), index=True, unique=True)
+    prod1 = db.Column(db.String(4))
+    prod2 = db.Column(db.String(4))
+    prod3 = db.Column(db.String(4))
+    prod4 = db.Column(db.String(4))
+    prod5 = db.Column(db.String(4))
     products_bought = db.relationship('Product', secondary=purchase, backref='users_who_bought', lazy='dynamic')
 
     def __repr__(self): #Pour print les objets de cette classe 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo Star Rating</title>
+    <meta charset="utf-8">
+    <script src="static/S4B_star.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="static/S4C_star.css">
+  </head>
+  <body>
+    <!-- (A) DUMMY PRODUCT -->
+    <h1>Hi, User {{ current_user.usercode }}!</h1>
+    <div >
+      <table>
+        <tr>
+          <td>
+            <img class="img" src="{{ url_for('static', filename='prod_{}.jpg'.format(produit1.im))}}">
+          </td>
+          <td>
+            <div class="name"> {{ produit1.title }}</div>
+            <div class="desc">
+              <p> {{ produit1.price }} </p>
+              <p> {{ produit1.c1 }} </p>
+              <p> {{ produit1.c2 }} </p>
+              <p> {{ produit1.c3 }} </p>
+              <img class="img" src="{{ url_for('static', filename='nutri_{}.jpg'.format(produit1.nutri))}}">
+          </div>
+          </td>
+          <td>
+            <div class="avg">Rating: {{ astar[0] }} ({{ astar[1] }} users)</div>
+            <div class="rate">Your rating: <div id="demo">
+            </div></div>
+            <br>
+          </td>
+        </tr>
+
+      <!--second product-->
+      <tr>
+        <td>
+          <img class="img" src="{{ url_for('static', filename='prod_{}.jpg'.format(produit2.im))}}">
+        </td>
+        <td>
+          <div class="name"> {{ produit2.title }}</div>
+          <div class="desc">
+            <p> {{ produit2.price }} </p>
+            <p> {{ produit2.c1 }} </p>
+            <p> {{ produit2.c2 }} </p>
+            <p> {{ produit2.c3 }} </p>
+            <img class="img" src="{{ url_for('static', filename='nutri_{}.jpg'.format(produit2.nutri))}}">
+        </div>
+        </td>
+        <td>
+          <div class="avg">Rating: {{ astar[0] }} ({{ astar[1] }} users)</div>
+          <div class="rate">Your rating: <div id="demo2">
+          </div></div>
+          <br>
+        </td>
+      </tr>
+
+      </table>
+    </div>
+    <!-- (B) INIT STAR RATING -->
+    <script>
+    starry({
+      target: document.getElementById("demo"),
+      max: 5,
+      now: {{ ustar }},
+      click : stars => {
+        let data = new FormData();
+        data.append("stars", stars);
+        fetch("/save/", {
+          method: "post",
+          body: data
+        })
+        .then(res => res.text())
+        .then(txt => {
+          if (txt == "OK") { location.reload(); }
+          else { alert(txt); }
+        });
+      }
+    });
+    starry({
+      target: document.getElementById("demo2"),
+      max: 5,
+      now: {{ ustarbis }},
+      click : stars2 => {
+        let data = new FormData();
+        data.append("stars2", stars2);
+        fetch("/save2/", {
+          method: "post",
+          body: data
+        })
+        .then(res => res.text())
+        .then(txt => {
+          if (txt == "OK") { location.reload(); }
+          else { alert(txt); }
+        });
+      }
+    });
+    </script>
+    <br>
+    <div>
+      {% if not current_user.is_anonymous %}
+      <a href="{{ url_for('auth.close')}}"> Finir l'expérimentation et aller vers l'enquête</a>
+      {% endif %}
+  </div>
+  </body>
+</html>
