@@ -16,6 +16,7 @@ importlib-metadata = "*"
 gunicorn = "*"
 pymysql = "*"
 cryptography = "*"
+pandas = "*"
 
 [dev-packages]
 
