@@ -11,10 +11,5 @@ df = pd.read_sql_query("SELECT * FROM `star_rating`", con)
 # Verify that result of SQL query is stored in the dataframe
 print(df)
 
-#Conversion de la variable pandas en un fichier csv qui collecte tous les ratings 
-d = pd.DataFrame(df)
-d.to_csv('yourfile.csv', index=False)
-
-
 con.close()
 
