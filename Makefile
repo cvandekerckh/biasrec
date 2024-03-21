@@ -3,3 +3,6 @@ develop :
 
 build : 
 	docker build -t biasrecdocker .
+
+view-ratings:
+	pipenv run python scripts/display_user_ratings.py
