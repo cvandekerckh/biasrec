@@ -4,7 +4,7 @@ from app.auth.forms import LoginForm, Close
 from flask_login import current_user, login_user, login_required, logout_user
 import csv
 from app import db
-from app.models import User, Product
+from app.models import User, Product, create_star_table
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -32,7 +32,8 @@ def run_csv():
                 new_entry = Product(**kwargs)
                 db.session.add(new_entry)
                 db.session.commit()
-    return redirect(url_for('auth.login'))
+    create_star_table()
+    return redirect(url_for('auth.login'))   
 
 
 @bp.route('/login', methods=['GET', 'POST'])
