@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, make_response
-import S2_star_lib as starz
 import pandas as pd
 import sqlite3
 import csv
