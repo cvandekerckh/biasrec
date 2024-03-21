@@ -3,36 +3,11 @@ from flask import render_template, flash, redirect, url_for
 from app.auth.forms import LoginForm, Close
 from flask_login import current_user, login_user, login_required, logout_user
 import csv
-from app import db
-from app.models import User, Product, create_star_table
+from app.models import User
 
 
 @bp.route('/', methods=['GET', 'POST'])
-def run_csv():
-    users = User.query.all()
-    products = Product.query.all()
-    for u in users : 
-        db.session.delete(u)
-    for p in products : 
-        db.session.delete(p)
-    db.session.commit()
-    with open("users.csv", encoding='utf-8-sig') as f:
-        reader = csv.reader(f, delimiter=";" )
-        header = next(reader)
-        for i in reader:
-                kwargs = {column: value for column, value in zip(header, i)}
-                new_entry = User(**kwargs)
-                db.session.add(new_entry)
-                db.session.commit()
-    with open("products.csv", encoding='utf-8-sig') as f:
-        reader = csv.reader(f, delimiter=";" )
-        header = next(reader)
-        for i in reader:
-                kwargs = {column: value for column, value in zip(header, i)}
-                new_entry = Product(**kwargs)
-                db.session.add(new_entry)
-                db.session.commit()
-    create_star_table()
+def index():
     return redirect(url_for('auth.login'))   
 
 

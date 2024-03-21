@@ -1,8 +1,17 @@
-develop : 
-	 docker run -it -p 80:80 biasrecdocker bash
-
 build : 
 	docker build -t biasrecdocker .
 
-view-ratings:
-	pipenv run python scripts/display_user_ratings.py
+develop : 
+	 docker run -it -p 80:80 biasrecdocker bash
+
+display-users:
+	python -c "from scripts.view_databases import display_users; display_users()"
+
+display-products:
+	python -c "from scripts.view_databases import display_products; display_products()"
+
+display-ratings:
+	python -c "from scripts.view_databases import display_user_ratings; display_user_ratings()"
+
+reload-experiment:
+	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"
