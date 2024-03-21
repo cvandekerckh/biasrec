@@ -162,7 +162,7 @@ cython_debug/
 # Data
 #*.jpg
 *.db
-*.csv
+#*.csv
 
 # Mac files
 .DS_Store

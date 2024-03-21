@@ -6,7 +6,7 @@ from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
-import S2_star_lib as starz
+from app.models import create_star_table, star_save, star_avg, star_get
 
 
 #Route vers la page d'accueil
@@ -59,12 +59,12 @@ def phase1():
     uid = current_user.code
     produit1 = Product.query.filter_by(im = current_user.prod4).first()
     pid = int(produit1.id)
-    astar = starz.avg(pid) #On appelle la fonction avg
-    ustar = starz.get(pid, uid) #On appelle la fonction get
+    astar = star_avg(pid) #On appelle la fonction avg
+    ustar = star_get(pid, uid) #On appelle la fonction get
     produit2 = Product.query.filter_by(im = current_user.prod5).first()
     pid = int(produit2.id)
-    astarbis = starz.avg(pid) #On appelle la fonction avg
-    ustarbis = starz.get(pid, uid) #On appelle la fonction get
+    astarbis = star_avg(pid) #On appelle la fonction avg
+    ustarbis = star_get(pid, uid) #On appelle la fonction get
     #user = User.query.filter_by(usercode = current_user.usercode).first()
     # (B2) RENDER HTML PAGE
     return render_template("S4A_page.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
@@ -78,7 +78,7 @@ def save():
   prod1 = Product.query.filter_by(im = current_user.prod4).first()
   pid = int(prod1.id)
   data = dict(request.form)
-  starz.save(pid, uid, data["stars"])
+  star_save(pid, uid, data["stars"])
   return make_response("OK", 200)
 
 
@@ -88,7 +88,7 @@ def save2():
   prod2 = Product.query.filter_by(im = current_user.prod5).first()
   pid2 = int(prod2.id)
   data = dict(request.form)
-  starz.save(pid2, uid, data["stars2"])
+  star_save(pid2, uid, data["stars2"])
   return make_response("OK", 200)
 
 

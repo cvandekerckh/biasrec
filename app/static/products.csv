@@ -1,0 +1,37 @@
+﻿title;c0;c1;c2;c3;price;im;nutri
+Caesar salad;Salad;Chicken;Salad ;Tomatoes ;5,99 €;1;A
+Italian salad;Salad;Ham;Mozzarella ;Tomatoes ;4,99 €;2;B
+Mixed salad ;Salad;Ham;Salad ;Corn;3,99 €;3;C
+Sandw poulet ;Sandw;poulet ;laitue;carottes;5,99 €;10;A
+Club;Sandw;jambon;laitue ;tomates;4,99 €;11;B
+Wrap poulet ;Wrap;poulet ;salade ;maïs;3,99 €;19;A
+Wrap jambon;Wrap;jambon;concombres;carottes;5,99 €;20;B
+Pizza marga;Pizza;jambon;mozza;tomates;4,99 €;28;B
+Pasta salad;Salad;Chicken;Mozzarella ;Pasta;3,99 €;4;D
+Sandw thon ;Sandw;thon;salade ;maïs;4,99 €;12;C
+Curry salad;Salad;Chicken;Salad ;Curry;5,99 €;5;E
+Salmon salad ;Salad;Salmon;Cucumbers;Tomatoes ;4,99 €;6;A
+Cheese salad;Salad;Ham;Salad ;Cheese;3,99 €;7;B
+Tuna salad ;Salad;Tuna ;Mozzarella ;Corn;3,99 €;8;C
+Thai salad;Salad;Salmon;Mozzarella ;Corn;3,99 €;9;D
+Sandw USA ;Sandw;USA;laitue;carottes;5,99 €;13;D
+Sandw boulette ;Sandw;Boulette ;laitue ;tomates;4,99 €;14;E
+Sandw Surimi;Sandw;Surimi;salade ;maïs;4,99 €;15;E
+Sandw mozza;Sandw;poulet ;laitue;mozza ;5,99 €;16;A
+Sand Saumon fumé ;Sandw;Saumon ;laitue ;tomates;4,99 €;17;B
+Sandw avocat;Sandw;poulet ;salade ;Avocat;4,99 €;18;C
+Wrap thon ;Wrap;thon;salade ;maïs;3,99 €;21;C
+Wrap USA;Wrap;USA;concombres;carottes;5,99 €;22;D
+Wrap boulette;Wrap;Boulette ;salade ;maïs;3,99 €;23;E
+Wrap Surimi ;Wrap;surimi;concombres;carottes;5,99 €;24;D
+Wrap saumon ;Wrap;saumon ;salade ;maïs;3,99 €;25;A
+Wrap mozza;Wrap;jambon;concombres;mozza ;5,99 €;26;B
+Wrap végé ;Wrap;avocat ;salade ;maïs;3,99 €;27;C
+Pizza aubergine ;Pizza;aubergine ;mozza;tomates;5,99 €;29;C
+Pizza Poulet ;Pizza;poulet ;mozza;tomates;7,99 €;30;D
+Pizza pepperoni;Pizza;salami ;mozza;tomates;6,99 €;31;A
+Pizza Hawaii;Pizza;jambon;mozza;ananas;4,99 €;32;E
+Pizza barbec ;Pizza;poulet ;mozza;sauce ;5,99 €;33;B
+Pizza 3 fromages ;Pizza;mozza;gouda;parmesan;7,99 €;34;C
+Pizza thon ;Pizza;jambon;mozza;tomates;6,99 €;35;D
+Pizza supreme ;Pizza;jambon;poulet ;mozza ;8,99 €;36;A
