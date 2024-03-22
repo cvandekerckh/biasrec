@@ -13,5 +13,8 @@ display-products:
 display-ratings:
 	python -c "from scripts.view_databases import display_user_ratings; display_user_ratings()"
 
+display-purchases:
+	python -c "from scripts.view_databases import display_purchases; display_purchases()"
+
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"

@@ -3,13 +3,13 @@
         <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
             <br>
             <br>
-            <img src="{{ url_for('static', filename='prod_{}.jpg'.format(s.im))}}"  height="160px" width="200px">
+            <img src="{{ url_for('static', filename='prod_{}.jpg'.format(s.image))}}"  height="160px" width="200px">
         </td>
         <td style="float:left;width:40%;">
-            <h1><b><a class = "titlecolor", href="{{ url_for('main.product', title=s.title) }}">{{ s.title}}</a></b></h1> 
+            <h1><b><a class = "titlecolor", href="{{ url_for('main.product', name=s.name) }}">{{ s.name}}</a></b></h1> 
             <h2> {{s.price}}</h2>
             <br>
-            <img src="{{ url_for('static', filename='nutri_{}.jpg'.format(s.nutri))}}"  height="80px" width="100px">
+            <img src="{{ url_for('static', filename='nutri_{}.jpg'.format(s.nutri_score))}}"  height="80px" width="100px">
         </td>
         <td style="float:left;width:20%;"></td>
     </tr>

@@ -25,8 +25,9 @@ def populate_db(db_name, csv_file):
 
 def reload_databases():
     with app.app_context():
-        delete_entries_from_db(User)
-        delete_entries_from_db(Product)
+        db.create_all()
+        #delete_entries_from_db(User)
+        #delete_entries_from_db(Product)
         populate_db(User, "app/static/users.csv")
         populate_db(Product, "app/static/products.csv")
         create_star_table()
