@@ -9,21 +9,21 @@
   </head>
   <body>
     <!-- (A) DUMMY PRODUCT -->
-    <h1>Hi, User {{ current_user.usercode }}!</h1>
+    <h1>Hi, User {{ current_user.code }}!</h1>
     <div >
       <table>
         <tr>
           <td>
-            <img class="img" src="{{ url_for('static', filename='prod_{}.jpg'.format(produit1.im))}}">
+            <img class="img" src="{{ url_for('static', filename='prod_{}.jpg'.format(produit1.image))}}">
           </td>
           <td>
-            <div class="name"> {{ produit1.title }}</div>
+            <div class="name"> {{ produit1.name }}</div>
             <div class="desc">
               <p> {{ produit1.price }} </p>
-              <p> {{ produit1.c1 }} </p>
-              <p> {{ produit1.c2 }} </p>
-              <p> {{ produit1.c3 }} </p>
-              <img class="img" src="{{ url_for('static', filename='nutri_{}.jpg'.format(produit1.nutri))}}">
+              <p> {{ produit1.feature_1 }} </p>
+              <p> {{ produit1.feature_2 }} </p>
+              <p> {{ produit1.feature_3 }} </p>
+              <img class="img" src="{{ url_for('static', filename='nutri_{}.jpg'.format(produit1.nutri_score))}}">
           </div>
           </td>
           <td>
@@ -37,16 +37,16 @@
       <!--second product-->
       <tr>
         <td>
-          <img class="img" src="{{ url_for('static', filename='prod_{}.jpg'.format(produit2.im))}}">
+          <img class="img" src="{{ url_for('static', filename='prod_{}.jpg'.format(produit2.image))}}">
         </td>
         <td>
-          <div class="name"> {{ produit2.title }}</div>
+          <div class="name"> {{ produit2.name }}</div>
           <div class="desc">
             <p> {{ produit2.price }} </p>
-            <p> {{ produit2.c1 }} </p>
-            <p> {{ produit2.c2 }} </p>
-            <p> {{ produit2.c3 }} </p>
-            <img class="img" src="{{ url_for('static', filename='nutri_{}.jpg'.format(produit2.nutri))}}">
+            <p> {{ produit2.feature_1 }} </p>
+            <p> {{ produit2.feature_2 }} </p>
+            <p> {{ produit2.feature_3 }} </p>
+            <img class="img" src="{{ url_for('static', filename='nutri_{}.jpg'.format(produit2.nutri_score))}}">
         </div>
         </td>
         <td>

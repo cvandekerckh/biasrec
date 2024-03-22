@@ -7,7 +7,7 @@ from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
 from app.models import create_star_table, star_save, star_avg, star_get
-
+import pandas as pd
 
 #Route vers la page d'accueil
 @bp.route('/main')
@@ -57,20 +57,31 @@ def salade():
 @bp.route('/rate')
 @login_required
 def rate():
-    # (B1) GET AVERAGE + USER STARS
-    #pid = 1
-    uid = current_user.code
-    produit1 = Product.query.filter_by(im = current_user.prod4).first()
-    pid = int(produit1.id)
-    astar = star_avg(pid) #On appelle la fonction avg
-    ustar = star_get(pid, uid) #On appelle la fonction get
-    produit2 = Product.query.filter_by(im = current_user.prod5).first()
-    pid = int(produit2.id)
-    astarbis = star_avg(pid) #On appelle la fonction avg
-    ustarbis = star_get(pid, uid) #On appelle la fonction get
-    #user = User.query.filter_by(usercode = current_user.usercode).first()
-    # (B2) RENDER HTML PAGE
+    df = pd.read_csv('app/static/train_entries.csv', delimiter=";")  # to be replaced later on by DB
+    products_to_rate = df.loc[df['user_id'] == current_user.id, "product_id"].values
+
+    produit1 = db.session.query(Product).filter_by(id = str(products_to_rate[0])).first()
+    produit2 = db.session.query(Product).filter_by(id = str(products_to_rate[1])).first()
+
+    astar = 1
+    ustar = 1
+    astarbis = 1
+    ustarbis = 1
     return render_template("main/rate.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
+
+    # # (B1) GET AVERAGE + USER STARS
+    # #pid = 1
+    # uid = current_user.code
+    # produit1 = Product.query.filter_by(im = current_user.prod4).first()
+    # pid = int(produit1.id)
+    # astar = star_avg(pid) #On appelle la fonction avg
+    # ustar = star_get(pid, uid) #On appelle la fonction get
+    # produit2 = Product.query.filter_by(im = current_user.prod5).first()
+    # pid = int(produit2.id)
+    # astarbis = star_avg(pid) #On appelle la fonction avg
+    # ustarbis = star_get(pid, uid) #On appelle la fonction get
+    # # (B2) RENDER HTML PAGE
+    # return render_template("main/rate.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
 
 
 # (C) SAVE STARS
