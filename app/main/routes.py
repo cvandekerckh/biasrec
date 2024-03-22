@@ -51,9 +51,9 @@ def salade():
                            prev_url=prev_url)
 
 #route vers la première phase de l'experience
-@bp.route('/phase1')
+@bp.route('/rate')
 @login_required
-def phase1():
+def rate():
     # (B1) GET AVERAGE + USER STARS
     #pid = 1
     uid = current_user.code
@@ -67,7 +67,7 @@ def phase1():
     ustarbis = star_get(pid, uid) #On appelle la fonction get
     #user = User.query.filter_by(usercode = current_user.usercode).first()
     # (B2) RENDER HTML PAGE
-    return render_template("S4A_page.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
+    return render_template("main/rate.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
 
 
 # (C) SAVE STARS

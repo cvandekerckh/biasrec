@@ -10,3 +10,16 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 3
+
+class RateConfig(Config):
+    MAIN_PAGE='main.rate'
+
+class RecommendConfig(Config):
+    MAIN_PAGE='main.main'
+
+
+configs = {
+  'rate'  : RateConfig,
+  'recommend' : RecommendConfig,
+  'default'  : RateConfig,
+}
