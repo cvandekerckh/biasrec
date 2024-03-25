@@ -17,6 +17,7 @@ gunicorn = "*"
 pymysql = "*"
 cryptography = "*"
 pandas = "*"
+surprise = "*"
 
 [dev-packages]
 ipython = "*"

@@ -6,18 +6,33 @@ from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
+import pickle
 
 #Route vers la page d'accueil
 @bp.route('/main')
 @login_required
 def main():
-    reco1 = Product.query.filter_by(image = "2").first()
-    reco2 = Product.query.filter_by(image = "1").first()
-    reco3 = Product.query.filter_by(image = "3").first()
-    reco4 = Product.query.filter_by(image = "4").first()
-    reco5 = Product.query.filter_by(image = "6").first()
+    if current_app.config['RECOMMENDATION'] == 'fixed':
+        reco1 = Product.query.filter_by(image = "2").first()
+        reco2 = Product.query.filter_by(image = "1").first()
+        reco3 = Product.query.filter_by(image = "3").first()
+        reco4 = Product.query.filter_by(image = "2").first()
+        reco5 = Product.query.filter_by(image = "2").first()
+
+    elif current_app.config['RECOMMENDATION'] == 'trained':
+        model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
+        top_n = pickle.load(open(model_file, 'rb'))
+        recommendations = top_n[current_user.id]
+        recommended_products = [recommend_product for recommend_product, _ in recommendations]
+        reco1 = Product.query.filter_by(id = recommended_products[0]).first()
+        reco2 = Product.query.filter_by(id = recommended_products[1]).first()
+        reco3 = Product.query.filter_by(id = recommended_products[2]).first()
+        reco4 = Product.query.filter_by(id = recommended_products[0]).first()
+        reco5 = Product.query.filter_by(id = recommended_products[0]).first()
+
+
     form = PurchaseForm()
-    return render_template('main/main.html', form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5 )
+    return render_template('main/main.html', form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5)
 
 #route vers une page de catégorie 
 @bp.route('/sandw')
