@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Demo Star Rating</title>
+    <title>Rate your products</title>
     <meta charset="utf-8">
     <script src="static/S4B_star.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,8 +27,7 @@
           </div>
           </td>
           <td>
-            <div class="avg">Rating: {{ astar[0] }} ({{ astar[1] }} users)</div>
-            <div class="rate">Your rating: <div id="demo">
+            <div class="rate">Your rating: <div id="{{ produit1.id }}">
             </div></div>
             <br>
           </td>
@@ -50,8 +49,7 @@
         </div>
         </td>
         <td>
-          <div class="avg">Rating: {{ astar[0] }} ({{ astar[1] }} users)</div>
-          <div class="rate">Your rating: <div id="demo2">
+          <div class="rate">Your rating: <div id="{{ produit2.id }}">
           </div></div>
           <br>
         </td>
@@ -62,12 +60,13 @@
     <!-- (B) INIT STAR RATING -->
     <script>
     starry({
-      target: document.getElementById("demo"),
+      target: document.getElementById("{{ produit1.id }}"),
       max: 5,
       now: {{ ustar }},
       click : stars => {
         let data = new FormData();
         data.append("stars", stars);
+        data.append("product_id", "{{ produit1.id }}");
         fetch("/save/", {
           method: "post",
           body: data
@@ -80,13 +79,14 @@
       }
     });
     starry({
-      target: document.getElementById("demo2"),
+      target: document.getElementById("{{ produit2.id }}"),
       max: 5,
       now: {{ ustarbis }},
       click : stars2 => {
         let data = new FormData();
-        data.append("stars2", stars2);
-        fetch("/save2/", {
+        data.append("stars", stars2);
+        data.append("product_id", "{{ produit2.id }}");
+        fetch("/save/", {
           method: "post",
           body: data
         })

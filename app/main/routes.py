@@ -6,7 +6,6 @@ from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
-from app.models import create_star_table, star_save, star_avg, star_get
 import pandas as pd
 
 #Route vers la page d'accueil
@@ -71,47 +70,14 @@ def rate():
     if ustarbis is None : 
         ustarbis = 3
 
-    print(ustar)
-    print(ustarbis)
-    astar = 1
-    #ustar = 1
-    astarbis = 1
-    #ustarbis = 1
-    return render_template("main/rate.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
+    return render_template("main/rate.html", ustar=ustar, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
 
 
 # (C) SAVE STARS
 @bp.route("/save/", methods=["POST"])
 def save():
-  #uid = current_user.code
-  df = pd.read_csv('app/static/train_entries.csv', delimiter=";")  # to be replaced later on by DB
-  products_to_rate = df.loc[df['user_id'] == current_user.id, "product_id"].values
-  produit1 = db.session.query(Product).filter_by(id = str(products_to_rate[0])).first()
-  #prod1 = Product.query.filter_by(im = current_user.prod4).first()
-  pid = int(produit1.id)
   data = dict(request.form)
-
-  current_user.add_rating(pid, data["stars"])
-  #star_save(pid, uid, data["stars"])
-  return make_response("OK", 200)
-
-
-@bp.route("/save2/", methods=["POST"])
-def save2():
-  #uid = current_user.code
-  #uid = current_user.code
-  df = pd.read_csv('app/static/train_entries.csv', delimiter=";")  # to be replaced later on by DB
-  products_to_rate = df.loc[df['user_id'] == current_user.id, "product_id"].values
-  produit2 = db.session.query(Product).filter_by(id = str(products_to_rate[1])).first()
-  #prod1 = Product.query.filter_by(im = current_user.prod4).first()
-  pid2 = int(produit2.id)
-
-  #prod2 = Product.query.filter_by(im = current_user.prod5).first()
-  #pid2 = int(prod2.id)
-  data = dict(request.form)
-
-  current_user.add_rating(pid2, data["stars2"])
-  #star_save(pid2, uid, data["stars2"])
+  current_user.add_rating(data["product_id"], data["stars"])
   return make_response("OK", 200)
 
 
