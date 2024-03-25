@@ -31,9 +31,6 @@ def sandw():
         if sandw.has_next else None
     prev_url = url_for('main.sandw', page=sandw.prev_num) \
         if sandw.has_prev else None
-    print(sandw.items)
-    print(next_url)
-    print(prev_url)
     return render_template('main/sandw.html', sandw = sandw.items, next_url=next_url,
                            prev_url=prev_url)
 
@@ -55,17 +52,17 @@ def salade():
 @bp.route('/rate')
 @login_required
 def rate():
-    df = pd.read_csv('app/static/train_entries.csv', delimiter=";")
-    products_to_rate = df.loc[df['user_id'] == current_user.id, "product_id"].values
 
-    produit1 = db.session.query(Product).filter_by(id = str(products_to_rate[0])).first()
-    produit2 = db.session.query(Product).filter_by(id = str(products_to_rate[1])).first()
+    query = current_user.assignments.select()
+    products = db.session.scalars(query).all()
+    produit1 = products[0]
+    produit2 = products[1]
 
-    ustar = current_user.get_rating_for_product(produit1.id)
+    ustar = current_user.get_rating_for_product(products[0].id)
     if ustar is None : 
         ustar = 3
 
-    ustarbis = current_user.get_rating_for_product(produit2.id)
+    ustarbis = current_user.get_rating_for_product(products[1].id)
     if ustarbis is None : 
         ustarbis = 3
 
