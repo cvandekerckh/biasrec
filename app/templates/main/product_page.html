@@ -4,10 +4,10 @@
     <table class="table table-hover">
         <tr>
             <td ALIGN="CENTER", style="float:left;width:50%;">
-                <img src="{{ url_for('static', filename='prod_{}.jpg'.format(product.image))}}"  height="256px" width="300px">
+                <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="256px" width="300px">
                 <br>
                 <br>
-                <img src="{{ url_for('static', filename='nutri_{}.jpg'.format(product.nutri_score))}}"  height="70px" width="100px">
+                <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="70px" width="100px">
             </td>
             <td style="float:left;width:50%;">
                 <h1 class = "titlecolor"><b>{{ product.name}}</b></h1>
@@ -34,7 +34,7 @@
         <table class="table table-hover">
             <tr>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
-                    <img src="{{ url_for('static', filename='prod_1.jpg')}}"  height="250px" width="300px">
+                    <img src="{{ url_for('static', filename='img/prod_1.jpg')}}"  height="250px" width="300px">
                     <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco1.name) }}">{{reco1.name}}</a></b></h3> 
                     <h4> {{ reco1.price}}</h4>
                     <a>
@@ -45,7 +45,7 @@
                     </a>
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
-                    <img src="{{ url_for('static', filename='prod_2.jpg')}}"  height="250px" width="300px">
+                    <img src="{{ url_for('static', filename='img/prod_2.jpg')}}"  height="250px" width="300px">
                     <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco2.name) }}">{{reco2.name}}</a></b></h3> 
                     <h4> {{ reco2.price}}</h4>
                     <a>
@@ -56,7 +56,7 @@
                     </a>
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
-                    <img src="{{ url_for('static', filename='prod_3.jpg')}}"  height="250px" width="300px">
+                    <img src="{{ url_for('static', filename='img/prod_3.jpg')}}"  height="250px" width="300px">
                     <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco3.name) }}">{{reco3.name}}</a></b></h3> 
                     <h4> {{ reco3.price}}</h4>
                     <a>
@@ -67,7 +67,7 @@
                     </a>
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
-                    <img src="{{ url_for('static', filename='prod_4.jpg')}}"  height="250px" width="300px">
+                    <img src="{{ url_for('static', filename='img/prod_4.jpg')}}"  height="250px" width="300px">
                     <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco4.name) }}">{{reco4.name}}</a></b></h3> 
                     <h4> {{ reco4.price}}</h4>
                     <a>
@@ -78,7 +78,7 @@
                     </a>
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
-                    <img src="{{ url_for('static', filename='prod_5.jpg')}}"  height="250px" width="300px">
+                    <img src="{{ url_for('static', filename='img/prod_5.jpg')}}"  height="250px" width="300px">
                     <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco5.name) }}">{{reco5.name}}</a></b></h3> 
                     <h4> {{ reco5.price}}</h4>
                     <a>
