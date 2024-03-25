@@ -12,17 +12,27 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 3
-    DATA_PATH=Path('app/static/data/test-flask')
+    DATA_PATH=Path('app/static/data/test-recommender')
+    MODEL_NAME='svd100'
+    MODEL_FILENAME = 'model.p'
+    N_RECOMMENDATIONS = 5
 
 class RateConfig(Config):
     MAIN_PAGE='main.rate'
 
-class RecommendConfig(Config):
+
+class FixedRecommendationConfig(Config):
     MAIN_PAGE='main.main'
+    RECOMMENDATION='fixed'
+
+class TrainedRecommendationConfig(Config):
+    MAIN_PAGE='main.main' 
+    RECOMMENDATION='trained' 
 
 
 configs = {
   'rate'  : RateConfig,
-  'recommend' : RecommendConfig,
+  'fixedrec' : FixedRecommendationConfig,
+  'trainrec' : TrainedRecommendationConfig,
   'default'  : RateConfig,
 }
