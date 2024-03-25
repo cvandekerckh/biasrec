@@ -69,25 +69,10 @@ def rate():
     ustarbis = 1
     return render_template("main/rate.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
 
-    # # (B1) GET AVERAGE + USER STARS
-    # #pid = 1
-    # uid = current_user.code
-    # produit1 = Product.query.filter_by(im = current_user.prod4).first()
-    # pid = int(produit1.id)
-    # astar = star_avg(pid) #On appelle la fonction avg
-    # ustar = star_get(pid, uid) #On appelle la fonction get
-    # produit2 = Product.query.filter_by(im = current_user.prod5).first()
-    # pid = int(produit2.id)
-    # astarbis = star_avg(pid) #On appelle la fonction avg
-    # ustarbis = star_get(pid, uid) #On appelle la fonction get
-    # # (B2) RENDER HTML PAGE
-    # return render_template("main/rate.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
-
 
 # (C) SAVE STARS
 @bp.route("/save/", methods=["POST"])
 def save():
-  #pid = 1
   uid = current_user.code
   prod1 = Product.query.filter_by(im = current_user.prod4).first()
   pid = int(prod1.id)
