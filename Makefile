@@ -11,7 +11,7 @@ display-products:
 	python -c "from scripts.view_databases import display_products; display_products()"
 
 display-ratings:
-	python -c "from scripts.view_databases import display_user_ratings; display_user_ratings()"
+	python -c "from scripts.view_databases import display_ratings; display_ratings()"
 
 display-purchases:
 	python -c "from scripts.view_databases import display_purchases; display_purchases()"
