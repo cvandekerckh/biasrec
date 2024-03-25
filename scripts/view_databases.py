@@ -28,7 +28,18 @@ def display_purchases():
         for user in User.query.all():
             print(f"User: {user.code}")
             print("Purchased Products:")
-            query = user.bought_products.select()
+            query = user.purchases.select()
+            products = db.session.scalars(query).all()
+            for product in products:
+                print(f"- {product.name}")
+            print()
+
+def display_assignments():
+    with app.app_context():
+        for user in User.query.all():
+            print(f"User: {user.code}")
+            print("Assignments:")
+            query = user.assignments.select()
             products = db.session.scalars(query).all()
             for product in products:
                 print(f"- {product.name}")

@@ -19,35 +19,60 @@ purchases = db.Table(
     db.Column('product_id', db.Integer, db.ForeignKey('product.id')),
 )
 
+# Assigned for training
+training = db.Table(
+    'training',
+    db.metadata,
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('product_id', db.Integer, db.ForeignKey('product.id')),
+)
+
+# Assigned
+
 # User table
 class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     code: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
                                                 unique=True)
-    bought_products: so.WriteOnlyMapped['Product'] = so.relationship(
+    purchases: so.WriteOnlyMapped['Product'] = so.relationship(
         secondary=purchases,
         back_populates='buyers',
     )
+
     ratings: so.WriteOnlyMapped['Rating'] = so.relationship(
         'Rating',
-        back_populates='user'
+        back_populates='user',
+    )
+
+    assignments: so.WriteOnlyMapped['Product'] = so.relationship(
+        secondary=training,
+        back_populates='assigned_users',
     )
 
     def __repr__(self): #Pour print les objets de cette classe 
         return '<User {}>'.format(self.code)
-    
-    def add(self, product):
-        if not self.has_bought(product):
-            self.bought_products.add(product)
 
-    def remove(self, product):
-        if self.has_bought(product):
-            self.bought_products.remove(product)
 
     def has_bought(self, product):
-        query = self.bought_products.select().where(Product.id == product.id)
+        query = self.purchases.select().where(Product.id == product.id)
         return db.session.scalar(query) is not None
-    
+
+    def add_to_cart(self, product):
+        if not self.has_bought(product):
+            self.purchases.add(product)
+
+    def remove_from_cart(self, product):
+        if self.has_bought(product):
+            self.purchases.remove(product)
+
+    def is_assigned(self, product):
+        query = self.assignments.select().where(Product.id == product.id)
+        return db.session.scalar(query) is not None
+
+    def assign_product(self, product):
+        if not self.is_assigned(product):
+            self.assignments.add(product)
+
     def add_rating(self, product_id, rating):
         session = db.session()
         existing_rating = session.query(Rating).filter_by(user_id=self.id, product_id=product_id).first()
@@ -86,10 +111,14 @@ class Product(db.Model):
 
     buyers: so.WriteOnlyMapped['User'] = so.relationship(
         secondary=purchases,
-        back_populates='bought_products',
+        back_populates='purchases',
     )
     ratings: so.WriteOnlyMapped['Rating'] = so.relationship('Rating', back_populates='product')
 
+    assigned_users: so.WriteOnlyMapped['User'] = so.relationship(
+        secondary=training,
+        back_populates='assignments',
+    )
 
     def __repr__(self):
         return '<Product {}>'.format(self.name)

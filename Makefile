@@ -16,5 +16,8 @@ display-ratings:
 display-purchases:
 	python -c "from scripts.view_databases import display_purchases; display_purchases()"
 
+display-assignments:
+	python -c "from scripts.view_databases import display_assignments; display_assignments()"
+
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"

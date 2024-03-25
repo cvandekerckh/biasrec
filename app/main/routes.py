@@ -6,7 +6,6 @@ from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
-import pandas as pd
 
 #Route vers la page d'accueil
 @bp.route('/main')
@@ -56,7 +55,7 @@ def salade():
 @bp.route('/rate')
 @login_required
 def rate():
-    df = pd.read_csv('app/static/train_entries.csv', delimiter=";")  # to be replaced later on by DB
+    df = pd.read_csv('app/static/train_entries.csv', delimiter=";")
     products_to_rate = df.loc[df['user_id'] == current_user.id, "product_id"].values
 
     produit1 = db.session.query(Product).filter_by(id = str(products_to_rate[0])).first()
@@ -100,16 +99,15 @@ def product(name):
 def cart():
     form1 = PurchaseForm() #form pour retirer du panier (= même en python que pour ajouter un produits
     form2 = Close() #bouton pour partir et se lougout
-    query = current_user.bought_products.select()
+    query = current_user.purchases.select()
     cart_products = db.session.scalars(query).all()
-    #cart_products = current_user.bought_products.all()
     return render_template('main/cart.html', cart_products = cart_products, form1 = form1,form2 = form2 )
 
 @bp.route('/purchase/<name>', methods=['POST'])
 @login_required
 def purchase(name):
     product = Product.query.filter_by(name=name).first()
-    current_user.add(product)
+    current_user.add_to_cart(product)
     db.session.commit()
     flash('Ton article {} a été rajouté au panier!'.format(name))
     return redirect(url_for('main.main'))
@@ -118,7 +116,7 @@ def purchase(name):
 @login_required
 def unpurchase(name):
     product = Product.query.filter_by(name=name).first()
-    current_user.remove(product)
+    current_user.remove_from_cart(product)
     db.session.commit()
     flash('Ton article {} a été retiré de votre panier!'.format(name))
     return redirect(url_for('main.cart'))
