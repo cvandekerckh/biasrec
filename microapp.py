@@ -5,10 +5,9 @@ from config import configs
 from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-load_dotenv(os.path.join(basedir, '.env'))
+load_dotenv(os.path.join(basedir, '.env'), override=True)
 experiment_config = os.environ.get('EXPERIMENT_CONFIG') or 'default'
 app = create_app(config_class=configs[experiment_config])
-
 
 @app.shell_context_processor
 def make_shell_context():

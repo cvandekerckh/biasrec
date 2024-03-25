@@ -4,23 +4,23 @@
     <table class="table table-hover">
         <tr>
             <td ALIGN="CENTER", style="float:left;width:50%;">
-                <img src="{{ url_for('static', filename='prod_{}.jpg'.format(product.im))}}"  height="256px" width="300px">
+                <img src="{{ url_for('static', filename='prod_{}.jpg'.format(product.image))}}"  height="256px" width="300px">
                 <br>
                 <br>
-                <img src="{{ url_for('static', filename='nutri_{}.jpg'.format(product.nutri))}}"  height="70px" width="100px">
+                <img src="{{ url_for('static', filename='nutri_{}.jpg'.format(product.nutri_score))}}"  height="70px" width="100px">
             </td>
             <td style="float:left;width:50%;">
-                <h1 class = "titlecolor"><b>{{ product.title}}</b></h1>
+                <h1 class = "titlecolor"><b>{{ product.name}}</b></h1>
                 <h2> {{ product.price}}</h2>
                 <p> <b> Composition : </b>
                     <ul>
-                        <li>{{ product.c1}}</li>
-                        <li>{{ product.c2}}</li>
-                        <li>{{ product.c3}}</li>
+                        <li>{{ product.feature_1}}</li>
+                        <li>{{ product.feature_2}}</li>
+                        <li>{{ product.feature_3}}</li>
                     </ul>
                 </p>
                 <a>
-                    <form action="{{ url_for('main.purchase', title= product.title) }}" method="post">
+                    <form action="{{ url_for('main.purchase', name= product.name) }}" method="post">
                         {{ form.hidden_tag() }}
                         <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
                     </form>
@@ -35,10 +35,10 @@
             <tr>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
                     <img src="{{ url_for('static', filename='prod_1.jpg')}}"  height="250px" width="300px">
-                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco1.title) }}">{{reco1.title}}</a></b></h3> 
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco1.name) }}">{{reco1.name}}</a></b></h3> 
                     <h4> {{ reco1.price}}</h4>
                     <a>
-                        <form action="{{ url_for('main.purchase', title= reco1.title) }}" method="post">
+                        <form action="{{ url_for('main.purchase', name= reco1.name) }}" method="post">
                             {{ form.hidden_tag() }}
                             <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
                         </form>
@@ -46,10 +46,10 @@
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
                     <img src="{{ url_for('static', filename='prod_2.jpg')}}"  height="250px" width="300px">
-                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco2.title) }}">{{reco2.title}}</a></b></h3> 
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco2.name) }}">{{reco2.name}}</a></b></h3> 
                     <h4> {{ reco2.price}}</h4>
                     <a>
-                        <form action="{{ url_for('main.purchase', title= reco2.title) }}" method="post">
+                        <form action="{{ url_for('main.purchase', name= reco2.name) }}" method="post">
                             {{ form.hidden_tag() }}
                             <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
                         </form>
@@ -57,10 +57,10 @@
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
                     <img src="{{ url_for('static', filename='prod_3.jpg')}}"  height="250px" width="300px">
-                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco3.title) }}">{{reco3.title}}</a></b></h3> 
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco3.name) }}">{{reco3.name}}</a></b></h3> 
                     <h4> {{ reco3.price}}</h4>
                     <a>
-                        <form action="{{ url_for('main.purchase', title= reco3.title) }}" method="post">
+                        <form action="{{ url_for('main.purchase', name= reco3.name) }}" method="post">
                             {{ form.hidden_tag() }}
                             <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
                         </form>
@@ -68,10 +68,10 @@
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
                     <img src="{{ url_for('static', filename='prod_4.jpg')}}"  height="250px" width="300px">
-                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco4.title) }}">{{reco4.title}}</a></b></h3> 
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco4.name) }}">{{reco4.name}}</a></b></h3> 
                     <h4> {{ reco4.price}}</h4>
                     <a>
-                        <form action="{{ url_for('main.purchase', title= reco4.title) }}" method="post">
+                        <form action="{{ url_for('main.purchase', name= reco4.name) }}" method="post">
                             {{ form.hidden_tag() }}
                             <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
                         </form>
@@ -79,10 +79,10 @@
                 </td>
                 <td ALIGN="CENTER", style="float:left;width:20%;">
                     <img src="{{ url_for('static', filename='prod_5.jpg')}}"  height="250px" width="300px">
-                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', title=reco5.title) }}">{{reco5.title}}</a></b></h3> 
+                    <h3><b><a class = "titlecolor", href="{{ url_for('main.product', name=reco5.name) }}">{{reco5.name}}</a></b></h3> 
                     <h4> {{ reco5.price}}</h4>
                     <a>
-                        <form action="{{ url_for('main.purchase', title= reco5.title) }}" method="post">
+                        <form action="{{ url_for('main.purchase', name= reco5.name) }}" method="post">
                             {{ form.hidden_tag() }}
                             <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
                         </form>

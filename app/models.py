@@ -1,151 +1,138 @@
 import os
 
 from app import db
-from flask_login import UserMixin
+from typing import Optional
+import sqlalchemy as sa
+import sqlalchemy.orm as so
 from app import login
+from flask_login import UserMixin
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
 
 # Purchase Table
-purchase = db.Table('purchase',
-                    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-                    db.Column('product_id', db.Integer, db.ForeignKey('product.id'))
-                    )
+purchases = db.Table(
+    'purchases',
+    db.metadata,
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('product_id', db.Integer, db.ForeignKey('product.id')),
+)
+
+# Assigned for training
+training = db.Table(
+    'training',
+    db.metadata,
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('product_id', db.Integer, db.ForeignKey('product.id')),
+)
+
+# Assigned
 
 # User table
 class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    code = db.Column(db.String(4), index=True, unique=True)
-    prod1 = db.Column(db.String(4))
-    prod2 = db.Column(db.String(4))
-    prod3 = db.Column(db.String(4))
-    prod4 = db.Column(db.String(4))
-    prod5 = db.Column(db.String(4))
-    products_bought = db.relationship('Product', secondary=purchase, backref='users_who_bought', lazy='dynamic')
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    code: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
+                                                unique=True)
+    purchases: so.WriteOnlyMapped['Product'] = so.relationship(
+        secondary=purchases,
+        back_populates='buyers',
+    )
+
+    ratings: so.WriteOnlyMapped['Rating'] = so.relationship(
+        'Rating',
+        back_populates='user',
+    )
+
+    assignments: so.WriteOnlyMapped['Product'] = so.relationship(
+        secondary=training,
+        back_populates='assigned_users',
+    )
 
     def __repr__(self): #Pour print les objets de cette classe 
         return '<User {}>'.format(self.code)
-    
-    # 3 fonctions pour ajouter ou retirer un produit au panier
-    def add(self, product):
-        if not self.has_bought(product):
-            self.products_bought.append(product)
 
-    def remove(self, product):
-        if self.has_bought(product):
-            self.products_bought.remove(product)
 
     def has_bought(self, product):
-        return self.products_bought.filter(
-            purchase.c.product_id == product.id).count() > 0 #On filtre le produit qui nous intéresse parmi tous les produits achetés par le user
+        query = self.purchases.select().where(Product.id == product.id)
+        return db.session.scalar(query) is not None
+
+    def add_to_cart(self, product):
+        if not self.has_bought(product):
+            self.purchases.add(product)
+
+    def remove_from_cart(self, product):
+        if self.has_bought(product):
+            self.purchases.remove(product)
+
+    def is_assigned(self, product):
+        query = self.assignments.select().where(Product.id == product.id)
+        return db.session.scalar(query) is not None
+
+    def assign_product(self, product):
+        if not self.is_assigned(product):
+            self.assignments.add(product)
+
+    def add_rating(self, product_id, rating):
+        session = db.session()
+        existing_rating = session.query(Rating).filter_by(user_id=self.id, product_id=product_id).first()
+        
+        if existing_rating:
+            existing_rating.rating = rating
+        else:
+            new_rating = Rating(user_id=self.id, product_id=product_id, rating=rating)
+            session.add(new_rating)
+        
+        session.commit()
+   
+
+    def get_rating_for_product(self, product_id):
+        session = db.session
+        query = self.ratings.select().where(Rating.product_id == product_id)
+        rating_item = session.scalars(query).first()
+        if rating_item is not None:
+            return rating_item.rating
+        else:
+            return None
+
 
 # Product table
 class Product(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))
-    c0=db.Column(db.String(100))
-    c1=db.Column(db.String(100))
-    c2=db.Column(db.String(100))
-    c3=db.Column(db.String(100))
-    price=db.Column(db.String(100))
-    im= db.Column(db.String(100))
-    nutri = db.Column(db.String(100))
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
+                                                unique=True)
+    feature_1: so.Mapped[str] = so.mapped_column(sa.String(64))
+    feature_2: so.Mapped[str] = so.mapped_column(sa.String(64))
+    feature_3: so.Mapped[str] = so.mapped_column(sa.String(64))
+    feature_4: so.Mapped[str] = so.mapped_column(sa.String(64))
+    price: so.Mapped[str] = so.mapped_column(sa.String(64))
+    image: so.Mapped[str] = so.mapped_column(sa.String(64))
+    nutri_score: so.Mapped[str] = so.mapped_column(sa.String(64))
+
+    buyers: so.WriteOnlyMapped['User'] = so.relationship(
+        secondary=purchases,
+        back_populates='purchases',
+    )
+    ratings: so.WriteOnlyMapped['Rating'] = so.relationship('Rating', back_populates='product')
+
+    assigned_users: so.WriteOnlyMapped['User'] = so.relationship(
+        secondary=training,
+        back_populates='assignments',
+    )
 
     def __repr__(self):
-        return '<Product {}>'.format(self.title)
-    
-
-# Stars
-# (A) LOAD SQLITE MODULE
-import sqlite3
-DBFILE = "stars.db"
-
-# (B) HELPER - EXECUTE SQL QUERY
-def query(sql, data):
-  conn = sqlite3.connect(DBFILE)
-  cursor = conn.cursor()
-  cursor.execute(sql, data)
-  conn.commit()
-  conn.close()
+        return '<Product {}>'.format(self.name)
 
 
-# (C) HELPER - FETCH
-def star_fetch(sql, data=[]):
-  conn = sqlite3.connect(DBFILE)
-  cursor = conn.cursor()
-  cursor.execute(sql, data)
-  results = cursor.fetchone()
-  conn.close()
-  return results
+# Ratings table
+class Rating(db.Model):
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    user_id: so.Mapped[int] = so.mapped_column(sa.Integer, sa.ForeignKey('user.id'))
+    product_id: so.Mapped[int] = so.mapped_column(sa.Integer, sa.ForeignKey('product.id'))
+    rating: so.Mapped[int] = so.mapped_column(sa.Integer)
 
-# (D) CREATE/SAVE/UPDATE USER STAR RATING
-def create_star_table():
-    if os.path.exists(DBFILE):
-        os.remove(DBFILE)
-    query(
-        """CREATE TABLE `star_rating` (
-        `product_id` INTEGER  NOT NULL,
-        `user_id` INTEGER  NOT NULL,
-        `rating` INTEGER NOT NULL DEFAULT '1',
-        PRIMARY KEY (`product_id`,`user_id`)
-        );""",
-        []
-    )
-    query(
-       """INSERT INTO `star_rating` (`product_id`, `user_id`, `rating`) VALUES
-        (1, 900, 1),
-        (1, 901, 2),
-        (1, 902, 3),
-        (1, 903, 4),
-        (1, 904, 5);
-        """,
-        []
-    )
-    return True
+    user: so.Mapped['User'] = so.relationship('User', back_populates='ratings')
+    product: so.Mapped['Product'] = so.relationship('Product', back_populates='ratings')
 
-def star_save(pid, uid, stars):
-  rat = star_get(pid, uid)
-  if rat is None :
-    query(
-      "INSERT INTO `star_rating` (`product_id`, `user_id`, `rating`) VALUES (?,?,?)",
-      [pid, uid, stars]
-    )
-  else : 
-    query(
-    "REPLACE INTO `star_rating` (`product_id`, `user_id`, `rating`) VALUES (?,?,?)",
-    [pid, uid, stars]
-    )
-  return True
-
-def star_insert(pid, uid, stars):
-  rat = star_get(pid, uid)
-  if rat is None :
-    query(
-      "INSERT INTO `star_rating` (`product_id`, `user_id`, `rating`) VALUES (?,?,?)",
-      [pid, uid, stars]
-    )
-  else : 
-    query(
-    "REPLACE INTO `star_rating` (`product_id`, `user_id`, `rating`) VALUES (?,?,?)",
-    [pid, uid, stars]
-    )
-  return True
-
-
-# (E) GET USER STAR RATING FOR PRODUCT
-def star_get(pid, uid):
-  res = star_fetch(
-    "SELECT * FROM `star_rating` WHERE `product_id`=? AND `user_id`=?",
-    [pid, uid]
-  )
-  return 0 if res is None else res[2]
-
-# (F) GET AVERAGE RATING FOR PRODUCT
-def star_avg(pid):
-  res = star_fetch("""
-    SELECT ROUND(AVG(`rating`), 2) `avg`, COUNT(`user_id`) `num`
-    FROM `star_rating`
-    WHERE `product_id`=?""", [pid])
-  return (0, 0) if res[0] is None else res
+    def __repr__(self):
+        return '<Rating id={}, user_id={}, product_id={}, rating={}>'.format(self.id, self.user_id, self.product_id, self.rating)

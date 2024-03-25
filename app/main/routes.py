@@ -6,18 +6,16 @@ from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
-from app.models import create_star_table, star_save, star_avg, star_get
-
 
 #Route vers la page d'accueil
 @bp.route('/main')
 @login_required
 def main():
-    reco1 = Product.query.filter_by(im = "2").first()
-    reco2 = Product.query.filter_by(im = "1").first()
-    reco3 = Product.query.filter_by(im = "3").first()
-    reco4 = Product.query.filter_by(im = "4").first()
-    reco5 = Product.query.filter_by(im = "6").first()
+    reco1 = Product.query.filter_by(image = "2").first()
+    reco2 = Product.query.filter_by(image = "1").first()
+    reco3 = Product.query.filter_by(image = "3").first()
+    reco4 = Product.query.filter_by(image = "4").first()
+    reco5 = Product.query.filter_by(image = "6").first()
     form = PurchaseForm()
     return render_template('main/main.html', form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5 )
 
@@ -27,7 +25,7 @@ def main():
 def sandw():
     im = {''}
     page = request.args.get('page',1,type = int) #création des caract de la pagination d'une page 
-    sandw = Product.query.filter_by(c0 = "Sandw").paginate(
+    sandw = Product.query.filter_by(feature_1 = "Sandw").paginate(
         page=page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False) # on ajoute la pagination à notre app de base 
     next_url = url_for('main.sandw', page=sandw.next_num) \
         if sandw.has_next else None
@@ -41,7 +39,7 @@ def sandw():
 @login_required
 def salade():
     page = request.args.get('page',1,type = int) #création des caract de la pagination d'une page 
-    sal = Product.query.filter_by(c0 = "Salad").paginate(
+    sal = Product.query.filter_by(feature_1 = "Salad").paginate(
         page=page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False) # on ajoute la pagination à notre app de base 
     next_url = url_for('main.salade', page=sal.next_num) \
         if sal.has_next else None
@@ -54,54 +52,41 @@ def salade():
 @bp.route('/rate')
 @login_required
 def rate():
-    # (B1) GET AVERAGE + USER STARS
-    #pid = 1
-    uid = current_user.code
-    produit1 = Product.query.filter_by(im = current_user.prod4).first()
-    pid = int(produit1.id)
-    astar = star_avg(pid) #On appelle la fonction avg
-    ustar = star_get(pid, uid) #On appelle la fonction get
-    produit2 = Product.query.filter_by(im = current_user.prod5).first()
-    pid = int(produit2.id)
-    astarbis = star_avg(pid) #On appelle la fonction avg
-    ustarbis = star_get(pid, uid) #On appelle la fonction get
-    #user = User.query.filter_by(usercode = current_user.usercode).first()
-    # (B2) RENDER HTML PAGE
-    return render_template("main/rate.html", astar=astar, ustar=ustar,astarbis=astarbis, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
+
+    query = current_user.assignments.select()
+    products = db.session.scalars(query).all()
+    produit1 = products[0]
+    produit2 = products[1]
+
+    ustar = current_user.get_rating_for_product(products[0].id)
+    if ustar is None : 
+        ustar = 3
+
+    ustarbis = current_user.get_rating_for_product(products[1].id)
+    if ustarbis is None : 
+        ustarbis = 3
+
+    return render_template("main/rate.html", ustar=ustar, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
 
 
 # (C) SAVE STARS
 @bp.route("/save/", methods=["POST"])
 def save():
-  #pid = 1
-  uid = current_user.code
-  prod1 = Product.query.filter_by(im = current_user.prod4).first()
-  pid = int(prod1.id)
   data = dict(request.form)
-  star_save(pid, uid, data["stars"])
-  return make_response("OK", 200)
-
-
-@bp.route("/save2/", methods=["POST"])
-def save2():
-  uid = current_user.code
-  prod2 = Product.query.filter_by(im = current_user.prod5).first()
-  pid2 = int(prod2.id)
-  data = dict(request.form)
-  star_save(pid2, uid, data["stars2"])
+  current_user.add_rating(data["product_id"], data["stars"])
   return make_response("OK", 200)
 
 
 #Route vers une page produit
-@bp.route('/product/<title>')
+@bp.route('/product/<name>')
 @login_required
-def product(title):
-    product = Product.query.filter_by(title = title).first()
-    reco1 = Product.query.filter_by(im = "1").first()
-    reco2 = Product.query.filter_by(im = "2").first()
-    reco3 = Product.query.filter_by(im = "3").first()
-    reco4 = Product.query.filter_by(im = "4").first()
-    reco5 = Product.query.filter_by(im = "5").first()
+def product(name):
+    product = Product.query.filter_by(name = name).first()
+    reco1 = Product.query.filter_by(image = "1").first()
+    reco2 = Product.query.filter_by(image = "2").first()
+    reco3 = Product.query.filter_by(image = "3").first()
+    reco4 = Product.query.filter_by(image = "4").first()
+    reco5 = Product.query.filter_by(image = "5").first()
     form = PurchaseForm() #sur cette page on ajoute un bouton pour acheter un produit
     return render_template('main/product_page.html', product = product, form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5 )
 
@@ -111,24 +96,25 @@ def product(title):
 def cart():
     form1 = PurchaseForm() #form pour retirer du panier (= même en python que pour ajouter un produits
     form2 = Close() #bouton pour partir et se lougout
-    cart_products = current_user.products_bought.all()
+    query = current_user.purchases.select()
+    cart_products = db.session.scalars(query).all()
     return render_template('main/cart.html', cart_products = cart_products, form1 = form1,form2 = form2 )
 
-@bp.route('/purchase/<title>', methods=['POST'])
+@bp.route('/purchase/<name>', methods=['POST'])
 @login_required
-def purchase(title):
-    product = Product.query.filter_by(title=title).first()
-    current_user.add(product)
+def purchase(name):
+    product = Product.query.filter_by(name=name).first()
+    current_user.add_to_cart(product)
     db.session.commit()
-    flash('Ton article {} a été rajouté au panier!'.format(title))
+    flash('Ton article {} a été rajouté au panier!'.format(name))
     return redirect(url_for('main.main'))
 
-@bp.route('/unpurchase/<title>', methods=['POST'])
+@bp.route('/unpurchase/<name>', methods=['POST'])
 @login_required
-def unpurchase(title):
-    product = Product.query.filter_by(title=title).first()
-    current_user.remove(product)
+def unpurchase(name):
+    product = Product.query.filter_by(name=name).first()
+    current_user.remove_from_cart(product)
     db.session.commit()
-    flash('Ton article {} a été retiré de votre panier!'.format(title))
+    flash('Ton article {} a été retiré de votre panier!'.format(name))
     return redirect(url_for('main.cart'))
 
