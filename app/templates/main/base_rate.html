@@ -1,0 +1,38 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <meta charset="utf-8">
+    <script src="static/js/S4B_star.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/S4C_star.css">
+{% endblock %}
+
+{% block title %}
+    DELCam
+{% endblock %}
+
+{% block navbar %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <nav class="navbar navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.recommendation') }}"><p class = "plabel"><b>DELCam</b></p></a>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+{% endblock %}
+
+{% block scripts %}
+    {# script content needs to be provided in the script block #} 
+{% endblock %}

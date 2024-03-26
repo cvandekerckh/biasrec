@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "main/base_navigate.html" %}
 
 {% block app_content %}
  <tr>
@@ -6,7 +6,31 @@
         <h1 class = "titlecolor"><p><b> Voici vos produits sélectionnés </b> </p></h1>
         {% for p in cart_products %}
         <p>
-            {% include 'main/_cart_product.html' %}
+            <table class="table table-hover">
+                <tr>
+                    <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
+                        <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(p.image))}}"  height="160px">
+                    </td>
+                    <td style="float:left;width:30%;">
+                        <h1><b><a class = "titlecolor", href="{{ url_for('main.product', name=p.name) }}">{{p.name}}</a></b></h1> 
+                        <h2> {{p.price}}</h2>
+                        <br>
+                        <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(p.nutri_score))}}"  height="80px">
+                    </td>
+                    <td style="float:left;width:30%;">
+                        {% if current_user.has_bought(p) %}
+                        <br>
+                        <br>
+                        <br>
+                        <br> 
+                        <p><form action="{{ url_for('main.unpurchase', name= p.name) }}" method="post">
+                            {{ form1.hidden_tag() }}
+                            <span aria-hidden="true">{{ form1.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                        </form></p>
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
         </p>
         {% endfor %}
     </div>
