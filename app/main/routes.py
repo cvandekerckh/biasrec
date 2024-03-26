@@ -52,11 +52,11 @@ def product_category(category_name):
 @bp.route('/rate')
 @login_required
 def rate():
+    initial_rating_value = 3
     query = current_user.assignments.select()
     products = db.session.scalars(query).all()
-    products = products[:2]
     ratings = [current_user.get_rating_for_product(product.id) for product in products]
-    ratings = [rating if rating is not None else 3 for rating in ratings]
+    ratings = [rating if rating is not None else initial_rating_value for rating in ratings]
     return render_template("main/rate.html", ratings=ratings, products=products)
 
 @bp.route("/save/", methods=["POST"])
