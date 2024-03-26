@@ -8,7 +8,7 @@ from app.auth.forms import Close
 from app import db
 import pickle
 
-#Route vers la page d'accueil
+
 @bp.route('/recommendation')
 @login_required
 def recommendation():
@@ -18,47 +18,34 @@ def recommendation():
 
     elif current_app.config['RECOMMENDATION'] == 'trained':
         model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
-        ordered_items = pickle.load(open(model_file, 'rb'))
+        product_list_per_user = pickle.load(open(model_file, 'rb'))
         n_recommendations = current_app.config['N_RECOMMENDATIONS']
-        recommendations = ordered_items[current_user.id][:n_recommendations]
-        reco_list = [
-            Product.query.filter_by(id = recommended_product).first() for recommended_product, _ in recommendations
-        ]
+        reco_list = product_list_per_user[current_user.id][:n_recommendations]
     
     form = PurchaseForm()
     return render_template('main/recommendation.html', form = form, reco_list = reco_list)
 
-
-#route vers une page de catégorie 
-@bp.route('/sandw')
+@bp.route('/product_category/<category_name>')
 @login_required
-def sandw():
-    im = {''}
-    page = request.args.get('page',1,type = int) #création des caract de la pagination d'une page 
-    sandw = Product.query.filter_by(feature_1 = "Sandw").paginate(
-        page=page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False) # on ajoute la pagination à notre app de base 
-    next_url = url_for('main.sandw', page=sandw.next_num) \
-        if sandw.has_next else None
-    prev_url = url_for('main.sandw', page=sandw.prev_num) \
-        if sandw.has_prev else None
-    return render_template('main/sandw.html', sandw = sandw.items, next_url=next_url,
+def product_category(category_name):
+    if category_name == "sandw":
+        products = Product.query.filter_by(feature_1 = "Sandw")
+        category_name_label = "sandwiches"
+    elif category_name == "salade":
+        products = Product.query.filter_by(feature_1 = "Salad")
+        category_name_label = "salades"
+
+    page = request.args.get('page', 1, type = int)
+    product_page = products.paginate(
+        page=page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False)
+    next_url = url_for(f'main.product_category', category_name=category_name, page=product_page.next_num) \
+        if product_page.has_next else None
+    prev_url = url_for(f'main.product_category', category_name=category_name, page=product_page.prev_num) \
+        if product_page.has_prev else None
+    return render_template('main/product_category.html', products=product_page.items, category_name_label=category_name_label, next_url=next_url,
                            prev_url=prev_url)
 
-#route vers une page de catégorie 
-@bp.route('/salade')
-@login_required
-def salade():
-    page = request.args.get('page',1,type = int) #création des caract de la pagination d'une page 
-    sal = Product.query.filter_by(feature_1 = "Salad").paginate(
-        page=page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False) # on ajoute la pagination à notre app de base 
-    next_url = url_for('main.salade', page=sal.next_num) \
-        if sal.has_next else None
-    prev_url = url_for('main.salade', page=sal.prev_num) \
-        if sal.has_prev else None
-    return render_template('main/salades.html', sal = sal.items, next_url=next_url,
-                           prev_url=prev_url)
 
-#route vers la première phase de l'experience
 @bp.route('/rate')
 @login_required
 def rate():
@@ -78,8 +65,6 @@ def rate():
 
     return render_template("main/rate.html", ustar=ustar, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
 
-
-# (C) SAVE STARS
 @bp.route("/save/", methods=["POST"])
 def save():
   data = dict(request.form)
@@ -87,7 +72,6 @@ def save():
   return make_response("OK", 200)
 
 
-#Route vers une page produit
 @bp.route('/product/<name>')
 @login_required
 def product(name):
@@ -98,9 +82,8 @@ def product(name):
     reco4 = Product.query.filter_by(image = "4").first()
     reco5 = Product.query.filter_by(image = "5").first()
     form = PurchaseForm() #sur cette page on ajoute un bouton pour acheter un produit
-    return render_template('main/product_page.html', product = product, form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5 )
+    return render_template('main/product_detail.html', product = product, form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5 )
 
-#Route vers une page panier
 @bp.route('/cart')
 @login_required
 def cart():
@@ -117,7 +100,7 @@ def purchase(name):
     current_user.add_to_cart(product)
     db.session.commit()
     flash('Ton article {} a été rajouté au panier!'.format(name))
-    return redirect(url_for('main.main'))
+    return redirect(url_for('main.recommendation'))
 
 @bp.route('/unpurchase/<name>', methods=['POST'])
 @login_required
