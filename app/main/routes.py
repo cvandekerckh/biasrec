@@ -15,10 +15,13 @@ def before_request():
         images = range(1, current_app.config['N_RECOMMENDATIONS']+1)
         g.reco_list = [Product.query.filter_by(image = str(image)).first() for image in images]
     elif current_app.config['RECOMMENDATION'] == 'trained':
-        model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
-        product_list_per_user = pickle.load(open(model_file, 'rb'))
-        n_recommendations = current_app.config['N_RECOMMENDATIONS']
-        g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
+        if current_user.is_authenticated:
+            model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
+            product_list_per_user = pickle.load(open(model_file, 'rb'))
+            n_recommendations = current_app.config['N_RECOMMENDATIONS']
+            g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
+        else:
+            g.reco_list = None
     elif current_app.config['RECOMMENDATION'] is None:
         g.reco_list = None
 
