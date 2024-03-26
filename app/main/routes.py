@@ -11,24 +11,20 @@ import pickle
 
 @bp.before_app_request
 def before_request():
-    model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
-    product_list_per_user = pickle.load(open(model_file, 'rb'))
-    n_recommendations = current_app.config['N_RECOMMENDATIONS']
-    g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
-
+    if current_app.config['RECOMMENDATION'] == 'fixed':
+        images = range(1, current_app.config['N_RECOMMENDATIONS']+1)
+        g.reco_list = [Product.query.filter_by(image = str(image)).first() for image in images]
+    elif current_app.config['RECOMMENDATION'] == 'trained':
+        model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
+        product_list_per_user = pickle.load(open(model_file, 'rb'))
+        n_recommendations = current_app.config['N_RECOMMENDATIONS']
+        g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
 
 @bp.route('/recommendation')
 @login_required
 def recommendation():
-    if current_app.config['RECOMMENDATION'] == 'fixed':
-        images = range(1, current_app.config['N_RECOMMENDATIONS']+1)
-        reco_list = [Product.query.filter_by(image = str(image)).first() for image in images]
-
-    elif current_app.config['RECOMMENDATION'] == 'trained':
-        reco_list = g.reco_list
-        
     form = PurchaseForm()
-    return render_template('main/recommendation.html', form = form, reco_list = reco_list)
+    return render_template('main/recommendation.html', form = form, reco_list = g.reco_list)
 
 @bp.route('/product_category/<category_name>')
 @login_required
@@ -81,13 +77,8 @@ def save():
 @login_required
 def product(name):
     product = Product.query.filter_by(name = name).first()
-    reco1 = Product.query.filter_by(image = "1").first()
-    reco2 = Product.query.filter_by(image = "2").first()
-    reco3 = Product.query.filter_by(image = "3").first()
-    reco4 = Product.query.filter_by(image = "4").first()
-    reco5 = Product.query.filter_by(image = "5").first()
     form = PurchaseForm() #sur cette page on ajoute un bouton pour acheter un produit
-    return render_template('main/product_detail.html', product = product, form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5 )
+    return render_template('main/product_detail.html', product = product, form = form, reco_list = g.reco_list)
 
 @bp.route('/cart')
 @login_required
