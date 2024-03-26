@@ -29,10 +29,11 @@ def main():
         reco3 = Product.query.filter_by(id = recommended_products[2]).first()
         reco4 = Product.query.filter_by(id = recommended_products[0]).first()
         reco5 = Product.query.filter_by(id = recommended_products[0]).first()
-
-
+    
+    reco_list = [reco1, reco2, reco3, reco4, reco5]
     form = PurchaseForm()
-    return render_template('main/main.html', form = form, reco1 = reco1, reco2 = reco2, reco3 = reco3, reco4 = reco4, reco5 = reco5)
+    return render_template('main/main.html', form = form, reco_list = reco_list)
+
 
 #route vers une page de catégorie 
 @bp.route('/sandw')
