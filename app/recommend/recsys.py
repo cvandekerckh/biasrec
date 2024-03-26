@@ -2,35 +2,34 @@ from collections import defaultdict
 from surprise import SVD
 import random as rd
 
-def get_top_n(predictions, n):
-    """Return the top-N recommendation for each user from a set of predictions.
+def get_ordered_items(predictions):
+    """Return the ordered items for a top-N recommendation for each user from a set of predictions.
     Source: inspired by https://github.com/NicolasHug/Surprise/blob/master/examples/top_n_recommendations.py
     and modified by cvandekerckh for random tie breaking
 
     Args:
         predictions(list of Prediction objects): The list of predictions, as
             returned by the test method of an algorithm.
-        n(int): The number of recommendation to output for each user. Default
-            is 10.
+
     Returns:
     A dict where keys are user (raw) ids and values are lists of tuples:
-        [(raw item id, rating estimation), ...] of size n.
+        [(raw item id, rating estimation), ...].
     """
 
     rd.seed(0)
 
     # First map the predictions to each user.
-    top_n = defaultdict(list)
+    ordered_items = defaultdict(list)
     for uid, iid, true_r, est, _ in predictions:
-        top_n[uid].append((iid, est))
+        ordered_items[uid].append((iid, est))
 
-    # Then sort the predictions for each user and retrieve the k highest ones.
-    for uid, user_ratings in top_n.items():
+    # Then sort the predictions for each user.
+    for uid, user_ratings in ordered_items.items():
         rd.shuffle(user_ratings)
         user_ratings.sort(key=lambda x: x[1], reverse=True)
-        top_n[uid] = user_ratings[:n]
+        ordered_items[uid] = user_ratings
 
-    return top_n
+    return ordered_items
 
 class SVD100(SVD):
     def __init__(self):

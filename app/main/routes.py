@@ -9,30 +9,24 @@ from app import db
 import pickle
 
 #Route vers la page d'accueil
-@bp.route('/main')
+@bp.route('/recommendation')
 @login_required
-def main():
+def recommendation():
     if current_app.config['RECOMMENDATION'] == 'fixed':
-        reco1 = Product.query.filter_by(image = "2").first()
-        reco2 = Product.query.filter_by(image = "1").first()
-        reco3 = Product.query.filter_by(image = "3").first()
-        reco4 = Product.query.filter_by(image = "2").first()
-        reco5 = Product.query.filter_by(image = "2").first()
+        images = range(1, current_app.config['N_RECOMMENDATIONS']+1)
+        reco_list = [Product.query.filter_by(image = str(image)).first() for image in images]
 
     elif current_app.config['RECOMMENDATION'] == 'trained':
         model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
-        top_n = pickle.load(open(model_file, 'rb'))
-        recommendations = top_n[current_user.id]
-        recommended_products = [recommend_product for recommend_product, _ in recommendations]
-        reco1 = Product.query.filter_by(id = recommended_products[0]).first()
-        reco2 = Product.query.filter_by(id = recommended_products[1]).first()
-        reco3 = Product.query.filter_by(id = recommended_products[2]).first()
-        reco4 = Product.query.filter_by(id = recommended_products[0]).first()
-        reco5 = Product.query.filter_by(id = recommended_products[0]).first()
+        ordered_items = pickle.load(open(model_file, 'rb'))
+        n_recommendations = current_app.config['N_RECOMMENDATIONS']
+        recommendations = ordered_items[current_user.id][:n_recommendations]
+        reco_list = [
+            Product.query.filter_by(id = recommended_product).first() for recommended_product, _ in recommendations
+        ]
     
-    reco_list = [reco1, reco2, reco3, reco4, reco5]
     form = PurchaseForm()
-    return render_template('main/main.html', form = form, reco_list = reco_list)
+    return render_template('main/recommendation.html', form = form, reco_list = reco_list)
 
 
 #route vers une page de catégorie 

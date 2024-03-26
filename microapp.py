@@ -3,11 +3,15 @@ from app import create_app,db
 from app.models import User, Product
 from config import configs
 from dotenv import load_dotenv
+import argparse
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-load_dotenv(os.path.join(basedir, '.env'), override=True)
-experiment_config = os.environ.get('EXPERIMENT_CONFIG') or 'default'
-app = create_app(config_class=configs[experiment_config])
+
+parser = argparse.ArgumentParser(description='Purchases simulation for recommendation systems')
+parser.add_argument('--config', type=str, default='default', help='Configuration name, see config.py')
+args, _ = parser.parse_known_args()
+config_name = args.config
+
+app = create_app(config_class=configs[config_name])
 
 @app.shell_context_processor
 def make_shell_context():

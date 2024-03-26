@@ -15,18 +15,18 @@ class Config(object):
     DATA_PATH=Path('app/static/data/test-recommender')
     MODEL_NAME='svd100'
     MODEL_FILENAME = 'model.p'
-    N_RECOMMENDATIONS = 5
+    N_RECOMMENDATIONS = 3
 
 class RateConfig(Config):
     MAIN_PAGE='main.rate'
 
 
 class FixedRecommendationConfig(Config):
-    MAIN_PAGE='main.main'
+    MAIN_PAGE='main.recommendation'
     RECOMMENDATION='fixed'
 
 class TrainedRecommendationConfig(Config):
-    MAIN_PAGE='main.main' 
+    MAIN_PAGE='main.recommendation' 
     RECOMMENDATION='trained' 
 
 
