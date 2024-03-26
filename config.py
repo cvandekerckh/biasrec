@@ -19,7 +19,7 @@ class Config(object):
 
 class RateConfig(Config):
     MAIN_PAGE='main.rate'
-
+    RECOMMENDATION=None
 
 class FixedRecommendationConfig(Config):
     MAIN_PAGE='main.recommendation'

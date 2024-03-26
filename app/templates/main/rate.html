@@ -1,103 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Rate your products</title>
-    <meta charset="utf-8">
-    <script src="static/js/S4B_star.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/S4C_star.css">
-  </head>
+{% extends "main/base_rate.html" %}
+
+{% block content %}
+
   <body>
-    <!-- (A) DUMMY PRODUCT -->
-    <h1>Hi, User {{ current_user.code }}!</h1>
-    <div >
-      <table>
-        <tr>
-          <td>
-            <img class="img" src="{{ url_for('static', filename='img/prod_{}.jpg'.format(produit1.image))}}">
-          </td>
-          <td>
-            <div class="name"> {{ produit1.name }}</div>
-            <div class="desc">
-              <p> {{ produit1.price }} </p>
-              <p> {{ produit1.feature_1 }} </p>
-              <p> {{ produit1.feature_2 }} </p>
-              <p> {{ produit1.feature_3 }} </p>
-              <img class="img" src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(produit1.nutri_score))}}">
-          </div>
-          </td>
-          <td>
-            <div class="rate">Your rating: <div id="{{ produit1.id }}">
-            </div></div>
-            <br>
-          </td>
-        </tr>
 
-      <!--second product-->
-      <tr>
-        <td>
-          <img class="img" src="{{ url_for('static', filename='img/prod_{}.jpg'.format(produit2.image))}}">
-        </td>
-        <td>
-          <div class="name"> {{ produit2.name }}</div>
-          <div class="desc">
-            <p> {{ produit2.price }} </p>
-            <p> {{ produit2.feature_1 }} </p>
-            <p> {{ produit2.feature_2 }} </p>
-            <p> {{ produit2.feature_3 }} </p>
-            <img class="img" src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(produit2.nutri_score))}}">
-        </div>
-        </td>
-        <td>
-          <div class="rate">Your rating: <div id="{{ produit2.id }}">
-          </div></div>
-          <br>
-        </td>
-      </tr>
-
-      </table>
+    <h1 class = "titlecolor"> Hi, User {{ current_user.code }}! Could you please rate the following products ? </h1>
+    {% for product in products %}
+    <div>
+        <p>
+            <table class="table table-hover">
+                <tr>
+                    <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
+                        <br>
+                        <br>
+                        <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="160px">
+                    </td>
+                    <td style="float:left;width:40%;">
+                        <h2><b><a class = "titlecolor", href="{{ url_for('main.product', name=product.name) }}">{{product.name}}</a></b></h2> 
+                        <h2> {{product.price}}</h2>
+                        <br>
+                        <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="80px">
+                        <div class="rate">
+                        <h2><b>Your rating : </b></h2> 
+                          <div id="{{ product.id }}"></div>
+                      </div>
+                    </td>
+                </tr>
+            </table>
+        </p>
     </div>
-    <!-- (B) INIT STAR RATING -->
-    <script>
-    starry({
-      target: document.getElementById("{{ produit1.id }}"),
-      max: 5,
-      now: {{ ustar }},
-      click : stars => {
-        let data = new FormData();
-        data.append("stars", stars);
-        data.append("product_id", "{{ produit1.id }}");
-        fetch("/save/", {
-          method: "post",
-          body: data
-        })
-        .then(res => res.text())
-        .then(txt => {
-          if (txt == "OK") { location.reload(); }
-          else { alert(txt); }
-        });
-      }
-    });
-    starry({
-      target: document.getElementById("{{ produit2.id }}"),
-      max: 5,
-      now: {{ ustarbis }},
-      click : stars2 => {
-        let data = new FormData();
-        data.append("stars", stars2);
-        data.append("product_id", "{{ produit2.id }}");
-        fetch("/save/", {
-          method: "post",
-          body: data
-        })
-        .then(res => res.text())
-        .then(txt => {
-          if (txt == "OK") { location.reload(); }
-          else { alert(txt); }
-        });
-      }
-    });
-    </script>
+    {% endfor %}
+
     <br>
     <div>
       {% if not current_user.is_anonymous %}
@@ -105,4 +38,40 @@
       {% endif %}
   </div>
   </body>
-</html>
+{% endblock %}
+
+
+{% block scripts %}
+
+  <script>
+    
+    // Define a function to handle star clicks
+    function handleStarClick(stars, productId) {
+        let data = new FormData();
+        data.append("stars", stars);
+        data.append("product_id", productId);
+        fetch("/save/", {
+            method: "post",
+            body: data
+        })
+        .then(res => res.text())
+        .then(txt => {
+            if (txt == "OK") { location.reload(); }
+            else { alert(txt); }
+        });
+    }
+
+    // Loop through products and ratings arrays
+    {% for i in range(products|length) %}
+        starry({
+          target: document.getElementById("{{ products[i].id }}"),
+          max: 5,
+          now: {{ ratings[i] }},
+          click: stars => handleStarClick(stars, "{{ products[i].id }}")
+        });
+    {% endfor %}
+
+  </script>
+{% endblock %}
+
+

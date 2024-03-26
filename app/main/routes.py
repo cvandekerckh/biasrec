@@ -19,6 +19,8 @@ def before_request():
         product_list_per_user = pickle.load(open(model_file, 'rb'))
         n_recommendations = current_app.config['N_RECOMMENDATIONS']
         g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
+    elif current_app.config['RECOMMENDATION'] is None:
+        g.reco_list = None
 
 @bp.route('/recommendation')
 @login_required
@@ -50,21 +52,12 @@ def product_category(category_name):
 @bp.route('/rate')
 @login_required
 def rate():
-
     query = current_user.assignments.select()
     products = db.session.scalars(query).all()
-    produit1 = products[0]
-    produit2 = products[1]
-
-    ustar = current_user.get_rating_for_product(products[0].id)
-    if ustar is None : 
-        ustar = 3
-
-    ustarbis = current_user.get_rating_for_product(products[1].id)
-    if ustarbis is None : 
-        ustarbis = 3
-
-    return render_template("main/rate.html", ustar=ustar, ustarbis=ustarbis, produit1 = produit1, produit2 = produit2)
+    products = products[:2]
+    ratings = [current_user.get_rating_for_product(product.id) for product in products]
+    ratings = [rating if rating is not None else 3 for rating in ratings]
+    return render_template("main/rate.html", ratings=ratings, products=products)
 
 @bp.route("/save/", methods=["POST"])
 def save():
@@ -77,14 +70,14 @@ def save():
 @login_required
 def product(name):
     product = Product.query.filter_by(name = name).first()
-    form = PurchaseForm() #sur cette page on ajoute un bouton pour acheter un produit
+    form = PurchaseForm()
     return render_template('main/product_detail.html', product = product, form = form, reco_list = g.reco_list)
 
 @bp.route('/cart')
 @login_required
 def cart():
-    form1 = PurchaseForm() #form pour retirer du panier (= même en python que pour ajouter un produits
-    form2 = Close() #bouton pour partir et se lougout
+    form1 = PurchaseForm()
+    form2 = Close()
     query = current_user.purchases.select()
     cart_products = db.session.scalars(query).all()
     return render_template('main/cart.html', cart_products = cart_products, form1 = form1,form2 = form2 )
