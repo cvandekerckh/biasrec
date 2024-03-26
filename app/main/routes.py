@@ -1,5 +1,5 @@
 from app.main import bp
-from flask import render_template, flash, redirect, url_for, current_app, make_response
+from flask import render_template, flash, redirect, url_for, current_app, make_response, g
 from flask_login import current_user, login_required
 from app.models import User, Product
 from flask import request
@@ -7,6 +7,14 @@ from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
 import pickle
+
+
+@bp.before_app_request
+def before_request():
+    model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
+    product_list_per_user = pickle.load(open(model_file, 'rb'))
+    n_recommendations = current_app.config['N_RECOMMENDATIONS']
+    g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
 
 
 @bp.route('/recommendation')
@@ -17,11 +25,8 @@ def recommendation():
         reco_list = [Product.query.filter_by(image = str(image)).first() for image in images]
 
     elif current_app.config['RECOMMENDATION'] == 'trained':
-        model_file = current_app.config['DATA_PATH'] / current_app.config['MODEL_FILENAME']
-        product_list_per_user = pickle.load(open(model_file, 'rb'))
-        n_recommendations = current_app.config['N_RECOMMENDATIONS']
-        reco_list = product_list_per_user[current_user.id][:n_recommendations]
-    
+        reco_list = g.reco_list
+        
     form = PurchaseForm()
     return render_template('main/recommendation.html', form = form, reco_list = reco_list)
 
