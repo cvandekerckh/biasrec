@@ -59,5 +59,3 @@ def assign_conditions():
 
     df_user['condition_id'] = df_user["id"].map(experiment_design)
     df_user.to_csv(Cf.DATA_PATH_OUT / USER_CONDITION_FILENAME, index=False)
-    df_user = df_user.merge(df_condition, how="left", on="condition_id")
-    df_user.to_csv(Cf.DATA_PATH_OUT / USER_CONDITION_DETAILED_FILENAME, index=False)

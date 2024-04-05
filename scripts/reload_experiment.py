@@ -8,7 +8,10 @@ from config import Config as Cf
 
 app = create_app()
 
-USER_FILENAME = 'users.csv'
+# OUT
+USER_FILENAME = 'users_conditions.csv'
+
+# RAW
 PRODUCT_FILENAME = 'products.csv'
 ASSIGNMENTS_FILENAME = 'assignments.csv'
 
@@ -35,7 +38,7 @@ def assign_products_to_users():
             db.session.commit()
 
 def populate_users():
-    populate_db(User, Cf.DATA_PATH_RAW / USER_FILENAME)
+    populate_db(User, Cf.DATA_PATH_OUT / USER_FILENAME)
     assign_products_to_users()
 
 
