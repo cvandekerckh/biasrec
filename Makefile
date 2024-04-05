@@ -1,3 +1,6 @@
+assign-conditions:
+	pipenv run python -c "from scripts.assign_conditions import assign_conditions; assign_conditions()"
+
 build: 
 	docker build -t biasrecdocker .
 
