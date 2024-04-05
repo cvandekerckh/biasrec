@@ -21,9 +21,9 @@ def get_product_list(ordered_items):
 
 
 def create_recommender_model():
-    ratings_file = Cf.DATA_PATH / 'ratings.csv'
+    ratings_file = Cf.DATA_PATH_RAW / 'ratings.csv'
     model, anti_testset = fit_model(ratings_file, Cf.MODEL_NAME)
     predictions = model.test(anti_testset)
     ordered_items = get_ordered_items(predictions)
     product_list_per_user = get_product_list(ordered_items)
-    pickle.dump(product_list_per_user, open(Cf.DATA_PATH / Cf.MODEL_FILENAME, 'wb'))
+    pickle.dump(product_list_per_user, open(Cf.DATA_PATH_OUT / Cf.MODEL_FILENAME, 'wb'))
