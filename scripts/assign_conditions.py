@@ -5,6 +5,7 @@ from config import Config as Cf
 CONDITION_FILENAME = 'conditions.csv'
 USER_FILENAME = 'users.csv'
 USER_CONDITION_FILENAME = 'users_conditions.csv'
+USER_CONDITION_DETAILED_FILENAME = 'users_conditions_detailed.csv'
 
 
 def between_subject_experiment(user_list, condition_list):
@@ -57,5 +58,6 @@ def assign_conditions():
     experiment_design = between_subject_experiment(user_list, condition_list)
 
     df_user['condition_id'] = df_user["id"].map(experiment_design)
-    df_user = df_user.merge(df_condition, how="left", on="condition_id")
     df_user.to_csv(Cf.DATA_PATH_OUT / USER_CONDITION_FILENAME, index=False)
+    df_user = df_user.merge(df_condition, how="left", on="condition_id")
+    df_user.to_csv(Cf.DATA_PATH_OUT / USER_CONDITION_DETAILED_FILENAME, index=False)
