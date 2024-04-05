@@ -1,26 +1,64 @@
-sudo apt-get -y update
 
-sudo apt-get install mariadb-server
+https://console.cloud.google.com/
+Machine E2
+e2-medium
+allow http-https
 
-sudo apt-get -y install postfix supervisor nginx git
+Two options : 
+---> ssh from terminal : 
+- install gcloud
+- create clef ssh
+- gcloud compute ssh biasrecv2
 
-sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+---> ssh from web browser : juste cliquer sur le bouton ssh
+
+
+Passwordless login
+------------------
+skip la partie add-user
+uniquement la partie ssh
+skip ssh ubuntu@...
+
+Secure your server
+-------------------
+skip
+
+Installing base dependencies
+----------------------------
+
+
+sudo apt-get install mariadb-server (instead of mysql-server)
+
+
+[OPTIONAL] install python using pyenv instead :
+(1) sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev \
 libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
 
-sudo apt install python3-openssl
+(2) sudo apt install python3-openssl
 
-curl https://pyenv.run | bash
+(3) curl https://pyenv.run | bash
 
+(4) 
 pyenv install -v 3.10.1
 pyenv global 3.10.1
 
+[OPTIONAL 2] Install pipenv
+(1)
 pip install --user pipenv
 
-vim ~/.profile
-PATH=$PATH:/home/cvandekerckh/.local/bin
+(2)
+vim ~/.profile (ou nano ~/.profile) et ecrire dans le fichier à la fin : PATH=$PATH:/home/cvandekerckh/.local/bin
 source ~/.profile
-pipenv install
+
+
+Installing the application
+-------------------------- 
+- soit, on s'en fou, on travaille au global, et on fait pip install X pour chaque package
+- soit, on travaille avec pipenv, il suffit juste d'écrire "pipenv install" si et seulement si tu as un fichier Pipfile à jour
+
+
+
 
 vim .env
 SECRET_KEY= secret-key
@@ -78,3 +116,17 @@ server {
         expires 30d;
     }
 }
+
+Test website (just before deploying application)
+
+Todo:
+- d'avoir le certificat: 
+https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https
+Using "Real" Certificates
+
+
+- éventuellement, avoir un nom de domaine (bonus) : the-clothes-recommendes-system.be
+
+- temps réel (lenteur, test)
+
+
