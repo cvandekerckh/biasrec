@@ -8,7 +8,10 @@ from config import Config as Cf
 
 app = create_app()
 
-USER_FILENAME = 'users.csv'
+# OUT
+USER_FILENAME = 'users_conditions.csv'
+
+# RAW
 PRODUCT_FILENAME = 'products.csv'
 ASSIGNMENTS_FILENAME = 'assignments.csv'
 
@@ -26,7 +29,7 @@ def populate_db(db_name, csv_file):
         db.session.commit()
 
 def assign_products_to_users():
-    df = pd.read_csv(Cf.DATA_PATH / ASSIGNMENTS_FILENAME)
+    df = pd.read_csv(Cf.DATA_PATH_RAW / ASSIGNMENTS_FILENAME)
     for user_id, product_id in zip(df['user_id'].values, df['product_id'].values):
         user = User.query.get(user_id.item())
         product = Product.query.get(product_id.item())
@@ -35,12 +38,12 @@ def assign_products_to_users():
             db.session.commit()
 
 def populate_users():
-    populate_db(User, Cf.DATA_PATH / USER_FILENAME)
+    populate_db(User, Cf.DATA_PATH_OUT / USER_FILENAME)
     assign_products_to_users()
 
 
 def populate_products():
-    populate_db(Product, Cf.DATA_PATH / PRODUCT_FILENAME)
+    populate_db(Product, Cf.DATA_PATH_RAW / PRODUCT_FILENAME)
 
 
 def reload_databases():
