@@ -14,7 +14,8 @@ The following repo implements a web application designed to study of recommender
 - Create a .env file and assign the secret key values : `SECRET_KEY=secret-key`.
 
 # Quick start
+- Assign experiment conditions to each user : `make assign-conditions`
 - Create all the tables : `make reload-experiment`
+- Train a recommender system model : `make create-model`
 - Launch an experiment : `python microblog.py --config=rate` (see config.py to find appropriate configs)
 - Display tables : `make display-ratings` (see Makefile)
-- Train a recommender system model : `make create-model`
