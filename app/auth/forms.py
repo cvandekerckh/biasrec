@@ -8,4 +8,7 @@ class LoginForm(FlaskForm):
 
 #Creation du bouton pour quitter l'enquête et se lougout 
 class Close(FlaskForm):
-    submit = SubmitField('Finish and go to survey') 
+    submit = SubmitField('Finish and go to survey')
+
+class LogoutForm(FlaskForm):
+    submit = SubmitField('Logout') 

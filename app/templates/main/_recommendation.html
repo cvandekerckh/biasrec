@@ -1,20 +1,67 @@
-<h1 class = "titlecolor"><b> Here are the products we recommend to you : </b></h1>
-<br>
-<br>
-<table class="table table-hover">
-    <tr>
-    {% for reco in reco_list %}
-        <td ALIGN="CENTER" style="float:left;width:20%;">
-            <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(reco.image)) }}" height="250px">
-            <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3> 
-            <h4 class="titlecolor">{{ reco.price }}</h4>
-            <a>
-                <form action="{{ url_for('main.purchase', name=reco.name) }}" method="post">
-                    {{ form.hidden_tag() }}
-                    <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
-                </form>
-            </a>
-        </td>
-    {% endfor %}
-    </tr>
-</table>
+{% extends "main/rate.html" %}
+
+{% block navbar %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <style>
+        .large-text {
+            font-size: 20px; 
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <h1 class = "titlecolor"><b> Here are the movies we recommend to you : </b></h1>
+        <h3>You can add all the movies you are interested in to your watchlist.</h3>
+        <br>
+        <br>
+        {% for reco in reco_list %}
+            <div>
+                <p>
+                    <table class="table table-hover">
+                        <tr>
+                            <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
+                                <br>
+                                <br>
+                                <img src="{{ url_for('static', filename='img/{}.jpg'.format(reco.image))}}"  height="350px">
+                            </td>
+                            <td style="float:left;width:40%;">
+                                <h2><b>{{reco.name}}</b></h2>
+                                <ul>
+                                <li><h4><b>Year :</b> {{reco.feature_1}}</h4></li>
+                                <li><h4><b>Genre(s) :</b> {{reco.feature_2}}</h4></li>
+                                <li><h4><b>Actors :</b> {{reco.feature_3}}</h4></li>
+                                <li><h4><b>User score :</b> {{reco.feature_4}}</h4></li>
+                                <li style="text-align: justify;">
+                                    <h4><b>Overview :</b><i> {{reco.nutri_score}}</i></h4>
+                                </li>
+                                <h4> <a href="{{ reco.price }}">Click to watch the trailer</a></h4> 
+                                </ul>
+                                <h3><b>Add to watchlist</b></h3> 
+                                <div id="{{ reco.id }}"></div>  
+                                <a>
+                                    <form action="{{ url_for('main.purchase', name=reco.name) }}" method="post">
+                                        {{ form.hidden_tag() }}
+                                        <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                                    </form>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+            </div>
+        {% endfor %}
+        <br>            
+
+        <footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: right;">
+            <div>
+                {% if not current_user.is_anonymous %}
+                <h4 style="color: red;">Once you have finished adding</h4>
+                <h4 style="color: red;">the films you like to your watchlist,</h4>
+                <h4 style="color: red;">you can move on to the next stage.</h4>
+                <a href="{{ url_for('main.survey2')}}" style="font-size: 24px; font-weight: bold; color:rgb(89, 108, 71);">Next step : Second survey</a>
+                {% endif %}
+            </div>
+        </footer>
+    </body>
+{% endblock %}

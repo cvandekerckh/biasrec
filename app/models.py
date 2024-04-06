@@ -34,6 +34,7 @@ class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     code: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
                                                 unique=True)
+    diversity_factor: so.Mapped[float] = so.mapped_column(sa.Float)
     purchases: so.WriteOnlyMapped['Product'] = so.relationship(
         secondary=purchases,
         back_populates='buyers',
@@ -99,8 +100,7 @@ class User(UserMixin, db.Model):
 # Product table
 class Product(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
-                                                unique=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
     feature_1: so.Mapped[str] = so.mapped_column(sa.String(64))
     feature_2: so.Mapped[str] = so.mapped_column(sa.String(64))
     feature_3: so.Mapped[str] = so.mapped_column(sa.String(64))

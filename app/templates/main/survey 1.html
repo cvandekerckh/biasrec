@@ -1,0 +1,202 @@
+{% extends "main/rate.html" %}
+
+{% block navbar %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <style>
+        .large-text {
+            font-size: 20px; 
+        }
+    </style>
+    <h1 class="titlecolor"> Now it's time to find out more about you ! Please answer all the following questions.</h1>
+{% endblock %}
+
+{% block content %}
+    <div style="margin: 50px;">
+        <form id="demographicForm" action="/recommendation2" method="post" onsubmit="return validateForm()">
+            <h3><label for="gender" class="bold-label">What is your gender ?</label></h3>
+            <select id="gender" name="gender" class="large-text">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+            </select><br><br>
+
+            <h3><label for="age" class="bold-label">How old are you ?</label></h3>
+            <select id="age" name="age" class="large-text">
+                <option value="under_18">Under 18</option>
+                <option value="18_24">18-24</option>
+                <option value="25_34">25-34</option>
+                <option value="35_44">35-44</option>
+                <option value="45_54">45-54</option>
+                <option value="55_64">55-64</option>
+                <option value="65_over">65 and over</option>
+            </select><br><br>
+            
+            <h3><label for="nationality" class="bold-label">What is your nationality ?</label></h3>
+            <input type="text" id="nationality" name="nationality" class="large-text"><br><br>
+
+            <h3><label for="education" class="bold-label">What is your highest level of education ?</label></h3>
+            <select id="education" name="education" class="large-text">
+                <option value="no">No diploma</option>
+                <option value="high school">High school</option>
+                <option value="bachelor">Bachelor's degree</option>
+                <option value="master">Master's degree</option>
+                <option value="doctorate">Doctorate</option>
+            </select><br><br>
+
+            <h3><label for="occupation" class="bold-label">What is your occupational category ?</label></h3>
+            <select id="occupation" name="occupation" class="large-text">
+                <option value="full_time">Employed full-time</option>
+                <option value="part_time">Employed part-time</option>
+                <option value="self_employed">Self-employed</option>
+                <option value="unemployed">Unemployed</option>
+                <option value="student">Student</option>
+                <option value="retired">Retired</option>
+            </select><br><br>
+
+            <h3><label for="movie-watching habits" class="bold-label">How would you rate your movie-watching habits ?</label></h3>
+            <select id="movie-watching habits" name="movie-watching habits" class="large-text">
+                <option value="lover">I am a movie lover.</option>
+                <option value="lot">Compared to my peers I watch a lot of movies.</option>
+                <option value="expert">Compared to my peers I am an expert on movies.</option>
+                <option value="few">I only know a few movies.</option>
+            </select><br><br>
+
+            <h3><label for="movies_per_month" class="bold-label">What is your average number of movies streamed per month ?</label></h3>
+            <select id="movies_per_month" name="movies_per_month" class="large-text">
+                <option value="less_than_5">Less than 5</option>
+                <option value="5_10">5-10</option>
+                <option value="11_15">11-15</option>
+                <option value="16_20">16-20</option>
+                <option value="more_than_20">More than 20</option>
+            </select><br><br>
+
+            <h3><label for="preferred_genres" class="bold-label">What are your preferred movie genres ?</label></h3>
+                    <input type="checkbox" id="drama" name="preferred_genres[]" value="drama">
+                    <label for="drama" class="large-text">Drama</label><br>
+                    <input type="checkbox" id="comedy" name="preferred_genres[]" value="comedy">
+                    <label for="comedy" class="large-text">Comedy</label><br>
+                    <input type="checkbox" id="action" name="preferred_genres[]" value="action">
+                    <label for="action" class="large-text">Action</label><br>
+                    <input type="checkbox" id="crime" name="preferred_genres[]" value="crime">
+                    <label for="crime" class="large-text">Crime</label><br>
+                    <input type="checkbox" id="adventure" name="preferred_genres[]" value="adventure">
+                    <label for="adventure" class="large-text">Adventure</label><br>
+                    <input type="checkbox" id="romance" name="preferred_genres[]" value="romance">
+                    <label for="romance" class="large-text">Romance</label><br>
+                    <input type="checkbox" id="thriller" name="preferred_genres[]" value="thriller">
+                    <label for="thriller" class="large-text">Thriller</label><br>
+                    <input type="checkbox" id="horror" name="preferred_genres[]" value="horror">
+                    <label for="horror" class="large-text">Horror</label><br>
+                    <input type="checkbox" id="Sci-Fi" name="preferred_genres[]" value="Sci-Fi">
+                    <label for="Sci-Fi" class="large-text">Science fiction</label><br>
+                    <input type="checkbox" id="animation" name="preferred_genres[]" value="animation">
+                    <label for="animation" class="large-text">Animation</label><br>
+                    <input type="checkbox" id="fantasy" name="preferred_genres[]" value="fantasy">
+                    <label for="fantasy" class="large-text">Fantasy</label><br>
+            
+            <br>
+            <h3><label for="heard_of_rs" class="bold-label">Have you ever heard of the concept of a Recommender System in the context of online platforms such as Netflix, Amazon, or Spotify ?</label></h3>
+            <select id="heard_of_rs" name="heard_of_rs" class="large-text">
+                <option value="yes">Yes, I have heard of it.</option>
+                <option value="no">No, I haven't heard of it.</option>
+            </select><br><br>
+    
+            <h3><label for="aware_of_rs" class="bold-label">Are you aware that the suggestions for movies, products, or music on these platforms are generated by Recommender System algorithms ?</label></h3>
+            <select id="aware_of_rs" name="aware_of_rs" class="large-text">
+                <option value="yes">Yes, I'm aware of that.</option>
+                <option value="no">No, I wasn't aware of that.</option>
+            </select><br><br>
+    
+            <h3><label for="noticed_rs" class="bold-label">In the field of cinema, have you ever noticed personalized recommendations based on your viewing preferences on these platforms ?</label></h3>
+            <select id="noticed_rs" name="noticed_rs" class="large-text">
+                <option value="yes">Yes, I've noticed them.</option>
+                <option value="no">No, I haven't noticed them.</option>
+            </select><br><br>
+    
+            <h3><label for="follow_recommendations" class="bold-label">To what extent do you follow the recommendations provided by these Recommender Systems ?</label></h3>
+            <select id="follow_recommendations" name="follow_recommendations" class="large-text">
+                <option value="closely">I follow them closely.</option>
+                <option value="occasionally">I follow them occasionally.</option>
+                <option value="rarely">I rarely follow them.</option>
+                <option value="never">I never follow them.</option>
+            </select><br>
+
+            <br><br>
+            <br><br>
+            <h3 style="color: rgb(89, 108, 71); text-align: right;"><b>Please submit your answers by clicking on this button :</b></h3>
+            <div style="text-align: right;">
+                <input type="submit" value="Submit" style="font-size: 20px;">
+            </div>
+            <h4 style="color: red; text-align: right;">Make sure to fill out all fields before submitting.</h4>
+        </form>
+    </div>    
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function validateForm() {
+            var gender = document.getElementById("gender").value;
+            var age = document.getElementById("age").value;
+            var nationality = document.getElementById("nationality").value;
+            var movies_per_month = document.getElementById("movies_per_month").value;
+            var heard_of_rs = document.getElementById("heard_of_rs").value;
+            var aware_of_rs = document.getElementById("aware_of_rs").value;
+            var noticed_rs = document.getElementById("noticed_rs").value;
+            var follow_recommendations = document.getElementById("follow_recommendations").value;
+
+            // Vérification des preferred genres
+            var preferredGenres = document.querySelectorAll('input[name="preferred_genres[]"]');
+            var isChecked = false;
+            for (var i = 0; i < preferredGenres.length; i++) {
+                if (preferredGenres[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+            if (!isChecked) {
+                alert("Please select at least one preferred movie genre.");
+                return false;
+            }
+
+            // Vérification des autres champs
+            if (gender == "" || age == "" || nationality == "" || movies_per_month == "" || heard_of_rs == "" || aware_of_rs == "" || noticed_rs == "" || follow_recommendations == "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+            return true;
+        }
+
+        // Fonction pour la soumission du formulaire
+        document.getElementById("demographicForm").onsubmit = function() {
+            // Vérification de la validité du formulaire
+            if (!validateForm()) {
+                // Empêcher le formulaire de soumettre via l'action par défaut si la validation échoue
+                return false;
+            } else {
+                // Affichage du message de succès
+                alert("Your answers have been successfully submitted!");
+                // Redirection vers la page suivante
+                window.location.href = "{{ url_for('main.recommendation2')}}";
+            }
+        };
+    </script>
+
+{% endblock %}
+
+        <!--document.getElementById("demographicForm").addEventListener("submit", function(event) {
+            var isValid = validateForm();
+            if (!isValid) {
+                event.preventDefault();
+            } else {
+                document.getElementById("nextStepLink").href = "{{ url_for('main.recommendation2') }}";
+                document.getElementById("nextStepLink").style.pointerEvents = "auto";
+            }
+        });-->
+
+        <!--<footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: right;">
+            <div>
+              {% if not current_user.is_anonymous %}
+              <a id="nextStepLink" href="#" style="font-size: 24px; font-weight: bold; color:rgb(89, 108, 71); pointer-events: none;">Next step : Movie recommendations</a>
+              {% endif %}
+            </div>
+        </footer>-->

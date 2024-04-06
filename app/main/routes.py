@@ -1,10 +1,10 @@
 from app.main import bp
 from flask import render_template, flash, redirect, url_for, current_app, make_response, g
-from flask_login import current_user, login_required
+from flask_login import current_user, login_required, logout_user
 from app.models import User, Product
 from flask import request
 from app.main.forms import PurchaseForm
-from app.auth.forms import Close
+from app.auth.forms import Close, LogoutForm
 from app import db
 import pickle
 
@@ -67,6 +67,39 @@ def save():
   data = dict(request.form)
   current_user.add_rating(data["product_id"], data["stars"])
   return make_response("OK", 200)
+
+@bp.route('/survey1', methods=['GET', 'POST'])
+@login_required
+def survey1():
+    # Récupérez les évaluations de l'utilisateur
+    user_ratings = {}
+    query = current_user.assignments.select()
+    products = db.session.scalars(query).all()
+    for product in products:
+        user_ratings[product.id] = current_user.get_rating_for_product(product.id)
+    return render_template('main/survey 1.html')  # Redirige vers la première enquête
+
+@bp.route('/recommendation2', methods=['GET', 'POST'])
+@login_required
+def recommendation2():
+    form = PurchaseForm()
+    return render_template('main/_recommendation.html', form=form)
+
+@bp.route('/survey2', methods=['GET', 'POST'])
+def survey2():
+    return render_template('main/survey 2.html') #redirige vers ma page survey2
+
+@bp.route('/conclusion', methods=['GET', 'POST'])
+@login_required
+def conclusion():
+    logout_form = LogoutForm()
+    return render_template('main/conclusion.html', logout_form=logout_form)  # Redirige vers la conclusion finale
+
+@bp.route('/logout', methods=['POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('auth.login'))
+
 
 
 @bp.route('/product/<name>')

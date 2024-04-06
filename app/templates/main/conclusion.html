@@ -1,0 +1,36 @@
+{% extends "main/rate.html" %}
+
+{% block navbar %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <style>
+        .large-text {
+            font-size: 20px; 
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+        <p style="font-size: 30px; line-height: 1.3; text-align: justify;">
+            The objective of this experiment that we have conducted through this website is to attempt to answer the following research question : <i>"How does the inclusion of diversity in online evaluated recommendation systems impact users' intentional consumption volume ?"</i>
+            <br><br>
+            We would like to express our heartfelt gratitude to you for taking the time to complete our survey. Your participation will contribute significantly to our research efforts. 
+            <br><br>
+            Rest assured that your responses will be treated with the utmost confidentiality and used solely for analytical purposes.
+        </p>
+        <br><br>
+        <h2 style="color: rgb(89, 108, 71); font-size: 80px;">THANK YOU !</h2>
+        <br>
+        <form action="{{ url_for('main.logout') }}" method="post">
+            {{ logout_form.csrf_token }}
+            {{ logout_form.submit(class="btn btn-danger", style="font-size: 20px;") }}
+        </form>
+        <br>
+        <p>
+            <img src="{{ url_for('static', filename='img/logo ucl.jpg') }}" style="width: 400px; height: 100px;" alt="UCL logo">
+        </p>
+        
+    </div>
+{% endblock %}
+
+

@@ -3,43 +3,54 @@
 {% block content %}
 
   <body>
-
-    <h1 class = "titlecolor"> Hi, User {{ current_user.code }}! Could you please rate the following products ? </h1>
+    <h1 class="titlecolor"> Hi, User {{ current_user.code }}! Could you please rate all the following movies ? </h1>
     {% for product in products %}
-    <div>
-        <p>
-            <table class="table table-hover">
-                <tr>
-                    <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
-                        <br>
-                        <br>
-                        <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="160px">
-                    </td>
-                    <td style="float:left;width:40%;">
-                        <h2><b><a class = "titlecolor", href="{{ url_for('main.product', name=product.name) }}">{{product.name}}</a></b></h2> 
-                        <h2> {{product.price}}</h2>
-                        <br>
-                        <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="80px">
-                        <div class="rate">
-                        <h2><b>Your rating : </b></h2> 
-                          <div id="{{ product.id }}"></div>
-                      </div>
-                    </td>
-                </tr>
-            </table>
-        </p>
-    </div>
+      {% if product.id in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] %}
+        <div>
+,            <p>
+                <table class="table table-hover">
+                    <tr>
+                        <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
+                            <br>
+                            <br>
+                            <img src="{{ url_for('static', filename='img/{}.jpg'.format(product.image))}}"  height="350px">
+                        </td>
+                        <td style="float:left;width:40%;">
+                            <h2><b>{{product.name}}</b></h2>
+                            <ul>
+                              <li><h4><b>Year :</b> {{product.feature_1}}</h4></li>
+                              <li><h4><b>Genre(s) :</b> {{product.feature_2}}</h4></li>
+                              <li><h4><b>Actors :</b> {{product.feature_3}}</h4></li>
+                              <li><h4><b>User score :</b> {{product.feature_4}}</h4></li>
+                              <li style="text-align: justify;">
+                                <h4><b>Overview :</b><i> {{product.nutri_score}}</i></h4>
+                              </li>                           
+                              <h4> <a href="{{ product.price }}">Click to watch the trailer</a> </h4> 
+                            </ul>
+                            <div class="rate">
+                            <h3><b>Your rating : </b></h3> 
+                              <div id="{{ product.id }}"></div>  
+                          </div>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+      {% endif %}
     {% endfor %}
 
     <br>
-    <div>
-      {% if not current_user.is_anonymous %}
-      <a href="{{ url_for('auth.close')}}"> Finir l'expérimentation et aller vers l'enquête</a>
-      {% endif %}
-  </div>
+    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: right;">
+      <div>
+        {% if not current_user.is_anonymous %}
+        <h4 style="color: red;">Once you have finished rating all the</h4>
+        <h4 style="color: red;">movies, click on the button below : </h4>
+        <a href="{{ url_for('main.survey1')}}" style="font-size: 24px; font-weight: bold; color:rgb(89, 108, 71);">Next step : First survey</a>
+        {% endif %}
+      </div>
+    </footer>
   </body>
 {% endblock %}
-
 
 {% block scripts %}
 
@@ -61,17 +72,21 @@
         });
     }
 
-    // Loop through products and ratings arrays
-    {% for i in range(products|length) %}
+    // Loop through products and ratings arrays for selected movies
+    {% for product in products %}
+      {% if product.id in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] %}
         starry({
-          target: document.getElementById("{{ products[i].id }}"),
+          target: document.getElementById("{{ product.id }}"),
           max: 5,
-          now: {{ ratings[i] }},
-          click: stars => handleStarClick(stars, "{{ products[i].id }}")
+          now: {{ ratings[products.index(product)] }},
+          click: stars => handleStarClick(stars, "{{ product.id }}")
         });
+      {% endif %}
     {% endfor %}
 
   </script>
 {% endblock %}
+
+
 
 

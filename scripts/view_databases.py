@@ -16,6 +16,7 @@ def display_users():
         for user in users:
             print(user)
             print(user.id)
+            print(user.code)
 
 def display_ratings():
     with app.app_context():
@@ -37,7 +38,7 @@ def display_purchases():
 def display_assignments():
     with app.app_context():
         for user in User.query.all():
-            print(f"User: {user.code}")
+            print(f"User {user.id}: Code {user.code}")
             print("Assignments:")
             query = user.assignments.select()
             products = db.session.scalars(query).all()

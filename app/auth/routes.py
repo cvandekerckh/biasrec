@@ -1,6 +1,6 @@
 from app.auth import bp
 from flask import render_template, flash, redirect, url_for, current_app
-from app.auth.forms import LoginForm, Close
+from app.auth.forms import LoginForm, Close, LogoutForm
 from flask_login import current_user, login_user, login_required, logout_user
 import csv
 from app.models import User
@@ -25,15 +25,9 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
         return redirect(url_for(current_app.config['MAIN_PAGE'])) #On redirige vers la page main 
     return render_template('auth/login.html', form=form)
 
+
 @bp.route('/close', methods=['GET', 'POST'])
 @login_required
 def close():
     logout_user()
-    return redirect(url_for('auth.survey')) #redirige vers ma route survey
-
-@bp.route('/survey', methods=['GET', 'POST'])
-def survey():
-    return render_template('main/survey.html') #redirige vers ma page survey
-
-
-
+    return redirect(url_for('auth.survey2')) #redirige vers ma route survey2

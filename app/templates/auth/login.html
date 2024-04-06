@@ -2,22 +2,60 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <h1 class = "align"> <b>Sign In</b></h1>
-    <br>
-    <div class = "align", class="row">
-        <div class = "blocktext ", class="col-md-4">
-            {{ wtf.quick_form(form) }}
+<style>
+    .content-section {
+        margin-top: 30px;
+    }
+</style>
+
+<div class="container-fluid h-100">
+    <div class="row h-100 align-items-center justify-content-center content-section">
+        <div class="col-md-6 bg-light p-5"> <!-- Explications à gauche -->
+            <p class="lead text-center" style="font-size: 40px; color:rgb(89, 108, 71)"><b>Welcome to our experiment !</b></p> 
+            <p class="lead text-center" style="font-size: 35px; color:rgb(89, 108, 71)"><b>We are delighted to have you on board !</b></p>
+            <br>
+            <p class="lead text-center text-justify">My name is Teo Baldi and I'm in my final year of a Master's degree in Management Engineering. As part of my Master's thesis at the Belgian university UCLouvain and in collaboration with Professor Corentin Vande Kerckhove, we are investigating recommender systems. Your particpation will help us in our research efforts. That is why we will guide you through a series of steps :</p> 
+            <ol class="lead text-justify">
+                <li><b>Movies ratings :</b> You will be asked to rate a selection of movies.</li>
+                <li><b>Socio-demographic information :</b> You will be invited to tell us a bit about yourself and and your familiarity with recommender systems through a series of questions.</li>
+                <li><b>Movie recommendations :</b> You will be offered movie recommendations and will be able to add movies you want to watch in the near future to your watchlist.</li>
+                <li><b>Experiment feedback :</b> You will be asked to share your thoughts and your experience on the movie recommendations.</li>
+                <li><b>Conclusion :</b> Finally, we will wrap up the experiment and describe your concrete contribution to this experiment.</li>
+            </ol>
+            <p class="lead text-center text-justify">Once you have completed an entire step, you can proceed to the next one by clicking on the button at the bottom right (always named "Next step" or "Submit").</p>
+            <br><br>
+            <p class="lead text-center">
+                <img src="{{ url_for('static', filename='img/logo ucl.jpg') }}" style="width: 400px; height: 100px;" alt="UCL logo">
+            </p>
+        </div>
+        <div class="col-md-6 bg-light p-5"> <!-- Formulaire centré à droite -->
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="d-flex flex-column align-items-center">
+                <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+                <h1 class="align text-center" style="color:rgb(89, 108, 71)"> <b>Sign In</b></h1>
+                <h3 class="align text-center"> <i>Please enter your code below.</i></h3>
+                <br>
+                <div class="blocktext" style="font-size: 20px">
+                    {{ wtf.quick_form(form) }}
+                </div>
+            </div>
         </div>
     </div>
+</div>
 {% endblock %}
+
+
+
+
+
