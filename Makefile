@@ -30,3 +30,8 @@ display-assignments:
 
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"
+update-deploy:
+	git pull
+	sudo supervisorctl stop microblog
+	flask db upgrade
+	sudo supervisorctl start microblog
