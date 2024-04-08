@@ -53,7 +53,7 @@ def drop_all_tables():
 
     # Get all table names
     table_names = metadata.tables.keys()
-
+    print(table_names)
     # Create a dictionary to store foreign key relationships
     foreign_keys = {}
 
