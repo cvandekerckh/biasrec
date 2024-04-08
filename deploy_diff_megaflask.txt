@@ -4,8 +4,8 @@ Machine E2
 e2-medium
 allow http-https
 
-Two options : 
----> ssh from terminal : 
+Two options :
+---> ssh from terminal :
 - install gcloud
 - create clef ssh
 - gcloud compute ssh biasrecv2
@@ -39,7 +39,7 @@ libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev
 
 (3) curl https://pyenv.run | bash
 
-(4) 
+(4)
 pyenv install -v 3.10.1
 pyenv global 3.10.1
 
@@ -53,7 +53,7 @@ source ~/.profile
 
 
 Installing the application
--------------------------- 
+--------------------------
 - soit, on s'en fou, on travaille au global, et on fait pip install X pour chaque package
 - soit, on travaille avec pipenv, il suffit juste d'écrire "pipenv install" si et seulement si tu as un fichier Pipfile à jour
 
@@ -119,10 +119,23 @@ server {
 
 Test website (just before deploying application)
 
-Todo:
-- d'avoir le certificat: 
+# Register a domain
+https://cloud.google.com/domains/docs/buy-register-domain
+and wait 24H
+
+# Point domain to IP:
+https://cloud.google.com/dns/docs/tutorials/create-domain-tutorial
+section : Set up your domain using Cloud DNS
+
+# Certificate
 https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https
 Using "Real" Certificates
+
+certbot instructions seems deprecated. 
+Instead: 
+https://certbot.eff.org/instructions
+lsb_release -a to know your version of debian
+
 
 
 - éventuellement, avoir un nom de domaine (bonus) : the-clothes-recommendes-system.be
