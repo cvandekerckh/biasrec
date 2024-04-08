@@ -5,6 +5,7 @@ from flask import current_app
 from app.models import User, Product
 from app import db
 from config import Config as Cf
+from sqlalchemy import inspect
 
 app = create_app()
 
@@ -45,10 +46,42 @@ def populate_users():
 def populate_products():
     populate_db(Product, Cf.DATA_PATH_RAW / PRODUCT_FILENAME)
 
+def drop_all_tables():
+    """Drop tables in correct order"""
+    # Get metadata
+    metadata = db.metadata
+
+    # Get all table names
+    table_names = metadata.tables.keys()
+
+    # Create a dictionary to store foreign key relationships
+    foreign_keys = {}
+
+    # Inspect foreign key constraints
+    inspector = inspect(db.engine)
+    for table_name in table_names:
+        foreign_keys[table_name] = inspector.get_foreign_keys(table_name)
+
+    # Drop tables in the correct order (from child to parent)
+    print(table_names)
+    print(foreign_keys)
+    dropped_tables = set()
+    while len(dropped_tables) < len(table_names):
+        for table_name in table_names:
+            if table_name not in dropped_tables:
+                dependent_tables = [fk['referred_table'] for fk in foreign_keys[table_name]]
+                if all(dep_table in dropped_tables for dep_table in dependent_tables):
+                    metadata.tables[table_name].drop(db.engine)
+                    dropped_tables.add(table_name)
 
 def reload_databases():
     with app.app_context():
-        db.drop_all()
+        # Temporarily disable foreign key checks
+        drop_all_tables()
+        #db.session.execute(text('SET FOREIGN_KEY_CHECKS=0;'))
+        #db.drop_all()
+        # Re-enable foreign key checks
+        #db.session.execute(text('SET FOREIGN_KEY_CHECKS=1;'))
         db.create_all()
         populate_products()
         populate_users()
