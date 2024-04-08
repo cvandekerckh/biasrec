@@ -75,6 +75,8 @@ def drop_all_tables():
                     if all(dep_table in dropped_tables for dep_table in dependent_tables):
                         metadata.tables[table_name].drop(db.engine)
                         dropped_tables.add(table_name)
+                else:
+                    dropped_tables.add(table_name)
 
 def reload_databases():
     with app.app_context():
