@@ -4,6 +4,9 @@ assign-conditions:
 build: 
 	docker build -t biasrecdocker .
 
+cloud-connect:
+	gcloud compute ssh biasrecv2
+
 create-model:
 	pipenv run python -c "from scripts.train_recommender_model import create_recommender_model; create_recommender_model()"
 
