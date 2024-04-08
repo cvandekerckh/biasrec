@@ -102,49 +102,10 @@ def drop_all_tables():
 
     drop_tables_in_order(table_names, foreign_keys, db.engine)
 
-    # print(table_names)
-    # # Create a dictionary to store foreign key relationships
-    # foreign_keys = {}
-
-    # # Inspect foreign key constraints
-    # inspector = inspect(db.engine)
-    # for table_name in table_names:
-    #     try:
-    #         foreign_keys[table_name] = inspector.get_foreign_keys(table_name)
-    #     except NoSuchTableError:
-    #         continue
-
-    # for key in foreign_keys:
-    #     print(key)
-    #     print([fk['referred_table'] for fk in foreign_keys[key]])
-    #     print('\n')
-
-    # # Drop tables in the correct order (from child to parent)
-    # dropped_tables = set()
-    # while len(dropped_tables) < len(table_names):
-    #     for table_name in table_names:
-    #         print(table_name)
-    #         if table_name not in dropped_tables:
-    #             if table_name in foreign_keys:
-    #                 print('if')
-    #                 dependent_tables = [fk['referred_table'] for fk in foreign_keys[table_name]]
-    #                 print(dependent_tables)
-    #                 if all(dep_table in dropped_tables for dep_table in dependent_tables):
-    #                     print('drop')
-    #                     metadata.tables[table_name].drop(db.engine)
-    #                     dropped_tables.add(table_name)
-    #             else:
-    #                 print('else')
-    #                 dropped_tables.add(table_name)
 
 def reload_databases():
     with app.app_context():
-        # Temporarily disable foreign key checks
         drop_all_tables()
-        #db.session.execute(text('SET FOREIGN_KEY_CHECKS=0;'))
-        #db.drop_all()
-        # Re-enable foreign key checks
-        #db.session.execute(text('SET FOREIGN_KEY_CHECKS=1;'))
         db.create_all()
         populate_products()
         populate_users()
