@@ -54,6 +54,7 @@ def drop_all_tables():
 
     # Get all table names
     table_names = metadata.tables.keys()
+    print(table_names)
     # Create a dictionary to store foreign key relationships
     foreign_keys = {}
 
@@ -64,18 +65,27 @@ def drop_all_tables():
             foreign_keys[table_name] = inspector.get_foreign_keys(table_name)
         except NoSuchTableError:
             continue
+            
+    for key in foreign_keys:
+        print(key)
+        print([fk['referred_table'] for fk in foreign_keys[key]])
+        print('\n')
 
     # Drop tables in the correct order (from child to parent)
     dropped_tables = set()
     while len(dropped_tables) < len(table_names):
         for table_name in table_names:
+            print(table_name)
             if table_name not in dropped_tables:
                 if table_name in foreign_keys:
+                    print('if')
                     dependent_tables = [fk['referred_table'] for fk in foreign_keys[table_name]]
+                    print(dependent_tables)
                     if all(dep_table in dropped_tables for dep_table in dependent_tables):
                         metadata.tables[table_name].drop(db.engine)
                         dropped_tables.add(table_name)
                 else:
+                    print('else')
                     dropped_tables.add(table_name)
 
 def reload_databases():
