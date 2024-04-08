@@ -6,6 +6,7 @@ from app.models import User, Product
 from app import db
 from config import Config as Cf
 from sqlalchemy import inspect
+from sqlalchemy.exc import NoSuchTableError
 
 app = create_app()
 
