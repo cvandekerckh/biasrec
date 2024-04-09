@@ -3,6 +3,7 @@ from surprise import SVD
 import math
 import random as rd
 import pandas as pd
+from config import Config as Cf
 
 def get_ordered_items(predictions):
     """Return the ordered items for a top-N recommendation for each user from a set of predictions.
@@ -35,10 +36,7 @@ def get_ordered_items(predictions):
 
 class SVD100(SVD):
     def __init__(self):
-        SVD.__init__(self, n_factors=100, random_state=1)
-
-
-
+        SVD.__init__(self, n_factors=50, n_epochs=50, reg_all=0.1, random_state=1)
 
 
 def MMR(user_id, diversity_factor, num_recommandations, predictions):
@@ -50,8 +48,9 @@ def MMR(user_id, diversity_factor, num_recommandations, predictions):
         u_id = prediction.uid
         item_id = prediction.iid
         if u_id == user_id :
-            items.append(item_id)
-            user_estimations[item_id] = prediction.est
+            if item_id not in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] :
+                items.append(item_id)
+                user_estimations[item_id] = prediction.est
     items = set(items)
     #print(len(items), "\n")
     #print(items)
@@ -59,7 +58,8 @@ def MMR(user_id, diversity_factor, num_recommandations, predictions):
     #print(user_estimations)
     
     #Lire la matrice de similarité à partir du fichier CSV
-    matrice_sim = pd.read_csv('static\data\test-recommender\cosine_similarity_matrix_finale.xls')
+    similarity_file = Cf.DATA_PATH / 'cosine_similarity_matrix_finale.xls'
+    matrice_sim = pd.read_csv(similarity_file)
     matrice_sim.index = matrice_sim.columns
     #print(matrice_sim)
     
@@ -81,10 +81,11 @@ def MMR(user_id, diversity_factor, num_recommandations, predictions):
     return selected        
 
 class LatentFactorModel(SVD):
-    def __init__(self, n_factors=50, n_epochs=50, reg_all=0.1):
+    def __init__(self, n_factors=50, n_epochs=50, reg_all=0.1, random_state=1):
         self.n_factors = n_factors
         self.n_epochs = n_epochs
         self.reg_all = reg_all
+        self.random_state = random_state
         self.model = None
 
 model = {

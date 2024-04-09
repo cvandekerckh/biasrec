@@ -28,6 +28,8 @@ def create_recommender_model():
     product_list_per_user = get_product_list(ordered_items)
     pickle.dump(product_list_per_user, open(Cf.DATA_PATH / Cf.MODEL_FILENAME, 'wb'))
 
+
+
 def get_user_diversity_factor(user_id, csv_file):
     # Charger le fichier CSV
     df = pd.read_csv(csv_file, delimiter=';')
@@ -49,7 +51,7 @@ def create_recommender_model2(user_id):
     ratings_file = Cf.DATA_PATH / 'ratings.csv'
     model, anti_testset = fit_model(ratings_file, Cf.MODEL_NAME)
     predictions = model.test(anti_testset)
-    user_diversity_factor = get_user_diversity_factor(user_id, 'users.csv')
-    ordered_items = MMR(user_id, user_diversity_factor, Cf.N_RECOMMENDATIONS, predictions)
-    product_list_per_user = get_product_list(ordered_items) #utile ou non ?
-    pickle.dump(product_list_per_user, open(Cf.DATA_PATH / Cf.MODEL_FILENAME, 'wb'))
+    users_file = Cf.DATA_PATH / 'users.csv'
+    user_diversity_factor = get_user_diversity_factor(user_id, users_file)
+    recommandations = MMR(user_id, user_diversity_factor, Cf.N_RECOMMENDATIONS, predictions)
+    return recommandations

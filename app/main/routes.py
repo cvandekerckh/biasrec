@@ -6,7 +6,10 @@ from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close, LogoutForm
 from app import db
+from config import Config as Cf
 import pickle
+import csv
+from scripts.train_recommender_model import create_recommender_model2
 
 
 @bp.before_app_request
@@ -55,7 +58,7 @@ def product_category(category_name):
 @bp.route('/rate')
 @login_required
 def rate():
-    initial_rating_value = 3
+    initial_rating_value = 0
     query = current_user.assignments.select()
     products = db.session.scalars(query).all()
     ratings = [current_user.get_rating_for_product(product.id) for product in products]
@@ -71,19 +74,74 @@ def save():
 @bp.route('/survey1', methods=['GET', 'POST'])
 @login_required
 def survey1():
+    user_id = current_user.id
+    # Train l'algo de recommandation
     # Récupérez les évaluations de l'utilisateur
     user_ratings = {}
     query = current_user.assignments.select()
     products = db.session.scalars(query).all()
     for product in products:
         user_ratings[product.id] = current_user.get_rating_for_product(product.id)
-    return render_template('main/survey 1.html')  # Redirige vers la première enquête
+    print(user_ratings)
+    # Ajout des ratings dans la table Rating
+    for product_id, rating in user_ratings.items():
+        current_user.add_rating(product_id, rating)
+    # Ajout des ratings dans la base de données MovieLens (ratings.csv)
+    ratings_file = Cf.DATA_PATH / 'ratings.csv'
+    with open(ratings_file, 'a', newline='') as csvfile:
+        fieldnames = ['user_id', 'product_id', 'rating']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        # Écrire les ratings dans le fichier CSV
+        for product_id, rating in user_ratings.items():
+            writer.writerow({'user_id': user_id, 'product_id': product_id, 'rating': rating})
+    # Load_ratings, .fit, .test, MMR diversification
+    recom = create_recommender_model2(user_id)
+    print(recom)
+    # Enregistrer les recommandations dans le fichier CSV
+    recom_file = Cf.DATA_PATH / 'recom.csv'
+    with open(recom_file, 'a', newline='') as csvfile:
+        fieldnames = ['user_id', 'product_id', 'score_MMR']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
+        # Écrire les recommandations dans le fichier CSV
+        for product_id, score_MMR in recom.items():
+            writer.writerow({'user_id': user_id, 'product_id': product_id, 'score_MMR' : round(score_MMR,2)})
+    # Redirige vers la première enquête
+    return render_template('main/survey 1.html')
 
 @bp.route('/recommendation2', methods=['GET', 'POST'])
 @login_required
 def recommendation2():
     form = PurchaseForm()
-    return render_template('main/_recommendation.html', form=form)
+    recom_list = []
+
+    # Récupérer les recommandations depuis le fichier recom.csv pour le current_user
+    recom_file = Cf.DATA_PATH / 'recom.csv'
+    with open(recom_file, 'r', newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=';')
+        for row in reader:
+            if row['user_id'] == str(current_user.id) :
+                recom_list.append(row['product_id'])
+
+    # Récupérer les informations sur les films recommandés depuis le fichier products.csv
+    products_file = Cf.DATA_PATH / 'products.csv'
+    recommended_movies = []
+    with open(products_file, 'r', newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=';')
+        for row in reader:
+            if row['id'] in recom_list:
+                recommended_movies.append({
+                    'name': row['name'],
+                    'year': row['feature_1'],
+                    'genres': row['feature_2'],
+                    'actors': row['feature_3'],
+                    'user_score': row['feature_4'],
+                    'overview': row['nutri_score'],
+                    'trailer_url': row['price'],
+                    'image_url': row['image']
+                })
+    #print(recommended_movies)
+    return render_template('main/_recommendation.html', form=form, recom_list=recommended_movies)
+
 
 @bp.route('/survey2', methods=['GET', 'POST'])
 def survey2():
@@ -116,7 +174,8 @@ def cart():
     form2 = Close()
     query = current_user.purchases.select()
     cart_products = db.session.scalars(query).all()
-    return render_template('main/cart.html', cart_products = cart_products, form1 = form1,form2 = form2 )
+    print(cart_products)
+    return render_template('main/cart.html', cart_products=cart_products, form1=form1, form2=form2)
 
 @bp.route('/purchase/<name>', methods=['POST'])
 @login_required
@@ -125,7 +184,7 @@ def purchase(name):
     current_user.add_to_cart(product)
     db.session.commit()
     flash('Ton article {} a été rajouté au panier!'.format(name))
-    return redirect(url_for('main.recommendation'))
+    return redirect(url_for('main.recommendation2'))
 
 @bp.route('/unpurchase/<name>', methods=['POST'])
 @login_required

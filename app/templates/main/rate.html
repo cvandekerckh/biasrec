@@ -3,11 +3,12 @@
 {% block content %}
 
   <body>
-    <h1 class="titlecolor"> Hi, User {{ current_user.code }}! Could you please rate all the following movies ? </h1>
-    {% for product in products %}
-      {% if product.id in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] %}
-        <div>
-,            <p>
+    <form action="/survey1" method="post">
+      <h1 class="titlecolor"><b>Hi, User {{ current_user.code }}! Could you please rate all the following movies ? </b></h1>
+      {% for product in products %}
+        {% if product.id in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] %}
+          <div>
+            <p>
                 <table class="table table-hover">
                     <tr>
                         <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
@@ -27,29 +28,29 @@
                               </li>                           
                               <h4> <a href="{{ product.price }}">Click to watch the trailer</a> </h4> 
                             </ul>
+                            <br>
                             <div class="rate">
-                            <h3><b>Your rating : </b></h3> 
-                              <div id="{{ product.id }}"></div>  
+                              <h3><b>Please rate this movie by clicking on a star</b></h3> 
+                              <div id="{{ product.id }}"></div>
+                              <h3 style="color: #ffe000"><b>Your rating : <div id="user_score_{{ product.id }}">{{ ratings[products.index(product)] }}</div></b></h3>
                           </div>
                         </td>
                     </tr>
                 </table>
             </p>
-        </div>
-      {% endif %}
-    {% endfor %}
-
-    <br>
-    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: right;">
-      <div>
-        {% if not current_user.is_anonymous %}
-        <h4 style="color: red;">Once you have finished rating all the</h4>
-        <h4 style="color: red;">movies, click on the button below : </h4>
-        <a href="{{ url_for('main.survey1')}}" style="font-size: 24px; font-weight: bold; color:rgb(89, 108, 71);">Next step : First survey</a>
+          </div>
         {% endif %}
+      {% endfor %}
+
+      <h3 style="color: rgb(89, 108, 71); text-align: right;">Please submit your answers by clicking on this button :</h3>
+      <div style="text-align: right;">
+          <input type="submit" value="Submit" class="btn btn-primary btn-lg" style="font-size: 20px;">
       </div>
-    </footer>
+      <h4 style="text-align: right; color: red;">Make sure to rate all the movies before submitting.</h4>
+      <br><br>
+    </form>
   </body>
+
 {% endblock %}
 
 {% block scripts %}
@@ -84,8 +85,35 @@
       {% endif %}
     {% endfor %}
 
+    // Add JavaScript validation for form submission
+    document.querySelector('form').addEventListener('submit', function(event) {
+        // Loop through ratings and check if any rating is 0
+        {% for product in products %}
+          {% if product.id in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] %}
+            if (document.getElementById("user_score_{{ product.id }}").innerText === '0') {
+                alert('Please rate all the movies before submitting.');
+                event.preventDefault();
+                return;
+            }
+          {% endif %}
+        {% endfor %}
+    });
+
   </script>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,42 +3,52 @@
 {% block app_content %}
  <tr>
     <div ALIGN="CENTER", style="float:left;width:75%;">
-        <h1 class = "titlecolor"><p><b> Voici vos produits sélectionnés </b> </p></h1>
+        <h1 class = "titlecolor"><b> Your watchlist </b></h1>
         {% for p in cart_products %}
-        <p>
-            <table class="table table-hover">
-                <tr>
-                    <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
-                        <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(p.image))}}"  height="160px">
-                    </td>
-                    <td style="float:left;width:30%;">
-                        <h1><b><a class = "titlecolor", href="{{ url_for('main.product', name=p.name) }}">{{p.name}}</a></b></h1> 
-                        <h2> {{p.price}}</h2>
-                        <br>
-                        <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(p.nutri_score))}}"  height="80px">
-                    </td>
-                    <td style="float:left;width:30%;">
-                        {% if current_user.has_bought(p) %}
-                        <br>
-                        <br>
-                        <br>
-                        <br> 
-                        <p><form action="{{ url_for('main.unpurchase', name= p.name) }}" method="post">
-                            {{ form1.hidden_tag() }}
-                            <span aria-hidden="true">{{ form1.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg')}}</span>
-                        </form></p>
-                        {% endif %}
-                    </td>
-                </tr>
-            </table>
-        </p>
+            <div>
+                <p>
+                    <table class="table table-hover">
+                        <tr>
+                            <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
+                                <br>
+                                <br>
+                                <img src="{{ url_for('static', filename='img/{}.jpg'.format(p.image))}}"  height="160px">
+                            </td>
+                            <td style="float:left;width:40%;">
+                                <h2><b>{{ p.name }}</b></h2>
+                                <ul>
+                                    <li><h4><b>Year :</b> {{ p.feature_1 }}</h4></li>
+                                    <li><h4><b>Genre(s) :</b> {{ p.feature_2 }}</h4></li>
+                                    <li><h4><b>Actors :</b> {{ p.feature_3 }}</h4></li>
+                                </ul>
+                                {% if current_user.has_bought(p) %}
+                                    <p><form action="{{ url_for('main.unpurchase', name= p.name) }}" method="post">
+                                        {{ form1.hidden_tag() }}
+                                        <span aria-hidden="true">{{ form1.submit(value='Remove from watchlist', class_='btn btn-success mb-2')}}</span>
+                                    </form></p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+            </div>
         {% endfor %}
     </div>
-    <div ALIGN="CENTER", style="float:left;width:25%;">
-        <p><form action="{{ url_for('auth.close')}}" method="post">
-            {{ form2.hidden_tag() }}
-            <span aria-hidden="true">{{ form2.submit(value='Finish and go to the survey', class_='btn btn-success mb-2 btn-lg')}}</span>
-        </form></p>
+    <div ALIGN="CENTER" style="float:left;width:100%;">
+        <a href="{{ url_for('main.recommendation2') }}" class="btn btn-success btn-lg" style="font-size: 20px;">Back to recommendations</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
-</tr>
+    </tr>
+    
+    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: right;">
+        <p><form action="{{ url_for('main.survey2')}}" method="post">
+            {{ form2.hidden_tag() }}
+            <span aria-hidden="true">{{ form2.submit(value='Finish with the final survey', class_='btn btn-primary btn-lg', style='font-size: 20px;')}}</span>
+        </form></p>
+    </footer>
 {% endblock %}

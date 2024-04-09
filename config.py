@@ -13,9 +13,9 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 3
     DATA_PATH=Path('app/static/data/test-recommender')
-    MODEL_NAME='LatentFactorModel'
+    MODEL_NAME='svd100'
     MODEL_FILENAME = 'model.p'
-    N_RECOMMENDATIONS = 3
+    N_RECOMMENDATIONS = 10
 
 class RateConfig(Config):
     MAIN_PAGE='main.rate'
