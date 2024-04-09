@@ -162,7 +162,10 @@ cython_debug/
 # Data
 #*.jpg
 *.db
-#*.csv
+*.csv
+
+app/static/img
+app/static/data/test-recommender/cosine_similarity_matrix_finale.xls
 
 # Mac files
 .DS_Store
