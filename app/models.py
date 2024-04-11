@@ -136,3 +136,4 @@ class Rating(db.Model):
 
     def __repr__(self):
         return '<Rating id={}, user_id={}, product_id={}, rating={}>'.format(self.id, self.user_id, self.product_id, self.rating)
+

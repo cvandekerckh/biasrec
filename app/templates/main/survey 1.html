@@ -1,4 +1,4 @@
-{% extends "main/rate.html" %}
+{% extends "main/base_rate.html" %}
 
 {% block navbar %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
@@ -9,6 +9,7 @@
     </style>
     <h1 class="titlecolor"><b> Now it's time to find out more about you ! Please answer all the following questions.</b></h1>
 {% endblock %}
+
 
 {% block content %}
     <div>
@@ -178,6 +179,7 @@
                 window.location.href = "{{ url_for('main.recommendation2')}}";
             }
         };
+
     </script>
 
 {% endblock %}

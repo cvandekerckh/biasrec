@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, make_response
+from flask_login import current_user
 import pandas as pd
 import sqlite3
 import csv
-from app.models import User, Product, Rating
+from app.models import User, Product, Rating, UserInfo
 from app import create_app
 from app import db
 
@@ -51,3 +52,6 @@ def display_products():
         products = Product.query.all()
         for product in products:
             print(product)
+
+
+    

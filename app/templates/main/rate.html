@@ -3,7 +3,7 @@
 {% block content %}
 
   <body>
-    <form action="/survey1" method="post">
+    <form id="surveyForm" action="/survey1" method="post">
       <h1 class="titlecolor"><b>Hi, User {{ current_user.code }}! Could you please rate all the following movies ? </b></h1>
       {% for product in products %}
         {% if product.id in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] %}
@@ -86,7 +86,7 @@
     {% endfor %}
 
     // Add JavaScript validation for form submission
-    document.querySelector('form').addEventListener('submit', function(event) {
+    document.querySelector('#surveyForm').addEventListener('submit', function(event) {
         // Loop through ratings and check if any rating is 0
         {% for product in products %}
           {% if product.id in [1080,260,1387,1380,1214,1136,1997,1193,1196,616,344,2571,593,356,480,150,1407,318,3081,1,4973,4993,4226,7361,3793,4896,4720,4878,4975,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] %}
@@ -97,6 +97,9 @@
             }
           {% endif %}
         {% endfor %}
+        // Afficher le message de succès
+        alert("Your ratings have been successfully submitted!");
+        alert("After pressing 'OK' on this message, please wait a few moments.");
     });
 
   </script>

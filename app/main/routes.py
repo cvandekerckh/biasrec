@@ -88,23 +88,39 @@ def survey1():
         current_user.add_rating(product_id, rating)
     # Ajout des ratings dans la base de données MovieLens (ratings.csv)
     ratings_file = Cf.DATA_PATH / 'ratings.csv'
-    with open(ratings_file, 'a', newline='') as csvfile:
-        fieldnames = ['user_id', 'product_id', 'rating']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        # Écrire les ratings dans le fichier CSV
-        for product_id, rating in user_ratings.items():
-            writer.writerow({'user_id': user_id, 'product_id': product_id, 'rating': rating})
+    user_has_ratings = False
+    with open(ratings_file, 'r', newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            if int(row['user_id']) == user_id:
+                user_has_ratings = True
+                break
+    # Ajouter les notes uniquement si l'utilisateur n'a pas encore de notes enregistrées
+    if not user_has_ratings:
+        with open(ratings_file, 'a', newline='') as csvfile:
+            fieldnames = ['user_id', 'product_id', 'rating']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            # Écrire les ratings dans le fichier CSV
+            for product_id, rating in user_ratings.items():
+                writer.writerow({'user_id': user_id, 'product_id': product_id, 'rating': rating})
+    
     # Load_ratings, .fit, .test, MMR diversification
     recom = create_recommender_model2(user_id)
     print(recom)
     # Enregistrer les recommandations dans le fichier CSV
     recom_file = Cf.DATA_PATH / 'recom.csv'
-    with open(recom_file, 'a', newline='') as csvfile:
-        fieldnames = ['user_id', 'product_id', 'score_MMR']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
-        # Écrire les recommandations dans le fichier CSV
-        for product_id, score_MMR in recom.items():
-            writer.writerow({'user_id': user_id, 'product_id': product_id, 'score_MMR' : round(score_MMR,2)})
+    with open(recom_file, 'r', newline='') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=';')
+        existing_recommendations_count = sum(1 for row in reader if row['user_id'] == str(user_id))
+    # Ajouter de nouvelles recommandations uniquement si le nombre de recommandations pour l'utilisateur est inférieur à 10
+    if existing_recommendations_count < 10:
+        with open(recom_file, 'a', newline='') as csvfile:
+            fieldnames = ['user_id', 'product_id', 'score_MMR']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
+            # Écrire les recommandations dans le fichier CSV
+            for product_id, score_MMR in recom.items():
+                writer.writerow({'user_id': user_id, 'product_id': product_id, 'score_MMR' : round(score_MMR,2)})
+    
     # Redirige vers la première enquête
     return render_template('main/survey 1.html')
 
