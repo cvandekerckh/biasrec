@@ -22,5 +22,14 @@ display-purchases:
 display-assignments:
 	pipenv run python -c "from scripts.view_databases import display_assignments; display_assignments()"
 
+display-answers1:
+	pipenv run python -c "from scripts.view_databases import display_answers_survey1; display_answers_survey1()"
+
+display-answers2:
+	pipenv run python -c "from scripts.view_databases import display_answers_survey2; display_answers_survey2()"
+
+exportation-csv:
+	pipenv run python -c "from scripts.view_databases import export_data_to_csv; export_data_to_csv()"
+
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"

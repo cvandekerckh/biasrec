@@ -1,7 +1,7 @@
 from app.main import bp
 from flask import render_template, flash, redirect, url_for, current_app, make_response, g
 from flask_login import current_user, login_required, logout_user
-from app.models import User, Product
+from app.models import User, Product, Answers_survey1, Answers_survey2
 from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close, LogoutForm
@@ -127,6 +127,43 @@ def survey1():
 @bp.route('/recommendation2', methods=['GET', 'POST'])
 @login_required
 def recommendation2():
+    existing_survey = Answers_survey1.query.filter_by(user_id=current_user.id).first()
+    if existing_survey is None:
+    # Aucune donnée existante pour cet utilisateur, donc nous ajoutons une nouvelle entrée
+        # Récupérer les données du formulaire
+        gender = request.form['gender']
+        age = request.form['age']
+        nationality = request.form['nationality']
+        education = request.form['education']
+        occupation = request.form['occupation']
+        movie_watching_habits = request.form['movie-watching habits']
+        movies_per_month = request.form['movies_per_month']
+        preferred_genres = ', '.join(request.form.getlist('preferred_genres[]'))
+        heard_of_rs = request.form['heard_of_rs']
+        aware_of_rs = request.form['aware_of_rs']
+        noticed_rs = request.form['noticed_rs']
+        follow_recommendations = request.form['follow_recommendations']
+        # Créer une nouvelle instance de Answers_survey1
+        new_survey = Answers_survey1(
+            user_id=current_user.id,
+            gender=gender,
+            age=age,
+            nationality=nationality,
+            education=education,
+            occupation=occupation,
+            movie_watching_habits=movie_watching_habits,
+            movies_per_month=movies_per_month,
+            preferred_genres=preferred_genres,
+            heard_of_rs=heard_of_rs,
+            aware_of_rs=aware_of_rs,
+            noticed_rs=noticed_rs,
+            follow_recommendations=follow_recommendations
+        )
+        # Ajouter l'instance à la session de la base de données
+        db.session.add(new_survey)
+        # Effectuer un commit pour enregistrer les modifications dans la base de données
+        db.session.commit()
+
     form = PurchaseForm()
     recom_list = []
 
@@ -166,6 +203,51 @@ def survey2():
 @bp.route('/conclusion', methods=['GET', 'POST'])
 @login_required
 def conclusion():
+    existing_survey2 = Answers_survey2.query.filter_by(user_id=current_user.id).first()
+    if existing_survey2 is None:
+    # Aucune donnée existante pour cet utilisateur, donc nous ajoutons une nouvelle entrée
+        # Récupérer les données du formulaire
+        Q1 = request.form['q1']
+        Q2 = request.form['q2']
+        Q3 = request.form['q3']
+        Q4 = request.form['q4']
+        Q5 = request.form['q5']
+        Q6 = request.form['q6']
+        Q7 = request.form['q7']
+        Q8 = request.form['q8']
+        Q9 = request.form['q9']
+        Q10 = request.form['q10']
+        Q11 = request.form['q11']
+        Q12 = request.form['q12']
+        Q13 = request.form['q13']
+        Q14 = request.form['q14']
+        Q15 = request.form['q15']
+        Q16 = request.form['q16']
+        # Créer une nouvelle instance de Answers_survey1
+        new_survey2 = Answers_survey2(
+            user_id=current_user.id,
+            Q1=Q1,
+            Q2=Q2,
+            Q3=Q3,
+            Q4=Q4,
+            Q5=Q5,
+            Q6=Q6,
+            Q7=Q7,
+            Q8=Q8,
+            Q9=Q9,
+            Q10=Q10,
+            Q11=Q11,
+            Q12=Q12,
+            Q13=Q13,
+            Q14=Q14,
+            Q15=Q15,
+            Q16=Q16
+        )
+        # Ajouter l'instance à la session de la base de données
+        db.session.add(new_survey2)
+        # Effectuer un commit pour enregistrer les modifications dans la base de données
+        db.session.commit()
+
     logout_form = LogoutForm()
     return render_template('main/conclusion.html', logout_form=logout_form)  # Redirige vers la conclusion finale
 
@@ -173,15 +255,6 @@ def conclusion():
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
-
-
-
-@bp.route('/product/<name>')
-@login_required
-def product(name):
-    product = Product.query.filter_by(name = name).first()
-    form = PurchaseForm()
-    return render_template('main/product_detail.html', product = product, form = form, reco_list = g.reco_list)
 
 @bp.route('/cart')
 @login_required
@@ -192,6 +265,18 @@ def cart():
     cart_products = db.session.scalars(query).all()
     print(cart_products)
     return render_template('main/cart.html', cart_products=cart_products, form1=form1, form2=form2)
+
+
+
+
+
+
+@bp.route('/product/<name>')
+@login_required
+def product(name):
+    product = Product.query.filter_by(name = name).first()
+    form = PurchaseForm()
+    return render_template('main/product_detail.html', product = product, form = form, reco_list = g.reco_list)
 
 @bp.route('/purchase/<name>', methods=['POST'])
 @login_required

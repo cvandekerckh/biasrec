@@ -2,6 +2,19 @@
 
 {% block navbar %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <nav class="navbar navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <p class = "plabel"><b>UCLMovies</b></p></a>
+            </div>
+        </div>
+    </nav>
     <style>
         .large-text {
             font-size: 20px; 
@@ -16,20 +29,20 @@
         <form id="demographicForm" action="/recommendation2" method="post" onsubmit="return validateForm()">
             <h3 style="margin-left: 50px;"><label for="gender" class="bold-label">What is your gender ?</label></h3>
             <select id="gender" name="gender" class="large-text" style="margin-left: 50px;">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
             </select><br><br>
 
             <h3 style="margin-left: 50px;"><label for="age" class="bold-label">How old are you ?</label></h3>
             <select id="age" name="age" class="large-text" style="margin-left: 50px;">
-                <option value="under_18">Under 18</option>
-                <option value="18_24">18-24</option>
-                <option value="25_34">25-34</option>
-                <option value="35_44">35-44</option>
-                <option value="45_54">45-54</option>
-                <option value="55_64">55-64</option>
-                <option value="65_over">65 and over</option>
+                <option value="Under 18">Under 18</option>
+                <option value="18-24">18-24</option>
+                <option value="25-34">25-34</option>
+                <option value="35-44">35-44</option>
+                <option value="45-54">45-54</option>
+                <option value="55-64">55-64</option>
+                <option value="65-over">65 and over</option>
             </select><br><br>
             
             <h3 style="margin-left: 50px;"><label for="nationality" class="bold-label">What is your nationality ?</label></h3>
@@ -37,89 +50,89 @@
 
             <h3 style="margin-left: 50px;"><label for="education" class="bold-label">What is your highest level of education ?</label></h3>
             <select id="education" name="education" class="large-text" style="margin-left: 50px;">
-                <option value="no">No diploma</option>
-                <option value="high school">High school</option>
-                <option value="bachelor">Bachelor's degree</option>
-                <option value="master">Master's degree</option>
-                <option value="doctorate">Doctorate</option>
+                <option value="No diploma">No diploma</option>
+                <option value="High school">High school</option>
+                <option value="Bachelor's degree">Bachelor's degree</option>
+                <option value="Master's degree">Master's degree</option>
+                <option value="Doctorate">Doctorate</option>
             </select><br><br>
 
             <h3 style="margin-left: 50px;"><label for="occupation" class="bold-label">What is your occupational category ?</label></h3>
             <select id="occupation" name="occupation" class="large-text" style="margin-left: 50px;">
-                <option value="full_time">Employed full-time</option>
-                <option value="part_time">Employed part-time</option>
-                <option value="self_employed">Self-employed</option>
-                <option value="unemployed">Unemployed</option>
-                <option value="student">Student</option>
-                <option value="retired">Retired</option>
+                <option value="Full-time">Employed full-time</option>
+                <option value="Part-time">Employed part-time</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Unemployed">Unemployed</option>
+                <option value="Student">Student</option>
+                <option value="Retired">Retired</option>
             </select><br><br>
 
             <h3 style="margin-left: 50px;"><label for="movie-watching habits" class="bold-label">How would you rate your movie-watching habits ?</label></h3>
             <select id="movie-watching habits" name="movie-watching habits" class="large-text" style="margin-left: 50px;">
-                <option value="lover">I am a movie lover.</option>
-                <option value="lot">Compared to my peers I watch a lot of movies.</option>
-                <option value="expert">Compared to my peers I am an expert on movies.</option>
-                <option value="few">I only know a few movies.</option>
+                <option value="I am a movie lover.">I am a movie lover.</option>
+                <option value="Compared to my peers I watch a lot of movies.">Compared to my peers I watch a lot of movies.</option>
+                <option value="Compared to my peers I am an expert on movies.">Compared to my peers I am an expert on movies.</option>
+                <option value="I only know a few movies.">I only know a few movies.</option>
             </select><br><br>
 
             <h3 style="margin-left: 50px;"><label for="movies_per_month" class="bold-label">What is your average number of movies streamed per month ?</label></h3>
             <select id="movies_per_month" name="movies_per_month" class="large-text" style="margin-left: 50px;">
-                <option value="less_than_5">Less than 5</option>
-                <option value="5_10">5-10</option>
-                <option value="11_15">11-15</option>
-                <option value="16_20">16-20</option>
-                <option value="more_than_20">More than 20</option>
+                <option value="Less than 5">Less than 5</option>
+                <option value="5-10">5-10</option>
+                <option value="11-15">11-15</option>
+                <option value="16-20">16-20</option>
+                <option value="More than 20">More than 20</option>
             </select><br><br>
 
             <h3 style="margin-left: 50px;"><label for="preferred_genres" class="bold-label">What are your preferred movie genres ?</label></h3>
-                    <input type="checkbox" id="drama" name="preferred_genres[]" value="drama" style="margin-left: 50px;">
+                    <input type="checkbox" id="drama" name="preferred_genres[]" value="Drama" style="margin-left: 50px;">
                     <label for="drama" class="large-text" style="margin-left: 20px;">Drama</label><br>
-                    <input type="checkbox" id="comedy" name="preferred_genres[]" value="comedy" style="margin-left: 50px;">
+                    <input type="checkbox" id="comedy" name="preferred_genres[]" value="Comedy" style="margin-left: 50px;">
                     <label for="comedy" class="large-text" style="margin-left: 20px;">Comedy</label><br>
-                    <input type="checkbox" id="action" name="preferred_genres[]" value="action" style="margin-left: 50px;">
+                    <input type="checkbox" id="action" name="preferred_genres[]" value="Action" style="margin-left: 50px;">
                     <label for="action" class="large-text" style="margin-left: 20px;">Action</label><br>
-                    <input type="checkbox" id="crime" name="preferred_genres[]" value="crime" style="margin-left: 50px;">
+                    <input type="checkbox" id="crime" name="preferred_genres[]" value="Crime" style="margin-left: 50px;">
                     <label for="crime" class="large-text" style="margin-left: 20px;">Crime</label><br>
-                    <input type="checkbox" id="adventure" name="preferred_genres[]" value="adventure" style="margin-left: 50px;">
+                    <input type="checkbox" id="adventure" name="preferred_genres[]" value="Adventure" style="margin-left: 50px;">
                     <label for="adventure" class="large-text" style="margin-left: 20px;">Adventure</label><br>
-                    <input type="checkbox" id="romance" name="preferred_genres[]" value="romance" style="margin-left: 50px;">
+                    <input type="checkbox" id="romance" name="preferred_genres[]" value="Romance" style="margin-left: 50px;">
                     <label for="romance" class="large-text" style="margin-left: 20px;">Romance</label><br>
-                    <input type="checkbox" id="thriller" name="preferred_genres[]" value="thriller" style="margin-left: 50px;">
+                    <input type="checkbox" id="thriller" name="preferred_genres[]" value="Thriller" style="margin-left: 50px;">
                     <label for="thriller" class="large-text" style="margin-left: 20px;">Thriller</label><br>
-                    <input type="checkbox" id="horror" name="preferred_genres[]" value="horror" style="margin-left: 50px;">
+                    <input type="checkbox" id="horror" name="preferred_genres[]" value="Horror" style="margin-left: 50px;">
                     <label for="horror" class="large-text" style="margin-left: 20px;">Horror</label><br>
                     <input type="checkbox" id="Sci-Fi" name="preferred_genres[]" value="Sci-Fi" style="margin-left: 50px;">
                     <label for="Sci-Fi" class="large-text" style="margin-left: 20px;">Science fiction</label><br>
-                    <input type="checkbox" id="animation" name="preferred_genres[]" value="animation" style="margin-left: 50px;">
+                    <input type="checkbox" id="animation" name="preferred_genres[]" value="Animation" style="margin-left: 50px;">
                     <label for="animation" class="large-text" style="margin-left: 20px;">Animation</label><br>
-                    <input type="checkbox" id="fantasy" name="preferred_genres[]" value="fantasy" style="margin-left: 50px;">
+                    <input type="checkbox" id="fantasy" name="preferred_genres[]" value="Fantasy" style="margin-left: 50px;">
                     <label for="fantasy" class="large-text" style="margin-left: 20px;">Fantasy</label><br>
             
             <br>
             <h3 style="margin-left: 50px;"><label for="heard_of_rs" class="bold-label">Have you ever heard of the concept of a Recommender System in the context of online platforms such as Netflix, Amazon, or Spotify ?</label></h3>
             <select id="heard_of_rs" name="heard_of_rs" class="large-text" style="margin-left: 50px;">
-                <option value="yes">Yes, I have heard of it.</option>
-                <option value="no">No, I haven't heard of it.</option>
+                <option value="Yes">Yes, I have heard of it.</option>
+                <option value="No">No, I haven't heard of it.</option>
             </select><br><br>
     
             <h3 style="margin-left: 50px;"><label for="aware_of_rs" class="bold-label">Are you aware that the suggestions for movies, products, or music on these platforms are generated by Recommender System algorithms ?</label></h3>
             <select id="aware_of_rs" name="aware_of_rs" class="large-text" style="margin-left: 50px;">
-                <option value="yes">Yes, I'm aware of that.</option>
-                <option value="no">No, I wasn't aware of that.</option>
+                <option value="Yes">Yes, I'm aware of that.</option>
+                <option value="No">No, I wasn't aware of that.</option>
             </select><br><br>
     
             <h3 style="margin-left: 50px;"><label for="noticed_rs" class="bold-label">In the field of cinema, have you ever noticed personalized recommendations based on your viewing preferences on these platforms ?</label></h3>
             <select id="noticed_rs" name="noticed_rs" class="large-text" style="margin-left: 50px;">
-                <option value="yes">Yes, I've noticed them.</option>
-                <option value="no">No, I haven't noticed them.</option>
+                <option value="Yes">Yes, I've noticed them.</option>
+                <option value="No">No, I haven't noticed them.</option>
             </select><br><br>
     
             <h3 style="margin-left: 50px;"><label for="follow_recommendations" class="bold-label">To what extent do you follow the recommendations provided by these Recommender Systems ?</label></h3>
             <select id="follow_recommendations" name="follow_recommendations" class="large-text" style="margin-left: 50px;">
-                <option value="closely">I follow them closely.</option>
-                <option value="occasionally">I follow them occasionally.</option>
-                <option value="rarely">I rarely follow them.</option>
-                <option value="never">I never follow them.</option>
+                <option value="I follow them closely.">I follow them closely.</option>
+                <option value="I follow them occasionally.">I follow them occasionally.</option>
+                <option value="I rarely follow them.">I rarely follow them.</option>
+                <option value="I never follow them.">I never follow them.</option>
             </select><br>
             <br><br>
             <h3 style="color: rgb(89, 108, 71); text-align: right;"><b>Please submit your answers by clicking on this button :</b></h3>
