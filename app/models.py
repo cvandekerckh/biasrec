@@ -110,7 +110,7 @@ class User(UserMixin, db.Model):
 # Product table
 class Product(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
     feature_1: so.Mapped[str] = so.mapped_column(sa.String(64))
     feature_2: so.Mapped[str] = so.mapped_column(sa.String(64))
     feature_3: so.Mapped[str] = so.mapped_column(sa.String(64))
