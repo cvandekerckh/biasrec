@@ -127,6 +127,10 @@ and wait 24H
 https://cloud.google.com/dns/docs/tutorials/create-domain-tutorial
 section : Set up your domain using Cloud DNS
 
+# Promote to static IP (allowing to restart machine)
+Go to VPC Networks on GCP, Check the external IP address. 
+Three little dots : promote to static IP
+
 # Certificate
 https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https
 Using "Real" Certificates
@@ -136,10 +140,21 @@ Instead:
 https://certbot.eff.org/instructions
 lsb_release -a to know your version of debian
 
+when running "sudo certbot -- nginx" : I got the following error : 
+Could not automatically find a matching server block for uclouvain-experiment.com. Set the `server_name` directive to use the Nginx installer.
 
+first, locate the certificates : /etc/letsencrypt/live/uclouvain-experiment.com/
 
-- éventuellement, avoir un nom de domaine (bonus) : the-clothes-recommendes-system.be
+then change the nginx config : 
+sudo vim /etc/nginx/sites-available/microblog
+and add in the first part (80):
 
-- temps réel (lenteur, test)
+    server_name uclouvain-experiment.com;
+    location ~ /.well-known {
+            root /etc/letsencrypt/live/uclouvain-experiment.com/;
+    }
+then reload nginx : sudo systemctl reload nginx
+
+$ sudo certbot certonly --webroot -w /etc/letsencrypt/live/uclouvain-experiment.com/ -d uclouvain-experiment.com
 
 
