@@ -117,7 +117,7 @@ class Product(db.Model):
     feature_4: so.Mapped[str] = so.mapped_column(sa.String(64))
     price: so.Mapped[str] = so.mapped_column(sa.String(64))
     image: so.Mapped[str] = so.mapped_column(sa.String(64))
-    nutri_score: so.Mapped[str] = so.mapped_column(sa.String(64))
+    nutri_score: so.Mapped[str] = so.mapped_column(sa.String(600))
 
     buyers: so.WriteOnlyMapped['User'] = so.relationship(
         secondary=purchases,
