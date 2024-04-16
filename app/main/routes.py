@@ -178,7 +178,7 @@ def recommendation2():
     # Récupérer les informations sur les films recommandés depuis le fichier products.csv
     products_file = Cf.DATA_PATH / 'products.csv'
     recommended_movies = []
-    with open(products_file, 'r', newline='', encoding='utf-8') as csvfile:
+    with open(products_file, 'r', newline='', encoding='ISO-8859-1') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';')
         for row in reader:
             if row['id'] in recom_list:
@@ -254,7 +254,7 @@ def conclusion():
 @bp.route('/logout', methods=['POST'])
 def logout():
     logout_user()
-    return redirect(url_for('auth.login'))
+    return redirect("https://app.prolific.com/submissions/complete?cc=C10KMVNI")
 
 @bp.route('/cart')
 @login_required

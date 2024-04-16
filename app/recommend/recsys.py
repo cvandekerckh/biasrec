@@ -58,7 +58,7 @@ def MMR(user_id, diversity_factor, num_recommandations, predictions):
     #print(user_estimations)
     
     #Lire la matrice de similarité à partir du fichier CSV
-    similarity_file = Cf.DATA_PATH / 'cosine_similarity_matrix_finale.xls'
+    similarity_file = Cf.DATA_PATH / 'cosine_similarity_matrix_finale.csv'
     matrice_sim = pd.read_csv(similarity_file)
     matrice_sim.index = matrice_sim.columns
     #print(matrice_sim)
