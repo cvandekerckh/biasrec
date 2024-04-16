@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 from app import create_app
 from flask import current_app
-from app.models import User, Product
+from app.models import User, Product, Rating
 from app import db
 from config import Config as Cf
 from sqlalchemy import inspect
@@ -12,6 +12,7 @@ app = create_app()
 
 USER_FILENAME = 'users.csv'
 PRODUCT_FILENAME = 'products.csv'
+RATING_FILEMAME = 'ratings.csv'
 ASSIGNMENTS_FILENAME = 'assignments.csv'
 
 def delete_entries_from_db(db_name):
@@ -20,8 +21,8 @@ def delete_entries_from_db(db_name):
         db.session.delete(entry)
     db.session.commit()
 
-def populate_db(db_name, csv_file):
-    df = pd.read_csv(csv_file, delimiter=';', encoding='latin1')
+def populate_db(db_name, csv_file, delimiter = ';'):
+    df = pd.read_csv(csv_file, delimiter=delimiter, encoding='latin1')
     for record in df.to_dict("records"):
         new_entry = db_name(**record)
         db.session.add(new_entry)
@@ -43,6 +44,11 @@ def populate_users():
 
 def populate_products():
     populate_db(Product, Cf.DATA_PATH / PRODUCT_FILENAME)
+
+
+def populate_ratings():
+    populate_db(Rating,Cf.DATA_PATH / RATING_FILEMAME, delimiter=',')
+
 
 def drop_tables_in_order(table_names, foreign_keys, engine):
     # Function to perform topological sort
@@ -104,4 +110,5 @@ def reload_databases():
         db.create_all()
         populate_products()
         populate_users()
+        populate_ratings()
         print('reloaded databases with success !')
