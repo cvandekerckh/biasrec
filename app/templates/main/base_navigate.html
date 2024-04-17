@@ -6,7 +6,7 @@
 
 {% block navbar %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-    <nav class="navbar navbar-custom">
+    <nav class = "firstnavbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -19,12 +19,20 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.recommendation') }}"><p class = "pnavbut">Home</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='sandw') }}"><p class = "pnavbut">Sandwiches</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='salade') }}"><p class = "pnavbut">Salads</p></a></li>
+                    <li><a href="{{ url_for('main.recommendation') }}"><p class = "pnavbut"> <b> Recommendations</b></p></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url_for('main.cart') }}"><p class = "pnavbut">Cart</p></a></li>
+                    <li><a href="{{ url_for('main.cart') }}"><p class = "pnavbut"> <b>Cart</b></p></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="secondnavbar">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('main.product_category', category_name='sandw') }}"><p class = "secondnavbut">Sandwiches</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='salade') }}"><p class = "secondnavbut">Salads</p></a></li>
                 </ul>
             </div>
         </div>

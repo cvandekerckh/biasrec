@@ -1,16 +1,16 @@
 .plabel {
-    color:rgb(249, 250, 248);
+    color:rgb(64, 65, 63);
     font-size: 25px
   }
 .pnavbut {
-  color: rgb(249, 250, 248);
+  color: rgb(64, 65, 63);
   font-size: 20px
 }
 .navbar-custom {
-    background-color: rgb(142, 202, 132);
+    background-color: rgb(171, 37, 41);
 }
 body{ 
-  background-color: rgb(240, 252, 239);
+  background-color: rgb(237, 245, 213);
   border-radius: 30px;
 }
 .button{
@@ -28,5 +28,23 @@ body{
 }
 .titlecolor {
   color:rgb(89, 108, 71)
+}
+
+.firstnavbar { 
+  background-color:rgb(255, 255, 255)
+}
+
+.secondnavbar { 
+  background-color:rgb(66, 62, 62)
+}
+
+.secondnavbut {
+  color: rgb(245, 247, 243);
+  font-size: 20px
+}
+
+.recommendations {
+  background-color:rgb(255, 255, 255);
+  border-radius: 30px;
 }
 
