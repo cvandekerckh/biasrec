@@ -33,3 +33,8 @@ exportation-csv:
 
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"
+
+send-to-vm:
+	gcloud compute scp app/static/data/test-recommender/cosine_similarity_matrix_finale.xls biasrecv2:biasrec/app/static/data/test-recommender
+	gcloud compute scp app/static/img/* biasrecv2:biasrec/app/static/img
+	gcloud compute scp app/static/data/test-recommender/recom.csv biasrecv2:biasrec/app/static/data/test-recommender/recom.csv
