@@ -1,5 +1,6 @@
 from collections import defaultdict
 from surprise import SVD
+from surprise import KNNWithMeans
 import math
 import random as rd
 import pandas as pd
@@ -39,6 +40,12 @@ class SVD100(SVD):
         SVD.__init__(self, n_factors=50, n_epochs=50, reg_all=0.1, random_state=1)
 
 
+class ItemBased(KNNWithMeans):
+    def __init__(self):
+        KNNWithMeans.__init__(self, k=10, min_k=9, sim_option = {'name': 'cosine', 'min_support': 10, 'user_based': False})
+
+
+
 def MMR(user_id, diversity_factor, num_recommandations, predictions):
     #Scores de prédiction pour tous les articles
     #predictions = model.predict_anti_testset()    #anti_testset = items not rated
@@ -48,7 +55,7 @@ def MMR(user_id, diversity_factor, num_recommandations, predictions):
         u_id = prediction.uid
         item_id = prediction.iid
         if u_id == user_id :
-            if item_id not in [1080,260,1387,1380,1214,1196,1258,858,1210,616,344,2571,593,356,480,780,253,318,595,1,4973,4993,4226,7361,3793,4896,8874,4878,6539,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] :
+            if item_id not in [1080,260,1387,1380,1214,1136,1258,858,1073,616,344,2571,593,356,480,780,253,318,595,1,4973,4993,4226,7361,3793,4896,8874,4878,6539,4306,88163,79132,91529,97921,84152,109487,83134,99114,98809,76093] :
                 items.append(item_id)
                 user_estimations[item_id] = prediction.est
     items = set(items)
@@ -91,4 +98,5 @@ class LatentFactorModel(SVD):
 model = {
   'svd100'  : SVD100,
   'LatentFactorModel' : LatentFactorModel,
+  'item_based'  : ItemBased,
 }
