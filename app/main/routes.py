@@ -254,7 +254,7 @@ def conclusion():
 @bp.route('/logout', methods=['POST'])
 def logout():
     logout_user()
-    return redirect("https://app.prolific.com/submissions/complete?cc=C10KMVNI")
+    return redirect("https://app.prolific.com/submissions/complete?cc=C4ZWO20R")
 
 @bp.route('/cart')
 @login_required
