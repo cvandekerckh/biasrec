@@ -1,33 +1,56 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <table class="table table-hover">
-        <tr>
-            <td ALIGN="CENTER", style="float:left;width:50%;">
-                <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="256px" width="300px">
-                <br>
-                <br>
-                <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="70px" width="100px">
-            </td>
-            <td style="float:left;width:50%;">
-                <h1 class = "titlecolor"><b>{{ product.name}}</b></h1>
-                <h2> {{ product.price}}</h2>
-                <p> <b> Composition : </b>
-                    <ul>
-                        <li>{{ product.feature_1}}</li>
-                        <li>{{ product.feature_2}}</li>
-                        <li>{{ product.feature_3}}</li>
-                    </ul>
-                </p>
-                <a>
-                    <form action="{{ url_for('main.purchase', name= product.name) }}" method="post">
-                        {{ form.hidden_tag() }}
-                        <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
-                    </form>
-                </a>
-            </td>
-        </tr>
-    </table>
+    <br>
+    <br>
+    <div class ="recommendations">
+        <table class= "table table-borderless">
+            <tr>
+                <td ALIGN="CENTER", style="float:left;width:40%;">
+                    <br>
+                    <br>
+                    <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="200px">
+                    <br>
+                    <br>
+                    <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="50px">
+                </td>
+                <td ALIGN="CENTER", style="float:left;width:30%;">
+                    <h1 class = "titlecolor"><b>{{ product.name}}</b></h1>
+                    <table class= "table table-borderless">
+                        <tr>
+                            <td>
+                                <h2 class="titlecolor">{{ product.price}}</h2>
+                            </td>
+                            <td ALIGN="CENTER">
+                                <br>
+                                <a>
+                                    <form action="{{ url_for('main.purchase', name= product.name) }}" method="post">
+                                        {{ form.hidden_tag() }}
+                                        <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                                    </form>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Voici une petite description du produit. 
+                                </p>
+                                <p> <b> Composition du produit : </b>
+                                    <ul>
+                                        <li>{{ product.feature_1}}</li>
+                                        <li>{{ product.feature_2}}</li>
+                                        <li>{{ product.feature_3}}</li>
+                                    </ul>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="float:left;width:30%;"></td>
+            </tr>
+        </table>
+    </div>
     <hr>
     <div> 
         {% include 'main/_recommendation.html' %}

@@ -4,14 +4,14 @@
   }
 .pnavbut {
   color: rgb(64, 65, 63);
-  font-size: 20px
+  font-size: 30px
 }
 .navbar-custom {
     background-color: rgb(171, 37, 41);
 }
 body{ 
   background-color: rgb(237, 245, 213);
-  border-radius: 30px;
+  border-radius: 25px;
 }
 .button{
   background-color: rgb(109, 110, 109);
@@ -35,7 +35,8 @@ body{
 }
 
 .secondnavbar { 
-  background-color:rgb(66, 62, 62)
+  background-color:rgb(66, 62, 62);
+  text-align: center;
 }
 
 .secondnavbut {
@@ -46,5 +47,14 @@ body{
 .recommendations {
   background-color:rgb(255, 255, 255);
   border-radius: 30px;
+}
+.identtext {
+  text-indent: 14em ;
+  color: rgb(245, 247, 243);
+  font-size: 25px;
+}
+
+.staridenttext{
+  text-indent: 1em ;
 }
 

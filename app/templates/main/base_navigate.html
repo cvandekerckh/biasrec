@@ -15,14 +15,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('main.recommendation') }}"><p class = "plabel"><b>DELCam</b></p></a>
+                <a class="navbar-brand" href="{{ url_for('main.recommendation') }}"> <img src="{{ url_for('static', filename='img/logo.jpg')}}" height="75px"></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.recommendation') }}"><p class = "pnavbut"> <b> Recommendations</b></p></a></li>
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="{{ url_for('main.recommendation') }}"><h1 class = "pnavbut"> <b>Home</b></h1></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url_for('main.cart') }}"><p class = "pnavbut"> <b>Cart</b></p></a></li>
+                    <li>
+                        <br>
+                        <img src="{{ url_for('static', filename='img/basket.jpg') }}" height="50px">
+                    </li>
+                    <li><a href="{{ url_for('main.cart') }}"><h1 class = "pnavbut"> <b>Cart</b></h1></a></li>
                 </ul>
             </div>
         </div>
@@ -31,6 +35,7 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('main.recommendation') }}"><p class = "secondnavbut"> Recommendations</p></a></li>
                     <li><a href="{{ url_for('main.product_category', category_name='sandw') }}"><p class = "secondnavbut">Sandwiches</p></a></li>
                     <li><a href="{{ url_for('main.product_category', category_name='salade') }}"><p class = "secondnavbut">Salads</p></a></li>
                 </ul>

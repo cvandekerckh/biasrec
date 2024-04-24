@@ -34,6 +34,7 @@ def recommendation():
 @bp.route('/product_category/<category_name>')
 @login_required
 def product_category(category_name):
+    form = PurchaseForm()
     if category_name == "sandw":
         products = Product.query.filter_by(feature_1 = "Sandw")
         category_name_label = "sandwiches"
@@ -49,7 +50,7 @@ def product_category(category_name):
     prev_url = url_for(f'main.product_category', category_name=category_name, page=product_page.prev_num) \
         if product_page.has_prev else None
     return render_template('main/product_category.html', products=product_page.items, category_name_label=category_name_label, next_url=next_url,
-                           prev_url=prev_url)
+                           prev_url=prev_url, form = form)
 
 
 @bp.route('/rate')

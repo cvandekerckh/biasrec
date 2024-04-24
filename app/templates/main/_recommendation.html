@@ -1,9 +1,6 @@
 
-<table class="table table-borderless">
-    <tr>
-        <td ALIGN="CENTER"> <h3 class = "titlecolor"><b> Commencez vos achats en ligne sur notre site ! </b></h3></td>
-    </tr>
-</table>
+<br>
+<br>
 <div class ="recommendations">
     <table class="table table-borderless">
         <tr> 
@@ -21,7 +18,7 @@
                             <p> Petite description du produit</p>
                         </td>
                         <td ALIGN="CENTER" style="float:left;width:50%;">
-                            <img src="{{ url_for('static', filename='nutri_{}.jpg'.format(reco.nutri_score)) }}" height="50px">
+                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="50px">
                         </td>
                     </tr>
                 </table>

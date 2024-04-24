@@ -1,41 +1,66 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <h1 class = "titlecolor"> Liste des {{category_name_label}} : </h1>
+    <h1 class = "titlecolor"> Voici la liste des {{category_name_label}} que nous vous proposons : </h1>
     {% for product in products %}
-    <div>
+    <div class ="recommendations">
         <p>
-            <table class="table table-hover">
+            <table class="table table-borderless">
                 <tr>
                     <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
                         <br>
-                        <br>
                         <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="160px">
                     </td>
-                    <td style="float:left;width:40%;">
-                        <h1><b><a class = "titlecolor", href="{{ url_for('main.product', name=product.name) }}">{{product.name}}</a></b></h1> 
-                        <h2> {{product.price}}</h2>
+                    <td ALIGN="CENTER", style="float:left;width:30%;">
+                        <h2><b><a class = "titlecolor", href="{{ url_for('main.product', name=product.name) }}">{{product.name}}</a></b></h2> 
                         <br>
-                        <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="80px">
+                        <table class="table table-borderless">
+                          <tr>
+                              <td style="float:left;width:50%;">
+                                  <h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
+                                  <p> Petite description du produit</p>
+                              </td>
+                              <td ALIGN="CENTER" style="float:left;width:50%;">
+                                  <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="80px">
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                    <td ALIGN="CENTER", style="float:left;width:30%;">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a>
+                            <form action="{{ url_for('main.purchase', name=product.name) }}" method="post">
+                                {{ form.hidden_tag() }}
+                                <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                            </form>
+                        </a>
                     </td>
-                    <td style="float:left;width:20%;"></td>
                 </tr>
             </table>
         </p>
     </div>
     {% endfor %}
-    <nav aria-label="...">
-        <ul class="pager">
-            <li class="previous{% if not prev_url %} disabled{% endif %}">
-                <a href="{{ prev_url or '#' }}">
-                    <span aria-hidden="true">&larr;</span> {{ 'Previous'}}
-                </a>
-            </li>
-            <li class="next{% if not next_url %} disabled{% endif %}">
-                <a href="{{ next_url or '#' }}">
-                    {{ 'Next' }} <span aria-hidden="true">&rarr;</span>
-                </a>
-            </li>
-        </ul>
+    <nav class="pager">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="previous{% if not prev_url %} disabled{% endif %}">
+                        <a  href="{{ prev_url or '#' }}">
+                            <span aria-hidden="true">&larr;</span> {{ 'Previous'}}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="next{% if not next_url %} disabled{% endif %}">
+                        <a href="{{ next_url or '#' }}">
+                            {{ 'Next' }} <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 {% endblock %}
