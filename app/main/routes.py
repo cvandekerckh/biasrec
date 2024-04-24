@@ -222,7 +222,6 @@ def conclusion():
         Q13 = request.form['q13']
         Q14 = request.form['q14']
         Q15 = request.form['q15']
-        Q16 = request.form['q16']
         # Créer une nouvelle instance de Answers_survey1
         new_survey2 = Answers_survey2(
             user_id=current_user.id,
@@ -240,8 +239,7 @@ def conclusion():
             Q12=Q12,
             Q13=Q13,
             Q14=Q14,
-            Q15=Q15,
-            Q16=Q16
+            Q15=Q15
         )
         # Ajouter l'instance à la session de la base de données
         db.session.add(new_survey2)

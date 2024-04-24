@@ -113,8 +113,7 @@ def display_answers_survey2():
                 print(f"Q12 : {d.Q12}")
                 print(f"Q13 : {d.Q13}")
                 print(f"Q14 : {d.Q14}")
-                print(f"Q15 : {d.Q15}")
-                print(f"Q16 : {d.Q16}")"""
+                print(f"Q15 : {d.Q15}")"""
             print() 
 
 def export_data_to_csv():
@@ -122,7 +121,7 @@ def export_data_to_csv():
         data_user_file = Cf.DATA_PATH / 'user_data.csv'
         with open(data_user_file, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=';')
-            writer.writerow(['User ID', 'User Code', 'Diversity Factor', 'Gender', 'Age', 'Nationality', 'Education', 'Occupation', 'Movies Watching Habits', 'Movies per Month', 'Preferred Genres', 'Heard About RS', 'Aware of RS', 'Noticed RS', 'Follow Recommendations', 'Purchases', 'Number of Purchases', 'MMR_score', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16'])
+            writer.writerow(['User ID', 'User Code', 'Diversity Factor', 'Gender', 'Age', 'Nationality', 'Education', 'Occupation', 'Movies Watching Habits', 'Movies per Month', 'Preferred Genres', 'Heard About RS', 'Aware of RS', 'Noticed RS', 'Follow Recommendations', 'Purchases', 'Number of Purchases', 'MMR_score', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15'])
 
             users = User.query.all()
             for user in users:
@@ -209,7 +208,5 @@ def export_data_to_csv():
                     data_list.append(Q14)
                     Q15 = d.Q15
                     data_list.append(Q15)
-                    Q16 = d.Q16
-                    data_list.append(Q16)
             
                 writer.writerow(data_list)

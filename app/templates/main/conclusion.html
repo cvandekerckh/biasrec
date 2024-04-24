@@ -17,9 +17,11 @@
             We would like to express our heartfelt gratitude to you for taking the time to complete our survey. Your participation will contribute significantly to our research efforts. 
             <br><br>
             Rest assured that your responses will be treated with the utmost confidentiality and used solely for analytical purposes.
+            <br><br>
+            To complete this experiment and validate your participation, please click on the logout button below.
         </p>
         <br><br>
-        <h2 style="color: rgb(89, 108, 71); font-size: 80px;">THANK YOU !</h2>
+        <h3 style="color: rgb(89, 108, 71); font-size: 80px;">THANK YOU !</h3>
         <br>
         <form action="{{ url_for('main.logout') }}" method="post">
             {{ logout_form.csrf_token }}

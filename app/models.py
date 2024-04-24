@@ -189,10 +189,9 @@ class Answers_survey2(db.Model):
     Q13: so.Mapped[str] = so.mapped_column(sa.String(64))
     Q14: so.Mapped[str] = so.mapped_column(sa.String(64))
     Q15: so.Mapped[str] = so.mapped_column(sa.String(64))
-    Q16: so.Mapped[str] = so.mapped_column(sa.String(64))
     user: so.Mapped['User'] = so.relationship('User', back_populates='answers_survey2')
 
     def __repr__(self):
-        return '<User user_id={}, Q1={}, Q2={}, Q3={}, Q4={}, Q5={}, Q6={}, Q7={}, Q8={}, Q9={}, Q10={}, Q11={}, Q12={}, Q13={}, Q14={}, Q15={}, Q16={}>'.format(self.user_id, self.Q1, self.Q2, self.Q3, self.Q4, self.Q5, self.Q6, self.Q7, self.Q8, self.Q9, self.Q10, self.Q11, self.Q12, self.Q13, self.Q14, self.Q15, self.Q16)
+        return '<User user_id={}, Q1={}, Q2={}, Q3={}, Q4={}, Q5={}, Q6={}, Q7={}, Q8={}, Q9={}, Q10={}, Q11={}, Q12={}, Q13={}, Q14={}, Q15={}>'.format(self.user_id, self.Q1, self.Q2, self.Q3, self.Q4, self.Q5, self.Q6, self.Q7, self.Q8, self.Q9, self.Q10, self.Q11, self.Q12, self.Q13, self.Q14, self.Q15)
 
     
