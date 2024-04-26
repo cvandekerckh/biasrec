@@ -1,17 +1,17 @@
 .plabel {
-    color:rgb(249, 250, 248);
+    color:rgb(64, 65, 63);
     font-size: 25px
   }
 .pnavbut {
-  color: rgb(249, 250, 248);
-  font-size: 20px
+  color: rgb(64, 65, 63);
+  font-size: 30px
 }
 .navbar-custom {
-    background-color: rgb(142, 202, 132);
+    background-color: rgb(171, 37, 41);
 }
 body{ 
-  background-color: rgb(240, 252, 239);
-  border-radius: 30px;
+  background-color: rgb(237, 245, 213);
+  border-radius: 25px;
 }
 .button{
   background-color: rgb(109, 110, 109);
@@ -28,5 +28,33 @@ body{
 }
 .titlecolor {
   color:rgb(89, 108, 71)
+}
+
+.firstnavbar { 
+  background-color:rgb(255, 255, 255)
+}
+
+.secondnavbar { 
+  background-color:rgb(66, 62, 62);
+  text-align: center;
+}
+
+.secondnavbut {
+  color: rgb(245, 247, 243);
+  font-size: 20px
+}
+
+.recommendations {
+  background-color:rgb(255, 255, 255);
+  border-radius: 30px;
+}
+.identtext {
+  text-indent: 14em ;
+  color: rgb(245, 247, 243);
+  font-size: 25px;
+}
+
+.staridenttext{
+  text-indent: 1em ;
 }
 

@@ -1,20 +1,35 @@
-<h1 class = "titlecolor"><b> Here are the products we recommend to you : </b></h1>
+
 <br>
 <br>
-<table class="table table-hover">
-    <tr>
-    {% for reco in reco_list %}
-        <td ALIGN="CENTER" style="float:left;width:20%;">
-            <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(reco.image)) }}" height="250px">
-            <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3> 
-            <h4 class="titlecolor">{{ reco.price }}</h4>
-            <a>
-                <form action="{{ url_for('main.purchase', name=reco.name) }}" method="post">
-                    {{ form.hidden_tag() }}
-                    <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
-                </form>
-            </a>
-        </td>
-    {% endfor %}
-    </tr>
-</table>
+<div class ="recommendations">
+    <table class="table table-borderless">
+        <tr> 
+            <td ALIGN="CENTER"><h4 class = "pnavbut"> <b>Recommandations pour vous</b></h4> </td>
+        </tr>
+        <tr>
+        {% for reco in reco_list %}
+            <td ALIGN="CENTER" style="float:left;width:33.33%;">
+                <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(reco.image)) }}" height="200px">
+                <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
+                <table class="table table-borderless">
+                    <tr>
+                        <td style="float:left;width:50%;">
+                            <h4 class="titlecolor"> <b>{{ reco.price }}</b></h4>
+                            <p> Petite description du produit</p>
+                        </td>
+                        <td ALIGN="CENTER" style="float:left;width:50%;">
+                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="50px">
+                        </td>
+                    </tr>
+                </table>
+                <a>
+                    <form action="{{ url_for('main.purchase', name=reco.name) }}" method="post">
+                        {{ form.hidden_tag() }}
+                        <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                    </form>
+                </a>
+            </td>
+        {% endfor %}
+        </tr>
+    </table>
+</div>
