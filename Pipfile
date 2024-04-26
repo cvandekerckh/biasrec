@@ -4,21 +4,23 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pandas = "*"
 flask = "*"
 python-dotenv = "*"
 flask-wtf = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
 flask-login = "*"
-werkzeug = "*"
+werkzeug = "==2.3.7"
 flask-bootstrap = "*"
-pymysql = "*"
-cryptography = "*"
 importlib-metadata = "*"
 gunicorn = "*"
+pymysql = "*"
+cryptography = "*"
+pandas = "*"
+surprise = "*"
 
 [dev-packages]
+ipython = "*"
 
 [requires]
 python_version = "3.10"
