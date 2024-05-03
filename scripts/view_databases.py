@@ -121,7 +121,7 @@ def export_data_to_csv():
         data_user_file = Cf.DATA_PATH / 'user_data.csv'
         with open(data_user_file, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=';')
-            writer.writerow(['User ID', 'User Code', 'Diversity Factor', 'Gender', 'Age', 'Nationality', 'Education', 'Occupation', 'Movies Watching Habits', 'Movies per Month', 'Preferred Genres', 'Heard About RS', 'Aware of RS', 'Noticed RS', 'Follow Recommendations', 'Purchases', 'Number of Purchases', 'MMR_score', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15'])
+            writer.writerow(['User ID', 'User Code', 'Diversity Factor', 'Gender', 'Age', 'Nationality', 'Education', 'Occupation', 'Movies Watching Habits', 'Movies per Month', 'Preferred Genres', 'Heard About RS', 'Aware of RS', 'Noticed RS', 'Follow Recommendations', 'Purchases', 'Purchases_id', 'Number of Purchases', 'MMR_score', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15'])
 
             users = User.query.all()
             for user in users:
@@ -168,6 +168,8 @@ def export_data_to_csv():
                 purchases = db.session.scalars(query).all()
                 purchases_names = ', '.join([purchase.name for purchase in purchases])
                 data_list.append(purchases_names)
+                purchases_id = ', '.join([str(purchase.id) for purchase in purchases])
+                data_list.append(purchases_id)
                 #data_list.append(purchases)    
                 number_of_purchases = len(purchases)
                 data_list.append(number_of_purchases)
