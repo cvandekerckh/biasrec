@@ -1,6 +1,9 @@
 assign-conditions:
 	pipenv run python -c "from scripts.assign_conditions import assign_conditions; assign_conditions()"
 
+assign-product-for_rating:
+	pipenv run python -c "from scripts.assign_product_for_rating import assign_product_for_rating; assign_product_for_rating()"
+
 cloud-connect:
 	gcloud compute ssh biasrecv2
 

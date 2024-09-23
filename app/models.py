@@ -98,15 +98,19 @@ class User(UserMixin, db.Model):
 # Product table
 class Product(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
+    name: so.Mapped[str] = so.mapped_column(sa.String(128), index=True,
                                                 unique=True)
-    feature_1: so.Mapped[str] = so.mapped_column(sa.String(64))
-    feature_2: so.Mapped[str] = so.mapped_column(sa.String(64))
-    feature_3: so.Mapped[str] = so.mapped_column(sa.String(64))
-    feature_4: so.Mapped[str] = so.mapped_column(sa.String(64))
+                                            
+    category: so.Mapped[str] = so.mapped_column(sa.String(64))
+    protein: so.Mapped[str] = so.mapped_column(sa.String(128))
+    vegetables: so.Mapped[str] = so.mapped_column(sa.String(600))
+    starch: so.Mapped[str] = so.mapped_column(sa.String(64))
+    dairy_products: so.Mapped[str] = so.mapped_column(sa.String(64))
+    sauce: so.Mapped[str] = so.mapped_column(sa.String(64))
     price: so.Mapped[str] = so.mapped_column(sa.String(64))
-    image: so.Mapped[str] = so.mapped_column(sa.String(64))
     nutri_score: so.Mapped[str] = so.mapped_column(sa.String(64))
+    reference: so.Mapped[str] = so.mapped_column(sa.String(64))
+    real_price: so.Mapped[str] = so.mapped_column(sa.String(64), nullable=True)
 
     buyers: so.WriteOnlyMapped['User'] = so.relationship(
         secondary=purchases,

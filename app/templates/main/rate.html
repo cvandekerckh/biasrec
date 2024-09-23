@@ -9,54 +9,52 @@
     {% for product in products %}
     <div class ="recommendations">
         <p>
-            <table class= "table table-borderless">
-                <tr>
-                    <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
-                        <br>
-                        <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="200px">
-                        <br>
-                        <br>
-                    </td>
-                    <td ALIGN="CENTER", style="float:left;width:30%;">
-                        <h2><b><a class = "titlecolor", href="{{ url_for('main.product', name=product.name) }}">{{product.name}}</a></b></h2> 
-                        <br>
+          <table class="table table-borderless">
+            <tr>
+                <!-- Product Image -->
+                <td width="200px" ALIGN="CENTER" style="float:left;width:40%;">
+                    <br>
+                    <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id))}}" height="200px">
+                    <br><br>
+                </td>
+        
+                <!-- Product Details (Name, Price, Nutri-Score) -->
+                <td ALIGN="LEFT" style="float:left;width:60%;">
+                    <h2><b>{{ product.name }}</b></h2>
+                    <br>
+                    <table class="table table-borderless">
+                        <tr>
+                            <td style="float:left;width:50%;">
+                                <h4 class="titlecolor"><b>{{ product.price }}</b></h4>
+                                <p>Product nutritional content:</p>
+                                <ul>
+                                    <li><b>Proteins:</b> {{ product.protein }}</li>
+                                    <li><b>Vegetables:</b> {{ product.vegetables }}</li>
+                                    <li><b>Starch:</b> {{ product.starch }}</li>
+                                    <li><b>Dairy Products:</b> {{ product.dairy_products }}</li>
+                                    <li><b>Sauce:</b> {{ product.sauce }}</li>
+                                </ul>
+                            </td>
+                            <td ALIGN="CENTER" style="float:left;width:50%;">
+                                <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="80px">
+                            </td>
+                        </tr>
                         <table class="table table-borderless">
                           <tr>
-                              <td style="float:left;width:50%;">
-                                  <h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
-                                  <p> Petite description du produit</p>
-                              </td>
-                              <td ALIGN="CENTER" style="float:left;width:50%;">
-                                  <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="80px">
-                              </td>
+                            <h2 class="titlecolor"><b>Your rating:</b></h2>
                           </tr>
-                        </table>
-                      </td>
-                      <td ALIGN="CENTER", style="float:left;width:30%;" >
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <table class= "table table-borderless">
                           <tr>
-                            <td>
-                              <h2 class = "titlecolor"><b>Your rating : </b></h2> 
-                            </td>
-                            <td>
-                              <br>
                               <div class="rate">
-                                <div class = "staridenttext", id="{{ product.id }}"></div>
+                              <div class="staridenttext" id="{{ product.id }}"></div>
                               </div>
-                            </td>
                           </tr>
-                        </table>
-                      </td>  
-                  </tr>
-              </table>
-          </p>
+                      </table>
+                    </table>
+                </td>
+            </tr>
+        </table>  
+        </p>
       </div>
-      <br>
-      <br>
     {% endfor %}
 
     <br>

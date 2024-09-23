@@ -23,15 +23,15 @@ def delete_entries_from_db(db_name):
         db.session.delete(entry)
     db.session.commit()
 
-def populate_db(db_name, csv_file):
-    df = pd.read_csv(csv_file)
+def populate_db(db_name, csv_file, delimiter=','):
+    df = pd.read_csv(csv_file, delimiter=delimiter)
     for record in df.to_dict("records"):
         new_entry = db_name(**record)
         db.session.add(new_entry)
         db.session.commit()
 
 def assign_products_to_users():
-    df = pd.read_csv(Cf.DATA_PATH_RAW / ASSIGNMENTS_FILENAME)
+    df = pd.read_csv(Cf.DATA_PATH_OUT / ASSIGNMENTS_FILENAME)
     for user_id, product_id in zip(df['user_id'].values, df['product_id'].values):
         user = User.query.get(user_id.item())
         product = Product.query.get(product_id.item())
@@ -45,7 +45,7 @@ def populate_users():
 
 
 def populate_products():
-    populate_db(Product, Cf.DATA_PATH_RAW / PRODUCT_FILENAME)
+    populate_db(Product, Cf.DATA_PATH_RAW / PRODUCT_FILENAME, delimiter=";")
 
 def drop_tables_in_order(table_names, foreign_keys, engine):
     # Function to perform topological sort
