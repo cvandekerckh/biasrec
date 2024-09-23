@@ -1,17 +1,11 @@
 assign-conditions:
 	pipenv run python -c "from scripts.assign_conditions import assign_conditions; assign_conditions()"
 
-build: 
-	docker build -t biasrecdocker .
-
 cloud-connect:
 	gcloud compute ssh biasrecv2
 
 create-model:
 	pipenv run python -c "from scripts.train_recommender_model import create_recommender_model; create_recommender_model()"
-
-develop: 
-	docker run -it -p 80:80 biasrecdocker bash
 
 display-users:
 	pipenv run python -c "from scripts.view_databases import display_users; display_users()"
@@ -30,6 +24,10 @@ display-assignments:
 
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"
+
+start-rate:
+	pipenv run python microapp.py --config=rate
+
 update-deploy:
 	git pull
 	sudo supervisorctl stop microblog
