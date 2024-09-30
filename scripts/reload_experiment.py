@@ -25,6 +25,7 @@ def delete_entries_from_db(db_name):
 
 def populate_db(db_name, csv_file, delimiter=','):
     df = pd.read_csv(csv_file, delimiter=delimiter)
+    df = df.where(pd.notnull(df), None) # MySQL does not accept nans
     for record in df.to_dict("records"):
         new_entry = db_name(**record)
         db.session.add(new_entry)
