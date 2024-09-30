@@ -36,7 +36,7 @@ reload-experiment:
 
 
 delete-experiment:
-	pipenv run python -c "from scripts.reload_experiment import reload_databases; delete_databases()"
+	pipenv run python -c "from scripts.reload_experiment import delete_databases; delete_databases()"
 
 send-to-vm:
 	gcloud compute scp app/static/data/test-recommender/cosine_similarity_matrix_finale.xls biasrecv2:biasrec/app/static/data/test-recommender
