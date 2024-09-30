@@ -157,4 +157,64 @@ then reload nginx : sudo systemctl reload nginx
 
 $ sudo certbot certonly --webroot -w /etc/letsencrypt/live/uclouvain-experiment.com/ -d uclouvain-experiment.com
 
+When renewing certificate, got a 403 issue (forbidden). Solved by adapting the nginx conf file : 
+
+server {
+    # Listen on port 80 (http)
+    listen 80;
+    server_name uclouvain-experiment.com;
+
+    # Handle Let's Encrypt ACME challenges
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        allow all;
+    }
+
+    # Redirect all other traffic to HTTPS
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    # Listen on port 443 (https)
+    listen 443 ssl;
+    server_name uclouvain-experiment.com;
+
+    # Location of the SSL certificate
+    ssl_certificate /etc/letsencrypt/live/uclouvain-experiment.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/uclouvain-experiment.com/privkey.pem;
+
+    # Write access and error logs to /var/log
+    access_log /var/log/microblog_access.log;
+    error_log /var/log/microblog_error.log;
+
+    # Proxy requests to the Gunicorn server
+    location / {
+        proxy_pass http://localhost:8000;
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    # Serve static files directly
+    location /static {
+        alias /home/cvandekerckh/biasrec/app/static;
+        expires 30d;
+    }
+}
+
+restart nginx
+created a var directory with correct access : 
+sudo chown -R www-data:www-data /var/www/certbot
+sudo chmod -R 755 /var/www/certbot
+
+Debug by :
+sudo mkdir -p /var/www/certbot/.well-known/acme-challenge
+echo "test" | sudo tee /var/www/certbot/.well-known/acme-challenge/test-file
+and accessing : http://uclouvain-experiment.com/.well-known/acme-challenge/test-file
+
+
+ and then sudo certbot certonly --webroot -w /var/www/certbot -d uclouvain-experiment.com
 
