@@ -105,3 +105,8 @@ def reload_databases():
         populate_products()
         populate_users()
         print('reloaded databases with success !')
+
+def delete_databases():
+    with app.app_context():
+        drop_all_tables()
+        print('deleted databases with success !')
