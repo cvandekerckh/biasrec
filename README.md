@@ -1,4 +1,5 @@
 # Biasrec
+This is the test for the Web Mining course. 
 The following repo implements a web application designed to study of recommender systems in an online setting
 
 # Installation
