@@ -1,7 +1,7 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <h1 class = "titlecolor"> Voici la liste des {{category_name_label}} que nous vous proposons : </h1>
+    <h1 class = "titlecolor" style="text-align: center;"> Discover our delicious selection of available {{category_name_label}} : </h1>
     {% for product in products %}
     <div class ="recommendations">
         <p>
@@ -9,7 +9,7 @@
                 <tr>
                     <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
                         <br>
-                        <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="160px">
+                        <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id))}}"  height="160px">
                     </td>
                     <td ALIGN="CENTER", style="float:left;width:30%;">
                         <h2><b><a class = "titlecolor", href="{{ url_for('main.product', name=product.name) }}">{{product.name}}</a></b></h2> 
@@ -18,7 +18,7 @@
                           <tr>
                               <td style="float:left;width:50%;">
                                   <h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
-                                  <p> Petite description du produit</p>
+                                  <p> {{ product.description }}</p>
                               </td>
                               <td ALIGN="CENTER" style="float:left;width:50%;">
                                   <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="80px">

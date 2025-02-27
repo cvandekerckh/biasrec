@@ -12,8 +12,8 @@ import pickle
 @bp.before_app_request
 def before_request():
     if current_app.config['RECOMMENDATION'] == 'fixed':
-        images = range(1, current_app.config['N_RECOMMENDATIONS']+1)
-        g.reco_list = [Product.query.filter_by(image = str(image)).first() for image in images]
+        ids = range(1, current_app.config['N_RECOMMENDATIONS']+1)
+        g.reco_list = [Product.query.filter_by(id = id).first() for id in ids]
     elif current_app.config['RECOMMENDATION'] == 'trained':
         if current_user.is_authenticated:
             model_file = current_app.config['DATA_PATH_OUT'] / current_app.config['MODEL_FILENAME']
@@ -35,12 +35,8 @@ def recommendation():
 @login_required
 def product_category(category_name):
     form = PurchaseForm()
-    if category_name == "sandw":
-        products = Product.query.filter_by(feature_1 = "Sandw")
-        category_name_label = "sandwiches"
-    elif category_name == "salade":
-        products = Product.query.filter_by(feature_1 = "Salad")
-        category_name_label = "salades"
+    products = Product.query.filter_by(category = category_name)
+    category_name_label = category_name
 
     page = request.args.get('page', 1, type = int)
     product_page = products.paginate(

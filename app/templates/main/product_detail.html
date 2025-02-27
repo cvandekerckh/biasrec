@@ -9,7 +9,7 @@
                 <td ALIGN="CENTER", style="float:left;width:40%;">
                     <br>
                     <br>
-                    <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(product.image))}}"  height="200px">
+                    <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id))}}"  height="200px">
                     <br>
                     <br>
                     <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="50px">
@@ -34,14 +34,7 @@
                         <tr>
                             <td>
                                 <p>
-                                    Voici une petite description du produit. 
-                                </p>
-                                <p> <b> Composition du produit : </b>
-                                    <ul>
-                                        <li>{{ product.feature_1}}</li>
-                                        <li>{{ product.feature_2}}</li>
-                                        <li>{{ product.feature_3}}</li>
-                                    </ul>
+                                    {{ product.description }}
                                 </p>
                             </td>
                         </tr>
