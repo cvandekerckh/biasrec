@@ -4,18 +4,18 @@
 <div class ="recommendations">
     <table class="table table-borderless">
         <tr> 
-            <td ALIGN="CENTER"><h4 class = "pnavbut"> <b>Recommandations pour vous</b></h4> </td>
+            <td ALIGN="CENTER"><h4 class = "pnavbut"> <b>Tailored food recommendations just for you!</b></h4> </td>
         </tr>
         <tr>
         {% for reco in reco_list %}
             <td ALIGN="CENTER" style="float:left;width:33.33%;">
-                <img src="{{ url_for('static', filename='img/prod_{}.jpg'.format(reco.image)) }}" height="200px">
+                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(reco.id)) }}" height="200px">
                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
                 <table class="table table-borderless">
                     <tr>
                         <td style="float:left;width:50%;">
                             <h4 class="titlecolor"> <b>{{ reco.price }}</b></h4>
-                            <p> Petite description du produit</p>
+                            <p> {{ reco.description }}</p>
                         </td>
                         <td ALIGN="CENTER" style="float:left;width:50%;">
                             <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="50px">

@@ -123,6 +123,25 @@ class Product(db.Model):
         back_populates='assignments',
     )
 
+    @property
+    def description(self):
+        """Generate a product description based on its ingredients."""
+        components = []
+
+        if self.protein != "No":
+            components.append(f"Protein: {self.protein.lower()}.")
+        if self.vegetables != "No":
+            components.append(f"Vegetables: {self.vegetables.lower()}.")
+        if self.starch != "No":
+            components.append(f"Starch: {self.starch.lower()}.")
+        if self.dairy_products != "No":
+            components.append(f"Dairy: {self.dairy_products.lower()}.")
+        if self.sauce != "No":
+            components.append(f"Sauce: {self.sauce.lower()}.")
+
+        return " ".join(components) if components else "A simple and delicious option!"
+
+
     def __repr__(self):
         return '<Product {}>'.format(self.name)
 
