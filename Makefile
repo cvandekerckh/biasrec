@@ -28,6 +28,9 @@ display-assignments:
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"
 
+launch-fixedrec:
+	pipenv run python microapp.py --config=fixedrec
+
 start-rate:
 	pipenv run python microapp.py --config=rate
 
