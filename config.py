@@ -17,7 +17,7 @@ class Config(object):
     DATA_PATH_OUT = DATA_PATH / 'out'
     MODEL_NAME='svd100'
     MODEL_FILENAME = 'model.p'
-    N_RECOMMENDATIONS = 3
+    N_RECOMMENDATIONS = 5
 
 class RateConfig(Config):
     MAIN_PAGE='main.rate'
@@ -28,8 +28,8 @@ class FixedRecommendationConfig(Config):
     RECOMMENDATION='fixed'
 
 class TrainedRecommendationConfig(Config):
-    MAIN_PAGE='main.recommendation' 
-    RECOMMENDATION='trained' 
+    MAIN_PAGE='main.recommendation'
+    RECOMMENDATION='trained'
 
 
 configs = {
