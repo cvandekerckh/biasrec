@@ -4,6 +4,8 @@ from config import Config as Cf
 
 USER_FILENAME = 'users.csv'
 PRODUCT_FILENAME = 'products.csv'
+PRODUCT_SPLIT_FILENAME = 'products_split.csv'
+
 ASSIGNMENTS_FILENAME = 'assignments.csv'
 
 USER_ID_COLUMN_NAME = 'id'
@@ -13,7 +15,7 @@ N_PRODUCT_PER_CATEGORY = 5
 SEED_VALUE = 42
 rd.seed(SEED_VALUE)
 
-def assign_product_for_rating():
+def assign_random_product_for_rating():
     # get user ids
     df_user = pd.read_csv(Cf.DATA_PATH_RAW / USER_FILENAME)
     user_ids = df_user[USER_ID_COLUMN_NAME].tolist()
@@ -37,3 +39,19 @@ def assign_product_for_rating():
     df_assignments = pd.DataFrame(assignments, columns=['user_id', 'product_id'])
 
     df_assignments.to_csv(Cf.DATA_PATH_OUT / ASSIGNMENTS_FILENAME, index=False)
+
+def assign_proportion_based_product_for_rating():
+     # get user ids
+    df_user = pd.read_csv(Cf.DATA_PATH_RAW / USER_FILENAME)
+    user_ids = df_user[USER_ID_COLUMN_NAME].tolist()
+
+    # get products belonging to phase 1
+    df_product_split = pd.read_csv(Cf.DATA_PATH_OUT / PRODUCT_SPLIT_FILENAME, delimiter=';')
+
+    print(df_product_split)
+    # assign product to users
+    phase1_products = df_product_split[df_product_split['split'] == 'phase1']['id'].tolist()
+    df_assignments = pd.DataFrame([(user_id, product) for user_id in user_ids for product in phase1_products], 
+                                   columns=['user_id', 'product_id'])    
+    df_assignments.to_csv(Cf.DATA_PATH_OUT / ASSIGNMENTS_FILENAME, index=False)
+

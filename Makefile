@@ -2,7 +2,7 @@ assign-conditions:
 	pipenv run python -c "from scripts.assign_conditions import assign_conditions; assign_conditions()"
 
 assign-product-for_rating:
-	pipenv run python -c "from scripts.assign_product_for_rating import assign_product_for_rating; assign_product_for_rating()"
+	pipenv run python -c "from scripts.assign_product_for_rating import assign_proportion_based_product_for_rating; assign_proportion_based_product_for_rating()"
 
 cloud-connect:
 	gcloud compute ssh biasrecv2
@@ -24,6 +24,9 @@ display-purchases:
 
 display-assignments:
 	pipenv run python -c "from scripts.view_databases import display_assignments; display_assignments()"
+
+generate-trainset:
+	pipenv run python -c "from scripts.generate_trainset import generate_trainset; generate_trainset()"
 
 reload-experiment:
 	pipenv run python -c "from scripts.reload_experiment import reload_databases; reload_databases()"
