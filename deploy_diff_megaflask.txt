@@ -10,7 +10,12 @@ Two options :
 - create clef ssh
 - gcloud compute ssh biasrecv2
 
----> ssh from web browser : juste cliquer sur le bouton ssh
+if no keys generated yet : 
+gcloud compute ssh myinstance --command="echo connected"
+then redo
+gcloud compute ssh myinstance
+
+(---> ssh from web browser : juste cliquer sur le bouton ssh) -> to avoid
 
 
 Passwordless login
