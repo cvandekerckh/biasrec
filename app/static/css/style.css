@@ -58,3 +58,15 @@ body{
   text-indent: 1em ;
 }
 
+.pager a {
+  font-size: 25px; /* Agrandir le texte */
+  padding: 25px 35px; /* Agrandir le bouton */
+  border-radius: 8px; /* Coins arrondis */
+  background-color: #31a251; /* Bleu Bootstrap */
+  color: rgb(1, 0, 0); /* Texte en blanc */
+  text-decoration: none; /* Enlever le soulignement */
+  display: inline-block; /* Ajustement de l'affichage */
+}
+.pager a:hover {
+  background-color: #28b52d; /* Bleu foncé au survol */
+}
