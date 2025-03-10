@@ -1,7 +1,7 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <h1 class = "titlecolor" style="text-align: center;"> Discover our delicious selection of available {{category_name_label}} : </h1>
+    <h1 class = "titlecolor" style="text-align: center;"> <b>Discover our delicious selection of available {{category_name_label}} :</b> </h1>
         <div class ="recommendations">
                 <table class="table table-borderless">
                     <tr>
@@ -9,17 +9,26 @@
                             {% if loop.index0 % 3 == 0 and not loop.first %}
                                 </tr><tr>  <!-- Nouvelle ligne après 3 produits -->
                             {% endif %}
-                            <td ALIGN="CENTER" style="width:33%;">
-                                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id)) }}" height="200px">
+                            <td ALIGN="CENTER" style="width:33.33%;">
+                                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id)) }}" height="250px">
                                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=product.name) }}">{{ product.name }}</a></b></h3>
                                 <table class="table table-borderless">
                                     <tr>
-                                        <td style="width:50%;">
-                                            <h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
-                                            <p> {{ product.description }}</p>
+                                        <td style="float:left;width:70%;">
+                                            <h3 class="titlecolor"> <b>{{ product.price }}</b></h3>
+                                            <br>
+                                            <h4 class="titlecolor"> <b>Protein:</b> {{ product.protein }}</h4>
+                                            <h4 class="titlecolor"> <b>Vegetables:</b> {{ product.vegetables }}</h4>
+                                            <h4 class="titlecolor"> <b>Starch:</b> {{ product.starch }}</h4>
+                                            <h4 class="titlecolor"> <b>Dairy products:</b> {{ product.dairy_products }}</h4>
+                                            <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
                                         </td>
-                                        <td ALIGN="CENTER" style="float:left;width:50%;">
-                                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="50px">
+                                        <td ALIGN="CENTER" style="float:left;width:30%;">
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="70px">
                                         </td>
                                     </tr>
                                 </table>
