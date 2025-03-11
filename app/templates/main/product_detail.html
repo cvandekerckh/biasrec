@@ -6,22 +6,32 @@
     <div class ="recommendations">
         <table class= "table table-borderless">
             <tr>
-                <td ALIGN="CENTER", style="float:left;width:40%;">
-                    <br>
-                    <br>
-                    <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id))}}"  height="200px">
-                    <br>
-                    <br>
-                    <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="50px">
-                </td>
                 <td ALIGN="CENTER", style="float:left;width:30%;">
+                    <br>
+                    <br>
+                    <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id))}}"  height="300px">
+                    <br>
+                    <br>
+                    <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score))}}"  height="70px">
+                </td>
+                <td ALIGN="CENTER", style="float:left;width:50%;">
                     <h1 class = "titlecolor"><b>{{ product.name}}</b></h1>
                     <table class= "table table-borderless">
                         <tr>
                             <td>
-                                <h2 class="titlecolor">{{ product.price}}</h2>
+                                <h2 class="titlecolor"><b>{{ product.price}}</b></h2>
+                                <br>
+                                <h4 class="titlecolor"> <b>Protein:</b> {{ product.protein }}</h4>
+                                <h4 class="titlecolor"> <b>Vegetables:</b> {{ product.vegetables }}</h4>
+                                <h4 class="titlecolor"> <b>Starch:</b> {{ product.starch }}</h4>
+                                <h4 class="titlecolor"> <b>Dairy products:</b> {{ product.dairy_products }}</h4>
+                                <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
                             </td>
-                            <td ALIGN="CENTER">
+                            <td ALIGN="CENTER", style="float:left;width:30%;">
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                                 <br>
                                 <a>
                                     <form action="{{ url_for('main.purchase', name= product.name) }}" method="post">
@@ -31,16 +41,9 @@
                                 </a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <p>
-                                    {{ product.description }}
-                                </p>
-                            </td>
-                        </tr>
                     </table>
                 </td>
-                <td style="float:left;width:30%;"></td>
+                <td style="float:left;width:20%;"></td>
             </tr>
         </table>
     </div>

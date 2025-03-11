@@ -9,16 +9,24 @@
         <tr>
         {% for reco in reco_list %}
             <td ALIGN="CENTER" style="float:left;width:20%;">
-                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(reco.id)) }}" height="200px">
+                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(reco.id)) }}" height="250px">
                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
                 <table class="table table-borderless">
                     <tr>
                         <td style="float:left;width:50%;">
-                            <h4 class="titlecolor"> <b>{{ reco.price }}</b></h4>
-                            <p> {{ reco.description }}</p>
+                            <h3 class="titlecolor"> <b>{{ reco.price }}</b></h3>
                         </td>
                         <td ALIGN="CENTER" style="float:left;width:50%;">
-                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="50px">
+                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="60px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="titlecolor"> <b>Protein:</b> {{ reco.protein }}</h5>
+                            <h5 class="titlecolor"> <b>Vegetables:</b> {{ reco.vegetables }}</h5>
+                            <h5 class="titlecolor"> <b>Starch:</b> {{ reco.starch }}</h5>
+                            <h5 class="titlecolor"> <b>Dairy products:</b> {{ reco.dairy_products }}</h5>
+                            <h5 class="titlecolor"> <b>Sauce:</b> {{ reco.sauce }}</h5>
                         </td>
                     </tr>
                 </table>
