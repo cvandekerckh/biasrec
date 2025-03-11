@@ -10,10 +10,8 @@ from sqlalchemy.exc import NoSuchTableError
 
 app = create_app()
 
-# OUT
-USER_FILENAME = 'users_conditions.csv'
-
 # RAW
+USER_FILENAME = 'users.csv'
 PRODUCT_FILENAME = 'products.csv'
 ASSIGNMENTS_FILENAME = 'assignments.csv'
 
@@ -41,7 +39,7 @@ def assign_products_to_users():
             db.session.commit()
 
 def populate_users():
-    populate_db(User, Cf.DATA_PATH_OUT / USER_FILENAME)
+    populate_db(User, Cf.DATA_PATH_RAW / USER_FILENAME)
     assign_products_to_users()
 
 

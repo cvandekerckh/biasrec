@@ -34,7 +34,7 @@ class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     code: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
                                                 unique=True)
-    condition_id: so.Mapped[int] = so.mapped_column(sa.Integer)
+    condition_id: so.Mapped[int] = so.mapped_column(sa.Integer, nullable=True)
     purchases: so.WriteOnlyMapped['Product'] = so.relationship(
         secondary=purchases,
         back_populates='buyers',
@@ -51,7 +51,7 @@ class User(UserMixin, db.Model):
     )
 
     def __repr__(self): #Pour print les objets de cette classe 
-        return '<User {}>'.format(self.code)
+        return f'<User id {self.id} (code : {self.code} - condition id : {self.condition_id}'
 
     def has_bought(self, product):
         query = self.purchases.select().where(Product.id == product.id)

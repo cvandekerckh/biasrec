@@ -15,7 +15,6 @@ def display_users():
         users = User.query.all()
         for user in users:
             print(user)
-            print(user.id)
 
 def display_ratings():
     with app.app_context():

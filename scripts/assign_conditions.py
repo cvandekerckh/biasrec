@@ -1,3 +1,5 @@
+# Obsolete : conditions will be allocated dynamically
+
 import random as rd 
 import pandas as pd
 from config import Config as Cf
@@ -5,7 +7,6 @@ from config import Config as Cf
 CONDITION_FILENAME = 'conditions.csv'
 USER_FILENAME = 'users.csv'
 USER_CONDITION_FILENAME = 'users_conditions.csv'
-USER_CONDITION_DETAILED_FILENAME = 'users_conditions_detailed.csv'
 
 
 def between_subject_experiment(user_list, condition_list):
