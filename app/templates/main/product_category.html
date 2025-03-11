@@ -1,62 +1,62 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <h1 class = "titlecolor" style="text-align: center;"> Discover our delicious selection of available {{category_name_label}} : </h1>
-    {% for product in products %}
-    <div class ="recommendations">
-        <p>
-            <table class="table table-borderless">
-                <tr>
-                    <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
-                        <br>
-                        <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id))}}"  height="160px">
-                    </td>
-                    <td ALIGN="CENTER", style="float:left;width:30%;">
-                        <h2><b><a class = "titlecolor", href="{{ url_for('main.product', name=product.name) }}">{{product.name}}</a></b></h2> 
-                        <br>
-                        <table class="table table-borderless">
-                          <tr>
-                              <td style="float:left;width:50%;">
-                                  <h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
-                                  <p> {{ product.description }}</p>
-                              </td>
-                              <td ALIGN="CENTER" style="float:left;width:50%;">
-                                  <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="80px">
-                              </td>
-                          </tr>
-                        </table>
-                      </td>
-                    <td ALIGN="CENTER", style="float:left;width:30%;">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <a>
-                            <form action="{{ url_for('main.purchase', name=product.name) }}" method="post">
-                                {{ form.hidden_tag() }}
-                                <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
-                            </form>
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </p>
-    </div>
-    {% endfor %}
+    <h1 class = "titlecolor" style="text-align: center;"> <b>Discover our delicious selection of available {{category_name_label}} :</b> </h1>
+        <div class ="recommendations">
+                <table class="table table-borderless">
+                    <tr>
+                        {% for product in products %}
+                            {% if loop.index0 % 3 == 0 and not loop.first %}
+                                </tr><tr>  <!-- Nouvelle ligne après 3 produits -->
+                            {% endif %}
+                            <td ALIGN="CENTER" style="width:33.33%;">
+                                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id)) }}" height="250px">
+                                <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=product.name) }}">{{ product.name }}</a></b></h3>
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td style="float:left;width:70%;">
+                                            <h3 class="titlecolor"> <b>{{ product.price }}</b></h3>
+                                            <br>
+                                            <h4 class="titlecolor"> <b>Protein:</b> {{ product.protein }}</h4>
+                                            <h4 class="titlecolor"> <b>Vegetables:</b> {{ product.vegetables }}</h4>
+                                            <h4 class="titlecolor"> <b>Starch:</b> {{ product.starch }}</h4>
+                                            <h4 class="titlecolor"> <b>Dairy products:</b> {{ product.dairy_products }}</h4>
+                                            <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
+                                        </td>
+                                        <td ALIGN="CENTER" style="float:left;width:30%;">
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="70px">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <form action="{{ url_for('main.purchase', name=product.name) }}" method="post">
+                                    {{ form.hidden_tag() }}
+                                    <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                                </form>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </table>
+        </div>
+    <br>
+    <br>
     <nav class="pager">
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li class="previous{% if not prev_url %} disabled{% endif %}">
-                        <a  href="{{ prev_url or '#' }}">
-                            <span aria-hidden="true">&larr;</span> {{ 'Previous'}}
+                        <a href="{{ prev_url or '#' }}" class="pager-button">
+                            <span aria-hidden="true">&larr;</span> Previous
                         </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="next{% if not next_url %} disabled{% endif %}">
-                        <a href="{{ next_url or '#' }}">
-                            {{ 'Next' }} <span aria-hidden="true">&rarr;</span>
+                        <a href="{{ next_url or '#' }}" class="pager-button">
+                            Next <span aria-hidden="true">&rarr;</span>
                         </a>
                     </li>
                 </ul>

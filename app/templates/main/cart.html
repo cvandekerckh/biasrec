@@ -1,34 +1,40 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <div ALIGN="CENTER", style="float:left;width:60%;">
-        <h1 class = "titlecolor"><p><b> Mon panier </b> </p></h1>
+    <div ALIGN="CENTER", style="float:left;width:75%;">
+        <h1 class = "titlecolor"><p><b> Shopping cart </b> </p></h1>
         {% for p in cart_products %}
         <p>
             <div class ="recommendations">
                 <table class="table table-hover">
                     <tr>
-                        <td width="200px", ALIGN="CENTER", style="float:left;width:40%;">
+                        <td width="200px", ALIGN="CENTER", style="float:left;width:50%;">
                             <br>
-                            <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(p.id))}}"  height="160px">
+                            <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(p.id))}}"  height="300px">
                             <br>
                             <br>
                             <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(p.nutri_score))}}"  height="60px">
                         </td>
                         <td style="float:left;width:30%;">
-                            <h1><b><a class = "titlecolor", href="{{ url_for('main.product', name=p.name) }}">{{p.name}}</a></b></h1> 
-                            <h3 class = "titlecolor"> {{p.price}}</h3>
+                            <h2><b><a class = "titlecolor", href="{{ url_for('main.product', name=p.name) }}">{{p.name}}</a></b></h2> 
+                            <h3 class = "titlecolor"> <b>{{p.price}}</b></h3>
                             <br>
-                            <p>
-                                Petite discription du produit
-                            </p>
+                            <h4 class="titlecolor"> <b>Protein:</b> {{ p.protein }}</h4>
+                            <h4 class="titlecolor"> <b>Vegetables:</b> {{ p.vegetables }}</h4>
+                            <h4 class="titlecolor"> <b>Starch:</b> {{ p.starch }}</h4>
+                            <h4 class="titlecolor"> <b>Dairy products:</b> {{ p.dairy_products }}</h4>
+                            <h4 class="titlecolor"> <b>Sauce:</b> {{ p.sauce }}</h4>
                         </td>
-                        <td style="float:left;width:30%;">
+                        <td style="float:left;width:20%;">
                             {% if current_user.has_bought(p) %}
                             <br>
                             <br>
                             <br>
                             <br> 
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             <p><form action="{{ url_for('main.unpurchase', name= p.name) }}" method="post">
                                 {{ form1.hidden_tag() }}
                                 <span aria-hidden="true">{{ form1.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg')}}</span>
@@ -42,6 +48,10 @@
         {% endfor %}
     </div>
     <div ALIGN="CENTER", style="float:left;width:25%;">
+        <br>
+        <br>
+        <br>
+        <br>
         <br>
         <br>
         <p><form action="{{ url_for('auth.close')}}" method="post">
