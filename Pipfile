@@ -17,6 +17,8 @@ gunicorn = "*"
 pymysql = "*"
 cryptography = "*"
 pandas = "*"
+certbot = "*"
+certbot-nginx = "*"
 
 [dev-packages]
 ipython = "*"
