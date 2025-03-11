@@ -52,7 +52,7 @@ def product_category(category_name):
 @bp.route('/rate')
 @login_required
 def rate():
-    initial_rating_value = 3
+    initial_rating_value = 0
     query = current_user.assignments.select()
     products = db.session.scalars(query).all()
     ratings = [current_user.get_rating_for_product(product.id) for product in products]
