@@ -13,8 +13,8 @@ server {
     server_name _;
 
     # location of the self-signed SSL certificate
-    ssl_certificate /home/camcharles/biasrec/certs/cert.pem;
-    ssl_certificate_key /home/camcharles/biasrec/certs/key.pem;
+    ssl_certificate /etc/letsencrypt/live/delcam-experiment.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/delcam-experiment.com/privkey.pem;
 
     # write access and error logs to /var/log
     access_log /var/log/microapp_access.log;
