@@ -42,3 +42,6 @@ update-deploy:
 	sudo supervisorctl stop microblog
 	flask db upgrade
 	sudo supervisorctl start microblog
+
+send-files:
+	gcloud compute scp --recurse deploy/data/to_send $(vm):datagotchi_sante/deploy/data/to_send
