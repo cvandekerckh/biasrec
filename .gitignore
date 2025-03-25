@@ -170,3 +170,5 @@ cython_debug/
 # Sandbox folder
 sandbox
 
+# ignore in/out files from VM machine
+deploy/data
