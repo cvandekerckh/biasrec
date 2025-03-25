@@ -44,4 +44,7 @@ update-deploy:
 	sudo supervisorctl start microblog
 
 send-files:
-	gcloud compute scp --recurse deploy/data/to_send $(vm):datagotchi_sante/deploy/data/to_send
+	gcloud compute scp --recurse deploy/data/to_send $(vm):biasrec/deploy/data/to_send
+
+download-files:
+	gcloud compute scp --recurse deploy/data/received $(vm):biasrec/deploy/data/received
