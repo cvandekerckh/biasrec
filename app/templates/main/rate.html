@@ -69,7 +69,11 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <br>
                     <ul class="nav navbar-nav">
-                      <a href="{{ url_for('auth.close') }}"><p class = "identtext"> Finish the experiment and move to the survey </p></a>
+                      {% if unrated_products %}
+                      <p class="identtext">Some items are still unrated. Please rate all items before moving to the survey.</p>
+                      {% else %}
+                      <a href="{{ url_for('auth.close') }}"><p class="identtext">Finish the experiment and move to the survey</p></a>
+                      {% endif %}     
                     </ul>
                     <br>
                 </div>
@@ -85,7 +89,6 @@
 {% block scripts %}
 
   <script>
-    
     // Define a function to handle star clicks
     function handleStarClick(stars, productId) {
         let data = new FormData();

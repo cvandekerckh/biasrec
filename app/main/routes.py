@@ -1,7 +1,7 @@
 from app.main import bp
 from flask import render_template, flash, redirect, url_for, current_app, make_response, g
 from flask_login import current_user, login_required
-from app.models import User, Product
+from app.models import User, Product, Rating
 from flask import request
 from app.main.forms import PurchaseForm
 from app.auth.forms import Close
@@ -57,7 +57,15 @@ def rate():
     products = db.session.scalars(query).all()
     ratings = [current_user.get_rating_for_product(product.id) for product in products]
     ratings = [rating if rating is not None else initial_rating_value for rating in ratings]
-    return render_template("main/rate.html", ratings=ratings, products=products)
+
+    # Find unrated products
+    ratings_dict = {rating.product_id: rating.rating for rating in db.session.scalars(
+        db.select(Rating).filter(Rating.user_id == current_user.id)
+    )}
+    
+    unrated_products = [product for product in products if product.id not in ratings_dict]
+
+    return render_template("main/rate.html", ratings=ratings, products=products, unrated_products=unrated_products)
 
 @bp.route("/save/", methods=["POST"])
 def save():
