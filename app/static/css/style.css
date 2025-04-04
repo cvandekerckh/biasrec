@@ -49,9 +49,15 @@ body{
   border-radius: 30px;
 }
 .identtext {
-  text-indent: 14em ;
+  text-indent: 10em ;
   color: rgb(245, 247, 243);
   font-size: 25px;
+}
+
+.identtextbis {
+  text-indent: 10em ;
+  color: rgb(245, 247, 243);
+  font-size: 15px;
 }
 
 .staridenttext{
@@ -70,3 +76,4 @@ body{
 .pager a:hover {
   background-color: #28b52d; /* Bleu foncé au survol */
 }
+

@@ -70,9 +70,10 @@
                     <br>
                     <ul class="nav navbar-nav">
                       {% if unrated_products %}
-                      <p class="identtext">Some items are still unrated. Please rate all items before moving to the survey.</p>
+                      <p class="identtext">Certains produits n'ont pas encore été évalués. </p>
+                      <p class="identtext"> Veuillez évaluer tous les produits avant de passer à l'enquête.</p>
                       {% else %}
-                      <a href="{{ url_for('auth.close') }}"><p class="identtext">Finish the experiment and move to the survey</p></a>
+                      <a href="{{ url_for('auth.close') }}"><p class="identtext">Terminer et passer à l'enquête.</p></a>
                       {% endif %}     
                     </ul>
                     <br>
