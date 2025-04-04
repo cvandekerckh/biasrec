@@ -47,4 +47,4 @@ send-files:
 	gcloud compute scp --recurse deploy/data/to_send $(vm):biasrec/deploy/data/to_send
 
 download-files:
-	gcloud compute scp --recurse deploy/data/received $(vm):biasrec/deploy/data/received
+	gcloud compute scp --recurse $(vm):biasrec/deploy/data/received deploy/data/received 
