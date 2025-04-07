@@ -26,12 +26,12 @@
                         <tr>
                             <td style="float:left;width:50%;">
                                 <h4 class="titlecolor"><b>{{ product.price }}</b></h4>
-                                <p> <b>Ingredients : </b></p>
+                                <p> <b>Ingrédients : </b></p>
                                 <ul>
-                                    <li><b>Proteins:</b> {{ product.protein }}</li>
-                                    <li><b>Vegetables:</b> {{ product.vegetables }}</li>
-                                    <li><b>Starch:</b> {{ product.starch }}</li>
-                                    <li><b>Dairy Products:</b> {{ product.dairy_products }}</li>
+                                    <li><b>Protéines:</b> {{ product.protein }}</li>
+                                    <li><b>Légumes:</b> {{ product.vegetables }}</li>
+                                    <li><b>Féculents:</b> {{ product.starch }}</li>
+                                    <li><b>Produits laitiers:</b> {{ product.dairy_products }}</li>
                                     <li><b>Sauce:</b> {{ product.sauce }}</li>
                                 </ul>
                             </td>
@@ -44,7 +44,7 @@
                         </tr>
                         <table class="table table-borderless">
                           <tr>
-                            <h2 class="titlecolor"><b>Your rating:</b></h2>
+                            <h3 class="titlecolor"><b>Votre note:</b></h3>
                           </tr>
                           <tr>
                               <div class="rate">
@@ -70,9 +70,10 @@
                     <br>
                     <ul class="nav navbar-nav">
                       {% if unrated_products %}
-                      <p class="identtext">Some items are still unrated. Please rate all items before moving to the survey.</p>
+                      <p class="identtext">Certains produits n'ont pas encore été évalués. </p>
+                      <p class="identtext"> Veuillez évaluer tous les produits avant de passer à l'enquête.</p>
                       {% else %}
-                      <a href="{{ url_for('auth.close') }}"><p class="identtext">Finish the experiment and move to the survey</p></a>
+                      <a href="{{ url_for('auth.close') }}"><p class="identtext">Terminer et passer à l'enquête.</p></a>
                       {% endif %}     
                     </ul>
                     <br>
