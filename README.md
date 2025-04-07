@@ -19,3 +19,10 @@ The following repo implements a web application designed to study of recommender
 - Train a recommender system model : `make create-model`
 - Launch an experiment : `python microblog.py --config=rate` (see config.py to find appropriate configs)
 - Display tables : `make display-ratings` (see Makefile)
+
+# How to keep track of experiments and never loose data
+After each experiment:
+- make dump-database (on the virtual machine)
+- make download_database (on your local machine)
+- check you have the folder in deploy/data/received with the correct datatime
+- copy/paste the new folder in a Onedrive to never miss any data ⁠
