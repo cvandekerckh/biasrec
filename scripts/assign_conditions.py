@@ -50,9 +50,8 @@ def between_subject_experiment(user_list, condition_list):
 
 def assign_conditions():
     df_condition = pd.read_csv(Cf.DATA_PATH_RAW / CONDITION_FILENAME)
-    df_user = pd.read_csv(Cf.DATA_PATH_RAW /USER_FILENAME)
+    df_user = pd.read_csv(Cf.DATA_PATH_RAW /USER_FILENAME, delimiter=';')
     assert df_user.shape[0] >= df_condition.shape[0]  # assert we have more users than conditions
-
     user_list = df_user["id"].values.tolist()
     condition_list = df_condition["condition_id"]
     experiment_design = between_subject_experiment(user_list, condition_list)

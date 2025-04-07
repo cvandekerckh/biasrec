@@ -32,7 +32,8 @@ training = db.Table(
 # User table
 class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    code: so.Mapped[str] = so.mapped_column(sa.String(64), index=True,
+    code: so.Mapped[int] = so.mapped_column(index=True, unique=True)
+    qualtrics_url: so.Mapped[str] = so.mapped_column(sa.String(250), index=True,
                                                 unique=True)
     condition_id: so.Mapped[int] = so.mapped_column(sa.Integer)
     purchases: so.WriteOnlyMapped['Product'] = so.relationship(
@@ -51,7 +52,7 @@ class User(UserMixin, db.Model):
     )
 
     def __repr__(self): #Pour print les objets de cette classe 
-        return '<User {}>'.format(self.code)
+        return f'<User id:{self.id} - condition : {self.condition_id} - url : {self.qualtrics_url}>'
 
     def has_bought(self, product):
         query = self.purchases.select().where(Product.id == product.id)
@@ -104,14 +105,12 @@ class Product(db.Model):
     category: so.Mapped[str] = so.mapped_column(sa.String(64))
     protein: so.Mapped[str] = so.mapped_column(sa.String(128))
     vegetables: so.Mapped[str] = so.mapped_column(sa.String(600))
-    starch: so.Mapped[str] = so.mapped_column(sa.String(64))
+    starches: so.Mapped[str] = so.mapped_column(sa.String(64))
     dairy_products: so.Mapped[str] = so.mapped_column(sa.String(64))
     sauce: so.Mapped[str] = so.mapped_column(sa.String(64))
     price: so.Mapped[str] = so.mapped_column(sa.String(64))
     nutri_score: so.Mapped[str] = so.mapped_column(sa.String(64))
-    reference: so.Mapped[str] = so.mapped_column(sa.String(64))
-    real_price: so.Mapped[str] = so.mapped_column(sa.String(64), nullable=True)
-
+    
     buyers: so.WriteOnlyMapped['User'] = so.relationship(
         secondary=purchases,
         back_populates='purchases',
@@ -143,7 +142,7 @@ class Product(db.Model):
 
 
     def __repr__(self):
-        return '<Product {}>'.format(self.name)
+        return f'<Product {self.name} - Id {self.id}>'
 
 
 # Ratings table

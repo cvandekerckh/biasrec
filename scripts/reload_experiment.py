@@ -35,7 +35,7 @@ def assign_products_to_users():
     df = pd.read_csv(Cf.DATA_PATH_OUT / ASSIGNMENTS_FILENAME)
     for user_id, product_id in zip(df['user_id'].values, df['product_id'].values):
         user = User.query.get(int(user_id))
-        product = Product.query.get(product_id)
+        product = Product.query.get(int(product_id))
         if user and product:
             user.assign_product(product)
             db.session.commit()
