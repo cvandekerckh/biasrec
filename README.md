@@ -25,4 +25,10 @@ After each experiment:
 - make dump-database (on the virtual machine)
 - make download_database (on your local machine)
 - check you have the folder in deploy/data/received with the correct datatime
-- copy/paste the new folder in a Onedrive to never miss any data ⁠
+- copy/paste the new folder in a Onedrive to never miss any data 
+
+# How to update a code ?
+- make stop-deploy
+- git pull
+- (make reload-experiment⁠) : destroy all data ! be careful
+- make start-deploy
