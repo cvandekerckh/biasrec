@@ -28,12 +28,13 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
 @bp.route('/close', methods=['GET', 'POST'])
 @login_required
 def close():
-    logout_user()
     return redirect(url_for('auth.survey')) #redirige vers ma route survey
 
 @bp.route('/survey', methods=['GET', 'POST'])
 def survey():
-    return render_template('main/survey.html') #redirige vers ma page survey
+    qualtrics_url = current_user.qualtrics_url
+    logout_user()
+    return render_template('main/survey.html', qualtrics_url=qualtrics_url) #redirige vers ma page survey
 
 
 

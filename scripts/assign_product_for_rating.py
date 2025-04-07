@@ -42,7 +42,7 @@ def assign_random_product_for_rating():
 
 def assign_proportion_based_product_for_rating():
      # get user ids
-    df_user = pd.read_csv(Cf.DATA_PATH_RAW / USER_FILENAME)
+    df_user = pd.read_csv(Cf.DATA_PATH_RAW / USER_FILENAME, delimiter=';')
     user_ids = df_user[USER_ID_COLUMN_NAME].tolist()
 
     # get products belonging to phase 1
