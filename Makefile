@@ -48,3 +48,9 @@ send-files:
 
 download-files:
 	gcloud compute scp --recurse $(vm):biasrec/deploy/data/received deploy/data/received 
+
+start-deploy:
+	sudo supervisorctl start microapp
+
+stop-deploy:
+	sudo supervisorctl stop microapp
