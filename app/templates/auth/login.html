@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <h1 class = "align"> <b>Sign In</b></h1>
     <br>
+    <h3 class = "align"> Veuillez entrer le login personnel qui vous a été fourni pour faire cette enquête. </h3>
+    <br>
     <div class = "align", class="row">
-        <div class = "blocktext ", class="col-md-4">
+        <h3 class = "blocktext ", class="col-md-4">
             {{ wtf.quick_form(form) }}
-        </div>
+        </h3>
     </div>
 {% endblock %}

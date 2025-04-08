@@ -3,7 +3,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
-    code = StringField('Code', validators=[DataRequired()])
+    code = StringField('Login', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 #Creation du bouton pour quitter l'enquête et se lougout 
