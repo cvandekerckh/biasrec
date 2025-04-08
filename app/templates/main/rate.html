@@ -75,7 +75,8 @@
                       {% else %}
                       <p class="identtext">Merci d'avoir évalué tous les produits !</p>
                       <p class="identtext">Nous aimerions maintenant en savoir un peu plus sur vous.</p>
-                      <p class="identtext"> Merci de bien vouloir <a href="{{ qualtrics_url }}" target="_blank" style="color: red;">cliquer ici</a> pour répondre à notre enquête.
+                      <p class="identtext">
+                        Merci de bien vouloir <a href="{{ url_for('auth.close') }}">cliquer ici</a> pour répondre à notre enquête.
                       </p>
                       {% endif %}     
                     </ul>
