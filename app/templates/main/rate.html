@@ -34,12 +34,10 @@
                                     <li><b>Produits laitiers:</b> {{ product.dairy_products }}</li>
                                     <li><b>Sauce:</b> {{ product.sauce }}</li>
                                 </ul>
+                                <br>
+                                <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="75px">
                             </td>
                             <td ALIGN="CENTER" style="float:left;width:50%;">
-                              <br>
-                              <br>
-                              <br>
-                              <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="100px">
                             </td>
                         </tr>
                         <table class="table table-borderless">
