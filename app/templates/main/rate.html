@@ -71,9 +71,12 @@
                     <ul class="nav navbar-nav">
                       {% if unrated_products %}
                       <p class="identtext">Certains produits n'ont pas encore été évalués. </p>
-                      <p class="identtext"> Veuillez évaluer tous les produits avant de passer à l'enquête.</p>
+                      <p class="identtext">Veuillez évaluer tous les produits avant de passer à l'enquête.</p>
                       {% else %}
-                      <a href="{{ url_for('auth.close') }}"><p class="identtext">Terminer et passer à l'enquête.</p></a>
+                      <p class="identtext">Merci d'avoir évalué tous les produits !</p>
+                      <p class="identtext">Nous aimerions maintenant en savoir un peu plus sur vous.</p>
+                      <p class="identtext"> Merci de bien vouloir <a href="{{ qualtrics_url }}" target="_blank" style="color: red;">cliquer ici</a> pour répondre à notre enquête.
+                      </p>
                       {% endif %}     
                     </ul>
                     <br>
@@ -82,7 +85,7 @@
         </div>
       </nav>
       {% endif %}
-  </div>
+    </div>
   </body>
 {% endblock %}
 

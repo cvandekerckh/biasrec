@@ -52,6 +52,7 @@ def product_category(category_name):
 @bp.route('/rate')
 @login_required
 def rate():
+    qualtrics_url = current_user.qualtrics_url #chercher le lien url personnalisé vers le questionnaire Qualtrics Q2
     initial_rating_value = 0
     query = current_user.assignments.select()
     products = db.session.scalars(query).all()
@@ -65,7 +66,7 @@ def rate():
     
     unrated_products = [product for product in products if product.id not in ratings_dict]
 
-    return render_template("main/rate.html", ratings=ratings, products=products, unrated_products=unrated_products)
+    return render_template("main/rate.html", ratings=ratings, products=products, unrated_products=unrated_products, qualtrics_url=qualtrics_url)
 
 @bp.route("/save/", methods=["POST"])
 def save():
