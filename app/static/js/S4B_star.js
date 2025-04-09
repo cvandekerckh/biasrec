@@ -11,6 +11,9 @@ function starry (instance) {
   if (instance.now > instance.max) { instance.now = instance.max; }
   if (instance.disabled === undefined) { instance.disabled = false; }
 
+  // ADD A LOCK FLAG
+  let locked = instance.now > 0; // If already rated (from backend), lock it
+
   // (B) GENERATE STARS
   instance.target.classList.add("starwrap");
   for (let i=1; i<=instance.max; i++) {
@@ -25,6 +28,7 @@ function starry (instance) {
     if (!instance.disabled) {
       // (B3) ON MOUSE OVER
       s.onmouseover = () => {
+        if (locked) return; // Prevent hover if locked
         let all = instance.target.getElementsByClassName("star");
         for (let j=0; j<all.length; j++) {
           if (j<i) { all[j].classList.add("on"); }
@@ -33,7 +37,12 @@ function starry (instance) {
       };
 
       // (B4) ON CLICK
-      if (instance.click) { s.onclick = () => instance.click(i); }
+      if (instance.click) { 
+        s.onclick = () => {
+          locked = true; // Lock after click
+          instance.click(i);
+        } 
+      }
     }
   }
 
