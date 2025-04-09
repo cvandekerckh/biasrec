@@ -49,7 +49,8 @@ body{
   border-radius: 30px;
 }
 .identtext {
-  text-indent: 10em ;
+  text-indent: 7em ;
+  text-align: center;
   color: rgb(245, 247, 243);
   font-size: 25px;
 }
@@ -58,6 +59,12 @@ body{
   text-indent: 10em ;
   color: rgb(245, 247, 243);
   font-size: 15px;
+}
+
+.identtextbisbis {
+  text-indent: 10em ;
+  color: rgb(245, 247, 243);
+  font-size: 20px;
 }
 
 .staridenttext{
