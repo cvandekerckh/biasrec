@@ -8,7 +8,7 @@ cloud-connect:
 	gcloud compute ssh biasrecv2
 
 create-model:
-	pipenv run python -c "from scripts.train_recommender_model import create_recommender_model; create_recommender_model()"
+	pipenv run python -c "from scripts.create_model import main; main()"
 
 display-users:
 	pipenv run python -c "from scripts.view_databases import display_users; display_users()"

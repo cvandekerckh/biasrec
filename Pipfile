@@ -19,6 +19,7 @@ cryptography = "*"
 pandas = "*"
 certbot = "*"
 certbot-nginx = "*"
+scikit-learn = "*"
 
 [dev-packages]
 ipython = "*"

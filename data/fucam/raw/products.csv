@@ -219,7 +219,7 @@ Wrap aux légumes façon fajita;Wraps;Non;Poivrons | Maïs | Oignons;Wrap;Chedda
 Wrap au poulet, épinards et sauce curry;Wraps;Poulet;Épinards | Poivrons | Carottes | Raisins secs;Wrap;Non;Sauce au curry;4.99 €;B;218
 Wrap au jambon et fromage de chèvre ;Wraps;Jambon;Laitue;Wrap;Fromage de chèvre;Sauce yaourt;4.99 €;C;219
 Wrap au fromage de chèvre et moutarde ;Wraps;Non;Oignons frits | Tomates | Maïs;Wrap;Fromage de chèvre;Moutarde;4.99 €;C;220
-Wrap au poulet et guacamole ;Wraps;Poulet;Avocat| Maïs | Tomates | Poivrons | Oignons;Wrap;Non;Non;4.99 €;A;221
+Wrap au poulet et guacamole ;Wraps;Poulet;Avocat | Maïs | Tomates | Poivrons | Oignons;Wrap;Non;Non;4.99 €;A;221
 The hamburger;Snacks et hamburgers;Burger de boeuf;Oignons | Maïsichons;Pain hamburger;Non;Moutarde | Ketchup;4.99 €;C;222
 Le Big hamburger;Snacks et hamburgers;Burger de boeuf;Laitue | Oignons | Maïsichons;Pain hamburger;Cheddar;Sauce hamburger;4.99 €;C;223
 Le Fish Burger ;Snacks et hamburgers;Burger de poisson;Non;Pain hamburger;Non;Ketchup;4.99 €;B;224
@@ -286,7 +286,7 @@ Sandwich aux légumes;Sandwichs;Non;Laitue | Tomates | Concombre | Poivrons | Oi
 Le sandwich JPM;Sandwichs;Jambon | Pepperoni;Laitue | Tomates | Oignons;Baguette française;Mozzarella;Sauce hamburger;4.99 €;D;285
 Le sandwich mix;Sandwichs;Jambon | Poulet | Bacon;Laitue | Tomates | Oignons;Baguette française;Cheddar;Sauce barbecue;4.99 €;B;286
 Sandwich au thon;Sandwichs;Thon;Tomates | Concombre;Baguette française;Non;Mayonnaise;4.99 €;B;287
-Le sandwich mexicain fitness;Sandwichs;Poulet;Laitue | Tomates | Avocat| Maïs | Poivrons | Oignons | Concombre;Baguette française fitness;Cheddar;Non;4.99 €;A;288
+Le sandwich mexicain fitness;Sandwichs;Poulet;Laitue | Tomates | Avocat | Maïs | Poivrons | Oignons | Concombre;Baguette française fitness;Cheddar;Non;4.99 €;A;288
 Sandwich super pastrami;Sandwichs;Bœuf | Poulet;Laitue | Tomates | Oignons | Maïsichons;Baguette française;Fromage emmental;Moutarde;4.99 €;B;289
 Sandwich au jambon et oeufs;Sandwichs;Jambon | Oeufs;Laitue;Baguette française;Non;Sauce hamburger;4.99 €;B;290
 Sandwich au fromage de chèvre et tomates séchées;Sandwichs;Non;Laitue | Tomates séchées;Baguette française;Fromage de chèvre;Non;4.99 €;B;291
