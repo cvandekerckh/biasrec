@@ -107,7 +107,11 @@ def main():
     feature_matrix = create_feature_matrix()
     similarity_matrix = create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
 
-def train_model(user_trainset):
+def train_model(user_trainset, K):
+    ### user_trainset = {id: rating}
+    ### sortir pour chaque product_id qui n'est pas dans user_trainset une liste des K plus proche voisins 
+    ### pour chaque produit, tu vas chercher les K plus proches voisins ayant un rating:  [(product_id, similarity_score)]
+    ### traiter cas où on a pas K voisins
     pass
 
 def make_prediction(user_testset):
