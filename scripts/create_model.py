@@ -105,7 +105,7 @@ def create_similarity_matrix(
 
 def main():
     feature_matrix = create_feature_matrix()
-    create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
+    similarity_matrix = create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
 
 def train_model(user_trainset):
     pass
