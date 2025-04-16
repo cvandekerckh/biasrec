@@ -103,6 +103,52 @@ def create_similarity_matrix(
 
     return similarity_matrix
 
+def find_k_nearest_rated_neighbors_from_matrix(
+    similarity_matrix,
+    rated_products_file,
+    k=5,
+    sep=';',
+    output_path=None,
+    output_filename='top_k_neighbors.csv'
+    ):
+    # Charger les ids des produits notés
+    rated_df = pd.read_csv(rated_products_file, sep=sep)
+    rated_ids = set(rated_df['product_id'].astype(str))
+
+    # Tous les produits de la base
+    all_product_ids = similarity_matrix.index.astype(str)
+    
+    # Identifier les produits non notés
+    unrated_ids = [pid for pid in all_product_ids if pid not in rated_ids]
+
+    results = []
+
+    #parcourt la liste de tous kes produits non notés 
+    for unrated_pid in unrated_ids:
+        #pour chasue produit non noté 
+        # Récupérer les similarités avec les produits notés uniquement
+        similarities = similarity_matrix.loc[unrated_pid, similarity_matrix.columns.isin(rated_ids)]
+
+        # Trier les k plus similaires
+        top_k = similarities.nlargest(k)
+
+        for neighbor_id, sim_score in top_k.items():
+            results.append({
+                'product_id': unrated_pid,
+                'neighbor_id': neighbor_id,
+                'similarity_score': sim_score
+            })
+
+    results_df = pd.DataFrame(results)
+
+    # Sauvegarder dans un CSV
+    if output_path is not None:
+        output_file = output_path / output_filename
+        print(f'Saving top-k neighbors to {output_file}')
+        results_df.to_csv(output_file, index=False, sep=sep)
+
+    return results_df
+
 def main():
     feature_matrix = create_feature_matrix()
     similarity_matrix = create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
@@ -112,6 +158,11 @@ def train_model(user_trainset, K):
     ### sortir pour chaque product_id qui n'est pas dans user_trainset une liste des K plus proche voisins 
     ### pour chaque produit, tu vas chercher les K plus proches voisins ayant un rating:  [(product_id, similarity_score)]
     ### traiter cas où on a pas K voisins
+
+
+    # Lire un fichier avec les id du trainset 
+    # A partir de la grosse matrice de similarité, pour chaque produits qui n'est pas dans le trainset, trouver les k plus proches voisins dans le train set (sortir pour chacun : product_id / similarity score)
+
     pass
 
 def make_prediction(user_testset):
