@@ -13,6 +13,10 @@ create-model:
 create-recommendation:
 	pipenv run python -c "from scripts.multistakeholder_recommender import create_multistakeholder_recommendation; create_multistakeholder_recommendation()"
 
+find-betas:
+	pipenv run python -c "from scripts.multistakeholder_recommender import find_betas; find_betas()"
+
+
 display-users:
 	pipenv run python -c "from scripts.view_databases import display_users; display_users()"
 
