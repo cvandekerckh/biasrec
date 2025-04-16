@@ -105,14 +105,15 @@ def create_similarity_matrix(
 
 def find_k_nearest_rated_neighbors_from_matrix(
     similarity_matrix,
-    rated_products_file,
+    product_path=Cf.DATA_PATH_RAW
+    rated_products_file = ,
     k=5,
     sep=';',
-    output_path=None,
+    output_path=Cf.DATA_PATH_OUT,
     output_filename='top_k_neighbors.csv'
     ):
     # Charger les ids des produits notés
-    rated_df = pd.read_csv(rated_products_file, sep=sep)
+    rated_df = pd.read_csv(/rated_products_file, sep=sep)
     rated_ids = set(rated_df['product_id'].astype(str))
 
     # Tous les produits de la base
@@ -152,6 +153,7 @@ def find_k_nearest_rated_neighbors_from_matrix(
 def main():
     feature_matrix = create_feature_matrix()
     similarity_matrix = create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
+    KNN = find_k_nearest_rated_neighbors_from_matrix(similarity_matrix)
 
 def train_model(user_trainset, K):
     ### user_trainset = {id: rating}
@@ -161,7 +163,7 @@ def train_model(user_trainset, K):
 
 
     # Lire un fichier avec les id du trainset 
-    # A partir de la grosse matrice de similarité, pour chaque produits qui n'est pas dans le trainset, trouver les k plus proches voisins dans le train set (sortir pour chacun : product_id / similarity score)
+    # A partir de la grosse matrice de similarité, pour chaque produit qui n'est pas dans le trainset, trouver les k plus proches voisins dans le trainset (sortir pour chacun : product_id / similarity score)
 
     pass
 
