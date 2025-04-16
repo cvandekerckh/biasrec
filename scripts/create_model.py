@@ -1,12 +1,15 @@
 import pandas as pd
 from config import Config as Cf
 from sklearn.metrics import pairwise_distances
+import json
+import copy
 
 INGREDIENT_COLUMNS = ["protein", "vegetables", "starches", "dairy_products", "sauce"]
 PRODUCT_FILENAME = 'products.csv'
 FEATMATRIX_FILENAME = 'featmatrix.csv'
 SIMILARITY_MATRIX_FILENAME = 'similarity_matrix.csv'
-
+TRAINSET_FILENAME = 'rating_14_04_2025.csv'
+USER_TEST_ID = 135
 
 def create_feature_matrix(
         product_path=Cf.DATA_PATH_RAW,
@@ -64,7 +67,10 @@ def create_feature_matrix(
 
 
 def create_similarity_matrix_with_metric(df, metric):
-    distances = pairwise_distances(df.values, metric=metric)
+    X = df.values
+    if metric == 'jaccard':
+        X = X.astype(bool)
+    distances = pairwise_distances(X, metric=metric)
     similarity = 1 - distances
     similarity_df = pd.DataFrame(similarity, 
                              index=df.index, 
@@ -103,69 +109,109 @@ def create_similarity_matrix(
 
     return similarity_matrix
 
-def find_k_nearest_rated_neighbors_from_matrix(
-    similarity_matrix,
-    product_path=Cf.DATA_PATH_RAW
-    rated_products_file = ,
-    k=5,
-    sep=';',
-    output_path=Cf.DATA_PATH_OUT,
-    output_filename='top_k_neighbors.csv'
+def get_full_trainset(
+    trainset_path=Cf.DATA_PATH_RAW,
+    trainset_filename=TRAINSET_FILENAME,
+):
+    df_train = pd.read_csv(trainset_path / trainset_filename, delimiter=';')
+    df_train = df_train[(df_train['user_id'] != USER_TEST_ID)]
+    return df_train
+
+def get_full_testset(
+        user_trainset,
+        product_id_list
     ):
-    # Charger les ids des produits notés
-    rated_df = pd.read_csv(/rated_products_file, sep=sep)
-    rated_ids = set(rated_df['product_id'].astype(str))
 
-    # Tous les produits de la base
-    all_product_ids = similarity_matrix.index.astype(str)
-    
-    # Identifier les produits non notés
-    unrated_ids = [pid for pid in all_product_ids if pid not in rated_ids]
+    # Preallocate model
+    user_ids = user_trainset['user_id'].unique().tolist()
+    testset = {user_id : {} for user_id in user_ids}
 
-    results = []
+    for user_id in testset:
+        # identify trainset products
+        user_trainset_i = user_trainset[user_trainset['user_id'] == user_id].set_index('product_id')
+        trainset_product_ids = user_trainset_i.index.tolist()
+        # Identify testset products
+        testset_product_ids = [
+            product_id for product_id in product_id_list 
+            if product_id not in trainset_product_ids
+        ]
+        testset[user_id] = {product_id : [] for product_id in testset_product_ids}
+    return testset
 
-    #parcourt la liste de tous kes produits non notés 
-    for unrated_pid in unrated_ids:
-        #pour chasue produit non noté 
-        # Récupérer les similarités avec les produits notés uniquement
-        similarities = similarity_matrix.loc[unrated_pid, similarity_matrix.columns.isin(rated_ids)]
 
-        # Trier les k plus similaires
-        top_k = similarities.nlargest(k)
+def train_model(
+        user_trainset, 
+        product_id_list,
+        similarity_matrix,
+        k=5,
+        model_path=Cf.DATA_PATH_OUT,
+        model_filename='model.json'
+    ):
 
-        for neighbor_id, sim_score in top_k.items():
-            results.append({
-                'product_id': unrated_pid,
-                'neighbor_id': neighbor_id,
-                'similarity_score': sim_score
-            })
+    model = get_full_testset(user_trainset, product_id_list)
 
-    results_df = pd.DataFrame(results)
+    print('Finding k nearest neighbours')
+    for user_id in model:
+        user_trainset_i = user_trainset[user_trainset['user_id'] == user_id].set_index('product_id')
+        trainset_product_ids = user_trainset_i.index.tolist()
+        for testset_product_id in model[user_id]:
+            # get similarities
+            similarities = similarity_matrix.loc[testset_product_id, similarity_matrix.columns.isin(trainset_product_ids)]
 
-    # Sauvegarder dans un CSV
-    if output_path is not None:
-        output_file = output_path / output_filename
-        print(f'Saving top-k neighbors to {output_file}')
-        results_df.to_csv(output_file, index=False, sep=sep)
+            # trier les k plus similaires
+            k_closest_products = similarities.nlargest(k)
 
-    return results_df
+            # join ratings
+            train_output = k_closest_products.to_frame('similarity').join(user_trainset_i['rating'])
+            model[user_id][testset_product_id] = list(train_output.itertuples(index=True, name=None))
+
+    # Dump to a JSON string
+    model_string = json.dumps(model)
+    with open(model_path / model_filename, 'w') as f:
+        json.dump(model_string, f)
+
+    return model
+
+
+def predict_for_testset(
+        testset,
+        model,
+        predictions_path=Cf.DATA_PATH_OUT,
+        predictions_filename='predictions.json'
+    ):
+    predictions = copy.deepcopy(testset)
+    print('Aggregate ratings to make predictions')
+    for user_id in testset:
+        for product_id in testset[user_id]:
+            # Extract similarities and ratings
+            similarities, ratings = zip(*[
+                (sim, rating) for _, sim, rating in model[user_id][product_id]
+            ])
+            numerator = sum(
+                sim * rating 
+                for sim, rating in zip(similarities, ratings)
+            )
+            denominator = sum(similarities)
+            weighted_avg = numerator / denominator if denominator != 0 else 1
+            predictions[user_id][product_id] = weighted_avg
+
+    # Dump to a JSON string
+    predictions_string = json.dumps(predictions)
+    with open(predictions_path / predictions_filename, 'w') as f:
+        json.dump(predictions_string, f)
+
+    return predictions
 
 def main():
     feature_matrix = create_feature_matrix()
     similarity_matrix = create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
-    KNN = find_k_nearest_rated_neighbors_from_matrix(similarity_matrix)
+    product_id_list = feature_matrix.index.tolist()
+    user_trainset = get_full_trainset()
+    user_testset = get_full_testset(user_trainset, product_id_list)
+    model = train_model(user_trainset, product_id_list, similarity_matrix)
+    predictions = predict_for_testset(user_testset, model)
+    print('predictions made with success')
 
-def train_model(user_trainset, K):
-    ### user_trainset = {id: rating}
-    ### sortir pour chaque product_id qui n'est pas dans user_trainset une liste des K plus proche voisins 
-    ### pour chaque produit, tu vas chercher les K plus proches voisins ayant un rating:  [(product_id, similarity_score)]
-    ### traiter cas où on a pas K voisins
-
-
-    # Lire un fichier avec les id du trainset 
-    # A partir de la grosse matrice de similarité, pour chaque produit qui n'est pas dans le trainset, trouver les k plus proches voisins dans le trainset (sortir pour chacun : product_id / similarity score)
-
-    pass
 
 def make_prediction(user_testset):
     pass
