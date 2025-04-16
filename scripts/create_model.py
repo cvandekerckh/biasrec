@@ -3,6 +3,7 @@ from config import Config as Cf
 from sklearn.metrics import pairwise_distances
 import json
 import copy
+import pickle 
 
 INGREDIENT_COLUMNS = ["protein", "vegetables", "starches", "dairy_products", "sauce"]
 PRODUCT_FILENAME = 'products.csv'
@@ -177,9 +178,9 @@ def predict_for_testset(
         testset,
         model,
         predictions_path=Cf.DATA_PATH_OUT,
-        predictions_filename='predictions.json'
+        predictions_filename='predictions.p'
     ):
-    predictions = copy.deepcopy(testset)
+    predictions = []
     print('Aggregate ratings to make predictions')
     for user_id in testset:
         for product_id in testset[user_id]:
@@ -193,12 +194,11 @@ def predict_for_testset(
             )
             denominator = sum(similarities)
             weighted_avg = numerator / denominator if denominator != 0 else 1
-            predictions[user_id][product_id] = weighted_avg
+            predictions.append((user_id, product_id, None, weighted_avg, None))
 
     # Dump to a JSON string
-    predictions_string = json.dumps(predictions)
-    with open(predictions_path / predictions_filename, 'w') as f:
-        json.dump(predictions_string, f)
+    with open(predictions_path / predictions_filename, 'wb') as f:
+        pickle.dump(predictions, f)
 
     return predictions
 
@@ -209,9 +209,7 @@ def main():
     user_trainset = get_full_trainset()
     user_testset = get_full_testset(user_trainset, product_id_list)
     model = train_model(user_trainset, product_id_list, similarity_matrix)
+    #print(model[44849])
     predictions = predict_for_testset(user_testset, model)
-    print('predictions made with success')
-
-
-def make_prediction(user_testset):
-    pass
+    #print([prediction for prediction in predictions if prediction[0] == 44849])
+    #print('predictions made with success')

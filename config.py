@@ -15,7 +15,6 @@ class Config(object):
     DATA_PATH = Path('data/fucam')
     DATA_PATH_RAW = DATA_PATH / 'raw'
     DATA_PATH_OUT = DATA_PATH / 'out'
-    MODEL_NAME='svd100'
     MODEL_FILENAME = 'model.p'
     N_RECOMMENDATIONS = 5
 

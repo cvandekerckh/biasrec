@@ -10,6 +10,9 @@ cloud-connect:
 create-model:
 	pipenv run python -c "from scripts.create_model import main; main()"
 
+create-recommendation:
+	pipenv run python -c "from scripts.multistakeholder_recommender import create_multistakeholder_recommendation; create_multistakeholder_recommendation()"
+
 display-users:
 	pipenv run python -c "from scripts.view_databases import display_users; display_users()"
 
