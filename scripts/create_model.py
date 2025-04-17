@@ -336,7 +336,7 @@ def evaluate_baseline_models(ratings_df, k_folds=5):
 
     return results
 
-def generate_weight_combinations(step=0.1):
+def generate_weight_combinations(step):
     """
     Génère toutes les combinaisons possibles de 3 poids (w1, w2, w3)
     tels que chaque poids est un multiple du pas (step)
@@ -365,8 +365,8 @@ def main():
     ratings_df = pd.read_csv(Cf.DATA_PATH_RAW / TRAINSET_FILENAME, delimiter=';')
 
     # Paramètres à tester
-    k_values = list(range(2, 37))  # k de 2 à 36
-    weight_combinations = generate_weight_combinations(step=0.1)  # ou step=0.05 si tu veux plus de précision
+    k_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 36]
+    weight_combinations = generate_weight_combinations(step=0.05)  # ou step=0.05 si tu veux plus de précision
     print(f"{len(weight_combinations)} combinaisons de poids générées.")
     # Lancer l’évaluation avec cross-validation
     results = evaluate_model_grid_search(
