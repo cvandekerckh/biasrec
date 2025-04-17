@@ -1,9 +1,13 @@
 import pandas as pd
 from config import Config as Cf
-from sklearn.metrics import pairwise_distances
+from sklearn.metrics import pairwise_distances, mean_absolute_error, mean_squared_error
 import json
 import copy
 import pickle 
+from sklearn.model_selection import KFold
+from sklearn.model_selection import GroupKFold
+import numpy as np
+import itertools
 
 INGREDIENT_COLUMNS = ["protein", "vegetables", "starches", "dairy_products", "sauce"]
 PRODUCT_FILENAME = 'products.csv'
@@ -81,7 +85,7 @@ def create_similarity_matrix_with_metric(df, metric):
 
 def create_similarity_matrix(
         feature_matrix,
-        weights=(0.25, 0.25, 0.50),
+        weights,
         similarity_matrix_path=Cf.DATA_PATH_OUT,
         similarity_matrix_filename=SIMILARITY_MATRIX_FILENAME,
     ):
@@ -144,7 +148,7 @@ def train_model(
         user_trainset, 
         product_id_list,
         similarity_matrix,
-        k=5,
+        k,
         model_path=Cf.DATA_PATH_OUT,
         model_filename='model.json'
     ):
@@ -202,14 +206,134 @@ def predict_for_testset(
 
     return predictions
 
+def evaluate_model_grid_search(
+    ratings_df,
+    feature_matrix,
+    product_id_list,
+    k_values,
+    weight_combinations,
+    k_folds=5,
+    output_path=Cf.DATA_PATH_OUT,
+    output_filename='evaluation_results.csv'
+):
+    results = []
+
+    for weights in weight_combinations:
+        print(f"\n--- Testing weights = {weights} ---")
+        similarity_matrix = create_similarity_matrix(feature_matrix, weights=weights)
+
+        for k in k_values:
+            print(f"\n>> Testing k = {k}")
+            mae_list, mse_list, rmse_list = [], [], []
+
+            kf = KFold(n_splits=k_folds, shuffle=True, random_state=42)
+            for fold, (train_index, test_index) in enumerate(kf.split(ratings_df), 1):
+                train_df = ratings_df.iloc[train_index]
+                test_df = ratings_df.iloc[test_index]
+
+                # Entraîner le modèle sur l'ensemble d'entraînement
+                model = train_model(train_df, product_id_list, similarity_matrix, k=k)
+
+                # Créer un testset au format attendu par predict_for_testset
+                user_testset = {
+                    uid: {pid: [] for pid in test_df[test_df['user_id'] == uid]['product_id'].tolist()}
+                    for uid in test_df['user_id'].unique()
+                }
+
+                predictions = predict_for_testset(user_testset, model)
+
+                y_true, y_pred = [], []
+                for user_id, product_id, _, pred_rating, _ in predictions:
+                    true_rating_row = test_df[(test_df['user_id'] == user_id) & (test_df['product_id'] == product_id)]
+                    if not true_rating_row.empty:
+                        true_rating = true_rating_row['rating'].values[0]
+                        y_true.append(true_rating)
+                        y_pred.append(pred_rating)
+
+                if y_true:
+                    mae = mean_absolute_error(y_true, y_pred)
+                    mse = mean_squared_error(y_true, y_pred)
+                    rmse = np.sqrt(mse)
+
+                    mae_list.append(mae)
+                    mse_list.append(mse)
+                    rmse_list.append(rmse)
+
+                print(f"Fold {fold} done – {len(y_true)} prédictions")
+
+            if mae_list:
+                mean_mae = np.mean(mae_list)
+                mean_mse = np.mean(mse_list)
+                mean_rmse = np.mean(rmse_list)
+
+                print(f"Résultats pour k={k}, weights={weights}")
+                print(f"MAE: {mean_mae:.4f}, RMSE: {mean_rmse:.4f}")
+
+                results.append({
+                    'k': k,
+                    'weights': weights,
+                    'mean_MAE': mean_mae,
+                    'mean_MSE': mean_mse,
+                    'mean_RMSE': mean_rmse
+                })
+
+    # Sauvegarder les résultats dans un CSV
+    results_df = pd.DataFrame(results)
+    results_df.to_csv(output_path / output_filename, index=False)
+    print(f"\n✅ Résultats enregistrés dans '{output_filename}'")
+
+    return results
+
+def generate_weight_combinations(step=0.1):
+    """
+    Génère toutes les combinaisons possibles de 3 poids (w1, w2, w3)
+    tels que chaque poids est un multiple du pas (step)
+    et que la somme des trois poids est exactement égale à 1.
+    """
+    decimals = len(str(step).split(".")[-1])  # pour gérer les arrondis
+    values = [round(i * step, decimals) for i in range(int(1 / step) + 1)]
+    all_combinations = itertools.product(values, repeat=3)
+    valid_combinations = [
+        combo for combo in all_combinations
+        if round(sum(combo), decimals) == 1.0
+    ]
+    return valid_combinations
+
 def main():
     feature_matrix = create_feature_matrix()
     similarity_matrix = create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
     product_id_list = feature_matrix.index.tolist()
     user_trainset = get_full_trainset()
     user_testset = get_full_testset(user_trainset, product_id_list)
-    model = train_model(user_trainset, product_id_list, similarity_matrix)
+    model = train_model(user_trainset, product_id_list, similarity_matrix, k=5)
     #print(model[44849])
     predictions = predict_for_testset(user_testset, model)
     #print([prediction for prediction in predictions if prediction[0] == 44849])
     #print('predictions made with success')
+    ratings_df = pd.read_csv(Cf.DATA_PATH_RAW / TRAINSET_FILENAME, delimiter=';')
+
+    # Paramètres à tester
+    k_values = list(range(2, 37))  # k de 2 à 36
+    weight_combinations = generate_weight_combinations(step=0.1)  # ou step=0.05 si tu veux plus de précision
+    print(f"{len(weight_combinations)} combinaisons de poids générées.")
+    # Lancer l’évaluation avec cross-validation
+    results = evaluate_model_grid_search(
+        ratings_df=ratings_df,
+        feature_matrix=feature_matrix,
+        product_id_list=product_id_list,
+        k_values=k_values,
+        weight_combinations=weight_combinations,
+        k_folds=5
+    )
+
+    # Afficher les résultats
+    print("\n--- Résumé global des performances ---")
+    for res in results:
+        print(f"k={res['k']}, weights={res['weights']} → MAE: {res['mean_MAE']:.4f}, RMSE: {res['mean_RMSE']:.4f}")
+
+    # Sauvegarder dans un CSV
+    results_df = pd.DataFrame(results)
+    results_df.to_csv(Cf.DATA_PATH_OUT / 'evaluation_results.csv', index=False)
+    print("\n✅ Résultats enregistrés dans 'evaluation_results.csv'")
+
+    
