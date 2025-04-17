@@ -270,6 +270,7 @@ def evaluate_model_grid_search(
                 print(f"MAE: {mean_mae:.4f}, RMSE: {mean_rmse:.4f}")
 
                 results.append({
+                    'model': 'content_based',
                     'k': k,
                     'weights': weights,
                     'mean_MAE': mean_mae,
@@ -281,6 +282,57 @@ def evaluate_model_grid_search(
     results_df = pd.DataFrame(results)
     results_df.to_csv(output_path / output_filename, index=False)
     print(f"\n✅ Résultats enregistrés dans '{output_filename}'")
+
+    return results
+
+#Evaluation des systèmes de recommandation basés sur la moyenne des ratings, le random et le ratin le plus utilisé par le user (mode)
+def evaluate_baseline_models(ratings_df, k_folds=5):
+    results = []
+    kf = KFold(n_splits=k_folds, shuffle=True, random_state=42)
+
+    for baseline in ['mean', 'random', 'mode']:
+        print(f"\n--- Évaluation du modèle baseline : {baseline} ---")
+        mae_list, mse_list, rmse_list = [], [], []
+
+        for fold, (train_index, test_index) in enumerate(kf.split(ratings_df), 1):
+            train_df = ratings_df.iloc[train_index]
+            test_df = ratings_df.iloc[test_index]
+
+            y_true, y_pred = [], []
+
+            for user_id in test_df['user_id'].unique():
+                user_train_ratings = train_df[train_df['user_id'] == user_id]['rating']
+                user_test_data = test_df[test_df['user_id'] == user_id]
+
+                if len(user_train_ratings) == 0:
+                    continue  # skip si l'utilisateur n'a pas de données d'entraînement
+
+                if baseline == 'mean':
+                    pred_value = user_train_ratings.mean()
+                elif baseline == 'mode':
+                    pred_value = user_train_ratings.mode().iloc[0]
+                elif baseline == 'random':
+                    pred_value = np.random.choice(user_train_ratings.values)
+
+                y_true.extend(user_test_data['rating'].tolist())
+                y_pred.extend([pred_value] * len(user_test_data))
+
+            if y_true:
+                mae = mean_absolute_error(y_true, y_pred)
+                mse = mean_squared_error(y_true, y_pred)
+                rmse = np.sqrt(mse)
+                mae_list.append(mae)
+                mse_list.append(mse)
+                rmse_list.append(rmse)
+
+            print(f"Fold {fold} terminé – {len(y_true)} prédictions")
+
+        results.append({
+            'model': baseline,
+            'mean_MAE': np.mean(mae_list),
+            'mean_MSE': np.mean(mse_list),
+            'mean_RMSE': np.mean(rmse_list)
+        })
 
     return results
 
@@ -331,9 +383,28 @@ def main():
     for res in results:
         print(f"k={res['k']}, weights={res['weights']} → MAE: {res['mean_MAE']:.4f}, RMSE: {res['mean_RMSE']:.4f}")
 
-    # Sauvegarder dans un CSV
+    # ⬇️ ⬇️ INSÈRE ICI le bloc suivant ⬇️ ⬇️
+    # Sauvegarder dans un CSV (content-based uniquement)
     results_df = pd.DataFrame(results)
     results_df.to_csv(Cf.DATA_PATH_OUT / 'evaluation_results.csv', index=False)
     print("\n✅ Résultats enregistrés dans 'evaluation_results.csv'")
+
+    # Baselines
+    baseline_results = evaluate_baseline_models(ratings_df=ratings_df, k_folds=5)
+    baseline_df = pd.DataFrame(baseline_results)
+    baseline_df.to_csv(Cf.DATA_PATH_OUT / 'baseline_results.csv', index=False)
+    print("\n✅ Résultats enregistrés dans 'baseline_results.csv'")
+
+    # Fusionner les deux
+    combined_results = results + baseline_results
+    combined_df = pd.DataFrame(combined_results)
+    combined_df.to_csv(Cf.DATA_PATH_OUT / 'all_models_evaluation.csv', index=False)
+    print("\n✅ Tous les résultats enregistrés dans 'all_models_evaluation.csv'")
+
+    # Afficher les 5 meilleurs modèles (selon MAE)
+    print("\n🏆 Top 5 des modèles (MAE croissant) :")
+    top5 = combined_df.sort_values(by='mean_MAE').head(5)
+    print(top5[['model', 'k', 'weights', 'mean_MAE', 'mean_RMSE']])
+
 
     
