@@ -6,6 +6,8 @@ import json
 import random as rd
 from collections import defaultdict
 import numpy as np
+from tqdm import tqdm
+import csv
 
 from config import Config as Cf
 import pickle
@@ -70,7 +72,7 @@ def get_product_list(ordered_items):
     for uid in ordered_items:
         prediction_list_uid = ordered_items[uid]
         product_list_uid = [
-            Product.query.filter_by(id = product_id).first() for product_id, _ in prediction_list_uid
+            (Product.query.filter_by(id = product_id).first(), predicted_rating) for product_id, predicted_rating in prediction_list_uid
         ]
         product_list_per_user[uid] = product_list_uid
     return product_list_per_user
@@ -88,20 +90,26 @@ def change_order_on_condition(ordered_products, modifier_parameters, bias_type):
     return promoted_products + unpromoted_products
 
 def apply_condition_modifier(product_list_per_user, condition_dict, condition_type='linear_combination'):
-    if condition_type == 'rank_shift':
+    product_list_per_user_modified = {user_id: None for user_id in product_list_per_user}
+    if condition_type == 'rank_shift': # obsolete
         for user_id in product_list_per_user:
             ordered_products = product_list_per_user[user_id]
             condition = User.query.filter_by(id = user_id).first().condition_id
             modifier_parameters = condition_dict[condition]
             ordered_products = change_order_on_condition(ordered_products, modifier_parameters, "nutri_score")
-            product_list_per_user[user_id] = ordered_products
+            product_list_per_user_modified[user_id] = ordered_products
     elif condition_type == 'linear_combination':
         for user_id in product_list_per_user:
             ordered_products = product_list_per_user[user_id]
             condition = User.query.filter_by(id = user_id).first().condition_id
-            modifier_parameters = condition_dict[condition]
-            # todo: continue here, my baby is crying
-    return product_list_per_user
+            beta = float(condition_dict[condition])
+            products_modified = [ 
+                (product, (1-beta)*predicted_rating + beta*nutriscore_to_weight[product.nutri_score])
+                for product, predicted_rating in ordered_products
+            ]
+            ordered_products_modified = sorted(products_modified, key=lambda x: x[1], reverse=True)
+            product_list_per_user_modified[user_id] = ordered_products_modified
+    return product_list_per_user_modified
 
 
 def find_betas(n_recommendations=5):
@@ -111,18 +119,23 @@ def find_betas(n_recommendations=5):
             predictions = pickle.load(file)
         ordered_items = get_ordered_items(predictions)
         product_list_per_user = get_product_list(ordered_items)
-        betas = np.linspace(0, 0.9999, 100)
+        condition_dict = load_conditions()
+        betas = np.linspace(0, 0.9999, 500)
         average_nutriscore_over_users = []
-        for beta in betas:
-            condition_dict = {user_id: beta for user_id in product_list_per_user}
-            product_list_per_user_biased = apply_condition_modifier(product_list_per_user, condition_dict)
+        for beta in tqdm(betas, desc="Processing betas"):
+            condition_dict_all_forced = {condition_id: beta for condition_id in condition_dict}
+            product_list_per_user_modified = apply_condition_modifier(product_list_per_user, condition_dict_all_forced)
             average_nutriscore_recommendation = []
             for user_id in product_list_per_user:
-                recommended_products = product_list_per_user[user_id][:n_recommendations]
-                nutriscores_recommendation = [nutriscore_to_weight[product.nutri_score] for product in recommended_products]
+                recommended_products = product_list_per_user_modified[user_id][:n_recommendations]
+                nutriscores_recommendation = [nutriscore_to_weight[product.nutri_score] for product, _ in recommended_products]
                 average_nutriscore_recommendation.append(np.mean(nutriscores_recommendation))
             average_nutriscore_over_users.append(np.mean(average_nutriscore_recommendation))
-
+        with open(Cf.DATA_PATH_OUT / f'betas_N{n_recommendations}_k{5}_w25-25-50.csv', 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['beta','n_avg'])  # write header
+            for item1, item2 in zip(betas, average_nutriscore_over_users):
+                writer.writerow([item1, item2])
 
 def create_multistakeholder_recommendation():
     app = create_app()

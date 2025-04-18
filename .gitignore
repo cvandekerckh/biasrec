@@ -160,9 +160,9 @@ cython_debug/
 #.idea/
 
 # Data
-.jpg
+*.jpg
 *.db
-.png
+*.png
 #*.csv
 
 # Mac files
