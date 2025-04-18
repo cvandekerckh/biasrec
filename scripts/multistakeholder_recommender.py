@@ -64,7 +64,8 @@ def get_ordered_items(predictions):
 
 def load_conditions():
     df_condition = pd.read_csv(Cf.DATA_PATH_RAW / CONDITION_FILENAME)
-    condition_dict = df_condition.set_index("condition_id").to_dict("index")
+    condition_dict = dict(zip(df_condition['condition_id'], df_condition['level_of_bias']))
+    print(condition_dict)
     return condition_dict
 
 def get_product_list(ordered_items):
@@ -112,7 +113,12 @@ def apply_condition_modifier(product_list_per_user, condition_dict, condition_ty
     return product_list_per_user_modified
 
 
-def find_betas(n_recommendations=5):
+def find_betas():
+    # Enter here information about the model, as optimized in create_model
+    n_recommendations=Cf.N_RECOMMENDATIONS # number of recommendation items
+    k=5 # number of neighbours in content based
+    weights='25-25-50' # importance distribution between similarity matrices
+
     app = create_app()
     with app.app_context():
         with open(Cf.DATA_PATH_OUT / PREDICTIONS_FILENAME, 'rb') as file:
@@ -131,7 +137,7 @@ def find_betas(n_recommendations=5):
                 nutriscores_recommendation = [nutriscore_to_weight[product.nutri_score] for product, _ in recommended_products]
                 average_nutriscore_recommendation.append(np.mean(nutriscores_recommendation))
             average_nutriscore_over_users.append(np.mean(average_nutriscore_recommendation))
-        with open(Cf.DATA_PATH_OUT / f'betas_N{n_recommendations}_k{5}_w25-25-50.csv', 'w', newline='') as f:
+        with open(Cf.DATA_PATH_OUT / f'betas_N{n_recommendations}_k{5}_w{weights}.csv', 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(['beta','n_avg'])  # write header
             for item1, item2 in zip(betas, average_nutriscore_over_users):
@@ -148,4 +154,18 @@ def create_multistakeholder_recommendation():
         product_list_per_user = apply_condition_modifier(product_list_per_user, condition_dict)
         #print(product_list_per_user[44849])
         #print(len(product_list_per_user))
+        print(product_list_per_user[96195])
         pickle.dump(product_list_per_user, open(Cf.DATA_PATH_OUT / Cf.MODEL_FILENAME, 'wb'))
+
+def find_users_for_testing():
+    df_ratings = pd.read_csv('data/fucam/raw/rating_14_04_2025.csv', delimiter=';')
+    df_user_conditions = pd.read_csv('data/fucam/out/users_conditions.csv')
+
+    filtered_conditions = df_user_conditions[
+        (df_user_conditions['id'].isin(df_ratings['user_id'])) &
+        (df_user_conditions['id'] != 135)
+    ]
+    df_test = filtered_conditions.drop_duplicates(subset='condition_id')[['id', 'condition_id']]
+    df_test = df_test.rename(columns={'id': 'user_id'})
+    df_test = df_test.sort_values(by='condition_id').reset_index(drop=True)
+    df_test.to_csv('data/fucam/out/user_to_test.csv', index=False)

@@ -8,6 +8,15 @@ from app.auth.forms import Close
 from app import db
 import pickle
 
+category_tag_to_name = {
+    'Sandwiches': 'Sandwichs',
+    'Salads': 'Salades',
+    'Pizzas & Quiches': 'Pizzas et quiches',
+    'Soups': 'Soupes',
+    'Prepared dish': 'Plats préparés',
+    'Snacks & burgers': 'Snacks et hamburgers',
+    'Wraps': 'Wraps',
+}
 
 @bp.before_app_request
 def before_request():
@@ -20,6 +29,7 @@ def before_request():
             product_list_per_user = pickle.load(open(model_file, 'rb'))
             n_recommendations = current_app.config['N_RECOMMENDATIONS']
             g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
+            g.reco_list = [product for product, _ in g.reco_list]
         else:
             g.reco_list = None
     elif current_app.config['RECOMMENDATION'] is None:
@@ -29,15 +39,15 @@ def before_request():
 @login_required
 def recommendation():
     form = PurchaseForm()
+    print(g.reco_list)
     return render_template('main/recommendation.html', form = form, reco_list = g.reco_list)
 
 @bp.route('/product_category/<category_name>')
 @login_required
 def product_category(category_name):
     form = PurchaseForm()
-    products = Product.query.filter_by(category = category_name)
-    category_name_label = category_name
-
+    category_name_label = category_tag_to_name[category_name]
+    products = Product.query.filter_by(category = category_name_label)
     page = request.args.get('page', 1, type = int)
     product_page = products.paginate(
         page=page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False)

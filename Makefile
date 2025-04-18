@@ -16,6 +16,9 @@ create-recommendation:
 find-betas:
 	pipenv run python -c "from scripts.multistakeholder_recommender import find_betas; find_betas()"
 
+find-user-for-testing:
+	pipenv run python -c "from scripts.multistakeholder_recommender import find_users_for_testing; find_users_for_testing()"
+
 
 display-users:
 	pipenv run python -c "from scripts.view_databases import display_users; display_users()"
@@ -40,6 +43,9 @@ reload-experiment:
 
 launch-fixedrec:
 	pipenv run python microapp.py --config=fixedrec
+
+launch-trainrec:
+	pipenv run python microapp.py --config=trainrec
 
 start-rate:
 	pipenv run python microapp.py --config=rate
