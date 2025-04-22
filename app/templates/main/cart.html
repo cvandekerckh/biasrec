@@ -48,26 +48,26 @@
     {% set number_of_products = cart_products|length %}
 
     {% if number_of_products == 5 %}
-        <p>
-            <form action="{{ url_for('auth.closep2') }}" method="post">
-                {{ form2.hidden_tag() }}
-                <button type="submit" class="btn btn-primary btn-lg w-100" style="padding: 30px; font-size: 3rem; background-color:#007bff; border-color:#007bff;">
-                    Finir et valider mon panier
-                </button>
-            </form>
-        </p>
-    {% elif number_of_products < 5 %}
-        <p>
-            <button type="button" class="btn btn-warning btn-lg w-100" style="padding: 30px; font-size: 2.5rem; cursor: not-allowed;">
-                Merci d'ajouter encore {{ 5 - number_of_products }} article{{ 's' if (5 - number_of_products) > 1 else '' }}
+    <p>
+        <form action="{{ url_for('auth.close') }}" method="post">
+            {{ form2.hidden_tag() }}
+            <button type="submit" class="btn btn-primary btn-lg" style="background-color:#007bff; border-color:#007bff;">
+                Finir et valider mon panier
             </button>
-        </p>
-    {% else %}
-        <p>
-            <button type="button" class="btn btn-danger btn-lg w-100" style="padding: 30px; font-size: 2.5rem; cursor: not-allowed;">
-                Merci de retirer {{ number_of_products - 5 }} article{{ 's' if (number_of_products - 5) > 1 else '' }}
-            </button>
-        </p>
-    {% endif %}
+        </form>
+    </p>
+{% elif number_of_products < 5 %}
+    <p>
+        <button type="button" class="btn btn-secondary btn-lg" style="background-color:#ffc107; border-color:#ffc107; cursor:not-allowed;">
+            Merci d'ajouter {{ 5 - number_of_products }} article{{ 's' if (5 - number_of_products) > 1 else '' }} pour continuer
+        </button>
+    </p>
+{% else %}
+    <p>
+        <button type="button" class="btn btn-secondary btn-lg" style="background-color:#dc3545; border-color:#dc3545; cursor:not-allowed;">
+            Merci de retirer {{ number_of_products - 5 }} article{{ 's' if (number_of_products - 5) > 1 else '' }} pour continuer
+        </button>
+    </p>
+{% endif %}
 </div>
 {% endblock %}
