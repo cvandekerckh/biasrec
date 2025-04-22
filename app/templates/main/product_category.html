@@ -1,7 +1,7 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <h1 class = "titlecolor" style="text-align: center;"> <b>Discover our delicious selection of available {{category_name_label}} :</b> </h1>
+    <h1 class = "titlecolor" style="text-align: center;"> <b>Découvrez notre délicieuse sélection de {{category_name_label}} :</b> </h1>
         <div class ="recommendations">
                 <table class="table table-borderless">
                     <tr>
@@ -17,10 +17,10 @@
                                         <td style="float:left;width:70%;">
                                             <h3 class="titlecolor"> <b>{{ product.price }}</b></h3>
                                             <br>
-                                            <h4 class="titlecolor"> <b>Protein:</b> {{ product.protein }}</h4>
-                                            <h4 class="titlecolor"> <b>Vegetables:</b> {{ product.vegetables }}</h4>
-                                            <h4 class="titlecolor"> <b>Starch:</b> {{ product.starch }}</h4>
-                                            <h4 class="titlecolor"> <b>Dairy products:</b> {{ product.dairy_products }}</h4>
+                                            <h4 class="titlecolor"> <b>Protéines:</b> {{ product.protein }}</h4>
+                                            <h4 class="titlecolor"> <b>Légumes:</b> {{ product.vegetables }}</h4>
+                                            <h4 class="titlecolor"> <b>Féculents:</b> {{ product.starches }}</h4>
+                                            <h4 class="titlecolor"> <b>Produits laitiers:</b> {{ product.dairy_products }}</h4>
                                             <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
                                         </td>
                                         <td ALIGN="CENTER" style="float:left;width:30%;">
@@ -34,7 +34,7 @@
                                 </table>
                                 <form action="{{ url_for('main.purchase', name=product.name) }}" method="post">
                                     {{ form.hidden_tag() }}
-                                    <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                                    <span aria-hidden="true">{{ form.submit(value='Ajouter à mon panier', class_='btn btn-success mb-2 btn-lg') }}</span>
                                 </form>
                             </td>
                         {% endfor %}
@@ -49,14 +49,14 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="previous{% if not prev_url %} disabled{% endif %}">
                         <a href="{{ prev_url or '#' }}" class="pager-button">
-                            <span aria-hidden="true">&larr;</span> Previous
+                            <span aria-hidden="true">&larr;</span> Précédent
                         </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="next{% if not next_url %} disabled{% endif %}">
                         <a href="{{ next_url or '#' }}" class="pager-button">
-                            Next <span aria-hidden="true">&rarr;</span>
+                            Suivant <span aria-hidden="true">&rarr;</span>
                         </a>
                     </li>
                 </ul>

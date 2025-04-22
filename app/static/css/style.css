@@ -84,3 +84,9 @@ body{
   background-color: #28b52d; /* Bleu foncé au survol */
 }
 
+/* Empêche le fond blanc sur hover dans la barre de navigation */
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+    background-color: transparent !important;
+    color: inherit !important;  /* pour garder la même couleur de texte */
+}

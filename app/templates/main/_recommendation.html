@@ -4,7 +4,7 @@
 <div class ="recommendations">
     <table class="table table-borderless">
         <tr> 
-            <td ALIGN="CENTER"><h4 class = "pnavbut"> <b>Tailored food recommendations just for you!</b></h4> </td>
+            <td ALIGN="CENTER"><h4 class = "pnavbut"> <b>Voici ce que nous vous recommandons : </b></h4> </td>
         </tr>
         <tr>
         {% for reco in reco_list %}
@@ -22,10 +22,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <h5 class="titlecolor"> <b>Protein:</b> {{ reco.protein }}</h5>
-                            <h5 class="titlecolor"> <b>Vegetables:</b> {{ reco.vegetables }}</h5>
-                            <h5 class="titlecolor"> <b>Starch:</b> {{ reco.starch }}</h5>
-                            <h5 class="titlecolor"> <b>Dairy products:</b> {{ reco.dairy_products }}</h5>
+                            <h5 class="titlecolor"> <b>Protéines:</b> {{ reco.protein }}</h5>
+                            <h5 class="titlecolor"> <b>Légumes:</b> {{ reco.vegetables }}</h5>
+                            <h5 class="titlecolor"> <b>Féculents:</b> {{ reco.starches }}</h5>
+                            <h5 class="titlecolor"> <b>Produits laitiers:</b> {{ reco.dairy_products }}</h5>
                             <h5 class="titlecolor"> <b>Sauce:</b> {{ reco.sauce }}</h5>
                         </td>
                     </tr>
@@ -33,7 +33,7 @@
                 <a>
                     <form action="{{ url_for('main.purchase', name=reco.name) }}" method="post">
                         {{ form.hidden_tag() }}
-                        <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                        <span aria-hidden="true">{{ form.submit(value='Ajouter à mon panier', class_='btn btn-success mb-2 btn-lg') }}</span>
                     </form>
                 </a>
             </td>

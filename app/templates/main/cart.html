@@ -2,7 +2,7 @@
 
 {% block app_content %}
 <div ALIGN="CENTER" style="float:left;width:75%;">
-    <h1 class="titlecolor"><p><b>Shopping cart</b></p></h1>
+    <h1 class="titlecolor"><p><b>Mon panier d'achat :</b></p></h1>
     {% for p in cart_products %}
     <p>
         <div class="recommendations">
@@ -18,11 +18,11 @@
                         <h2><b><a class="titlecolor" href="{{ url_for('main.product', name=p.name) }}">{{ p.name }}</a></b></h2> 
                         <h3 class="titlecolor"><b>{{ p.price }}</b></h3>
                         <br>
-                        <h4 class="titlecolor"><b>Protein:</b> {{ p.protein }}</h4>
-                        <h4 class="titlecolor"><b>Vegetables:</b> {{ p.vegetables }}</h4>
-                        <h4 class="titlecolor"><b>Starch:</b> {{ p.starch }}</h4>
-                        <h4 class="titlecolor"><b>Dairy products:</b> {{ p.dairy_products }}</h4>
-                        <h4 class="titlecolor"><b>Sauce:</b> {{ p.sauce }}</h4>
+                        <h4 class="titlecolor"><b>Protéines :</b> {{ p.protein }}</h4>
+                        <h4 class="titlecolor"><b>Légumes :</b> {{ p.vegetables }}</h4>
+                        <h4 class="titlecolor"><b>Féculents :</b> {{ p.starch }}</h4> 
+                        <h4 class="titlecolor"><b>Produits laitiers :</b> {{ p.dairy_products }}</h4>
+                        <h4 class="titlecolor"><b>Sauce :</b> {{ p.sauce }}</h4>
                     </td>
                     <td style="float:left;width:20%;">
                         {% if current_user.has_bought(p) %}
@@ -30,7 +30,7 @@
                         <p>
                             <form action="{{ url_for('main.unpurchase', name=p.name) }}" method="post">
                                 {{ form1.hidden_tag() }}
-                                <span aria-hidden="true">{{ form1.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                                <span aria-hidden="true">{{ form1.submit(value='Retirer de mon panier', class_='btn btn-success mb-2 btn-lg') }}</span>
                             </form>
                         </p>
                         {% endif %}
@@ -49,23 +49,23 @@
 
     {% if number_of_products == 5 %}
         <p>
-            <form action="{{ url_for('auth.close') }}" method="post">
+            <form action="{{ url_for('auth.closep2') }}" method="post">
                 {{ form2.hidden_tag() }}
-                <button type="submit" class="btn btn-primary btn-lg" style="background-color:#007bff; border-color:#007bff;">
-                    Finish and go to the survey
+                <button type="submit" class="btn btn-primary btn-lg w-100" style="padding: 30px; font-size: 3rem; background-color:#007bff; border-color:#007bff;">
+                    Finir et valider mon panier
                 </button>
             </form>
         </p>
     {% elif number_of_products < 5 %}
         <p>
-            <button type="button" class="btn btn-secondary btn-lg" style="background-color:#ffc107; border-color:#ffc107; cursor: not-allowed;">
-                Please add {{ 5 - number_of_products }} more item{{ 's' if (5 - number_of_products) > 1 else '' }} to continue
+            <button type="button" class="btn btn-warning btn-lg w-100" style="padding: 30px; font-size: 2.5rem; cursor: not-allowed;">
+                Merci d'ajouter encore {{ 5 - number_of_products }} article{{ 's' if (5 - number_of_products) > 1 else '' }}
             </button>
         </p>
     {% else %}
         <p>
-            <button type="button" class="btn btn-secondary btn-lg" style="background-color:#dc3545; border-color:#dc3545; cursor: not-allowed;">
-                Please remove {{ number_of_products - 5 }} item{{ 's' if (number_of_products - 5) > 1 else '' }} to continue
+            <button type="button" class="btn btn-danger btn-lg w-100" style="padding: 30px; font-size: 2.5rem; cursor: not-allowed;">
+                Merci de retirer {{ number_of_products - 5 }} article{{ 's' if (number_of_products - 5) > 1 else '' }}
             </button>
         </p>
     {% endif %}
