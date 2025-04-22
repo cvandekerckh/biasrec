@@ -49,12 +49,11 @@
 
     {% if number_of_products == 5 %}
     <p>
-        <form action="{{ url_for('auth.close') }}" method="post">
-            {{ form2.hidden_tag() }}
-            <button type="submit" class="btn btn-primary btn-lg" style="background-color:#007bff; border-color:#007bff;">
-                Finir et valider mon panier
-            </button>
-        </form>
+        <a href="{{ url_for('main.reminderreco') }}">
+          <button class="btn btn-success mb-2 btn-lg w-100" style="padding: 30px; font-size: 3rem;">
+            Finir et valider mon panier
+          </button>
+        </a>
     </p>
 {% elif number_of_products < 5 %}
     <p>
@@ -70,5 +69,4 @@
     </p>
 {% endif %}
 </div>
->>>>>>> c879ae67b3a3f92a4862d65e411f448480759844
 {% endblock %}
