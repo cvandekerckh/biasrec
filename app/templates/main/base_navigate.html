@@ -6,7 +6,8 @@
 
 {% block navbar %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-    <nav class = "firstnavbar">
+
+    <nav class="firstnavbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -15,39 +16,64 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('main.recommendation') }}"> <img src="{{ url_for('static', filename='img/logo.jpg')}}" height="75px"></a>
+                <a class="navbar-brand" href="{{ url_for('main.recommendation') }}">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" height="75px">
+                </a>
             </div>
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="{{ url_for('main.recommendation') }}"><h1 class = "pnavbut"> <b>Accueil</b></h1></a></li>
+                    <li><a href="{{ url_for('main.recommendation') }}"><h1 class="pnavbut"><b>Accueil</b></h1></a></li>
                 </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <br>
                         <img src="{{ url_for('static', filename='img/basket.jpg') }}" height="50px">
                     </li>
-                    <li><a href="{{ url_for('main.cart') }}"><h1 class = "pnavbut"> <b>Mon panier</b></h1></a></li>
+                    <li>
+                        <a href="{{ url_for('main.cart') }}">
+                            <h1 class="pnavbut">
+                                <b>Mon panier</b>
+                                {% if n_product_in_cart is defined %}
+                                    {% if n_product_in_cart < 5 %}
+                                        {% set badge_color = "#ffc107" %} {# Yellow #}
+                                    {% elif n_product_in_cart == 5 %}
+                                        {% set badge_color = "#007bff" %} {# Blue #}
+                                    {% else %}
+                                        {% set badge_color = "#dc3545" %} {# Red #}
+                                    {% endif %}
+                                    <span class="badge" style="background-color:{{ badge_color }}; color:white; font-size:1.5rem; border-radius:50%; padding:5px 10px;">
+                                        {{ n_product_in_cart }}
+                                    </span>
+                                {% endif %} 
+                            </h1>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Second navbar (no change) -->
     <nav class="secondnavbar">
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.recommendation') }}"><p class = "secondnavbut"> Pour vous </p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Sandwiches') }}"><p class = "secondnavbut">Sandwiches</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Salads') }}"><p class = "secondnavbut">Salades</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Pizzas & Quiches') }}"><p class = "secondnavbut">Pizzas</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Soups') }}"><p class = "secondnavbut">Soupes</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Prepared dish') }}"><p class = "secondnavbut">Plats préparés</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Snacks & burgers') }}"><p class = "secondnavbut">Snacks et hamburgers</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Wraps') }}"><p class = "secondnavbut">Wraps</p></a></li>
+                    <li><a href="{{ url_for('main.recommendation') }}"><p class="secondnavbut">Pour vous</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Sandwiches') }}"><p class="secondnavbut">Sandwiches</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Salads') }}"><p class="secondnavbut">Salades</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Pizzas & Quiches') }}"><p class="secondnavbut">Pizzas</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Soups') }}"><p class="secondnavbut">Soupes</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Prepared dish') }}"><p class="secondnavbut">Plats préparés</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Snacks & burgers') }}"><p class="secondnavbut">Snacks et hamburgers</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Wraps') }}"><p class="secondnavbut">Wraps</p></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 {% endblock %}
+
 {% block content %}
         {# application content needs to be provided in the app_content block #}
         {% block app_content %}{% endblock %}

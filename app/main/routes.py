@@ -18,6 +18,11 @@ category_tag_to_name = {
     'Wraps': 'Wraps',
 }
 
+def get_n_product_in_cart():
+    query = current_user.purchases.select()
+    cart_products = db.session.scalars(query).all()
+    return len(cart_products)
+
 @bp.before_app_request
 def before_request():
     if current_app.config['RECOMMENDATION'] == 'fixed':
@@ -39,8 +44,13 @@ def before_request():
 @login_required
 def recommendation():
     form = PurchaseForm()
-    print(g.reco_list)
-    return render_template('main/recommendation.html', form = form, reco_list = g.reco_list)
+    n_product_in_cart = get_n_product_in_cart()
+    return render_template(
+        'main/recommendation.html',
+        form = form,
+        reco_list = g.reco_list, 
+        n_product_in_cart = n_product_in_cart,
+    )
 
 @bp.route('/product_category/<category_name>')
 @login_required
@@ -55,8 +65,11 @@ def product_category(category_name):
         if product_page.has_next else None
     prev_url = url_for(f'main.product_category', category_name=category_name, page=product_page.prev_num) \
         if product_page.has_prev else None
+    
+    n_product_in_cart = get_n_product_in_cart()
+
     return render_template('main/product_category.html', products=product_page.items, category_name_label=category_name_label, next_url=next_url,
-                           prev_url=prev_url, form = form)
+                           prev_url=prev_url, form = form, n_product_in_cart = n_product_in_cart)
 
 
 @bp.route('/rate')
@@ -99,7 +112,13 @@ def cart():
     form2 = Close()
     query = current_user.purchases.select()
     cart_products = db.session.scalars(query).all()
-    return render_template('main/cart.html', cart_products = cart_products, form1 = form1,form2 = form2 )
+    return render_template(
+        'main/cart.html',
+        cart_products = cart_products,
+        form1 = form1,
+        form2 = form2,
+        n_product_in_cart=len(cart_products),
+    )
 
 @bp.route('/reminderreco', methods=['GET', 'POST'])
 @login_required
