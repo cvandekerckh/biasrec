@@ -56,7 +56,7 @@
         <br>
         <p><form action="{{ url_for('auth.close')}}" method="post">
             {{ form2.hidden_tag() }}
-            <span aria-hidden="true">{{ form2.submit(value='Finir et valider mon panier', class_='btn btn-success mb-2 btn-lg')}}</span>
+            <span aria-hidden="true">{{ form2.submit(value='Finir et valider mon panier', class_='btn btn-success mb-2 btn-lg w-100', style='padding: 30px; font-size: 3rem;')}}</span>
         </form></p>
     </div>
 </tr>
