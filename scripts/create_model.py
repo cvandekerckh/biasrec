@@ -366,7 +366,7 @@ def main():
 
     # Paramètres à tester
     k_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 36]
-    weight_combinations = generate_weight_combinations(step=0.05)  # ou step=0.05 si tu veux plus de précision
+    weight_combinations = generate_weight_combinations(step=0.1)  # ou step=0.05 si tu veux plus de précision
     print(f"{len(weight_combinations)} combinaisons de poids générées.")
     # Lancer l’évaluation avec cross-validation
     results = evaluate_model_grid_search(
@@ -384,7 +384,7 @@ def main():
         print(f"k={res['k']}, weights={res['weights']} → MAE: {res['mean_MAE']:.4f}, RMSE: {res['mean_RMSE']:.4f}")
 
     # ⬇️ ⬇️ INSÈRE ICI le bloc suivant ⬇️ ⬇️
-    # Sauvegarder dans un CSV (content-based uniquement)
+    #Sauvegarder dans un CSV (content-based uniquement)
     results_df = pd.DataFrame(results)
     results_df.to_csv(Cf.DATA_PATH_OUT / 'evaluation_results.csv', index=False)
     print("\n✅ Résultats enregistrés dans 'evaluation_results.csv'")
@@ -401,7 +401,7 @@ def main():
     combined_df.to_csv(Cf.DATA_PATH_OUT / 'all_models_evaluation.csv', index=False)
     print("\n✅ Tous les résultats enregistrés dans 'all_models_evaluation.csv'")
 
-    # Afficher les 5 meilleurs modèles (selon MAE)
+    #Afficher les 5 meilleurs modèles (selon MAE)
     print("\n🏆 Top 5 des modèles (MAE croissant) :")
     top5 = combined_df.sort_values(by='mean_MAE').head(5)
     print(top5[['model', 'k', 'weights', 'mean_MAE', 'mean_RMSE']])

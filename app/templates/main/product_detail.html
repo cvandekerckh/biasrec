@@ -21,10 +21,10 @@
                             <td>
                                 <h2 class="titlecolor"><b>{{ product.price}}</b></h2>
                                 <br>
-                                <h4 class="titlecolor"> <b>Protein:</b> {{ product.protein }}</h4>
-                                <h4 class="titlecolor"> <b>Vegetables:</b> {{ product.vegetables }}</h4>
-                                <h4 class="titlecolor"> <b>Starch:</b> {{ product.starch }}</h4>
-                                <h4 class="titlecolor"> <b>Dairy products:</b> {{ product.dairy_products }}</h4>
+                                <h4 class="titlecolor"> <b>Protéine(s):</b> {{ product.protein }}</h4>
+                                <h4 class="titlecolor"> <b>Légumes:</b> {{ product.vegetables }}</h4>
+                                <h4 class="titlecolor"> <b>Féculents:</b> {{ product.starches }}</h4>
+                                <h4 class="titlecolor"> <b>Produits laitiers:</b> {{ product.dairy_products }}</h4>
                                 <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
                             </td>
                             <td ALIGN="CENTER", style="float:left;width:30%;">
@@ -36,7 +36,7 @@
                                 <a>
                                     <form action="{{ url_for('main.purchase', name= product.name) }}" method="post">
                                         {{ form.hidden_tag() }}
-                                        <span aria-hidden="true">{{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg')}}</span>
+                                        <span aria-hidden="true">{{ form.submit(value='Ajouter au panier', class_='btn btn-success mb-2 btn-lg')}}</span>
                                     </form>
                                 </a>
                             </td>
