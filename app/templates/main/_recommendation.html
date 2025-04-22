@@ -1,43 +1,48 @@
-
 <br>
 <br>
-<div class ="recommendations">
+<div class="recommendations">
     <table class="table table-borderless">
         <tr> 
-            <td ALIGN="CENTER"><h4 class = "pnavbut"> <b>Voici ce que nous vous recommandons : </b></h4> </td>
+            <td ALIGN="CENTER" colspan="5">
+                <h4 class="pnavbut"><b>Voici ce que nous vous recommandons :</b></h4>
+            </td>
         </tr>
-        <tr>
         {% for reco in reco_list %}
-            <td ALIGN="CENTER" style="float:left;width:20%;">
+            {% if loop.index0 % 5 == 0 %}
+                <tr>
+            {% endif %}
+            
+            <td ALIGN="CENTER" style="width:20%;">
                 <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(reco.id)) }}" height="250px">
                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
                 <table class="table table-borderless">
                     <tr>
-                        <td style="float:left;width:50%;">
-                            <h3 class="titlecolor"> <b>{{ reco.price }}</b></h3>
+                        <td style="width:50%;">
+                            <h3 class="titlecolor"><b>{{ reco.price }}</b></h3>
                         </td>
-                        <td ALIGN="CENTER" style="float:left;width:50%;">
+                        <td style="width:50%;" ALIGN="CENTER">
                             <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="60px">
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <h5 class="titlecolor"> <b>Protéines:</b> {{ reco.protein }}</h5>
-                            <h5 class="titlecolor"> <b>Légumes:</b> {{ reco.vegetables }}</h5>
-                            <h5 class="titlecolor"> <b>Féculents:</b> {{ reco.starches }}</h5>
-                            <h5 class="titlecolor"> <b>Produits laitiers:</b> {{ reco.dairy_products }}</h5>
-                            <h5 class="titlecolor"> <b>Sauce:</b> {{ reco.sauce }}</h5>
+                        <td colspan="2">
+                            <h5 class="titlecolor"><b>Protéines:</b> {{ reco.protein }}</h5>
+                            <h5 class="titlecolor"><b>Légumes:</b> {{ reco.vegetables }}</h5>
+                            <h5 class="titlecolor"><b>Féculents:</b> {{ reco.starches }}</h5>
+                            <h5 class="titlecolor"><b>Produits laitiers:</b> {{ reco.dairy_products }}</h5>
+                            <h5 class="titlecolor"><b>Sauce:</b> {{ reco.sauce }}</h5>
                         </td>
                     </tr>
                 </table>
-                <a>
-                    <form action="{{ url_for('main.purchase', name=reco.name) }}" method="post">
-                        {{ form.hidden_tag() }}
-                        <span aria-hidden="true">{{ form.submit(value='Ajouter à mon panier', class_='btn btn-success mb-2 btn-lg') }}</span>
-                    </form>
-                </a>
+                <form action="{{ url_for('main.purchase', name=reco.name) }}" method="post">
+                    {{ form.hidden_tag() }}
+                    {{ form.submit(value='Ajouter à mon panier', class_='btn btn-success mb-2 btn-lg') }}
+                </form>
             </td>
+
+            {% if loop.index0 % 5 == 4 or loop.last %}
+                </tr>
+            {% endif %}
         {% endfor %}
-        </tr>
     </table>
 </div>

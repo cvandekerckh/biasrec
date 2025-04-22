@@ -101,6 +101,12 @@ def cart():
     cart_products = db.session.scalars(query).all()
     return render_template('main/cart.html', cart_products = cart_products, form1 = form1,form2 = form2 )
 
+@bp.route('/reminderreco', methods=['GET', 'POST'])
+@login_required
+def reminderreco():
+    form = PurchaseForm()
+    return render_template('main/reminder_recos.html', reco_list=g.reco_list, form=form)
+
 @bp.route('/purchase/<name>', methods=['POST'])
 @login_required
 def purchase(name):

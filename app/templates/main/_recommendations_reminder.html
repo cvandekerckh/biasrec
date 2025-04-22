@@ -1,0 +1,34 @@
+<style>
+    .recommendations-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+    
+    .recommendation-card {
+        background-color: white;
+        border-radius: 10px;
+        width: 220px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    </style>
+    
+    <div class="recommendations-container">
+        {% for reco in reco_list %}
+        <div class="recommendation-card">
+            <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(reco.id)) }}" height="150px">
+            <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
+            <p><b>Prix :</b> {{ reco.price }}</p>
+            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="40px"><br><br>
+            <p><b>Protéines :</b> {{ reco.protein }}</p>
+            <p><b>Légumes :</b> {{ reco.vegetables }}</p>
+            <p><b>Féculents :</b> {{ reco.starches }}</p>
+            <p><b>Produits laitiers :</b> {{ reco.dairy_products }}</p>
+            <p><b>Sauce :</b> {{ reco.sauce }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    
