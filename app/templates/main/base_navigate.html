@@ -19,14 +19,14 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="{{ url_for('main.recommendation') }}"><h1 class = "pnavbut"> <b>Home</b></h1></a></li>
+                    <li><a href="{{ url_for('main.recommendation') }}"><h1 class = "pnavbut"> <b>Accueil</b></h1></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <br>
                         <img src="{{ url_for('static', filename='img/basket.jpg') }}" height="50px">
                     </li>
-                    <li><a href="{{ url_for('main.cart') }}"><h1 class = "pnavbut"> <b>Cart</b></h1></a></li>
+                    <li><a href="{{ url_for('main.cart') }}"><h1 class = "pnavbut"> <b>Mon panier</b></h1></a></li>
                 </ul>
             </div>
         </div>
@@ -35,12 +35,12 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.recommendation') }}"><p class = "secondnavbut"> For you</p></a></li>
+                    <li><a href="{{ url_for('main.recommendation') }}"><p class = "secondnavbut"> Pour vous </p></a></li>
                     <li><a href="{{ url_for('main.product_category', category_name='Sandwiches') }}"><p class = "secondnavbut">Sandwiches</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Salads') }}"><p class = "secondnavbut">Salads</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Salads') }}"><p class = "secondnavbut">Salades</p></a></li>
                     <li><a href="{{ url_for('main.product_category', category_name='Pizzas & Quiches') }}"><p class = "secondnavbut">Pizzas</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Soups') }}"><p class = "secondnavbut">Soups</p></a></li>
-                    <li><a href="{{ url_for('main.product_category', category_name='Prepared dish') }}"><p class = "secondnavbut">Prepared dish</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Soups') }}"><p class = "secondnavbut">Soupes</p></a></li>
+                    <li><a href="{{ url_for('main.product_category', category_name='Prepared dish') }}"><p class = "secondnavbut">Plats préparés</p></a></li>
                     <li><a href="{{ url_for('main.product_category', category_name='Snacks & burgers') }}"><p class = "secondnavbut">Snacks</p></a></li>
                     <li><a href="{{ url_for('main.product_category', category_name='Wraps') }}"><p class = "secondnavbut">Wraps</p></a></li>
                 </ul>
