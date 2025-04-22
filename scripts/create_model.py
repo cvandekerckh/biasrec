@@ -11,6 +11,8 @@ FEATMATRIX_FILENAME = 'featmatrix.csv'
 SIMILARITY_MATRIX_FILENAME = 'similarity_matrix.csv'
 TRAINSET_FILENAME = 'rating_14_04_2025.csv'
 USER_TEST_ID = 135
+OPTIMAL_WEIGHTS = (0.1, 0.2, 0.7)
+OPTIMAL_K = 4
 
 def create_feature_matrix(
         product_path=Cf.DATA_PATH_RAW,
@@ -81,7 +83,7 @@ def create_similarity_matrix_with_metric(df, metric):
 
 def create_similarity_matrix(
         feature_matrix,
-        weights=(0.25, 0.25, 0.50),
+        weights=OPTIMAL_WEIGHTS,
         similarity_matrix_path=Cf.DATA_PATH_OUT,
         similarity_matrix_filename=SIMILARITY_MATRIX_FILENAME,
     ):
@@ -144,7 +146,7 @@ def train_model(
         user_trainset, 
         product_id_list,
         similarity_matrix,
-        k=5,
+        k=OPTIMAL_K,
         model_path=Cf.DATA_PATH_OUT,
         model_filename='model.json'
     ):
@@ -209,7 +211,4 @@ def main():
     user_trainset = get_full_trainset()
     user_testset = get_full_testset(user_trainset, product_id_list)
     model = train_model(user_trainset, product_id_list, similarity_matrix)
-    #print(model[44849])
     predictions = predict_for_testset(user_testset, model)
-    #print([prediction for prediction in predictions if prediction[0] == 44849])
-    #print('predictions made with success')
