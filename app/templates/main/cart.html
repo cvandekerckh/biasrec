@@ -57,14 +57,18 @@
     </p>
 {% elif number_of_products < 5 %}
     <p>
-        <button type="button" class="btn btn-secondary btn-lg" style="background-color:#ffc107; border-color:#ffc107; cursor:not-allowed;">
-            Merci d'ajouter {{ 5 - number_of_products }} article{{ 's' if (5 - number_of_products) > 1 else '' }} pour continuer
+        <button type="button" class="btn btn-secondary btn-lg" style="background-color:#ffc107; border-color:#ffc107; cursor:not-allowed; padding: 25px; font-size: 2.5rem;">
+            <strong>
+                Merci d'ajouter {{ 5 - number_of_products }} article{{ 's' if (5 - number_of_products) > 1 else '' }} pour finir et valider votre panier
+            </strong>
         </button>
     </p>
 {% else %}
     <p>
-        <button type="button" class="btn btn-secondary btn-lg" style="background-color:#dc3545; border-color:#dc3545; cursor:not-allowed;">
-            Merci de retirer {{ number_of_products - 5 }} article{{ 's' if (number_of_products - 5) > 1 else '' }} pour continuer
+        <button type="button" class="btn btn-secondary btn-lg" style="background-color:#dc3545; border-color:#dc3545; cursor:not-allowed;padding: 25px; font-size: 2.5rem;">
+            <strong>
+                Merci de retirer {{ number_of_products - 5 }} article{{ 's' if (number_of_products - 5) > 1 else '' }} pour finir et valider votre panier
+            </strong>
         </button>
     </p>
 {% endif %}
