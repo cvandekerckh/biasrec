@@ -3,13 +3,13 @@ from config import Config as Cf
 from sklearn.metrics import pairwise_distances
 import json
 import copy
-import pickle 
+import pickle
 
 INGREDIENT_COLUMNS = ["protein", "vegetables", "starches", "dairy_products", "sauce"]
 PRODUCT_FILENAME = 'products.csv'
 FEATMATRIX_FILENAME = 'featmatrix.csv'
 SIMILARITY_MATRIX_FILENAME = 'similarity_matrix.csv'
-TRAINSET_FILENAME = 'rating_14_04_2025.csv'
+TRAINSET_FILENAME = 'rating_23_04_2025.csv'
 USER_TEST_ID = 135
 OPTIMAL_WEIGHTS = (0.1, 0.2, 0.7)
 OPTIMAL_K = 4
@@ -22,10 +22,10 @@ def create_feature_matrix(
     ):
     # Charger le fichier CSV avec le bon séparateur
     df = pd.read_csv(product_path / product_filename, sep=";")
-    
+
     # Liste des colonnes contenant les ingrédients
     ingredient_columns = ["protein", "vegetables", "starches", "dairy_products", "sauce"]
-    
+
     # Extraire les ingrédients uniques
     unique_ingredients = set()
     for col in ingredient_columns:
@@ -35,16 +35,16 @@ def create_feature_matrix(
                 ingredient = ingredient.strip()
                 if ingredient.lower() != "no" and ingredient:  # Exclure "No" et les valeurs vides
                     unique_ingredients.add(ingredient)
-    
+
     unique_ingredients = sorted(unique_ingredients)  # Trier les ingrédients pour avoir une ordre constant
-    
+
     # Transformer la colonne catégorie en variables binaires avec 1/0
     categories = pd.get_dummies(df["category"], prefix="is").astype(int)
-    
+
     # Créer une matrice vide avec l'ID du produit
     feature_matrix = pd.DataFrame(0, index=df.index, columns=["product_id"] + categories.columns.tolist() + unique_ingredients + ["nutri_score"])
     feature_matrix["product_id"] = df["id"]  # Ajouter l'ID du produit
-    
+
     # Remplir la matrice avec les valeurs
     feature_matrix[categories.columns] = categories
     for col in ingredient_columns:
@@ -53,7 +53,7 @@ def create_feature_matrix(
                 ingredient = ingredient.strip()
                 if ingredient in feature_matrix.columns:
                     feature_matrix.at[i, ingredient] = 1
-    
+
     # Convertir le nutri-score en valeurs numériques
     nutri_score_mapping = {"A": 1, "B": 0.75, "C": 0.50, "D": 0.25, "E": 0}
     feature_matrix["nutri_score"] = df["nutri_score"].map(nutri_score_mapping)
@@ -65,7 +65,7 @@ def create_feature_matrix(
     # Sauvegarder dans un fichier CSV
     print('Saving feature matrix')
     feature_matrix.to_csv(featmatrix_path / featmatrix_filename)
-    
+
     return feature_matrix
 
 
@@ -75,8 +75,8 @@ def create_similarity_matrix_with_metric(df, metric):
         X = X.astype(bool)
     distances = pairwise_distances(X, metric=metric)
     similarity = 1 - distances
-    similarity_df = pd.DataFrame(similarity, 
-                             index=df.index, 
+    similarity_df = pd.DataFrame(similarity,
+                             index=df.index,
                              columns=df.index)
     return similarity_df
 
@@ -135,7 +135,7 @@ def get_full_testset(
         trainset_product_ids = user_trainset_i.index.tolist()
         # Identify testset products
         testset_product_ids = [
-            product_id for product_id in product_id_list 
+            product_id for product_id in product_id_list
             if product_id not in trainset_product_ids
         ]
         testset[user_id] = {product_id : [] for product_id in testset_product_ids}
@@ -143,7 +143,7 @@ def get_full_testset(
 
 
 def train_model(
-        user_trainset, 
+        user_trainset,
         product_id_list,
         similarity_matrix,
         k=OPTIMAL_K,
@@ -191,7 +191,7 @@ def predict_for_testset(
                 (sim, rating) for _, sim, rating in model[user_id][product_id]
             ])
             numerator = sum(
-                sim * rating 
+                sim * rating
                 for sim, rating in zip(similarities, ratings)
             )
             denominator = sum(similarities)
@@ -206,7 +206,7 @@ def predict_for_testset(
 
 def main():
     feature_matrix = create_feature_matrix()
-    similarity_matrix = create_similarity_matrix(feature_matrix, weights=(0.25, 0.25, 0.50)) # first weight = category, second weight = nutriscore, third weight = ingredient
+    similarity_matrix = create_similarity_matrix(feature_matrix, weights=OPTIMAL_WEIGHTS) # first weight = category, second weight = nutriscore, third weight = ingredient
     product_id_list = feature_matrix.index.tolist()
     user_trainset = get_full_trainset()
     user_testset = get_full_testset(user_trainset, product_id_list)
