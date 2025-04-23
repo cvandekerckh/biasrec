@@ -43,9 +43,9 @@ def survey():
 
 @bp.route('/surveyp2', methods=['GET', 'POST'])
 def surveyp2():
-    qualtrics_url = current_user.qualtrics_url
+    qualtrics_url_phase2 = current_user.qualtrics_url_phase2
     logout_user()
-    return render_template('main/surveyp2.html', qualtrics_url=qualtrics_url) #redirige vers ma page survey
+    return render_template('main/surveyp2.html', qualtrics_url_phase2=qualtrics_url_phase2) #redirige vers ma page survey
 
 
 

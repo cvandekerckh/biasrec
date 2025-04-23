@@ -35,6 +35,8 @@ class User(UserMixin, db.Model):
     code: so.Mapped[int] = so.mapped_column(index=True, unique=True)
     qualtrics_url: so.Mapped[str] = so.mapped_column(sa.String(250), index=True,
                                                 unique=True)
+    qualtrics_url_phase2: so.Mapped[str] = so.mapped_column(sa.String(250), index=True,
+                                                unique=True)
     condition_id: so.Mapped[int] = so.mapped_column(sa.Integer)
     purchases: so.WriteOnlyMapped['Product'] = so.relationship(
         secondary=purchases,
