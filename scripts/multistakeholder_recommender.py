@@ -13,7 +13,7 @@ from config import Config as Cf
 import pickle
 
 CONDITION_FILENAME = 'conditions.csv'
-PREDICTIONS_FILENAME = 'predictions.p'
+PREDICTIONS_FILENAME = 'predictions_23_04_2025.p'
 OPTIMAL_K = 4
 OPTIMAL_WEIGHTS = '10-20-70'
 

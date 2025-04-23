@@ -116,7 +116,7 @@ def get_full_trainset(
     trainset_path=Cf.DATA_PATH_RAW,
     trainset_filename=TRAINSET_FILENAME,
 ):
-    df_train = pd.read_csv(trainset_path / trainset_filename, delimiter=';')
+    df_train = pd.read_csv(trainset_path / trainset_filename)
     df_train = df_train[(df_train['user_id'] != USER_TEST_ID)]
     return df_train
 
