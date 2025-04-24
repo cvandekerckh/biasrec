@@ -14,8 +14,8 @@
                                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=product.name) }}">{{ product.name }}</a></b></h3>
                                 <table class="table table-borderless">
                                     <tr>
-                                        <td style="float:left;width:70%;">
-                                            <h3 class="titlecolor"> <b>{{ product.price }}</b></h3>
+                                        <td style="float:left;width:60%;">
+                                            <h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
                                             <br>
                                             <h4 class="titlecolor"> <b>Protéines:</b> {{ product.protein }}</h4>
                                             <h4 class="titlecolor"> <b>Légumes:</b> {{ product.vegetables }}</h4>
@@ -23,11 +23,8 @@
                                             <h4 class="titlecolor"> <b>Produits laitiers:</b> {{ product.dairy_products }}</h4>
                                             <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
                                         </td>
-                                        <td ALIGN="CENTER" style="float:left;width:30%;">
-                                            <br>
-                                            <br>
-                                            <br>
-                                            <br>
+                                        <td style="float:left; width:40%; text-align:left;">
+                                            <br><br><br><br>
                                             <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(product.nutri_score)) }}" height="70px">
                                         </td>
                                     </tr>
