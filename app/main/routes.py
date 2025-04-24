@@ -133,14 +133,40 @@ def purchase(name):
     current_user.add_to_cart(product)
     db.session.commit()
     flash('Ton article {} a été rajouté au panier!'.format(name))
+    return redirect(url_for('main.product', name=name))
+
+@bp.route('/purchasereco/<name>', methods=['POST'])
+@login_required
+def purchasereco(name):
+    product = Product.query.filter_by(name=name).first()
+    current_user.add_to_cart(product)
+    db.session.commit()
+    flash('Ton article {} a été rajouté au panier!'.format(name))
     return redirect(url_for('main.recommendation'))
 
-@bp.route('/unpurchase/<name>', methods=['POST'])
+@bp.route('/unpurchasecart/<name>', methods=['POST'])
 @login_required
-def unpurchase(name):
+def unpurchasecart(name):
     product = Product.query.filter_by(name=name).first()
     current_user.remove_from_cart(product)
     db.session.commit()
     flash('Ton article {} a été retiré de votre panier!'.format(name))
     return redirect(url_for('main.cart'))
 
+@bp.route('/unpurchasereco/<name>', methods=['POST'])
+@login_required
+def unpurchasereco(name):
+    product = Product.query.filter_by(name=name).first()
+    current_user.remove_from_cart(product)
+    db.session.commit()
+    flash('Ton article {} a été retiré de votre panier!'.format(name))
+    return redirect(url_for('main.recommendation'))
+
+@bp.route('/unpurchaseproduct/<name>', methods=['POST'])
+@login_required
+def unpurchaseproduct(name):
+    product = Product.query.filter_by(name=name).first()
+    current_user.remove_from_cart(product)
+    db.session.commit()
+    flash('Ton article {} a été retiré de votre panier!'.format(name))
+    return redirect(url_for('main.product', name=name))

@@ -33,12 +33,19 @@
                                 <br>
                                 <br>
                                 <br>
-                                <a>
-                                    <form action="{{ url_for('main.purchase', name= product.name) }}" method="post">
+                                {% if current_user.has_bought(product) %}
+                                    <p>
+                                        <form action="{{ url_for('main.unpurchaseproduct', name=product.name) }}" method="post">
+                                             {{ form.hidden_tag() }}
+                                            <span aria-hidden="true">{{ form.submit(value='Retirer de mon panier', class_='btn btn-success mb-2 btn-lg') }}</span>
+                                        </form>
+                                    </p>
+                                {% else %}
+                                    <form action="{{ url_for('main.purchase', name=product.name) }}" method="post">
                                         {{ form.hidden_tag() }}
-                                        <span aria-hidden="true">{{ form.submit(value='Ajouter à mon panier', class_='btn btn-success mb-2 btn-lg')}}</span>
-                                    </form>
-                                </a>
+                                        {{ form.submit(value='Ajouter à mon panier', class_='btn btn-success mb-2 btn-lg') }}
+                                    </form>   
+                                {% endif %}
                             </td>
                         </tr>
                     </table>
