@@ -103,7 +103,8 @@ def save():
 def product(name):
     product = Product.query.filter_by(name = name).first()
     form = PurchaseForm()
-    return render_template('main/product_detail.html', product = product, form = form, reco_list = g.reco_list)
+    n_product_in_cart = get_n_product_in_cart()
+    return render_template('main/product_detail.html', product = product, form = form, reco_list = g.reco_list, n_product_in_cart = n_product_in_cart)
 
 @bp.route('/cart')
 @login_required
