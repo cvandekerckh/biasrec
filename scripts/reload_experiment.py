@@ -41,7 +41,7 @@ def assign_products_to_users():
             db.session.commit()
 
 def populate_users():
-    populate_db(User, Cf.DATA_PATH_OUT / USER_FILENAME)
+    populate_db(User, Cf.DATA_PATH_OUT / USER_FILENAME, delimiter=";")
     assign_products_to_users()
 
 
