@@ -35,5 +35,5 @@ configs = {
   'rate'  : RateConfig,
   'fixedrec' : FixedRecommendationConfig,
   'trainrec' : TrainedRecommendationConfig,
-  'default'  :RateConfig,
+  'default'  : TrainedRecommendationConfig,
 }
