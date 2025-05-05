@@ -15,7 +15,8 @@ class Config(object):
     DATA_PATH = Path('data/fucam')
     DATA_PATH_RAW = DATA_PATH / 'raw'
     DATA_PATH_OUT = DATA_PATH / 'out'
-    MODEL_FILENAME = 'model_23_04_2025.p'
+    MODEL_PATH = DATA_PATH_OUT / 'versioning'/ 'models'
+    MODEL_FILENAME = 'model_05_05_2025.p'
     N_RECOMMENDATIONS = 5
 
 class RateConfig(Config):

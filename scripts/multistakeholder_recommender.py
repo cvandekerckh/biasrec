@@ -12,10 +12,19 @@ import csv
 from config import Config as Cf
 import pickle
 
-CONDITION_FILENAME = 'conditions.csv'
-PREDICTIONS_FILENAME = 'predictions_23_04_2025.p'
+OPTIMAL_HP_VERSION = '23_04_2025'
+RATINGS_VERSION = '05_05_2025'
+
+CONDITION_FILENAME = 'conditions.csv' # to be updated based on last betas (OPTIMAL_HP_VERSION) !!!
 OPTIMAL_K = 4
 OPTIMAL_WEIGHTS = '10-20-70'
+
+PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / 'predictions'
+PREDICTIONS_FILENAME = f'predictions_{RATINGS_VERSION}.p'
+
+MODEL_PATH = Cf.DATA_PATH_OUT / 'versioning' / 'models'
+MODEL_FILENAME = f'model_{RATINGS_VERSION}.p'
+
 
 nutriscore_to_weight = {
     'A': 5,
@@ -106,7 +115,7 @@ def find_betas():
 
     app = create_app()
     with app.app_context():
-        with open(Cf.DATA_PATH_OUT / PREDICTIONS_FILENAME, 'rb') as file:
+        with open(PREDICTIONS_PATH / PREDICTIONS_FILENAME, 'rb') as file:
             predictions = pickle.load(file)
         ordered_items = get_ordered_items(predictions)
         product_list_per_user = get_product_list(ordered_items)
@@ -131,17 +140,17 @@ def find_betas():
 def create_multistakeholder_recommendation():
     app = create_app()
     with app.app_context():
-        with open(Cf.DATA_PATH_OUT / PREDICTIONS_FILENAME, 'rb') as file:
+        with open(PREDICTIONS_PATH / PREDICTIONS_FILENAME, 'rb') as file:
             predictions = pickle.load(file)
         ordered_items = get_ordered_items(predictions)
         product_list_per_user = get_product_list(ordered_items)
         condition_dict = load_conditions()
         product_list_per_user = apply_condition_modifier(product_list_per_user, condition_dict)
-        pickle.dump(product_list_per_user, open(Cf.DATA_PATH_OUT / Cf.MODEL_FILENAME, 'wb'))
+        pickle.dump(product_list_per_user, open(MODEL_PATH / MODEL_FILENAME, 'wb'))
 
 def find_users_for_testing():
-    df_ratings = pd.read_csv('data/fucam/raw/rating_14_04_2025.csv', delimiter=';')
-    df_user_conditions = pd.read_csv('data/fucam/out/users_conditions.csv')
+    df_ratings = pd.read_csv(Cf.DATA_PATH_RAW / 'versioning' / 'ratings_merged' / f'rating_{RATINGS_VERSION}_merged', delimiter=';')
+    df_user_conditions = pd.read_csv(Cf.DATA_PATH_OUT / 'users_conditions.csv')
 
     filtered_conditions = df_user_conditions[
         (df_user_conditions['id'].isin(df_ratings['user_id'])) &
