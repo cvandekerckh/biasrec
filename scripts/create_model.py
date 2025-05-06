@@ -6,13 +6,29 @@ import copy
 import pickle
 
 INGREDIENT_COLUMNS = ["protein", "vegetables", "starches", "dairy_products", "sauce"]
+
+OPTIMAL_HP_VERSION = '23_04_2025'
+RATINGS_VERSION = '05_05_2025'
+
+# Input files
 PRODUCT_FILENAME = 'products.csv'
-FEATMATRIX_FILENAME = 'featmatrix.csv'
-SIMILARITY_MATRIX_FILENAME = 'similarity_matrix.csv'
-TRAINSET_FILENAME = 'rating_23_04_2025.csv'
-USER_TEST_ID = 135
-OPTIMAL_WEIGHTS = (0.1, 0.2, 0.7)
+
+TRAINSET_PATH = Cf.DATA_PATH_OUT / 'versioning' / 'ratings_merged'
+TRAINSET_FILENAME = f'rating_{RATINGS_VERSION}_merged.csv'
+
+# Optimal values
+OPTIMAL_WEIGHTS = (0.1, 0.2, 0.7) # first weight = category, second weight = nutriscore, third weight = ingredient
 OPTIMAL_K = 4
+
+# Output files
+FEATMATRIX_FILENAME = 'featmatrix.csv'
+SIMILARITY_MATRIX_PATH = Cf.DATA_PATH_OUT / 'versioning' / 'similarity_matrix'
+SIMILARITY_MATRIX_FILENAME = f'similarity_matrix_{OPTIMAL_HP_VERSION}.csv'
+
+PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / 'predictions'
+NEIGHBORS_FILENAME = f'neighbors_{RATINGS_VERSION}.json'
+PREDICTIONS_FILENAME = f'predictions_{RATINGS_VERSION}.p'
+
 
 def create_feature_matrix(
         product_path=Cf.DATA_PATH_RAW,
@@ -82,11 +98,12 @@ def create_similarity_matrix_with_metric(df, metric):
 
 
 def create_similarity_matrix(
-        feature_matrix,
         weights=OPTIMAL_WEIGHTS,
-        similarity_matrix_path=Cf.DATA_PATH_OUT,
+        similarity_matrix_path=SIMILARITY_MATRIX_PATH,
         similarity_matrix_filename=SIMILARITY_MATRIX_FILENAME,
     ):
+    feature_matrix = create_feature_matrix()
+
     # Step 1 : create three similarity matrices
     # 1.1 - Similarity matrix based on product categories
     category_cols = [col for col in feature_matrix.columns if col.startswith('is_')]
@@ -105,7 +122,7 @@ def create_similarity_matrix(
     ingredient_similarity_matrix = create_similarity_matrix_with_metric(ingredient_df, 'jaccard')
 
     similarity_matrix = weights[0]*category_similarity_matrix + weights[1]*nutriscore_similarity_matrix + weights[2]*ingredient_similarity_matrix
-
+    breakpoint()
     # Save in csv file
     print('Saving similarity matrix')
     similarity_matrix.to_csv(similarity_matrix_path / similarity_matrix_filename)
@@ -113,12 +130,12 @@ def create_similarity_matrix(
     return similarity_matrix
 
 def get_full_trainset(
-    trainset_path=Cf.DATA_PATH_RAW,
+    trainset_path=TRAINSET_PATH,
     trainset_filename=TRAINSET_FILENAME,
 ):
     df_train = pd.read_csv(trainset_path / trainset_filename)
-    df_train = df_train[(df_train['user_id'] != USER_TEST_ID)]
     return df_train
+
 
 def get_full_testset(
         user_trainset,
@@ -147,8 +164,8 @@ def train_model(
         product_id_list,
         similarity_matrix,
         k=OPTIMAL_K,
-        model_path=Cf.DATA_PATH_OUT,
-        model_filename='model.json'
+        model_path=PREDICTIONS_PATH,
+        model_filename=NEIGHBORS_FILENAME,
     ):
 
     model = get_full_testset(user_trainset, product_id_list)
@@ -179,8 +196,8 @@ def train_model(
 def predict_for_testset(
         testset,
         model,
-        predictions_path=Cf.DATA_PATH_OUT,
-        predictions_filename='predictions.p'
+        predictions_path=PREDICTIONS_PATH,
+        predictions_filename=PREDICTIONS_FILENAME,
     ):
     predictions = []
     print('Aggregate ratings to make predictions')
@@ -204,10 +221,10 @@ def predict_for_testset(
 
     return predictions
 
-def main():
-    feature_matrix = create_feature_matrix()
-    similarity_matrix = create_similarity_matrix(feature_matrix, weights=OPTIMAL_WEIGHTS) # first weight = category, second weight = nutriscore, third weight = ingredient
-    product_id_list = feature_matrix.index.tolist()
+def create_predictions():
+    similarity_matrix = pd.read_csv(SIMILARITY_MATRIX_PATH / SIMILARITY_MATRIX_FILENAME, index_col='product_id')
+    similarity_matrix.columns = similarity_matrix.columns.astype(int)
+    product_id_list = similarity_matrix.index.tolist()
     user_trainset = get_full_trainset()
     user_testset = get_full_testset(user_trainset, product_id_list)
     model = train_model(user_trainset, product_id_list, similarity_matrix)
