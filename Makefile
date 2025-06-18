@@ -7,8 +7,11 @@ assign-product-for_rating:
 cloud-connect:
 	gcloud compute ssh biasrecv2
 
-create-model:
-	pipenv run python -c "from scripts.create_model import main; main()"
+create-similarity-matrix:
+	pipenv run python -c "from scripts.create_model import create_similarity_matrix; create_similarity_matrix()"
+
+create-predictions:
+	pipenv run python -c "from scripts.create_model import create_predictions; create_predictions()"
 
 create-recommendation:
 	pipenv run python -c "from scripts.multistakeholder_recommender import create_multistakeholder_recommendation; create_multistakeholder_recommendation()"
@@ -46,6 +49,9 @@ launch-fixedrec:
 
 launch-trainrec:
 	pipenv run python microapp.py --config=trainrec
+
+merge-ratings:
+	pipenv run python -c "from scripts.merge_ratings import main; main()"
 
 start-rate:
 	pipenv run python microapp.py --config=rate
