@@ -1,0 +1,307 @@
+﻿name;category;protein;vegetables;starches;dairy_products;sauce;price;nutri_score;id;reference;real_price
+Chicken Caesar Salad;Salads;Chicken;Lettuce | Cherry tomatoes ;Croutons ;Parmesan;Salad dressing;4.99€;B;1;Delhaize ;
+Italian style salad;Salads;Chicken;Lettuce | Cherry tomatoes | Cucumber | Olives;No;Parmesan;Pesto sauce;4.99€;B;2;Delhaize ;
+Ham and cheese salad;Salads;Ham | Eggs ;Lettuce | Cucumber | Dried raisins;Croutons ;Gouda;Salad dressing;4.99€;B;3;Delhaize ;
+Thai-style salad;Salads;Shrimp;Lettuce | Radishes | Carrots | Green beans | Cucumber;Noodles ;No;Oriental salad dressing;4.99€;A;4;Delhaize ;
+Tuna salad ;Salads;Tuna | Eggs ;Lettuce | Cherry tomatoes | Green beans | Onions ;Potatoes ;No;Salad dressing;4.99€;A;5;Delhaize ;
+Chicken salad ;Salads;Chicken;Lettuce | Peppers | Carrots | Radishes | White cabbage ;Pasta;No;Salad dressing;4.99€;A;6;Delhaize ;
+Lebanese salad ;Salads;Falafels;Spinach | Carrots | Peppers | Onions | Rocket ;Couscous;No;Oriental salad dressing;4.99€;A;7;Delhaize ;
+Tuna pasta salad;Salads;Tuna | Eggs ;Cherry tomatoes | Onions | Olives ;Pasta;No;Salad dressing;4.99€;A;8;Delhaize ;
+White cabbage and apple salad;Salads;No;White cabbage | Apple | Onions | Nuts;No;No;Salad dressing;4.99€;A;9;Delhaize ;
+Broccoli and cauliflower salad;Salads;No;Broccoli | Cauliflower | White cabbage | Radishes | Cucumber | Onions ;No;No;Salad dressing;4.99€;A;10;Delhaize ;
+White cabbage and leek salad;Salads;No;White cabbage | Carrots | Leeks | Onions ;No;No;Salad dressing;4.99€;A;11;Delhaize ;
+Bacon Salad ;Salads;Bacon | Eggs;Lettuce | Cherry tomatoes | Onions ;Croutons ;No;Salad dressing;4.99€;B;12;Delhaize ;
+Salmon salad ;Salads;Salmon ;Lettuce | Cherry tomatoes | Cucumber | Edamame | Onions;Pasta;No;Salad dressing;4.99€;A;13;Delhaize ;
+Curry chicken salad;Salads;Chicken;Lettuce | Cherry tomatoes | Carrots | Chickpeas | Dried raisins | Peppers | Olives;Couscous;No;Curry sauce;4.99€;B;14;Delhaize ;
+Mexican salad;Salads;Chicken;Lettuce | Red beans | Avocado  | Spinach | Tomatoes | Peppers ;Nachos;No;Salad dressing;4.99€;A;15;Delhaize ;
+Pasta salad with chicken and bacon ;Salads;Chicken | Bacon ;Tomatoes | Onions | Spinach | Basil ;Pasta;No;Salad dressing;4.99€;A;16;Delhaize ;
+Red beet and apple salad;Salads;No;Red beet | Apple | Onions;No;No;Salad dressing;4.99€;A;17;Delhaize ;
+White cabbage and carrot salad (Coleslaw);Salads;No;White cabbage | Carrots | Onions;No;No;Salad dressing;4.99€;A;18;Delhaize ;
+Potato salad ;Salads;No;Onions;Potatoes;No;Mayonnaise;4.99€;C;19;Delhaize ;
+Cucumber salad ;Salads;No;Cucumber | Onions;No;No;Yoghurt sauce;4.99€;B;20;Delhaize ;
+Peach and tuna salad ;Salads;Tuna | Eggs ;Lettuce |  Corn | Cherry tomatoes | Peaches;Potatoes;No;Mayonnaise;4.99€;B;21;Carrefour ;
+Chicken, apple and curry salad ;Salads;Chicken;Lettuce | Cucumber | Green beans | Apple | Almonds ;Rice;No;Curry sauce;4.99€;A;22;Carrefour ;
+Shrimp salad;Salads;Shrimp;Lettuce | Peppers | Cucumber | Onions | Carrots | Radishes | White cabbage;Pasta;No;Salad dressing;4.99€;A;23;Carrefour ;
+Pasta salad with ham ;Salads;Ham;Tomatoes | Corn ;Pasta;No;Mayonnaise ;4.99€;B;24;Carrefour ;
+Chicken and bacon salad ;Salads;Chicken | Bacon ;Lettuce | Tomatoes ;Croutons ;No;Salad dressing;4.99€;B;25;Carrefour ;
+Tomatoes and mozzarella salad;Salads;No;Lettuce | Tomatoes | Peppers | Olives ;Pasta;Mozzarella;Salad dressing;4.99€;C;26;Carrefour ;
+Goat cheese salad;Salads;No;Lettuce | Red beet | Cabbage | Nuts | Dried raisins ;Pasta;Goat cheese;Salad dressing;4.99€;C;27;Carrefour ;
+Chicken pasta salad;Salads;Chicken;Peppers | Carrots | Rocket ;Pasta;No;Salad dressing;4.99€;A;28;Carrefour ;
+Chicken and tuna salad ;Salads;Chicken | Tuna ;Dried tomatoes | Rocket;Pasta;No;Mayonnaise;4.99€;C;29;Carrefour ;
+Green pasta salad with spinach and edamame;Salads;Chicken;Edamame | Spinach ;Pasta;No;Salad dressing;4.99€;B;30;Carrefour ;
+Chicken noodle salad ;Salads;Chicken;Peppers | Carrots | Peas | Green beans ;Noodles ;No;Sweet and sour sauce ;4.99€;B;31;Carrefour ;
+Chicken and egg salad;Salads;Chicken | Eggs | Bacon ;Lettuce ;Croutons ;No;Salad dressing;4.99€;B;32;Colruyt ;
+Chicken and tabbouleh salad;Salads;Chicken;Tomatoes | Cucumber | Peppers | Onions | Peanuts  | Edamame ;Couscous;No;Salad dressing;4.99€;B;33;Colruyt ;
+Greek salad ;Salads;No;Lettuce | Cherry tomatoes | Dried tomatoes | Peppers | Olives | Onions;Pasta ;Feta ;Salad dressing;4.99€;B;34;Colruyt ;
+Roasted vegetable salad;Salads;No;Lettuce | Cherry tomatoes | Peppers | Onions | Zucchini | Eggplants;Pasta;Mozzarella;Salad dressing;4.99;B;35;Colruyt ;
+Bacon BBQ burger pizza ;Pizzas & Quiches;Minced meat | Bacon;Onions ;Pizza base ;Mozzarella | Cheddar ;Barbecue sauce;4.99€ ;D;36;Domino's;7.99€
+Pulled bacon pizza ;Pizzas & Quiches;Chicken | Bacon;Tomatoes ;Pizza base ;Mozzarella | Cream ;Cheddar sauce ;4.99€ ;C;37;Domino's;7.99€ 
+Original burger pizza ;Pizzas & Quiches;Minced meat;Tomatoes | Onions | Pickles;Pizza base ;Mozzarella ;Tomato sauce | Burger Sauce ;4.99€ ;C;38;Domino's;7.99€
+Spicy pepperoni pizza ;Pizzas & Quiches;Pepperoni ;Onions | Peppers | Chili peppers ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;C;39;Domino's;7.99€
+Authentic raclette pizza ;Pizzas & Quiches;Bacon ;Onions ;Pizza base | Potatoes  ;Mozzarella | Cream | Raclette cheese  ;No;4.99€ ;D;40;Domino's;7.99€
+Mega cannibal pizza ;Pizzas & Quiches;Chicken | Pepperoni | Minced meat ;No;Pizza base ;Mozzarella ;Barbecue sauce ;4.99€ ;D;41;Domino's;13.49€
+Cannibal harissa pizza ;Pizzas & Quiches;Chicken | Minced meat ;No;Pizza base ;Mozzarella ;Tomato sauce | Harissa sauce ;4.99€ ;D;42;Domino's;7.99€
+Crispy cannibal pizza ;Pizzas & Quiches;Chicken | Minced meat ;Fried onions ;Pizza base ;Mozzarella ;Tomato sauce | Barbecue sauce ;4.99€ ;D;43;Domino's;7.99€ 
+Mixed cheese pizza ;Pizzas & Quiches;No;No;Pizza base ;Mozzarella | Emmental cheese | Gouda | Raclette cheese ;Cheddar sauce ;4.99€ ;D;44;Domino's;7.99€
+Pizza with goat cheese and honey ;Pizzas & Quiches;No;No;Pizza base ;Goat cheese | Mozzarella | Cream ;Honey ;4.99€ ;D;45;Domino's;7.99€
+Bacon, goat cheese and honey pizza ;Pizzas & Quiches;Bacon ;No;Pizza base ;Goat cheese | Mozzarella | Cream ;Honey ;4.99€ ;D;46;Domino's;7.99€
+Savoyard pizza ;Pizzas & Quiches;Bacon ;No;Pizza base | Potatoes  ;Raclette cheese | Mozzarella | Emmental cheese | Cream ;No;4.99€ ;D;47;Domino's;7.99€
+Bacon groovy pizza ;Pizzas & Quiches;Bacon | Chicken ;Onions ;Pizza base ;Mozzarella | Cream ;Barbecue sauce;4.99€ ;D;48;Domino's;7.99€ 
+Original pepperoni pizza ;Pizzas & Quiches;Pepperoni ;No;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;D;49;Domino's;7.99€
+Chicken barbecue pizza ;Pizzas & Quiches;Chicken ;Fried onions | Peppers ;Pizza base ;Mozzarella ;Tomato sauce | Barbecue sauce;4.99€ ;D;50;Domino's;7.99€ 
+Barbecue lovers' pizza ;Pizzas & Quiches;Chicken | Pepperoni | Bacon ;No;Pizza base ;Mozzarella ;Barbecue sauce;4.99€ ;D;51;Domino's;7.99€
+Oceana pizza;Pizzas & Quiches;Tuna;Onions | Olives ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;D;52;Domino's;7.99€ 
+Oriental pizza;Pizzas & Quiches;Pepperoni ;Onions | Peppers ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;C;53;Domino's;7.99€
+Sublim' curry pizza;Pizzas & Quiches;Chicken;Onions | Peppers ;Pizza base ;Mozzarella | Cream ;Curry sauce;4.99€ ;C;54;Domino's;7.99€ 
+Hawaiian pizza ;Pizzas & Quiches;Chicken;Pineapple ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;C;55;Domino's;7.99€
+Queen pizza ;Pizzas & Quiches;Ham ;Mushrooms ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;C;56;Domino's;7.99€ 
+Margherita Pizza;Pizzas & Quiches;No;No;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;D;57;Domino's;7.99€
+Indian pizza ;Pizzas & Quiches;Chicken;Mushrooms | Onions ;Pizza base ;Mozzarella | Cream | Emmental cheese;No;4.99€ ;D;58;Domino's;7.99€ 
+Classic ham pizza ;Pizzas & Quiches;Ham ;No;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;D;59;Domino's;7.99€
+Forestry pizza;Pizzas & Quiches;Ham | Bacon ;Mushrooms | Onions ;Pizza base ;Mozzarella | Cream ;No;4.99€ ;D;60;Domino's;7.99€ 
+Special mushroom pizza ;Pizzas & Quiches;No;Mushrooms ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;C;61;Domino's;7.99€
+Peppina pizza;Pizzas & Quiches;No;Mushrooms | Onions | Peppers | Olives | Tomatoes ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;C;62;Domino's;7.99€ 
+Super veggie pizza ;Pizzas & Quiches;No;Mushrooms | Onions | Peppers | Tomatoes ;Pizza base ;Mozzarella | Goat cheese ;Tomato sauce ;4.99€ ;C;63;Domino's;7.99€
+Bolognese pizza;Pizzas & Quiches;Minced meat ;No;Pizza base ;Emmental cheese;Tomato sauce ;4.99€ ;C;64;Colruyt;1.59€
+Tomato mozzarella and pesto pizza;Pizzas & Quiches ;No;Cherry tomatoes ;Pizza base ;Mozzarella ;Tomato sauce | Pesto sauce ;4.99€ ;B;65;Delhaize ;2.79€ 
+Spinach pizza ;Pizzas & Quiches;No;Spinach | Onions ;Pizza base ;Mozzarella ;Tomato sauce ;4.99€ ;B;66;Delhaize ;3.19€ 
+Quiche with bacon ;Pizzas & Quiches;Bacon | Eggs;Onions;Short pastry;Emmental cheese | Cream ;No;4.99€ ;D;67;Delhaize ;3.99€ 
+Quiche with salmon and broccoli ;Pizzas & Quiches;Salmon | Eggs;Broccoli ;Short pastry;Emmental cheese | Cream ;No;4.99€ ;D;68;Delhaize ;5.69€ 
+Quiche with leek and ham ;Pizzas & Quiches;Ham | Eggs;Leeks | Onions;Short pastry;Emmental cheese | Cream ;No;4.99€ ;D;69;Delhaize ;5.69€ 
+Quiche with goat cheese and spinach ;Pizzas & Quiches;Eggs ;Spinach | Onions ;Short pastry;Goat cheese | Cream ;No;4.99€ ;D;70;Delhaize ;5.69€
+Quiche with tomatoes and mozzarella ;Pizzas & Quiches;Eggs ;Tomatoes ;Short pastry;Mozzarella | Cream ;No;4.99€ ;D;71;Delhaize ;5.79€
+Quiche with salmon and spinach ;Pizzas & Quiches;Salmon | Eggs ;Spinach;Short pastry;Emmental cheese | Cream ;No;4.99€ ;D;72;Bofrost ;8.99€ 
+Quiche with sun vegetables and goat cheese ;Pizzas & Quiches;Eggs ;Cherry tomatoes | Zucchini | Peppers ;Short pastry;Goat cheese | Cream ;No;4.99€ ;D;73;Bofrost ;8.69€
+Quiche with mushrooms ;Pizzas & Quiches;Eggs ;Mushrooms ;Short pastry;Emmental cheese | Cream ;No;4.99€ ;D;74;Bofrost ;8.29€
+Focaccia with peppers and olives ;Pizzas & Quiches;No;Peppers | Olives ;Pizza base ;Mozzarella ;Olive oil ;4.99€ ;C;75;Carrefour ;3.00€
+Focaccia with cherry tomatoes and basil ;Pizzas & Quiches;No;Cherry tomatoes | Basil ;Pizza base ;Mozzarella ;Olive oil ;4.99€ ;C;76;Carrefour ;3.00€
+Barbecue calzone ;Pizzas & Quiches;Minced meat | Pepperoni ;No;Pizza base ;Mozzarella ;Barbecue sauce ;4.99€ ;D;77;Domino's;5.99€
+Spicy calzone ;Pizzas & Quiches;Chicken | Pepperoni ;No;Pizza base ;Mozzarella ;Harissa sauce ;4.99€ ;D;78;Domino's;5.99€
+Chicken curry calzone;Pizzas & Quiches;Chicken ;No;Pizza base ;Mozzarella ;Curry sauce ;4.99€ ;D;79;Domino's;5.99€
+Burger calzone ;Pizzas & Quiches;Minced meat;No;Pizza base ;Mozzarella ;Burger sauce ;4.99€ ;D;80;Domino's;5.99€
+Chicken & cheddar calzone;Pizzas & Quiches;Chicken ;No;Pizza base ;Mozzarella | Cheddar;Cheddar sauce ;4.99€ ;D;81;Domino's;5.99€
+Goat cheese & honey calzone ;Pizzas & Quiches;No;No;Pizza base ;Goat cheese | Mozzarella;Honey ;4.99€ ;D;82;Domino's;5.99€
+Ham & cheese calzone ;Pizzas & Quiches;Ham ;No;Pizza base ;Mozzarella | Emmental cheese ;No;4.99€ ;D;83;Domino's;5.99€
+Tomato and basil soup;Soups;No;Tomatoes | Onions | Carrots | Basil;No ;Cream ;No;4.99€ ;B;84;Delhaize ;2.39€
+Tomato and mascarpone soup ;Soups;No;Tomatoes | Onions | Leeks;Potatoes ;Mascarpone ;No;4.99€ ;B;85;Delhaize ;3.39€
+Tomato and meatball soup ;Soups;Meatballs;Tomatoes | Carrots | Onions ;No ;Milk ;No;4.99€ ;B;86;Delhaize ;3.49€ 
+Chicken soup ;Soups;Chicken;Celery | Carrots | Leeks | Onions;Pasta ;No;Vegetable broth ;4.99€ ;A;87;Delhaize ;3.49€
+Thai curry soup;Soups;No;Cherry tomatoes | Onions | Leeks | Carrots | Celery ;No ;Cream | Coconut milk;Curry sauce ;4.99€ ;B;88;Delhaize ;3.69€ 
+Carrot soup;Soups;No;Carrots | Onions | Leeks;Potatoes ;Milk ;Vegetable broth ;4.99€ ;A;89;Delhaize ;3.69€
+Chervil soup ;Soups;No;Chervil | Onions | Leeks | Broccoli | Celery ;Potatoes ;No;No;4.99€ ;A;90;Delhaize ;3.49€ 
+Green gazpacho ;Soups;No;Cucumber | Zucchini | Peas | Onions | Peppers;No ;Milk ;Olive oil ;4.99€ ;B;91;Delhaize ;4.69€ 
+Tomato gazpacho;Soups;No;Tomatoes | Peppers | Cucumber | Onions;No ;No;Olive oil ;4.99€ ;A;92;Delhaize ;3.39€ 
+Sweet potato and peppers soup ;Soups;No;Peppers | Carrots | Onions;Sweet potatoes ;Cream ;Vegetable broth ;4.99€ ;B;93;Delhaize ;3.69€
+Pumpkin soup;Soups;No;Pumpkin | Carrots | Onions;No ;No;No;4.99€ ;A;94;Delhaize ;4.49€
+Asparagus soup ;Soups;No;Asparagus ;No ;Milk ;Vegetable broth ;4.99€ ;B;95;Delhaize ;4.29€
+Green vegetables soup ;Soups;No;Zucchini | Celery | Onions | Leeks | Peas | Spinach ;No ;Cream ;Vegetable broth ;4.99€ ;B;96;Delhaize ;3.49€
+Minestrone;Soups;No;Tomatoes | Onions | Celeriac | Carrots | Peas | Beans | Peppers ;Pasta ;No;Vegetable broth ;4.99€ ;B;97;Delhaize ;3.79€
+Peppers gazpacho;Soups;No;Cherry tomatoes | Peppers | Onions | Watermelon  ;No ;No;Olive oil ;4.99€ ;B;98;Delhaize ;4.69€
+Fish soup ;Soups;Cod;Tomatoes | Carrots | Onions ;No ;Cream ;Olive oil ;4.99€ ;C;99;Delhaize ;3.99€ 
+Marrocan soup ;Soups;No;Tomatoes | Carrots | Celery | Onions | Chickpeas;No ;No;Vegetable broth ;4.99€ ;A;100;Delhaize ;3.69€ 
+Chinese soup ;Soups;Chicken | Eggs ;Tomatoes | Mushrooms ;Noodles ;Cream ;Vegetable broth ;4.99€ ;C;101;Delhaize ;3.69€
+Thai-style soup;Soups;Chicken;Peppers | Onions | Leeks | Mushrooms;No;Cream | Coconut milk;Vegetable broth ;4.99€ ;C;102;Delhaize ;3.99€
+Spanish-style soup;Soups;No;Tomatoes | Peppers | Beans;No;Cream | Coconut milk;Vegetable broth ;4.99€ ;C;103;Delhaize ;3.69€
+Bacon and peas soup ;Soups;Bacon;Peas | Onions | Leeks ;No;No;No;4.99€ ;B;104;Colruyt ;3.89€ 
+Tomato and meatball cream soup ;Soups;Meatballs;Tomatoes | Carrots | Celeriac | Onions | Leeks;No;Cream ;No;4.99€ ;C;105;Colruyt ;5.70€
+Tomato and vegetable soup with meatballs ;Soups;Meatballs;Tomatoes | Carrots | Leeks | Celery | Onions | Peppers | Peas | Parsnip  ;No;No;No;4.99€ ;C;106;Colruyt ;4.75€
+Vegetable soup with meatballs;Soups;Meatballs;Parsnip | Celeriac | Pumpkin | Peas | Onions | Leeks;Potatoes ;Cream ;No;4.99€ ;C;107;Colruyt ;4.49€
+Tomato and mozzarella soup ;Soups;No;Tomatoes | Onions ;No;Mozzarella | Cream ;No;4.99€ ;C;108;Delhaize ;4.29€
+Onion soup ;Soups;No;Onions ;Potatoes ;Milk ;No;4.99€ ;B;109;Delhaize ;5.29€
+Broccoli soup ;Soups;No;Broccoli | Onions | Zucchini;No;Cream ;No;4.99€ ;B;110;Delhaize ;3.89€
+Leek soup ;Soups;No;Leeks | Onions;Potatoes ;No;No;4.99€ ;B;111;Delhaize ;5.49€
+Endive soup ;Soups;No;Endives ;Potatoes ;No;Olive oil ;4.99€ ;B;112;Delhaize ;5.99€ 
+Pumpkin, carrot and pepper soup;Soups;No;Pumpkin | Carrots | Peppers | Celery ;Potatoes ;No;No;4.99€ ;B;113;Delhaize ;5.99€
+Onion and leek soup ;Soups;No;Onions | Leeks;Potatoes ;No;No;4.99€ ;B;114;Delhaize ;5.99€
+Carrot and pumpkin soup with meatballs;Soups;Meatballs;Tomatoes | Carrots | Onions | Pumpkin ;Potatoes ;Cream ;No;4.99€ ;B;115;Delhaize ;3.45€ 
+8-vegetables soup ;Soups;No;Tomatoes | Carrots | Onions | Pumpkin | Leeks | Celeriac | Peas | Parsnip ;Potatoes ;No;No;4.99€ ;B;116;Delhaize ;3.35€ 
+Creamy zucchini soup ;Soups;No;Zucchini | Onions | Spinach  ;Potatoes ;Cream ;No;4.99€ ;B;117;Carrefour ;3.35€
+Peas, broccoli and zucchini soup ;Soups;No;Peas | Broccoli | Zucchini | Onions;No;Cream ;No;4.99€ ;A;118;Match ;5.21€
+Sun vegetables soup ;Soups;No;Tomatoes | Peppers | Carrots | Zucchini | Eggplants | Onions | Green beans ;Potatoes ;Cream ;No;4.99€ ;B;119;Match ;2.95€
+Creamy mushroom soup ;Soups;No;Mushrooms ;No;Cream ;No;4.99€ ;C;120;Match ;4.35€ 
+Creamy spinach soup ;Soups;No;Spinach ;Potatoes ;Cream ;No;4.99€ ;C;121;Match ;3.19€ 
+Creamy cauliflower soup ;Soups;No;Cauliflower | Onions ;No;Cream ;No;4.99€ ;B;122;Match ;4.75€
+Feta Tabbouleh;Prepared dish;No;Dried tomatoes | Onions | Almonds ;Couscous;Feta;Oriental salad dressing;4.99€ ;B;123;Delhaize ;5.99€
+Pesto pasta;Prepared dish;No;Cherry tomatoes | Dried tomatoes | Basil | Rocket | Spinach ;Pasta;No;Pesto sauce;4.99€;B;124;Delhaize ;5.99€
+Feta cheese pasta;Prepared dish;No;Dried tomatoes | Olives | Rocket | Almonds | Basil;Pasta;Feta;Olive oil ;4.99€;B;125;Delhaize ;5.99€ 
+Pasta with pesto and salmon ;Prepared dish;Salmon;Dried tomatoes | Spinach | Rocket | Basil ;Pasta;No;Pesto sauce;4.99€ ;A;126;Delhaize ;5.99€
+Salmon Poke Bowl ;Prepared dish;Salmon;Carrots | Peppers | Rocket | Mango | Nuts | Edamame;Rice;No;Salad dressing;4.99€ ;B;127;Delhaize ;6.69€ 
+Chicken Poke Bowl ;Prepared dish;Chicken ;Carrots | Peppers | Radishes | Edamame | Mango ;Rice;No;Salad dressing;4.99€ ;A;128;Delhaize ;6.69€ 
+Tuna pasta with cocktail sauce;Prepared dish;Tuna | Eggs ;Tomatoes | Onions | Spinach | Basil ;Pasta;No;Cocktail sauce ;4.99€;A;129;Delhaize ;5.99€ 
+Chicken pasta;Prepared dish;Chicken ;Carrots | Peppers;Pasta;No;Tomato sauce;4.99€ ;A;130;Delhaize ;5.99€ 
+Arrabbiata pasta;Prepared dish;No;Tomatoes | Cherry tomatoes | Onions | Basil | Chili peppers ;Pasta;Parmesan;Spicy tomato sauce ;4.99€;B;131;Delhaize ;6.46€
+Vegetable noodles ;Prepared dish;No;Carrots | Broccoli | Zucchini  | Onions | Hazelnuts ;Noodles ;No;Soy sauce ;4.99€;B;132;Delhaize ;7.99€
+Vegetable lasagna;Prepared dish;No;Onions | Zucchini | Carrots | Peppers;Pasta ;Mozzarella;Tomato sauce;4.99€;A;133;Delhaize ;7.49€
+Prepared dish with chicken, pasta and vegetables ;Prepared dish;Chicken ;Mushrooms | Tomatoes | Peppers | Edamame | Peas ;Pasta;No;Tomato sauce;4.99€;A;134;Delhaize ;8.99€ 
+Shrimp in red curry sauce and baked vegetables ;Prepared dish;Shrimp;Pumpkin | Zucchini | Carrots | Peppers | Onions ;Noodles ;Coconut milk ;Curry sauce ;4.99€;B;135;Delhaize ;8.99€ 
+Winter vegetable pasta;Prepared dish;No;Pumpkin |  Peas | Peppers | Zucchini | Dried tomatoes ;Pasta;Parmesan;Olive oil ;4.99€;B;136;Delhaize ;6.99€ 
+Prepared dish with beef burger and mashed sweet potato ;Prepared dish;Beef patty ;Green beans | Onions ;Mashed sweet potatoes;No;Wine sauce ;4.99€ ;B;137;Delhaize ;8.99€ 
+Chicken pasta with grilled vegetables ;Prepared dish;Chicken ;Zucchini | Cherry tomatoes;Pasta;No;Olive oil ;4.99€;A;138;Delhaize ;7.49€ 
+Chicken in tomato sauce and cauliflower;Prepared dish;Chicken ;Cauliflower | Pumpkin | Cherry tomatoes | Onions | Edamame ;No;No;Tomato sauce;4.99€;A;139;Delhaize ;7.99€
+Pesto chicken pasta;Prepared dish;Chicken ;Zucchini | Spinach | Basil ;Pasta;Parmesan;Pesto sauce;4.99€;A;140;Delhaize ;6.49€
+Rice with beef in tomato sauce;Prepared dish;Beef ;Mushrooms | Peppers | Onions ;Rice;No;Tomato sauce;4.99€;A;141;Delhaize ;6.49€
+Prepared dish with chicken, broccoli and mashed sweet potato ;Prepared dish;Chicken ;Broccoli;Mashed sweet potatoes;No;No;4.99€;A;142;Delhaize ;6.49€
+Chicken and vegetable noodles;Prepared dish;Chicken | Eggs ;Peppers | Carrots | Edamame | Green beans ;Noodles ;No;Soy sauce ;4.99€ ;A;143;Delhaize ;7.49€
+Prepared dish with chicken, rice and broccoli;Prepared dish;Chicken ;Broccoli;Rice;No;Tomato sauce;4.99€;B;144;Delhaize ;8.99€ 
+Moussaka;Prepared dish;Minced beef;Eggplants | Onions ;Potatoes;Milk ;Tomato sauce;4.99€;B;145;Delhaize ;7.49€
+Endives with ham ;Prepared dish;Ham ;Endives;Mashed potatoes;Emmental cheese;Cheese sauce ;4.99€;C;146;Delhaize ;6.69€
+Prepared dish with minced meat and spinach ;Prepared dish;Minced meat;Spinach | Onions ;Potatoes;Emmental cheese;No;4.99€;B;147;Delhaize ;8.99€ 
+Prepared dish with minced meat, mashed potatoes and cauliflower;Prepared dish;Minced meat;Cauliflower | Onions;Mashed potatoes;Emmental cheese;Tomato sauce;4.99€;C;148;Delhaize ;8.99€ 
+Meatballs in tomato sauce;Prepared dish;Meatballs;Onions;Mashed potatoes;No;Tomato sauce;4.99€;B;149;Delhaize ;5.49€
+Moussaka lasagna;Prepared dish;Minced meat;Eggplants | Tomatoes | Onions;Potatoes | Pasta;Emmental cheese;Butter sauce  | Tomato sauce ;4.99€;C;150;Delhaize ;6,15 €
+Chicken waterzooi ;Prepared dish;Chicken ;Leeks | Carrots | Celery;Potatoes;No;Vegetable broth ;4.99€;A;151;Delhaize ;7.29€
+Beef Carbonnades;Prepared dish;Beef ;Onions | Mushrooms ;Potatoes ;No;Beer sauce ;4.99€;B;152;Delhaize ;8.09€
+Parmentier minced meat;Prepared dish;Minced meat;Leeks | Spinach | Onions | Endives | Cauliflower;Mashed potatoes;No;Butter sauce ;4.99€;C;153;Delhaize ;11.59€
+Italian-style vegetables;Prepared dish;No;Tomatoes | Peppers | Zucchini | Eggplants | Onions | Basil ;Potatoes;Milk ;Tomato sauce;4.99€;B;154;Delhaize ;8.99€
+Prepared dish with meatballs and potatoes ;Prepared dish;Meatballs;Peas | Carrots | Cauliflower | Onions ;Potatoes;No;No;4.99€;B;155;Delhaize ;7.39€ 
+Paella;Prepared dish;Chicken | Shrimp;Peas | Peppers | Onions | Green beans | Tomatoes ;Rice;No;Vegetable broth ;4.99€;B;156;Delhaize ;8.55€
+Cod with butter sauce ;Prepared dish;Cod;Broccoli | Cherry tomatoes | Leeks | Onions ;Mashed potatoes;No;Butter sauce ;4.99€;C;157;Delhaize ;9.99€ 
+Prepared dish with sausage and cauliflower;Prepared dish;Sausage;Cauliflower ;Potatoes;Emmental cheese;No;4.99€;B;158;Delhaize ;6.99€
+Mix of fish and mashed potatoes;Prepared dish;Salmon | Cod | Shrimp;Tomatoes | Leeks | Mushrooms | Onions ;Mashed potatoes;No;Vegetable broth ;4.99€;B;159;Delhaize ;10.99€ 
+Pasta with tomato sauce and Italian ham ;Prepared dish;Italian ham ;Mushrooms | Zucchini;Pasta;Mozzarella;Tomato sauce;4.99€;B;160;Delhaize ;"5;09€"
+Salmon with butter sauce;Prepared dish;Salmon;Leeks | Onions ;Mashed potatoes;No;Butter sauce ;4.99€;C;161;Delhaize ;10.49€
+Meatballs in Provençal sauce ;Prepared dish;Meatballs;Tomatoes | Peppers | Onions | Eggplants ;Mashed potatoes;No;Tomato sauce;4.99€;C;162;Delhaize ;7.39€
+Ham with mustard sauce ;Prepared dish;Ham ;Peas | Carrots | Onions ;Mashed potatoes;No;Mustard sauce ;4.99€;B;163;Delhaize ;7.59€
+Vol au vent ;Prepared dish;Chicken ;Mushrooms ;Mashed potatoes;No;Vegetable broth | Butter sauce;4.99€;B;164;Delhaize ;6.49€
+Chicken in beer sauce ;Prepared dish;Chicken ;Cauliflower;Potatoes;No;Beer sauce ;4.99€;B;165;Delhaize ;7.39€ 
+Pasta with meatballs in tomato sauce ;Prepared dish;Meatballs;Onions ;Pasta;No;Tomato sauce;4.99€;B;166;Delhaize ;4.99€
+Italian-style chicken fillet;Prepared dish;Chicken ;Peppers | Onions | Eggplants | Zucchini | Basil ;Pasta;No;Tomato sauce;4.99€;A;167;Delhaize ;8,09 €
+Ham and cheese pasta ;Prepared dish;Ham ;No;Pasta;Emmental cheese;Cheese sauce ;4.99€;C;168;Delhaize ;3.69€
+Verde Lasagne;Prepared dish;Minced meat;Spinach | Carrots | Onions;Pasta;Emmental cheese;Tomato sauce;4.99€;B;169;Delhaize ;1.59€ 
+Salmon pasta;Prepared dish;Salmon;Leeks;Pasta;No;Cream sauce ;4.99€;C;170;Delhaize ;4.79€
+Provencal Pasta;Prepared dish;Minced meat;Tomatoes | Zucchini | Carrots | Peppers | Onions ;Pasta;Emmental cheese;Tomato sauce;4.99€;B;171;Delhaize ;4.39€ 
+Eggplant pasta ;Prepared dish;No;Eggplants | Tomatoes | Carrots | Onions ;Pasta;Emmental cheese;Tomato sauce;4.99€;A;172;Delhaize ;7.69€
+Tortelloni ricotta;Prepared dish;No;Spinach ;Pasta ;Ricotta | Mozzarella ;Tomato sauce;4.99€;C;173;Delhaize ;6.09€
+Shrimp pasta ;Prepared dish;Shrimp;Zucchini | Tomatoes;Pasta;Cream ;Tomato sauce;4.99€;B;174;Delhaize ;8.69€ 
+Mascarpone & ricotta vegetarian lasagne;Prepared dish;No;Tomatoes | Eggplants | Peppers | Carrots ;Pasta ;Ricotta | Mascarpone ;Tomato sauce;4.99€;C;175;Delhaize ;4.69€
+Salmon lasagne ;Prepared dish;Salmon;Spinach | Leeks | Carrots;Pasta;Ricotta | Emmental cheese;Cream sauce ;4.99€;C;176;Delhaize ;6.15€
+Creamy ham & tomatoes pasta ;Prepared dish;Ham ;Tomatoes | Mushrooms ;Pasta ;Mascarpone | Emmental cheese;Cream sauce ;4.99€;C;177;Delhaize ;4.99€
+Chicken mascarpone lasagne;Prepared dish;Chicken ;Tomatoes | Mushrooms ;Pasta;Mascarpone | Emmental cheese;Tomato sauce ;4.99€;C;178;Delhaize ;4.99€
+Chicken mascarpone pasta ;Prepared dish;Chicken ;Tomatoes ;Pasta ;Mascarpone | Emmental cheese;Tomato sauce;4.99€;C;179;Delhaize ;4.99€
+Lasagne bolognese with vegetarian meat;Prepared dish;Vegetarian meat;Tomatoes | Cauliflower | Mushrooms | Zucchini | Peppers;Pasta;Emmental cheese;Butter sauce  | Tomato sauce ;4.99€;C;180;Delhaize ;4.79€ 
+Bolognese cannelloni;Prepared dish;Minced meat;Tomatoes | Onions | Carrots | Peppers;Pasta ;Emmental cheese;Tomato sauce;4.99€;C;181;Delhaize ;4.99€ 
+Ricotta and spinach cannelloni;Prepared dish;No;Spinach | Tomatoes | Onions ;Pasta;Ricotta | Emmental cheese;Tomato sauce;4.99€;C;182;Delhaize ;4.99€ 
+Lasagne bolognese ;Prepared dish;Minced meat;Tomatoes | Carrots ;Pasta ;Emmental cheese;Butter sauce  | Tomato sauce ;4.99€;C;183;Delhaize ;4.25€ 
+Pasta Bolognese ;Prepared dish;Minced meat;Carrots | Onions ;Pasta;Emmental cheese;Tomato sauce ;4.99€;B;184;Delhaize ;4.59€
+Lasagne tomato sauce & more vegetables;Prepared dish;Minced meat;Onions | Carrots | Zucchini;Pasta ;Emmental cheese;Tomato sauce;4.99€;A;185;Delhaize ;2.59€ 
+Carbonara pasta;Prepared dish;Bacon;No;Pasta;Emmental cheese;Cream sauce ;4.99€;C;186;Colruyt ;3.79€
+Lasagne bolognese with whole wheat ;Prepared dish;Minced meat;Tomatoes | Carrots | Onions | Zucchini;Pasta ;Emmental cheese;Butter sauce  | Tomato sauce ;4.99€;B;187;Delhaize ;5.15€
+Tomato & mozzarella wrap ;Wraps;No;Tomatoes | Rocket | Dried tomatoes ;Wrap ;Mozzarella ;Salad dressing;4.99€;B;188;Delhaize;3.99€
+Tomato, mozzarella & pesto wrap ;Wraps;No;Rocket | Tomatoes | Spinach | Basil ;Wrap ;Mozzarella ;Pesto sauce;4.99€;B;189;Delhaize;4.69€
+Tuna wrap ;Wraps;Tuna | Eggs;Lettuce | Onions | Olives ;Wrap ;No;Salad dressing;4.99€;B;190;Delhaize;3.99€
+Chicken Caesar wrap ;Wraps;Chicken ;Lettuce | Tomatoes | Endives ;Wrap ;Parmesan;Salad dressing;4.99€;B;191;Delhaize;3.99€
+Salmon wrap ;Wraps;Salmon | Eggs;Lettuce | Cucumber;Wrap ;No;Salad dressing;4.99€;C;192;Delhaize;3.99€
+Tex mex style chicken wrap;Wraps;Crispy breaded chicken ;Lettuce | Carrots | Cabbage | Corn | Peppers;Wrap ;Gouda;Tomato sauce ;4.99€;C;193;Delhaize;3.99€
+Tandoori chicken wrap;Wraps;Chicken ;Carrots | Spinach | Tomatoes | Chili peppers;Wrap ;Goat cheese;Oriental salad dressing;4.99€;B;194;Delhaize;4.69€
+Blt wrap;Wraps;Bacon;Lettuce | Tomatoes | Endives ;Wrap ;Cream cheese ;Salad dressing;4.99€;C;195;Delhaize;3.99€
+Chicken & pesto wrap ;Wraps;Chicken ;Lettuce | Dried tomatoes;Wrap ;No;Pesto sauce;4.99€;B;196;Delhaize;3.99€
+Falafel wrap ;Wraps;Falafels;Carrots | Spinach ;Wrap ;No;Hummus;4.99€;A;197;Delhaize;3.99€
+Tomato & feta wrap ;Wraps;No;Lettuce | Tomatoes | Dried tomatoes | Basil;Wrap ;Feta;Salad dressing;4.99€;C;198;Delhaize;3.99€
+Sweet chili chicken wrap;Wraps;Chicken ;Cabbage | Corn | Peppers | Chili peppers;Wrap ;No;Spicy sauce;4.99€;B;199;Colruyt;2.99€
+Spicy tuna wrap ;Wraps;Tuna;Cabbage | Peppers | Onions ;Wrap ;No;Spicy sauce ;4.99€;B;200;Colruyt;2.99€
+Couscous & cream cheese wrap ;Wraps;No;Tomatoes | Peppers | Cabbage | Onions;Wrap | Couscous ;Cream cheese ;Tomato sauce;4.99€;C;201;Colruyt;2.99€
+Salmon & cream cheese wrap ;Wraps;Salmon ;Lettuce | Carrots;Wrap ;Cream cheese ;No;4.99€;B;202;Auchan;
+Ham & cheddar wrap ;Wraps;Ham ;Lettuce | Tomatoes;Wrap ;Cheddar;Burger sauce;4.99€;B;203;Auchan;
+Ham & tzatziki wrap ;Wraps;Ham;Lettuce | Cucumber;Wrap ;No;Yoghurt sauce;4.99€;B;204;Match ;2.85€
+Tuna & dried tomato wrap ;Wraps;Tuna;Lettuce | Dried tomatoes | Tomatoes | Carrots ;Wrap ;No;Yoghurt sauce;4.99€;A;205;Auchan;
+Goat cheese & dried tomatoes wrap ;Wraps;No;Lettuce | Dried tomatoes | Cucumber | Peppers ;Wrap ;Goat cheese;Yoghurt sauce;4.99€;B;206;Auchan;
+Bacon & egg wrap ;Wraps;Bacon | Eggs;Lettuce | Tomatoes | Dried tomatoes ;Wrap ;No;Salad dressing;4.99€;B;207;Auchan;
+Ham & emmental wrap;Wraps;Ham;Lettuce | Tomatoes;Wrap ;Emmental cheese;Mayonnaise;4.99€;B;208;Auchan;
+Fajitas-style chicken wrap;Wraps;Chicken;Lettuce | Tomatoes | Peppers | Onions ;Wrap ;Cheddar;Tomato sauce;4.99€;B;209;Auchan;
+Chicken master wrap ;Wraps;Crispy breaded chicken ;Lettuce | Tomatoes;Wrap | Hash brown;Cheddar;Burger sauce;4.99€;C;210;KFC;
+Spicy chicken master wrap ;Wraps;Crispy breaded chicken ;Lettuce | Tomatoes;Wrap | Hash brown;Cheddar;Spicy sauce;4.99€;C;211;KFC;
+Vegetarian master wrap ;Wraps;Vegetarian meat ;Lettuce | Tomatoes;Wrap | Hash brown;Cheddar;Mayonnaise;4.99€;B;212;KFC;
+Crispy chicken & bacon wrap ;Wraps;Crispy breaded chicken | Bacon;Lettuce | Tomatoes ;Wrap ;Cheddar;Burger sauce;4.99€;C;213;Mc Do;
+ Chicken wrap ;Wraps;Chicken ;Lettuce | Tomatoes;Wrap;No;Mayonnaise;4.99€;B;214;Carrefour;2.39€
+Crispy breaded chicken & mustard wrap ;Wraps;Crispy breaded chicken ;Carrots | Corn | Fried onions ;Wrap;Cheddar;Mustard ;4.99€;C;215;Auchan;
+Chicken, cheddar & mustard wrap ;Wraps;Chicken;Lettuce | Tomatoes | Carrots ;Wrap;Cheddar;Mustard ;4.99€;B;216;Auchan;
+Fajita style vegetable wrap;Wraps;No;Peppers | Corn | Onions ;Wrap;Cheddar;Spicy sauce ;4.99€;C;217;Auchan;
+Chicken, spinach & curry sauce wrap ;Wraps;Chicken ;Spinach | Peppers | Carrots | Dried raisins;Wrap;No;Curry sauce;4.99€;B;218;Carrefour;4.09€
+Ham & goat cheese wrap ;Wraps;Ham;Lettuce ;Wrap;Goat cheese;Yoghurt sauce;4.99€;C;219;Carrefour;2.65€
+Goat cheese & mustard wrap ;Wraps;No;Fried onions | Tomatoes | Corn ;Wrap;Goat cheese;Mustard ;4.99€;C;220;Carrefour;2.95
+Chicken & guacamole wrap ;Wraps;Chicken;Avocado | Corn | Tomatoes | Peppers | Onions;Wrap;No;No;4.99€;A;221;Carrefour;4.00€
+The hamburger ;Snacks & burgers;Beef patty ;Onions | Pickles ;Burger bun;No;Mustard | Ketchup ;4.99€;C;222;Mc Do;3.05€
+The Big Burger ;Snacks & burgers;Beef patty ;Lettuce | Onions | Pickles ;Burger bun;Cheddar ;Burger Sauce ;4.99€;C;223;Mc Do;6.70€
+The Fish Burger ;Snacks & burgers;Fish fillet patty;No;Burger bun;No;Ketchup;4.99€;B;224;Mc Do;4.80€
+The Fish Burger mayonnaise ;Snacks & burgers;Fish fillet patty;No;Burger bun;No;Mayonnaise ;4.99€;B;225;Mc Do;4.80€
+The Cheesy Fish Burger;Snacks & burgers;Fish fillet patty;No;Burger bun;Cheddar ;Burger Sauce ;4.99€;C;226;Mc Do;6.30€
+The Tasty Fish Burger;Snacks & burgers;Fish fillet patty;Lettuce | Tomatoes;Burger bun;Cheddar ;Burger Sauce | Ketchup;4.99€;C;227;Mc Do;5.40€
+The Royal Deluxe Burger;Snacks & burgers;Beef patty ;Lettuce | Tomatoes | Onions ;Burger bun;Cheddar ;Mustard ;4.99€;C;228;Mc Do;8.45€
+The Royal Bacon Burger ;Snacks & burgers;Beef patty | Bacon;Onions | Pickles ;Burger bun;Cheddar ;Mustard | Ketchup ;4.99€;D;229;Mc Do;8.45€
+The Royal Cheese Burger ;Snacks & burgers;Beef patty ;Onions | Pickles ;Burger bun;Cheddar ;Mustard | Ketchup ;4.99€;D;230;Mc Do;8.45€
+The Tasty Burger ;Snacks & burgers;Beef patty ;Lettuce | Tomatoes | Onions ;Burger bun;Emmental cheese;Burger sauce;4.99€;D;231;Mc Do;8.30€
+The Original Burger ;Snacks & burgers;Beef patty ;Lettuce | Tomatoes ;Burger bun;Cheddar ;Burger Sauce | Ketchup ;4.99€;C;232;Mc Do;5.40€
+The Barbecue Burger ;Snacks & burgers;Beef patty | Bacon;Fried onions | Pickles;Burger bun;Cheddar ;Barbecue sauce ;4.99€;D;233;Mc Do;
+The French Burger ;Snacks & burgers;Beef patty ;Tomatoes | Onions;French Baguette ;Emmental cheese;Burger Sauce | Ketchup ;4.99€;D;234;Mc Do;
+The Simple Chicken Burger;Snacks & burgers;Chicken ;Lettuce ;Burger bun;No;Burger sauce;4.99€;B;235;Mc Do;6.30€
+The Original Chicken Burger ;Snacks & burgers;Crispy breaded chicken ;Lettuce ;Burger bun;Cheddar ;Burger Sauce ;4.99€;D;236;KFC;
+The Crunchy  Burger;Snacks & burgers;Crispy breaded chicken ;No;Burger bun;Cheddar ;Burger sauce;4.99€;C;237;KFC;
+The Chicken & Bacon Burger ;Snacks & burgers;Crispy breaded chicken | Bacon;Fried onions;Burger bun;Cheddar ;Barbecue sauce ;4.99€;D;238;KFC;
+The Veggie Burger ;Snacks & burgers;Vegetarian meat ;Lettuce;Burger bun;Cheddar ;Burger sauce;4.99€;D;239;KFC;
+The Original Chicken & Bacon Burger;Snacks & burgers;Crispy breaded chicken | Bacon;Lettuce ;Burger bun;Cheddar ;Burger Sauce ;4.99€;D;240;KFC;
+The Spicy Tower Burger ;Snacks & burgers;Crispy breaded chicken ;No;Burger bun | Hash brown;Cheddar ;Spicy sauce;4.99€;D;241;KFC;
+The Tasty Chicken Burger ;Snacks & burgers;Crispy breaded chicken ;Rocket | Tomatoes | Onions ;Burger bun;Emmental cheese;Burger Sauce ;4.99€;D;242;KFC;
+The Tasty Chicken & Bacon Burger ;Snacks & burgers;Crispy breaded chicken | Bacon;Rocket | Tomatoes | Onions ;Burger bun;Emmental cheese;Burger Sauce ;4.99€;D;243;KFC;
+The croque monsieur ;Snacks & burgers;Ham ;No;Burger bun;Emmental cheese;No;4.99€;D;244;Mc Do;3.65€
+Egg & cheddar muffin ;Snacks & burgers;Eggs;No;Burger bun;Cheddar ;No;4.99€;B;245;Mc Do;3.95€
+Egg, bacon & cheddar muffin ;Snacks & burgers;Bacon | Eggs ;No;Burger bun;Cheddar ;No;4.99€;C;246;Mc Do;4.25€
+Hot dog;Snacks & burgers;Sausage;No;French bread ;No;Mustard | Ketchup ;4.99€;D;247;Delhaize ;2.19€
+Burger French fries ;Snacks & burgers;Minced meat;Tomatoes | Onions ;Potatoes ;Mozzarella;Burger sauce;4.99€;D;248;Domino's;6.99€
+Spicy French fries ;Snacks & burgers;Pepperoni;Onions ;Potatoes ;Mozzarella;Harissa sauce ;4.99€;D;249;Domino's;6.99€
+Cheddar French fries;Snacks & burgers;No;Fried onions;Potatoes ;Cheddar ;No;4.99€;C;250;Domino's;6.99€
+Barbeque French fries ;Snacks & burgers;Minced meat | Bacon ;No;Potatoes ;Mozzarella;Barbecue sauce ;4.99€;D;251;Domino's;6.99€
+French fries ;Snacks & burgers;No;No;Potatoes ;No;No;4.99€;C;252;Domino's;5.20€
+Potatoes;Snacks & burgers;No;No;Potatoes ;No;Mayonnaise | Ketchup  ;4.99€;C;253;Domino's;4.99€
+Crispy chicken ;Snacks & burgers;Crispy breaded chicken ;No;No;No;Mayonnaise | Ketchup | Burger Sauce ;4.99€;D;254;Domino's;5.49€
+Chicken wings ;Snacks & burgers;Chicken ;No;No;No;Mayonnaise | Ketchup | Burger sauce;4.99€;C;255;Domino's;5.49
+Spicy chicken wings ;Snacks & burgers;Chicken ;No;No;No;Harissa sauce ;4.99€;D;256;Domino's;6.49€
+Chicken Wings with Honey ;Snacks & burgers;Chicken ;No;No;No;Honey ;4.99€;D;257;Domino's;6.49€
+Barbecue chicken wings ;Snacks & burgers;Chicken ;No;No;No;Barbecue sauce ;4.99€;D;258;Domino's;6.49€
+Hot dog pizza ;Snacks & burgers;Sausage;No;Pizza base ;Mozzarella;Ketchup;4.99€;C;259;Domino's;3.50€
+Hot dog pizza with cheddar & fried onions ;Snacks & burgers;Sausage;Fried onions;Pizza base ;Cheddar ;Ketchup;4.99€;C;260;Domino's;4.50€
+Cheesy bread ;Snacks & burgers;No;No;Pizza base ;Mozzarella | Gouda | Emmental cheese;No;4.99€;D;261;Domino's;3.99€
+Crunchy cheese ;Snacks & burgers;No;No;No;Gouda;No;4.99€;E;262;Domino's;5.25€
+Fitness cheese sandwich ;Sandwiches;No;Lettuce | Carrots | Cucumber ;Fitness French Baguette ;Gouda ;Mustard;4.99€;C;263;Carrefour ;3.50€
+Fitness ham sandwich;Sandwiches;Ham ;Lettuce | Cucumber;Fitness French Baguette ;No;Salad dressing ;4.99€;B;264;Carrefour ;3.50€
+Club sandwich ;Sandwiches;Ham | Eggs;Lettuce | Tomatoes ;French Baguette ;Gouda ;Mayonnaise ;4.99€;C;265;Carrefour ;3.50€
+Tomato & mozzarella fitness sandwich ;Sandwiches;No;Lettuce | Dried tomatoes;Fitness French Baguette ;Mozzarella;Salad dressing ;4.99€;C;266;Carrefour ;3.50€
+Chicken curry sandwich ;Sandwiches;Chicken;Lettuce | Carrots ;French Baguette ;No;Curry sauce;4.99€;B;267;Carrefour ;3.50€
+Ham & pepperoni sandwich;Sandwiches;Ham | Pepperoni ;Lettuce;French Baguette ;No;Mayonnaise ;4.99€;C;268;Carrefour ;2.69€
+Chicken sandwich  ;Sandwiches;Chicken ;Lettuce | Tomatoes ;French Baguette ;No;Mayonnaise ;4.99€;C;269;Carrefour ;2.49€
+Ham & cheese sandwich ;Sandwiches;Ham;No;French Baguette ;Emmental cheese;Mayonnaise ;4.99€;C;270;Carrefour ;1.89€
+Tuna & cream cheese sandwich ;Sandwiches;Tuna ;No;French Baguette ;Cream cheese ;No;4.99€;C;271;Carrefour ;1.99€
+Chicken & cheese sandwich ;Sandwiches;Chicken ;No;French Baguette ;Emmental cheese;Mayonnaise ;4.99€;C;272;Carrefour ;1.95€
+Chicken & egg sandwich ;Sandwiches;Chicken | Eggs;Lettuce;French Baguette ;No;Mayonnaise ;4.99€;B;273;Carrefour ;2.14€
+Tuna, egg and cocktail sauce sandwich ;Sandwiches;Tuna | Eggs;Lettuce;French Baguette ;No;Cocktail sauce;4.99€;B;274;Carrefour ;2.19€
+Ham & cheddar sandwich ;Sandwiches;Ham;Lettuce ;French Baguette ;Cheddar;Burger sauce;4.99€;C;275;Carrefour ;2.89€
+Ham, cheese & butter sandwich ;Sandwiches;Ham;No;French Baguette ;Emmental cheese | Butter;No;4.99€;D;276;Carrefour ;3.79€
+Salmon & cream cheese sandwich ;Sandwiches;Salmon;Cucumber;French Baguette ;Cream cheese ;Yoghurt sauce;4.99€;D;277;Crous-strasbourg;1.99€
+Tuna & dried tomato sandwich ;Sandwiches;Tuna ;Dried tomatoes ;Fitness French Baguette ;No;Mayonnaise ;4.99€;B;278;Carrefour ;3.65€
+Tuna & egg sandwich;Sandwiches;Tuna | Eggs;Tomatoes;French Baguette ;No;Mayonnaise ;4.99€;B;279;Match;2.29€
+Steak & cheese sandwich;Sandwiches;Beef;Lettuce | Tomatoes ;French Baguette ;Cheddar;Barbecue sauce;4.99€;B;280;Subway;
+Steakhouse sandwich;Sandwiches;Beef patty ;Lettuce | Tomatoes | Onions ;French Baguette ;Mozzarella ;Barbecue sauce;4.99€;B;281;Subway;
+Beef pastrami sandwich ;Sandwiches;Beef;Lettuce | Tomatoes | Pickles;Fitness French Baguette ;Cheddar ;Mustard;4.99€;B;282;Subway;
+Vegetarian meat sandwich;Sandwiches;Vegetarian meat ;Lettuce | Tomatoes | Peppers | Onions;Fitness French Baguette ;No;Salad dressing ;4.99€;A;283;Subway;
+Veggie sandwich ;Sandwiches;No;Lettuce | Tomatoes | Cucumber | Peppers | Onions;French Baguette ;No;No;4.99€;B;284;Subway;
+The JPM sandwich;Sandwiches;Ham | Pepperoni ;Lettuce | Tomatoes | Onions;French Baguette ;Mozzarella ;Burger sauce;4.99€;D;285;Subway;
+The mixed sandwich ;Sandwiches;Ham | Chicken | Bacon;Lettuce | Tomatoes | Onions;French Baguette ;Cheddar;Barbecue sauce ;4.99€;C;286;Subway;
+Tuna sandwich ;Sandwiches;Tuna ;Tomatoes | Cucumber;French Baguette ;No;Mayonnaise ;4.99€;B;287;Crous-strasbourg;
+The Mexican fitness sandwich ;Sandwiches;Chicken ;Lettuce | Tomatoes | Avocado | Corn | Peppers | Onions | Cucumber;Fitness French Baguette ;Cheddar;No;4.99€;A;288;Subway;
+The super pastrami sandwich ;Sandwiches;Beef | Chicken;Lettuce | Tomatoes | Onions | Pickles;French Baguette ;Emmental cheese;Mustard ;4.99€;B;289;Subway;
+Ham & Egg Sandwich ;Sandwiches;Ham | Eggs ;Lettuce;French Baguette ;No;Burger sauce;4.99€;B;290;Match ;2.35€
+Goat cheese & dried tomatoes sandwich ;Sandwiches;No;Lettuce | Dried tomatoes ;French Baguette ;Goat cheese ;No;4.99€;B;291;Daunat ;
+Bacon & Emmental sandwich ;Sandwiches;Bacon ;Lettuce | Tomatoes;French Baguette ;Emmental cheese;Mayonnaise ;4.99€;C;292;Daunat ;
+Feta sandwich ;Sandwiches;No;Lettuce | Tomatoes | Cucumber | Olives ;French Baguette ;Cream cheese | Feta;No;4.99€;C;293;Crous-strasbourg;
+Chicken & apple sandwich ;Sandwiches;Chicken;Lettuce | Apple;French Baguette ;Cream cheese ;No;4.99€;B;294;Crous-strasbourg;
+Cucumber sandwich;Sandwiches;No;Cucumber;French Baguette ;Cream cheese ;No;4.99€;C;295;Crous-strasbourg;
+Egg sandwich ;Sandwiches;Eggs ;Lettuce | Carrots | Cabbage ;Fitness French Baguette ;No;Mayonnaise;4.99€;B;296;Crous-strasbourg;
+Italian sandwich ;Sandwiches;Italian ham ;Rocket;French Baguette ;Mozzarella | Butter ;Olive oil ;4.99€;E;297;Crous-strasbourg;
+Creamy goat cheese sandwich ;Sandwiches;No;Rocket | Cucumber | Dried tomatoes ;French Baguette ;Goat cheese | Cream cheese ;No;4.99€;B;298;Crous-strasbourg;
+Salmon sandwich ;Sandwiches;Salmon;Lettuce | Cucumber | Onions;Fitness French Baguette ;Cream cheese ;No;4.99€;C;299;Crous-strasbourg;
+Beef sandwich;Sandwiches;Beef;Lettuce | Tomatoes;French Baguette ;No;Mayonnaise | Mustard ;4.99€;B;300;Crous-strasbourg;
+Salami sandwich;Sandwiches;Salami;Pickles;French Baguette ;Butter ;No;4.99€;E;301;Crous-strasbourg;
+Chicken & pineapple sandwich;Sandwiches;Chicken ;Lettuce | Pineapple | Peppers;French Baguette ;No;Mayonnaise ;4.99€;B;302;Crous-strasbourg;
+Roasted vegetable sandwich ;Sandwiches;No;Rocket | Eggplants | Peppers | Tomatoes | Zucchini | Basil;Fitness French Baguette ;No;Olive oil ;4.99€;A;303;Crous-strasbourg;
+Italian ham sandwich ;Sandwiches;Italian ham ;No;French Baguette ;Butter ;No;4.99€;E;304;Crous-strasbourg;
+Salami fitness sandwich;Sandwiches;Salami;Pickles;Fitness French Baguette ;Butter ;No;4.99€;E;305;Crous-strasbourg;
+Creamy beef sandwich ;Sandwiches;Beef ;Lettuce | Onions ;French Baguette ;Cream cheese ;No;4.99€;B;306;Crous-strasbourg;
