@@ -12,7 +12,7 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 9
-    DATA_PATH = Path('data/fucam')
+    DATA_PATH = Path('data/prolific')
     DATA_PATH_RAW = DATA_PATH / 'raw'
     DATA_PATH_OUT = DATA_PATH / 'out'
     MODEL_PATH = DATA_PATH_OUT / 'versioning'/ 'models'
