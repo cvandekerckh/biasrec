@@ -6,11 +6,12 @@ import numpy as np
 
 def load_data():
     # === Définir les chemins ===
-    base_path = Path("C:/Users/camcharles/OneDrive - UCL/Documents/code/biasrec/data/fucam/out")
+    base_path_reco = Path("C:/Users/camcharles/OneDrive - UCL/Documents/code/biasrec/data/fucam/out")
+    base_path_sim = Path("C:/Users/camcharles/OneDrive - UCL/Documents/code/biasrec/data/prolific/out")
 
-    recommendation_file = base_path / "versioning" / "predictions" / "predictions_05_05_2025.p"
-    similarity_file = base_path / "versioning" / "similarity_matrix" / "similarity_matrix_23_04_2025.csv"
-    user_conditions_file = base_path / "users_conditions.csv"
+    recommendation_file = base_path_reco / "versioning" / "predictions" / "predictions_05_05_2025.p"
+    similarity_file = base_path_sim / "similarity_matrix_20_06_2025_fcat.csv"
+    user_conditions_file = base_path_reco / "users_conditions.csv"
 
     # === Chargement des recommandations ===
     with open(recommendation_file, "rb") as f:
