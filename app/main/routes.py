@@ -1,5 +1,6 @@
 from app.main import bp
 from flask import render_template, flash, redirect, url_for, current_app, make_response, g
+from flask import session
 from flask_login import current_user, login_required
 from app.models import User, Product, Rating
 from flask import request
@@ -7,6 +8,8 @@ from app.main.forms import PurchaseForm
 from app.auth.forms import Close
 from app import db
 import pickle
+import random
+
 
 category_tag_to_name = {
     'Sandwiches': 'Sandwichs',
@@ -78,7 +81,20 @@ def rate():
     qualtrics_url = current_user.qualtrics_url #chercher le lien url personnalisé vers le questionnaire Qualtrics Q2
     initial_rating_value = 0
     query = current_user.assignments.select()
-    products = db.session.scalars(query).all()
+    #products = db.session.scalars(query).all()
+    all_products = db.session.scalars(query).all()
+    product_dict = {p.id: p for p in all_products}
+
+    # Mélange une seule fois et stockage dans la session
+    if 'product_order' not in session:
+        shuffled_ids = [p.id for p in all_products]
+        random.shuffle(shuffled_ids)
+        session['product_order'] = shuffled_ids
+    else:
+        shuffled_ids = session['product_order']
+
+    # Reconstruction de la liste de produits dans l’ordre enregistré
+    products = [product_dict[pid] for pid in shuffled_ids if pid in product_dict]
     ratings = [current_user.get_rating_for_product(product.id) for product in products]
     ratings = [rating if rating is not None else initial_rating_value for rating in ratings]
 
