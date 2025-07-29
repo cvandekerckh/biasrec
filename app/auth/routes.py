@@ -60,7 +60,8 @@ def closep2():
 
 @bp.route('/survey', methods=['GET', 'POST'])
 def survey():
-    qualtrics_url = f"https://lourim.eu.qualtrics.com/jfe/form/SV_6rn8KSyRDS8iinY?PROLIFIC_PID={current_user.code}"
+    #qualtrics_url = f"https://lourim.eu.qualtrics.com/jfe/form/SV_6rn8KSyRDS8iinY?PROLIFIC_PID={current_user.code}"
+    qualtrics_url = "https://www.rarebeauty.com/"
     logout_user()
     return render_template('main/survey.html', qualtrics_url=qualtrics_url) #redirige vers ma page survey
 
