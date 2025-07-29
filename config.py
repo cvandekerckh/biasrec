@@ -18,6 +18,7 @@ class Config(object):
     MODEL_PATH = DATA_PATH_OUT / 'versioning'/ 'models'
     MODEL_FILENAME = 'model_05_05_2025.p'
     N_RECOMMENDATIONS = 5
+    PROLIFIC_STUDY_ID = '688889840ef7e7483d59d667' #test
 
 class RateConfig(Config):
     MAIN_PAGE='main.rate'
