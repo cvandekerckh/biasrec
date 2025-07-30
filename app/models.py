@@ -32,7 +32,8 @@ training = db.Table(
 # User table
 class User(UserMixin, db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    code: so.Mapped[int] = so.mapped_column(index=True, unique=True)
+    code: so.Mapped[str] = so.mapped_column(sa.String(50), index=True, unique=True)
+    #code: so.Mapped[int] = so.mapped_column(index=True, unique=True)
     qualtrics_url: so.Mapped[str] = so.mapped_column(sa.String(250), index=True,
                                                 unique=True)
     qualtrics_url_phase2: so.Mapped[str] = so.mapped_column(sa.String(250), index=True,

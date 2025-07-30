@@ -81,30 +81,32 @@ def rate():
     #qualtrics_url = current_user.qualtrics_url #chercher le lien url personnalisé vers le questionnaire Qualtrics Q2
     qualtrics_url = "https://lourim.eu.qualtrics.com/jfe/form/SV_6rn8KSyRDS8iinY"
     initial_rating_value = 0
-    query = current_user.assignments.select()
+    all_products = Product.query.all()
+    #query = current_user.assignments.select()
     #products = db.session.scalars(query).all()
-    all_products = db.session.scalars(query).all()
-    product_dict = {p.id: p for p in all_products}
+    #all_products = db.session.scalars(query).all()
+    all_products_dict = {p.id: p for p in all_products}
 
-    # Mélange une seule fois et stockage dans la session
+    # Garde l’ordre aléatoire une seule fois par session
     if 'product_order' not in session:
-        shuffled_ids = [p.id for p in all_products]
-        random.shuffle(shuffled_ids)
-        session['product_order'] = shuffled_ids
-    else:
-        shuffled_ids = session['product_order']
+        product_ids = [p.id for p in all_products]
+        random.shuffle(product_ids)
+        session['product_order'] = product_ids[:5]  # sélectionne 5 produits seulement
 
-    # Reconstruction de la liste de produits dans l’ordre enregistré
-    products = [product_dict[pid] for pid in shuffled_ids if pid in product_dict]
-    ratings = [current_user.get_rating_for_product(product.id) for product in products]
-    ratings = [rating if rating is not None else initial_rating_value for rating in ratings]
+    ids = session['product_order']
+    products = [all_products_dict[pid] for pid in ids if pid in all_products_dict]
 
-    # Find unrated products
-    ratings_dict = {rating.product_id: rating.rating for rating in db.session.scalars(
-        db.select(Rating).filter(Rating.user_id == current_user.id)
-    )}
-    
-    unrated_products = [product for product in products if product.id not in ratings_dict]
+    # Notes de l'utilisateur
+    ratings = [current_user.get_rating_for_product(p.id) for p in products]
+    ratings = [r if r is not None else initial_rating_value for r in ratings]
+
+    # Produits non encore notés
+    ratings_dict = {
+        r.product_id: r.rating for r in db.session.scalars(
+            db.select(Rating).filter(Rating.user_id == current_user.id)
+        )
+    }
+    unrated_products = [p for p in products if p.id not in ratings_dict]
 
     return render_template("main/rate.html", ratings=ratings, products=products, unrated_products=unrated_products, qualtrics_url=qualtrics_url)
 
