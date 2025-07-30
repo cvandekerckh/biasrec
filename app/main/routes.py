@@ -79,7 +79,7 @@ def product_category(category_name):
 @login_required
 def rate():
     #qualtrics_url = current_user.qualtrics_url #chercher le lien url personnalisé vers le questionnaire Qualtrics Q2
-    qualtrics_url = "https://lourim.eu.qualtrics.com/jfe/form/SV_6rn8KSyRDS8iinY"
+    qualtrics_url = "https://lourim.eu.qualtrics.com/jfe/form/SV_bOYhP75UcU0Lyei"
     initial_rating_value = 0
     all_products = Product.query.all()
     #query = current_user.assignments.select()
