@@ -81,17 +81,17 @@ def rate():
     #qualtrics_url = current_user.qualtrics_url #chercher le lien url personnalisé vers le questionnaire Qualtrics Q2
     qualtrics_url = "https://lourim.eu.qualtrics.com/jfe/form/SV_bOYhP75UcU0Lyei"
     initial_rating_value = 0
-    all_products = Product.query.all()
-    #query = current_user.assignments.select()
+    #all_products = Product.query.all()
+    query = current_user.assignments.select()
     #products = db.session.scalars(query).all()
-    #all_products = db.session.scalars(query).all()
+    all_products = db.session.scalars(query).all()
     all_products_dict = {p.id: p for p in all_products}
 
     # Garde l’ordre aléatoire une seule fois par session
     if 'product_order' not in session:
         product_ids = [p.id for p in all_products]
         random.shuffle(product_ids)
-        session['product_order'] = product_ids[:5]  # sélectionne 5 produits seulement
+        session['product_order'] = product_ids[:37]  # sélectionne 37 produits seulement
 
     ids = session['product_order']
     products = [all_products_dict[pid] for pid in ids if pid in all_products_dict]
