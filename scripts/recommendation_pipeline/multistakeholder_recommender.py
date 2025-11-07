@@ -19,11 +19,11 @@ CONDITION_FILENAME = 'conditions.csv' # to be updated based on last betas (OPTIM
 OPTIMAL_K = 4
 OPTIMAL_WEIGHTS = '10-20-70'
 
-PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / 'predictions'
+PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / '4_predictions'
 PREDICTIONS_FILENAME = f'predictions_{RATINGS_VERSION}.p'
 
-MODEL_PATH = Cf.DATA_PATH_OUT / 'versioning' / 'models'
-MODEL_FILENAME = f'model_{RATINGS_VERSION}.p'
+MODEL_PATH = Cf.DATA_PATH_OUT / 'versioning' / '6_models'
+MODEL_FILENAME = f'model_{RATINGS_VERSION}_relative.p'
 
 
 nutriscore_to_weight = {

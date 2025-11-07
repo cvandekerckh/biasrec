@@ -14,7 +14,7 @@ create-predictions:
 	pipenv run python -c "from scripts.create_model import create_predictions; create_predictions()"
 
 create-recommendation:
-	pipenv run python -c "from scripts.multistakeholder_recommender import create_multistakeholder_recommendation; create_multistakeholder_recommendation()"
+	pipenv run python -c "from scripts.recommendation_pipeline.relative_multistakeholder import create_recommendations; create_recommendations()"
 
 find-betas:
 	pipenv run python -c "from scripts.multistakeholder_recommender import find_betas; find_betas()"
