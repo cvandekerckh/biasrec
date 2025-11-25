@@ -8,6 +8,10 @@ import matplotlib.pyplot as plt
 from config import Config as Cf
 from app import create_app
 from app.models import User, Product
+
+rd.seed(42)
+
+
 # Settings
 RATINGS_VERSION = '05_05_2025'
 BIAS_TYPE = "mean"
@@ -26,6 +30,8 @@ CONDITION_RULE = {
     4: 1.5, # add 1.5 to the bias. Check that this value + KEEP_BIAS_BELOW <= 5
     5: 5.0, # full A
 }
+CONDITION_FILENAME = 'conditions.csv' # to be updated based on last betas (OPTIMAL_HP_VERSION) !!!
+
 
 # Inputs
 PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / '4_predictions'
@@ -35,6 +41,41 @@ def load_predictions():
     with open(PREDICTIONS_PATH / PREDICTIONS_FILENAME, "rb") as f:
         predictions = pickle.load(f)
     return predictions
+
+    
+# ---------------------------------------------------------
+# Helper functions
+# ---------------------------------------------------------
+
+def compute_error_table(errors, step):
+    """
+    Compute the bucketed error distribution table in the same format
+    as your current code.
+    """
+    if len(errors) == 0:
+        return None
+
+    # Map to integer buckets
+    k = np.rint(errors / step).astype(int)
+
+    df = pd.DataFrame({"k": k})
+    tbl = df.value_counts("k").sort_index().rename("count").reset_index()
+
+    tbl["error"] = tbl["k"] * step
+    total = tbl["count"].sum()
+    tbl["prop"] = tbl["count"] / total
+    tbl["cum_prop"] = tbl["prop"].cumsum()
+
+    return tbl[["error", "count", "prop", "cum_prop"]]
+
+
+def print_error_table(tbl):
+    """
+    Pretty-print the error table with fixed formatting.
+    """
+    with pd.option_context("display.float_format", "{:.3f}".format):
+        print(tbl.to_string(index=False))
+
 
 def get_ordered_items(predictions):
     """Return the ordered items for a top-N recommendation for each user from a set of predictions.
@@ -196,8 +237,17 @@ def create_recommendations():
         eligible_users = get_eligible_users(bias_per_user_initial, KEEP_BIAS_BELOW)
         print(f'Eligible users : {len(eligible_users)}/{len(bias_per_user_initial)}')
 
-        # Choose the delta you want to add (e.g., from CONDITION_RULE)
-        delta = 1.0 # CONDITION_RULE[2]  # e.g., 0.5
+        # Separate eligible users into the conditions
+        df_condition = pd.read_csv(Cf.DATA_PATH_RAW / CONDITION_FILENAME)
+        deltas = df_condition['delta'].tolist()
+        # - Repeat deltas enough times to cover all users
+        repeated = (deltas * (len(eligible_users) // len(deltas) + 1))[:len(eligible_users)]
+
+        # - Shuffle for randomness
+        rd.shuffle(repeated)
+
+        # - Pair users → deltas
+        assignments = dict(zip(eligible_users, repeated))
 
         # Per-user beta search
         beta_per_user = {}
@@ -205,6 +255,7 @@ def create_recommendations():
         for user, plist in product_list_per_user_initial.items():
             initial_bias = bias_per_user_initial[user]
             if user in eligible_users:
+                delta = assignments[user]
                 beta, achieved_bias, _ = find_beta_for_user(
                     product_list_user=plist,
                     initial_bias=initial_bias,
@@ -234,7 +285,7 @@ def create_recommendations():
 
         # List of target biased to achieve for evaluation
         targets = {
-            u: min(5.0, bias_per_user_initial[u] + delta) for u in eligible_users
+            u: min(5.0, bias_per_user_initial[u] + assignments[u]) for u in eligible_users
         }
 
         # Filter only for eligible users
@@ -255,25 +306,48 @@ def create_recommendations():
             u: b for u, b in bias_per_user_biased.items() if u in eligible_set
         }
 
-        # Evaluation
+        # Evaluate the performance
+        # ---------------------------------------------------------
+        # Global evaluation
+        # ---------------------------------------------------------
+
         errors = np.array([
             abs(bias_per_user_biased_eligible[u] - targets_eligible[u])
-            for u in targets_eligible.keys() if u in bias_per_user_biased_eligible
+            for u in targets_eligible.keys()
+            if u in bias_per_user_biased_eligible
         ])
 
         N = Cf.N_RECOMMENDATIONS
         step = 1.0 / N
 
-        # Map to integer buckets to avoid float duplicates entirely
-        k = np.rint(errors / step).astype(int)          # bucket index
-        df = pd.DataFrame({"k": k})
-        tbl = df.value_counts("k").sort_index().rename("count").reset_index()
+        tbl_global = compute_error_table(errors, step)
+        print("\n=== Global error distribution ===")
+        print_error_table(tbl_global)
 
-        tbl["error"] = tbl["k"] * step                   # back to error value
-        total = tbl["count"].sum()
-        tbl["prop"] = tbl["count"] / total
-        tbl["cum_prop"] = tbl["prop"].cumsum()
-        tbl = tbl[["error", "count", "prop", "cum_prop"]]
 
-        with pd.option_context("display.float_format", "{:.3f}".format):
-            print(tbl.to_string(index=False))
+        # ---------------------------------------------------------
+        # Per-assignment evaluation
+        # ---------------------------------------------------------
+
+        # Convert {user → delta} dict into {delta → [users]}
+        assignments_per_delta = {}
+        for user, delta in assignments.items():
+            assignments_per_delta.setdefault(delta, []).append(user)
+
+        print("\n=== Error distribution per assignment (per delta) ===")
+
+        for delta, users in sorted(assignments_per_delta.items()):
+
+            errors_delta = np.array([
+                abs(bias_per_user_biased_eligible[u] - targets_eligible[u])
+                for u in users
+                if u in bias_per_user_biased_eligible and u in targets_eligible
+            ])
+
+            tbl_delta = compute_error_table(errors_delta, step)
+
+            print(f"\n--- Delta {delta} ---")
+            if tbl_delta is None:
+                print("No users with computed errors.")
+            else:
+                print_error_table(tbl_delta)
