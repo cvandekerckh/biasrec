@@ -28,7 +28,6 @@ CONDITION_RULE = {
     2: 0.5, # add 0.5 to the
     3: 1.0, # add 1 to the bias
     4: 1.5, # add 1.5 to the bias. Check that this value + KEEP_BIAS_BELOW <= 5
-    5: 5.0, # full A
 }
 CONDITION_FILENAME = 'conditions.csv' # to be updated based on last betas (OPTIMAL_HP_VERSION) !!!
 
