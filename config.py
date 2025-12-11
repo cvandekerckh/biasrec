@@ -15,7 +15,7 @@ class Config(object):
     DATA_PATH = Path('data/fucam')
     DATA_PATH_RAW = DATA_PATH / 'raw'
     DATA_PATH_OUT = DATA_PATH / 'out'
-    MODEL_PATH = DATA_PATH_OUT / 'versioning'/ 'models'
+    MODEL_PATH = DATA_PATH_OUT / 'versioning'/ '6_models'
     MODEL_FILENAME = 'model_05_05_2025.p'
     N_RECOMMENDATIONS = 5
     PROLIFIC_STUDY_ID = '688889840ef7e7483d59d667' #test
