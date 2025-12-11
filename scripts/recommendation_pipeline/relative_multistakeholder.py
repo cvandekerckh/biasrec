@@ -29,7 +29,7 @@ CONDITION_RULE = {
     3: 1.0, # add 1 to the bias
     4: 1.5, # add 1.5 to the bias. Check that this value + KEEP_BIAS_BELOW <= 5
 }
-CONDITION_FILENAME = 'conditions.csv' # to be updated based on last betas (OPTIMAL_HP_VERSION) !!!
+CONDITION_FILENAME = 'conditions.csv'
 
 
 # Inputs
@@ -350,3 +350,20 @@ def create_recommendations():
                 print("No users with computed errors.")
             else:
                 print_error_table(tbl_delta)
+
+        # ---------------------------------------------------------
+        # Return biased recommendation
+        # ---------------------------------------------------------
+
+        biased_recommendation = {}
+
+        for user_id in bias_per_user_initial:
+            if user_id in product_list_per_user_biased_eligible:
+                biased_recommendation[user_id] = {
+                    "eligible": True,
+                    "error": abs(bias_per_user_biased_eligible[user_id] - targets_eligible[user_id]),
+                    "bias_category":  assignments[user_id],
+                    "recommendation_list": product_list_per_user_biased_eligible[user_id][:N],
+                }
+        
+        return biased_recommendation
