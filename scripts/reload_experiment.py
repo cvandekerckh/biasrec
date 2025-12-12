@@ -14,15 +14,18 @@ app = create_app()
 USER_FILENAME = 'users_conditions.csv'
 
 # RAW
-PRODUCT_FILENAME = 'products.csv'
+#PRODUCT_FILENAME = 'products.csv'
+PRODUCT_FILENAME = 'products_new.csv'
 ASSIGNMENTS_FILENAME = 'assignments.csv'
 
+#Supprime toutes les lignes d’une table (sans supprimer la table).
 def delete_entries_from_db(db_name):
     entries = db_name.query.all()
     for entry in entries:
         db.session.delete(entry)
     db.session.commit()
 
+#Importer un fichier CSV dans une table SQLAlchemy.
 def populate_db(db_name, csv_file, delimiter=','):
     df = pd.read_csv(csv_file, delimiter=delimiter)
     df = df.where(pd.notnull(df), None) # MySQL does not accept nans
@@ -31,6 +34,7 @@ def populate_db(db_name, csv_file, delimiter=','):
         db.session.add(new_entry)
         db.session.commit()
 
+#Créer les relations entre utilisateurs et produits à partir d’un CSV - phase 1
 def assign_products_to_users():
     df = pd.read_csv(Cf.DATA_PATH_OUT / ASSIGNMENTS_FILENAME)
     for user_id, product_id in zip(df['user_id'].values, df['product_id'].values):
@@ -39,12 +43,14 @@ def assign_products_to_users():
         if user and product:
             user.assign_product(product)
             db.session.commit()
-
+        
+# Insère les utilisateurs
+# Puis crée leurs relations avec les produits
 def populate_users():
     populate_db(User, Cf.DATA_PATH_OUT / USER_FILENAME, delimiter=";")
     assign_products_to_users()
 
-
+#Importer tous les produits depuis le CSV brut.
 def populate_products():
     populate_db(Product, Cf.DATA_PATH_RAW / PRODUCT_FILENAME, delimiter=";")
 

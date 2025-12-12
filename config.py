@@ -13,6 +13,7 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 9
     DATA_PATH = Path('data/fucam')
+    #DATA_PATH = Path('data/prolific')
     DATA_PATH_RAW = DATA_PATH / 'raw'
     DATA_PATH_OUT = DATA_PATH / 'out'
     MODEL_PATH = DATA_PATH_OUT / 'versioning'/ '6_models'
@@ -37,5 +38,5 @@ configs = {
   'rate'  : RateConfig,
   'fixedrec' : FixedRecommendationConfig,
   'trainrec' : TrainedRecommendationConfig,
-  'default'  :FixedRecommendationConfig,
+  'default'  :RateConfig,
 }

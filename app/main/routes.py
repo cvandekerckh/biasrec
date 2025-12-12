@@ -12,13 +12,11 @@ import random
 
 
 category_tag_to_name = {
-    'Sandwiches': 'Sandwichs',
-    'Salads': 'Salades',
-    'Pizzas & Quiches': 'Pizzas et quiches',
-    'Soups': 'Soupes',
-    'Prepared dish': 'Plats préparés',
-    'Snacks & burgers': 'Snacks et hamburgers',
-    'Wraps': 'Wraps',
+    'Poultry': 'Poultry',
+    'Red meat': 'Red meat',
+    'Fish': 'Fish',
+    'Shellfish': 'Shellfish',
+    'Vegetarian': 'Vegetarian',
 }
 
 def get_n_product_in_cart():

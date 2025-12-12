@@ -13,8 +13,8 @@
             <tr>
                 <!-- Product Image Display -->
                 <td width="200px" ALIGN="CENTER" style="float:left;width:40%;">
-                    <br><br><br><br>
-                    <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id))}}" height="300px">
+                    <br><br>
+                    <img src="{{ url_for('static', filename='img/product_new/meal_{}.jpg'.format(product.id))}}" height="400px">
                     <br><br>
                 </td>
         
@@ -25,13 +25,13 @@
                     <table class="table table-borderless">
                         <tr>
                             <td style="float:left;width:50%;">
-                                <h4 class="titlecolor"><b>{{ product.price }}</b></h4>
-                                <p> <b>Ingrédients : </b></p>
+                                <h4 class="titlecolor"><b>{{ product.price }} €</b></h4>
+                                <p> <b>Ingredients : </b></p>
                                 <ul>
-                                    <li><b>Protéines:</b> {{ product.protein }}</li>
-                                    <li><b>Légumes:</b> {{ product.vegetables }}</li>
-                                    <li><b>Féculents:</b> {{ product.starches }}</li>
-                                    <li><b>Produits laitiers:</b> {{ product.dairy_products }}</li>
+                                    <li><b>Proteins:</b> {{ product.protein }}</li>
+                                    <li><b>Vegetables:</b> {{ product.vegetables }}</li>
+                                    <li><b>Starches:</b> {{ product.starches }}</li>
+                                    <li><b>Dairy products:</b> {{ product.dairy_products }}</li>
                                     <li><b>Sauce:</b> {{ product.sauce }}</li>
                                 </ul>
                                 <br>
@@ -42,7 +42,7 @@
                         </tr>
                         <table class="table table-borderless">
                           <tr>
-                            <h3 class="titlecolor"><b>Votre note:</b></h3>
+                            <h3 class="titlecolor"><b>Your rating:</b></h3>
                           </tr>
                           <tr>
                               <div class="rate">

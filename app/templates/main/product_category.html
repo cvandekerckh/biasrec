@@ -10,7 +10,7 @@
                                 </tr><tr>  <!-- Nouvelle ligne après 3 produits -->
                             {% endif %}
                             <td ALIGN="CENTER" style="width:33.33%;">
-                                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(product.id)) }}" height="250px">
+                                <img src="{{ url_for('static', filename='img/product_new/meal_{}.jpg'.format(product.id)) }}" height="250px">
                                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=product.name) }}">{{ product.name }}</a></b></h3>
                                 <table class="table table-borderless">
                                     <tr>
