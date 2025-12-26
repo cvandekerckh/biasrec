@@ -75,5 +75,5 @@ stop-deploy:
 	sudo supervisorctl stop microapp
 
 dump-database:
-	pipenv run python -c "from scripts.export_database import export_database_to_csv; export_database_to_csv()"
+	pipenv run python -c "from scripts.eda.export_database import export_database_to_csv; export_database_to_csv()"
 
