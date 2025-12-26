@@ -5,8 +5,11 @@ from flask_login import current_user, login_user, login_required, logout_user
 from flask import request
 from app import db
 import csv
-from app.models import User
+from app.models import User, Product
 
+FIXED_PRODUCT_IDS = [
+    1, 2, 3, 4, 5
+]
 
 @bp.route('/', methods=['GET', 'POST'])
 def index():
@@ -30,11 +33,19 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
         if user is None:
             user = User(
                 code=prolific_pid,
-                #qualtrics_url=f"https://lourim.eu.qualtrics.com/jfe/form/SV_testQ1_{prolific_pid}",
+                qualtrics_url=f"https://lourim.eu.qualtrics.com/jfe/form/SV_testQ1_{prolific_pid}",
                 qualtrics_url_phase2=f"https://lourim.eu.qualtrics.com/jfe/form/SV_testQ2_{prolific_pid}",
                 condition_id=0
             )
             db.session.add(user)
+            db.session.commit()
+
+            # 🔵 NEW — assignation des 5 produits (UNE SEULE FOIS)
+            products = Product.query.filter(Product.id.in_(FIXED_PRODUCT_IDS)).all()
+
+            for product in products:
+                user.assign_product(product)
+
             db.session.commit()
 
         # connect user
