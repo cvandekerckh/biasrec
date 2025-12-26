@@ -49,7 +49,7 @@ def export_database_to_csv():
         )
         pd.read_sql(
             ratings_query.statement,
-            db.session.bind
+            db.engine
         ).to_csv(
             os.path.join(export_dir, "Rating_with_prolific_pid.csv"),
             index=False
@@ -66,7 +66,7 @@ def export_database_to_csv():
         )
         pd.read_sql(
             training_query.statement,
-            db.session.bind
+            db.engine
         ).to_csv(
             os.path.join(export_dir, "Training_with_prolific_pid.csv"),
             index=False
@@ -83,11 +83,10 @@ def export_database_to_csv():
         )
         pd.read_sql(
             purchases_query.statement,
-            db.session.bind
+            db.engine
         ).to_csv(
             os.path.join(export_dir, "Purchases_with_prolific_pid.csv"),
             index=False
         )
 
     print(f"Export completed! Files are in: {export_dir}")
-
