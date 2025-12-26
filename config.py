@@ -11,7 +11,7 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    POSTS_PER_PAGE = 9
+    POSTS_PER_PAGE = 200
     DATA_PATH = Path('data/fucam')
     #DATA_PATH = Path('data/prolific')
     DATA_PATH_RAW = DATA_PATH / 'raw'
@@ -38,5 +38,5 @@ configs = {
   'rate'  : RateConfig,
   'fixedrec' : FixedRecommendationConfig,
   'trainrec' : TrainedRecommendationConfig,
-  'default'  :RateConfig,
+  'default'  :TrainedRecommendationConfig,
 }

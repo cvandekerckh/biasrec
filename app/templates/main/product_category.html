@@ -10,18 +10,23 @@
                                 </tr><tr>  <!-- Nouvelle ligne après 3 produits -->
                             {% endif %}
                             <td ALIGN="CENTER" style="width:33.33%;">
-                                <img src="{{ url_for('static', filename='img/product_new/meal_{}.jpg'.format(product.id)) }}" height="250px">
+                                <img src="{{ url_for('static', filename='img/assets/meal_{}.jpg'.format(product.id)) }}" height="250px">
                                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=product.name) }}">{{ product.name }}</a></b></h3>
                                 <table class="table table-borderless">
                                     <tr>
                                         <td style="float:left;width:60%;">
-                                            <h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
-                                            <br>
-                                            <h4 class="titlecolor"> <b>Protéines:</b> {{ product.protein }}</h4>
-                                            <h4 class="titlecolor"> <b>Légumes:</b> {{ product.vegetables }}</h4>
-                                            <h4 class="titlecolor"> <b>Féculents:</b> {{ product.starches }}</h4>
-                                            <h4 class="titlecolor"> <b>Produits laitiers:</b> {{ product.dairy_products }}</h4>
+                                            <!--<h4 class="titlecolor"> <b>{{ product.price }}</b></h4>
+                                            <h4 class="titlecolor"> <b>{{ product.id }}</b></h4>
+                                            <br> -->
+                                            <h4 class="titlecolor"> <b>Proteins:</b> {{ product.protein }}</h4>
+                                            <h4 class="titlecolor"> <b>Vegetables:</b> {{ product.vegetables }}</h4>
+                                            <h4 class="titlecolor"> <b>Starches:</b> {{ product.starches }}</h4>
+                                            <h4 class="titlecolor"> <b>Dairy products:</b> {{ product.dairy_products }}</h4>
                                             <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
+                                            <br> <br> <br> <br> 
+                                            <h4 class="titlecolor"> <b>{{ product.id }}</b></h4>
+
+
                                         </td>
                                         <td style="float:left; width:40%; text-align:left;">
                                             <br><br><br><br>
