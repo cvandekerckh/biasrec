@@ -1,0 +1,601 @@
+id;dish_name;meal_category;protein_main;vegetables;starches;sauce;dairy;protein_category;nutriscore_calculated;Price
+1;Crispy Cod with mushrooms & bulgur;Fish;cod;mushrooms | onions | bell peppers;bulgur;lemon herb sauce;ricotta;Fish;A;5.10
+2;Pork quinoa plate with cauliflower;Red meat;pork;cauliflower;quinoa;soy sauce;feta;Red meat;A;5.30
+3;Grilled Anchovies over sweet potatoes;Fish;anchovies;green beans;sweet potatoes;soy sauce;feta;Fish;A;5.00
+4;Turkey in basil sauce over quinoa;Poultry;turkey;cabbage | mushrooms | celery;quinoa;basil sauce;mozzarella;Poultry;A;5.30
+5;Sausage in tomato sauce over wild rice;Red meat;sausage;squash | tomatoes;wild rice;tomato sauce;none;Red meat;A;5.20
+6;Chicken barley plate with bell peppers;Poultry;chicken;bell peppers | broccoli | asparagus;barley;soy sauce;cottage cheese;Poultry;A;5.30
+7;Duck with pasta and asparagus;Poultry;duck;asparagus;pasta;basil sauce;mozzarella;Poultry;A;5.30
+8;Black beans and eggplant gnocchi mix;Vegetarian;black beans;eggplant | celery;gnocchi;pesto;cottage cheese;Vegetarian;A;5.40
+9;Tangy Kidney beans over rice;Vegetarian;kidney beans;squash | beetroot;rice;olive oil dressing;none;Vegetarian;A;5.00
+10;Cod with vegetables & wild rice;Fish;cod;broccoli | mushrooms | cabbage;wild rice;tahini sauce;none;Fish;A;5.00
+11;Trout in chimichurri over udon noodles;Fish;trout;spinach | cabbage | peas;udon noodles;chimichurri;none;Fish;A;5.30
+12;Cod with wild rice and cabbage;Fish;cod;cabbage | squash | green beans;wild rice;pesto;mozzarella;Fish;A;5.10
+13;Veal barley plate with onions;Red meat;veal;onions | asparagus | leeks;barley;soy sauce;ricotta;Red meat;A;5.10
+14;Crispy Kidney beans over polenta;Vegetarian;kidney beans;sweet corn | leeks;polenta;tahini sauce;ricotta;Vegetarian;A;5.10
+15;Hake in tomato sauce over rice;Fish;hake;sweet corn;rice;tomato sauce;cottage cheese;Fish;A;5.50
+16;Zesty Lentils over rice;Vegetarian;lentils;sweet corn | asparagus;rice;olive oil dressing;greek yogurt;Vegetarian;A;5.10
+17;Sesame Seared tuna with squash & wild rice;Fish;seared tuna;squash | eggplant;wild rice;olive oil dressing;cottage cheese;Fish;A;5.10
+18;Black beans and beetroot polenta mix;Vegetarian;black beans;beetroot;polenta;basil sauce;feta;Vegetarian;A;5.30
+19;Shrimp tempura with couscous and celery;Shellfish;shrimp tempura;celery | leeks | kale;couscous;ginger soy glaze;none;Shellfish;A;5.30
+20;Lamb over sweet potatoes;Red meat;lamb;cabbage;sweet potatoes;pesto;greek yogurt;Red meat;A;5.10
+21;Sesame Salmon bowl with carrots;Fish;salmon;carrots;couscous;tahini sauce;none;Fish;A;5.30
+22;Beef in olive oil dressing over gnocchi;Red meat;beef;zucchini | bell peppers;gnocchi;olive oil dressing;none;Red meat;A;5.00
+23;Smoky Mackerel bowl with squash;Fish;mackerel;squash | beetroot;rice;lemon herb sauce;mozzarella;Fish;A;5.30
+24;Mediterranean Steak strips bowl;Red meat;steak strips;celery | kale | cauliflower;bulgur;chimichurri;greek yogurt;Red meat;A;5.20
+25;Chicken with broccoli & wild rice;Poultry;chicken;broccoli;wild rice;basil sauce;feta;Poultry;A;5.50
+26;Shrimp tempura over wild rice;Shellfish;shrimp tempura;eggplant | carrots;wild rice;olive oil dressing;cottage cheese;Shellfish;A;5.30
+27;Lentils with potatoes and tomatoes;Vegetarian;lentils;tomatoes;potatoes;soy sauce;cottage cheese;Vegetarian;A;5.30
+28;Seared tuna with rice and sweet corn;Fish;seared tuna;sweet corn | broccoli | celery;rice;soy sauce;cottage cheese;Fish;A;5.10
+29;Eggs and broccoli brown rice mix;Vegetarian;eggs;broccoli | carrots;brown rice;chimichurri;ricotta;Vegetarian;A;5.40
+30;Chicken bowl with sweet corn;Poultry;chicken;sweet corn;sweet potatoes;olive oil dressing;greek yogurt;Poultry;A;5.50
+31;Beef with potatoes, tomatoes and celery;Red meat;beef;celery | tomatoes;potatoes;olive oil dressing;cottage cheese;Red meat;A;5.20
+32;Chicken gnocchi plate with eggplant;Poultry;chicken;eggplant | kale;gnocchi;tahini sauce;cottage cheese;Poultry;A;5.10
+33;Meatballs with couscous & vegetables;Red meat;meatballs;carrots | cauliflower | eggplant;couscous;basil sauce;greek yogurt;Red meat;A;5.30
+34;Anchovies barley plate with eggplant;Fish;anchovies;eggplant | bell peppers | cauliflower;barley;basil sauce;mozzarella;Fish;A;5.30
+35;Mediterranean Seared tuna bowl with squash;Fish;seared tuna;squash | tomatoes;couscous;lemon herb sauce;mozzarella;Fish;A;5.10
+36;Quinoa bowl with black beans & vegetables;Vegetarian;black beans;kale | squash | carrots;quinoa;tahini sauce;ricotta;Vegetarian;A;5.00
+37;Tempeh and beetroot wild rice mix;Vegetarian;tempeh;beetroot;wild rice;olive oil dressing;mozzarella;Vegetarian;A;5.50
+38;Chicken in basil sauce over pasta;Poultry;chicken;spinach;pasta;basil sauce;feta;Poultry;A;5.30
+39;Seared tuna bowl with vegetables & rice;Fish;seared tuna;kale | cauliflower | leeks;rice;tomato sauce;ricotta;Fish;A;5.50
+40;Herb Calamari with tomatoes & potatoes;Shellfish;calamari;tomatoes;potatoes;basil sauce;none;Shellfish;A;5.20
+41;Crispy Shrimp tempura bowl with beetroot;Shellfish;shrimp tempura;beetroot | spinach | kale;barley;basil sauce;feta;Shellfish;A;5.20
+42;Tempeh bowl with bulgur & vegetables;Vegetarian;tempeh;carrots | squash;bulgur;soy sauce;mozzarella;Vegetarian;A;5.20
+43;Mediterranean Chicken bowl with tomatoes;Poultry;chicken;tomatoes | green beans;sweet potatoes;olive oil dressing;greek yogurt;Poultry;A;5.30
+44;Mediterranean Shrimp over wild rice;Shellfish;shrimp;sweet corn | carrots | peas;wild rice;basil sauce;cottage cheese;Shellfish;A;5.30
+45;Tangy Kidney beans bowl with sweet corn;Vegetarian;kidney beans;sweet corn;wild rice;lemon herb sauce;none;Vegetarian;A;5.20
+46;Crispy Anchovies bowl with celery;Fish;anchovies;celery;potatoes;ginger soy glaze;none;Fish;A;5.30
+47;Herb Paneer bowl with spinach;Vegetarian;paneer;spinach;pasta;basil sauce;mozzarella;Vegetarian;A;5.50
+48;Paneer over sweet potatoes;Vegetarian;paneer;kale | mushrooms | cabbage;sweet potatoes;tomato sauce;cottage cheese;Vegetarian;A;5.30
+49;Black beans wild rice plate with bell peppers;Vegetarian;black beans;bell peppers;wild rice;tahini sauce;feta;Vegetarian;A;5.50
+50;Shrimp tempura over polenta;Shellfish;shrimp tempura;carrots | peas | beetroot;polenta;olive oil dressing;mozzarella;Shellfish;A;5.40
+51;Tempeh in ginger soy glaze over potatoes;Vegetarian;tempeh;broccoli;potatoes;ginger soy glaze;mozzarella;Vegetarian;A;5.40
+52;Calamari and cabbage udon noodles mix;Shellfish;calamari;cabbage;udon noodles;basil sauce;none;Shellfish;A;5.20
+53;Paneer polenta plate with cauliflower;Vegetarian;paneer;cauliflower | squash | cabbage;polenta;soy sauce;cottage cheese;Vegetarian;A;5.00
+54;Turkey with sweet potatoes & vegetables;Poultry;turkey;peas | asparagus;sweet potatoes;ginger soy glaze;none;Poultry;A;5.20
+55;Cheese omelette with potatoes and zucchini;Vegetarian;cheese omelette;zucchini | squash | mushrooms;potatoes;pesto;cottage cheese;Vegetarian;A;5.10
+56;Beef bulgur bowl with asparagus & broccoli;Red meat;beef;asparagus | broccoli;bulgur;lemon herb sauce;none;Red meat;A;5.20
+57;Salmon with udon noodles & vegetables;Fish;salmon;bell peppers | leeks | tomatoes;udon noodles;ginger soy glaze;mozzarella;Fish;A;5.30
+58;Chickpeas over couscous;Vegetarian;chickpeas;leeks;couscous;ginger soy glaze;none;Vegetarian;A;5.40
+59;Roasted Tempeh with kale & rice;Vegetarian;tempeh;kale;rice;olive oil dressing;greek yogurt;Vegetarian;A;5.20
+60;Trout with sweet potatoes & vegetables;Fish;trout;cabbage | mushrooms | cauliflower;sweet potatoes;tahini sauce;greek yogurt;Fish;A;5.20
+61;Sesame Calamari bowl with broccoli;Shellfish;calamari;broccoli;wild rice;soy sauce;feta;Shellfish;A;5.00
+62;Quinoa bowl with shrimp tempura and vegetables;Shellfish;shrimp tempura;kale | broccoli | cabbage;quinoa;olive oil dressing;mozzarella;Shellfish;A;5.50
+63;Black beans with polenta & vegetables;Vegetarian;black beans;asparagus | squash | cauliflower;polenta;soy sauce;mozzarella;Vegetarian;A;5.30
+64;Meatballs over udon noodles;Red meat;meatballs;spinach | celery | onions;udon noodles;pesto;cottage cheese;Red meat;A;5.20
+65;Grilled Kidney beans over rice;Vegetarian;kidney beans;celery | cauliflower;rice;chimichurri;cottage cheese;Vegetarian;A;5.50
+66;Anchovies with wild rice & vegetables;Fish;anchovies;squash | mushrooms | asparagus;wild rice;tahini sauce;none;Fish;A;5.50
+67;Quinoa bowl with shrimp tempura and vegetables;Shellfish;shrimp tempura;leeks | spinach | green beans;quinoa;lemon herb sauce;none;Shellfish;A;5.40
+68;Roasted ham with bulgur & vegetables;Red meat;roasted ham;carrots | leeks | mushrooms;bulgur;chimichurri;mozzarella;Red meat;A;5.50
+69;Udon noodle bowl with roasted ham and vegetables;Red meat;roasted ham;eggplant | zucchini;udon noodles;basil sauce;mozzarella;Red meat;A;5.40
+70;Shrimp tempura with potatoes & vegetables;Shellfish;shrimp tempura;leeks | carrots | squash;potatoes;chimichurri;ricotta;Shellfish;A;5.10
+71;Grilled Anchovies over wild rice;Fish;anchovies;celery | broccoli;wild rice;basil sauce;greek yogurt;Fish;A;5.50
+72;Calamari in olive oil dressing over barley;Shellfish;calamari;kale | cabbage | spinach;barley;olive oil dressing;ricotta;Shellfish;A;5.40
+73;Seared tuna and green beans quinoa mix;Fish;seared tuna;green beans;quinoa;pesto;greek yogurt;Fish;A;5.40
+74;Cod with polenta & vegetables;Fish;cod;broccoli | kale | zucchini;polenta;ginger soy glaze;cottage cheese;Fish;A;5.30
+75;Shrimp in tomato sauce with spinach & barley;Shellfish;shrimp;spinach | celery;barley;tomato sauce;feta;Shellfish;A;5.00
+76;Meatballs over wild rice;Red meat;meatballs;cauliflower | celery;wild rice;basil sauce;ricotta;Red meat;A;5.20
+77;Anchovies with wild rice and cauliflower & zucchini;Fish;anchovies;cauliflower | zucchini;wild rice;tahini sauce;mozzarella;Fish;A;5.40
+78;Turkey in soy sauce over sweet potatoes;Poultry;turkey;cauliflower | eggplant;sweet potatoes;soy sauce;ricotta;Poultry;A;5.50
+79;Tangy Chicken bowl with carrots;Poultry;chicken;carrots | sweet corn;quinoa;lemon herb sauce;mozzarella;Poultry;A;5.10
+80;Buttery Seitan over barley;Vegetarian;seitan;onions | kale;barley;lemon herb sauce;cottage cheese;Vegetarian;A;5.40
+81;Sesame Seitan bowl with spinach;Vegetarian;seitan;spinach;wild rice;tahini sauce;ricotta;Vegetarian;A;5.30
+82;Black beans over rice;Vegetarian;black beans;squash;rice;lemon herb sauce;feta;Vegetarian;A;5.30
+83;Salmon and peas barley mix;Fish;salmon;peas;barley;tahini sauce;ricotta;Fish;A;5.50
+84;Seitan in ginger soy glaze over wild rice;Vegetarian;seitan;peas;wild rice;ginger soy glaze;none;Vegetarian;A;5.10
+85;Couscous with whitefish, cauliflower & eggplant;Fish;whitefish;cauliflower | eggplant;couscous;soy sauce;ricotta;Fish;A;5.20
+86;Quinoa bowl with eggs, green beans, asparagus & squash;Vegetarian;eggs;green beans | asparagus | squash;quinoa;tahini sauce;mozzarella;Vegetarian;A;5.40
+87;Roasted Chicken bowl with beetroot;Poultry;chicken;beetroot | asparagus | tomatoes;rice;chimichurri;cottage cheese;Poultry;A;5.30
+88;Salmon in tomato sauce over potatoes;Fish;salmon;cauliflower | kale;potatoes;tomato sauce;mozzarella;Fish;A;5.40
+89;Tangy Chicken over couscous;Poultry;chicken;zucchini | peas;couscous;lemon herb sauce;mozzarella;Poultry;A;5.10
+90;Roasted ham over polenta;Red meat;roasted ham;bell peppers | spinach | eggplant;polenta;chimichurri;cottage cheese;Red meat;A;5.30
+91;Seared tuna wild rice plate with spinach;Fish;seared tuna;spinach | squash;wild rice;basil sauce;greek yogurt;Fish;A;5.30
+92;Lamb in basil sauce over udon noodles;Red meat;lamb;asparagus | mushrooms | cauliflower;udon noodles;basil sauce;ricotta;Red meat;A;5.20
+93;Tuna with sweet potatoes, sweet corn, cabbage & squash;Fish;tuna;sweet corn | cabbage | squash;sweet potatoes;tahini sauce;cottage cheese;Fish;A;5.20
+94;Tangy Roasted ham bowl with cauliflower;Red meat;roasted ham;cauliflower;potatoes;chimichurri;none;Red meat;A;5.40
+95;Lentils in olive oil dressing over pasta;Vegetarian;lentils;mushrooms | tomatoes;pasta;olive oil dressing;mozzarella;Vegetarian;A;5.50
+96;Eggs with wild rice, carrots, spinach & celery;Vegetarian;eggs;carrots | spinach | celery;wild rice;tahini sauce;mozzarella;Vegetarian;A;5.00
+97;Seared tuna over couscous;Fish;seared tuna;squash | broccoli | asparagus;couscous;tomato sauce;greek yogurt;Fish;A;5.00
+98;Tofu quinoa plate with squash;Vegetarian;tofu;squash;quinoa;chimichurri;none;Vegetarian;A;5.50
+99;Sausage in soy sauce over pasta;Red meat;sausage;zucchini | carrots | spinach;pasta;soy sauce;greek yogurt;Red meat;A;5.20
+100;Roasted Calamari bowl with peas;Shellfish;calamari;peas;sweet potatoes;soy sauce;ricotta;Shellfish;A;5.40
+101;Lentils and mushrooms pasta mix;Vegetarian;lentils;mushrooms;pasta;ginger soy glaze;cottage cheese;Vegetarian;A;5.50
+102;Crispy Veal over potatoes;Red meat;veal;cabbage | cauliflower;potatoes;olive oil dressing;ricotta;Red meat;A;5.20
+103;Cod with bulgur, squash & cabbage;Fish;cod;squash | cabbage;bulgur;tomato sauce;cottage cheese;Fish;A;5.40
+104;Cheese omelette in tomato sauce over pasta;Vegetarian;cheese omelette;carrots | green beans;pasta;tomato sauce;feta;Vegetarian;A;5.50
+105;Smoky Chickpeas with zucchini & couscous;Vegetarian;chickpeas;zucchini;couscous;ginger soy glaze;cottage cheese;Vegetarian;A;5.20
+106;Steak strips with barley, asparagus, mushrooms & cabbage;Red meat;steak strips;asparagus | mushrooms | cabbage;barley;soy sauce;greek yogurt;Red meat;A;5.10
+107;Beef with bulgur, sweet corn & peas;Red meat;beef;sweet corn | peas;bulgur;pesto;ricotta;Red meat;A;5.10
+108;Cheese omelette and kale quinoa mix;Vegetarian;cheese omelette;kale | tomatoes;quinoa;soy sauce;greek yogurt;Vegetarian;A;5.40
+109;Steak strips with rice, celery, onions & eggplant;Red meat;steak strips;celery | onions | eggplant;rice;olive oil dressing;cottage cheese;Red meat;A;5.50
+110;Tuna and eggplant bulgur mix;Fish;tuna;eggplant | onions;bulgur;olive oil dressing;mozzarella;Fish;A;5.10
+111;Cheese omelette bowl with mushrooms;Vegetarian;cheese omelette;mushrooms | carrots;wild rice;ginger soy glaze;cottage cheese;Vegetarian;A;5.20
+112;Smoky Seitan bowl with peas;Vegetarian;seitan;peas | celery;quinoa;chimichurri;greek yogurt;Vegetarian;A;5.20
+113;Smoked turkey udon bowl with vegetables;Poultry;smoked turkey;beetroot | spinach | bell peppers;udon noodles;lemon herb sauce;ricotta;Poultry;A;5.40
+114;Hake with wild rice, sweet corn & cauliflower;Fish;hake;sweet corn | cauliflower;wild rice;olive oil dressing;mozzarella;Fish;A;5.20
+115;Beef couscous plate with peas;Red meat;beef;peas;couscous;chimichurri;greek yogurt;Red meat;A;5.40
+116;Grilled seitan with bulgur, kale & beetroot;Vegetarian;seitan;kale | beetroot;bulgur;chimichurri;ricotta;Vegetarian;A;5.50
+117;Zesty Chicken over couscous;Poultry;chicken;bell peppers;couscous;tomato sauce;mozzarella;Poultry;A;5.30
+118;Whitefish with eggplant & rice;Fish;whitefish;eggplant;rice;chimichurri;ricotta;Fish;A;5.30
+119;Cheese omelette and asparagus bulgur mix;Vegetarian;cheese omelette;asparagus | carrots | celery;bulgur;lemon herb sauce;none;Vegetarian;A;5.20
+120;Seitan with gnocchi, peas & kale;Vegetarian;seitan;peas | kale;gnocchi;chimichurri;ricotta;Vegetarian;A;5.40
+121;Paneer in chimichurri over barley;Vegetarian;paneer;onions | peas;barley;chimichurri;none;Vegetarian;B;5.50
+122;Whitefish with wild rice and bell peppers;Fish;whitefish;bell peppers;wild rice;lemon herb sauce;feta;Fish;B;5.10
+123;Salmon with polenta, leeks, beetroot & carrots;Fish;salmon;leeks | beetroot | carrots;polenta;tahini sauce;greek yogurt;Fish;B;5.30
+124;Lamb with sweet potatoes, green beans, beetroot & bell peppers;Red meat;lamb;green beans | beetroot | bell peppers;sweet potatoes;basil sauce;feta;Red meat;B;5.30
+125;Black beans in tahini sauce over quinoa;Vegetarian;black beans;carrots | peas | squash;quinoa;tahini sauce;feta;Vegetarian;B;5.00
+126;Chickpeas with gnocchi, sweet corn & spinach;Vegetarian;chickpeas;sweet corn | spinach;gnocchi;ginger soy glaze;ricotta;Vegetarian;B;5.20
+127;Roasted ham and broccoli gnocchi mix;Red meat;roasted ham;broccoli;gnocchi;chimichurri;none;Red meat;B;5.50
+128;Roasted Duck over brown rice;Poultry;duck;cabbage | leeks | mushrooms;brown rice;tahini sauce;cottage cheese;Poultry;B;5.20
+129;Black beans and cauliflower wild rice mix;Vegetarian;black beans;cauliflower | kale;wild rice;tahini sauce;none;Vegetarian;B;5.00
+130;Seitan with bulgur, squash, zucchini & leeks;Vegetarian;seitan;squash | zucchini | leeks;bulgur;olive oil dressing;greek yogurt;Vegetarian;B;5.40
+131;Crispy Pork with green beans & brown rice;Red meat;pork;green beans | peas;brown rice;lemon herb sauce;greek yogurt;Red meat;B;5.30
+132;Mediterranean Hake over gnocchi;Fish;hake;cabbage | tomatoes;gnocchi;lemon herb sauce;cottage cheese;Fish;B;5.40
+133;Calamari couscous bowl with vegetables;Shellfish;calamari;cabbage | broccoli | squash;couscous;pesto;none;Shellfish;B;5.40
+134;Tangy Cod over brown rice;Fish;cod;kale | broccoli;brown rice;chimichurri;mozzarella;Fish;B;5.30
+135;Creamy Black beans over gnocchi;Vegetarian;black beans;carrots | asparagus;gnocchi;ginger soy glaze;greek yogurt;Vegetarian;B;5.00
+136;Calamari with barley, beetroot, peas & mushrooms;Shellfish;calamari;beetroot | peas | mushrooms;barley;olive oil dressing;cottage cheese;Shellfish;B;5.40
+137;Trout in tomato sauce over barley;Fish;trout;celery | peas;barley;tomato sauce;greek yogurt;Fish;B;5.30
+138;Mediterranean Kidney beans bowl with cabbage;Vegetarian;kidney beans;cabbage | kale;polenta;chimichurri;greek yogurt;Vegetarian;B;5.40
+139;Mackerel with gnocchi, asparagus & kale;Fish;mackerel;asparagus | kale;gnocchi;basil sauce;mozzarella;Fish;B;5.40
+140;Tuna over pasta;Fish;tuna;sweet corn;pasta;tahini sauce;mozzarella;Fish;B;5.10
+141;Turkey with pasta, bell peppers & kale;Poultry;turkey;bell peppers | kale;pasta;olive oil dressing;mozzarella;Poultry;B;5.00
+142;Meatballs polenta plate with cauliflower;Red meat;meatballs;cauliflower;polenta;pesto;mozzarella;Red meat;B;5.00
+143;Hake bowl with cauliflower;Fish;hake;cauliflower | peas;brown rice;olive oil dressing;ricotta;Fish;B;5.30
+144;Smoky Paneer over wild rice;Vegetarian;paneer;mushrooms | squash | eggplant;wild rice;basil sauce;greek yogurt;Vegetarian;B;5.20
+145;Roasted eggs with wild rice & vegetables;Vegetarian;eggs;sweet corn | cabbage | squash;wild rice;chimichurri;feta;Vegetarian;B;5.00
+146;Grilled Salmon over polenta;Fish;salmon;eggplant | onions | squash;polenta;tahini sauce;mozzarella;Fish;B;5.30
+147;Cheese omelette in tomato sauce over sweet potatoes;Vegetarian;cheese omelette;zucchini | beetroot;sweet potatoes;tomato sauce;none;Vegetarian;B;5.00
+148;Black beans with udon noodles, sweet corn, cauliflower & eggplant;Vegetarian;black beans;sweet corn | cauliflower | eggplant;udon noodles;basil sauce;cottage cheese;Vegetarian;B;5.20
+149;Smoky Hake with onions & brown rice;Fish;hake;onions;brown rice;pesto;greek yogurt;Fish;B;5.00
+150;Eggs with gnocchi, onions, squash & tomatoes;Vegetarian;eggs;onions | squash | tomatoes;gnocchi;soy sauce;ricotta;Vegetarian;B;5.40
+151;Sesame Tempeh over pasta;Vegetarian;tempeh;spinach | leeks;pasta;olive oil dressing;ricotta;Vegetarian;B;5.00
+152;Mediterranean Tempeh over barley;Vegetarian;tempeh;broccoli | sweet corn;barley;pesto;feta;Vegetarian;B;5.30
+153;Turkey with couscous, broccoli, leeks & bell peppers;Poultry;turkey;broccoli | leeks | bell peppers;couscous;chimichurri;ricotta;Poultry;B;5.50
+154;Smoked turkey gnocchi plate with broccoli;Poultry;smoked turkey;broccoli | onions;gnocchi;pesto;mozzarella;Poultry;B;5.50
+155;Veal with wild rice, celery, beetroot & broccoli;Red meat;veal;celery | beetroot | broccoli;wild rice;ginger soy glaze;ricotta;Red meat;B;5.20
+156;Buttery Tofu bowl;Vegetarian;tofu;leeks | green beans | asparagus;potatoes;ginger soy glaze;mozzarella;Vegetarian;B;5.00
+157;Mackerel with gnocchi, cabbage & asparagus;Fish;mackerel;cabbage | asparagus;gnocchi;olive oil dressing;ricotta;Fish;B;5.50
+158;Paneer with brown rice, kale & eggplant;Vegetarian;paneer;kale | eggplant;brown rice;tahini sauce;mozzarella;Vegetarian;B;5.20
+159;Grilled Black beans over wild rice;Vegetarian;black beans;mushrooms | broccoli | leeks;wild rice;pesto;none;Vegetarian;B;5.50
+160;Veal with barley, mushrooms & zucchini;Red meat;veal;mushrooms | zucchini;barley;tomato sauce;ricotta;Red meat;B;5.10
+161;Shrimp tempura with couscous, celery, carrots & sweet corn;Shellfish;shrimp tempura;celery | carrots | sweet corn;couscous;ginger soy glaze;cottage cheese;Shellfish;B;5.00
+162;Duck and cabbage brown rice mix;Poultry;duck;cabbage | sweet corn;brown rice;pesto;none;Poultry;B;5.40
+163;Salmon in chimichurri over sweet potatoes;Fish;salmon;sweet corn | eggplant;sweet potatoes;chimichurri;mozzarella;Fish;B;5.50
+164;Calamari in soy sauce over quinoa;Shellfish;calamari;carrots | onions;quinoa;soy sauce;mozzarella;Shellfish;B;5.40
+165;Smoked turkey with polenta, tomatoes & cauliflower;Poultry;smoked turkey;tomatoes | cauliflower;polenta;basil sauce;none;Poultry;B;5.10
+166;Black beans and green beans potatoes mix;Vegetarian;black beans;green beans | beetroot | onions;potatoes;tomato sauce;none;Vegetarian;B;5.10
+167;Grilled Meatballs over brown rice;Red meat;meatballs;broccoli;brown rice;ginger soy glaze;greek yogurt;Red meat;B;5.10
+168;Buttery Whitefish over brown rice;Fish;whitefish;cabbage | leeks | onions;brown rice;tahini sauce;ricotta;Fish;B;5.20
+169;Grilled Pork over pasta;Red meat;pork;peas | broccoli;pasta;tomato sauce;ricotta;Red meat;B;5.40
+170;Veal with polenta, green beans, asparagus & sweet corn;Red meat;veal;green beans | asparagus | sweet corn;polenta;chimichurri;ricotta;Red meat;B;5.20
+171;Roasted Veal with celery & sweet potatoes;Red meat;veal;celery;sweet potatoes;basil sauce;mozzarella;Red meat;B;5.20
+172;Tempeh with brown rice, carrots, spinach & broccoli;Vegetarian;tempeh;carrots | spinach | broccoli;brown rice;olive oil dressing;ricotta;Vegetarian;B;5.00
+173;Tuna in olive oil dressing over brown rice;Fish;tuna;onions;brown rice;olive oil dressing;feta;Fish;B;5.50
+174;Whitefish with gnocchi, bell peppers, kale & spinach;Fish;whitefish;bell peppers | kale | spinach;gnocchi;chimichurri;none;Fish;B;5.40
+175;Tangy Salmon with green beans & barley;Fish;salmon;green beans;barley;pesto;greek yogurt;Fish;B;5.00
+176;Eggs with rice, onions, cauliflower & cabbage;Vegetarian;eggs;onions | cauliflower | cabbage;rice;basil sauce;ricotta;Vegetarian;B;5.00
+177;Calamari over bulgur;Shellfish;calamari;tomatoes | spinach;bulgur;lemon herb sauce;feta;Shellfish;B;5.50
+178;Seared tuna with quinoa, bell peppers, sweet corn & beetroot;Fish;seared tuna;bell peppers | sweet corn | beetroot;quinoa;basil sauce;mozzarella;Fish;B;5.40
+179;Eggs with bulgur and onions;Vegetarian;eggs;onions;bulgur;tomato sauce;none;Vegetarian;B;5.00
+180;Crispy Whitefish over sweet potatoes;Fish;whitefish;sweet corn;sweet potatoes;tahini sauce;cottage cheese;Fish;B;5.00
+181;Roasted ham with gnocchi, kale & cabbage;Red meat;roasted ham;kale | cabbage;gnocchi;chimichurri;feta;Red meat;B;5.40
+182;Mediterranean Lentils with broccoli, beetroot, zucchini & udon noodles;Vegetarian;lentils;broccoli | beetroot | zucchini;udon noodles;chimichurri;cottage cheese;Vegetarian;B;5.50
+183;Grilled Seitan over potatoes;Vegetarian;seitan;mushrooms | bell peppers | cabbage;potatoes;ginger soy glaze;mozzarella;Vegetarian;B;5.50
+184;Paneer in basil sauce over sweet potatoes;Vegetarian;paneer;asparagus;sweet potatoes;basil sauce;feta;Vegetarian;B;5.30
+185;Tuna in tahini sauce over couscous;Fish;tuna;leeks;couscous;tahini sauce;greek yogurt;Fish;B;5.40
+186;Crispy Lamb bowl with peas;Red meat;lamb;peas;couscous;tahini sauce;cottage cheese;Red meat;B;5.00
+187;Eggs over quinoa;Vegetarian;eggs;cauliflower | carrots;quinoa;ginger soy glaze;greek yogurt;Vegetarian;B;5.10
+188;Tempeh in lemon herb sauce over pasta;Vegetarian;tempeh;carrots | sweet corn;pasta;lemon herb sauce;ricotta;Vegetarian;B;5.10
+189;Buttery Chickpeas over couscous;Vegetarian;chickpeas;beetroot;couscous;soy sauce;mozzarella;Vegetarian;B;5.50
+190;Turkey with barley, bell peppers, broccoli & green beans;Poultry;turkey;bell peppers | broccoli | green beans;barley;tomato sauce;greek yogurt;Poultry;B;5.00
+191;Smoky mackerel with rice, mushrooms, spinach & zucchini;Fish;mackerel;mushrooms | spinach | zucchini;rice;chimichurri;ricotta;Fish;B;5.30
+192;Duck in ginger soy glaze over wild rice;Poultry;duck;zucchini | spinach | green beans;wild rice;ginger soy glaze;mozzarella;Poultry;B;5.20
+193;Kidney beans with wild rice, eggplant, zucchini & bell peppers;Vegetarian;kidney beans;eggplant | zucchini | bell peppers;wild rice;lemon herb sauce;greek yogurt;Vegetarian;B;5.30
+194;Whitefish and beetroot couscous mix;Fish;whitefish;beetroot;couscous;soy sauce;feta;Fish;B;5.00
+195;Tuna with sweet potatoes, sweet corn, leeks & bell peppers;Fish;tuna;sweet corn | leeks | bell peppers;sweet potatoes;lemon herb sauce;cottage cheese;Fish;B;5.40
+196;Mackerel with gnocchi, onions & mushrooms;Fish;mackerel;onions | mushrooms;gnocchi;tahini sauce;none;Fish;B;5.30
+197;Hake with udon noodles, zucchini, spinach & kale;Fish;hake;zucchini | spinach | kale;udon noodles;chimichurri;cottage cheese;Fish;B;5.50
+198;Anchovies in tomato sauce over sweet potatoes;Fish;anchovies;zucchini;sweet potatoes;tomato sauce;ricotta;Fish;B;5.30
+199;Mackerel with sweet potatoes, onions & peas;Fish;mackerel;onions | peas;sweet potatoes;lemon herb sauce;greek yogurt;Fish;B;5.10
+200;Hake with squash & barley;Fish;hake;squash | onions | carrots;barley;soy sauce;mozzarella;Fish;B;5.00
+201;Seitan with tomatoes & sweet potatoes;Vegetarian;seitan;tomatoes;sweet potatoes;tomato sauce;none;Vegetarian;B;5.20
+202;Whitefish in pesto over potatoes;Fish;whitefish;peas | zucchini | bell peppers;potatoes;pesto;cottage cheese;Fish;B;5.50
+203;Tempeh with quinoa, asparagus, carrots & green beans;Vegetarian;tempeh;asparagus | carrots | green beans;quinoa;ginger soy glaze;cottage cheese;Vegetarian;B;5.00
+204;Tofu in chimichurri over polenta;Vegetarian;tofu;sweet corn | kale;polenta;chimichurri;cottage cheese;Vegetarian;B;5.10
+205;Duck over bulgur;Poultry;duck;spinach;bulgur;tahini sauce;cottage cheese;Poultry;B;5.50
+206;Beef with couscous, carrots, green beans & onions;Red meat;beef;carrots | green beans | onions;couscous;soy sauce;greek yogurt;Red meat;B;5.10
+207;Seared tuna with wild rice, peas, asparagus & cauliflower;Fish;seared tuna;peas | asparagus | cauliflower;wild rice;lemon herb sauce;feta;Fish;B;5.00
+208;Smoked turkey rice plate with peas;Poultry;smoked turkey;peas;rice;tomato sauce;ricotta;Poultry;B;5.20
+209;Shrimp udon noodles plate with asparagus;Shellfish;shrimp;asparagus;udon noodles;olive oil dressing;feta;Shellfish;B;5.20
+210;Smoky meatballs with bulgur, green beans & sweet corn;Red meat;meatballs;green beans | sweet corn;bulgur;ginger soy glaze;feta;Red meat;B;5.40
+211;Paneer over rice with cauliflower & pesto;Vegetarian;paneer;cauliflower;rice;pesto;feta;Vegetarian;B;5.30
+212;Calamari bulgur plate with squash;Shellfish;calamari;squash;bulgur;olive oil dressing;none;Shellfish;B;5.20
+213;Crispy pork with quinoa, green beans & mushrooms;Red meat;pork;green beans | mushrooms;quinoa;basil sauce;mozzarella;Red meat;B;5.40
+214;Duck in lemon herb sauce over bulgur;Poultry;duck;cabbage;bulgur;lemon herb sauce;mozzarella;Poultry;B;5.10
+215;Mackerel with gnocchi, broccoli & beetroot;Fish;mackerel;broccoli | beetroot;gnocchi;pesto;mozzarella;Fish;B;5.00
+216;Smoky Shrimp tempura over rice;Shellfish;shrimp tempura;tomatoes | zucchini | cauliflower;rice;tahini sauce;cottage cheese;Shellfish;B;5.00
+217;Roasted beef with couscous, mushrooms, carrots & peas;Red meat;beef;mushrooms | carrots | peas;couscous;lemon herb sauce;greek yogurt;Red meat;B;5.50
+218;Tangy Beef over brown rice;Red meat;beef;cabbage | spinach | green beans;brown rice;chimichurri;greek yogurt;Red meat;B;5.10
+219;Hake with brown rice and onions;Fish;hake;onions;brown rice;tomato sauce;feta;Fish;B;5.40
+220;Chickpeas with rice, eggplant, mushrooms & green beans;Vegetarian;chickpeas;eggplant | mushrooms | green beans;rice;pesto;none;Vegetarian;B;5.10
+221;Meatballs with brown rice, squash, zucchini & leeks;Red meat;meatballs;squash | zucchini | leeks;brown rice;ginger soy glaze;greek yogurt;Red meat;B;5.40
+222;Smoked turkey with bulgur, eggplant, cabbage & celery;Poultry;smoked turkey;eggplant | cabbage | celery;bulgur;basil sauce;none;Poultry;B;5.50
+223;Mackerel with udon noodles, spinach & leeks;Fish;mackerel;spinach | leeks;udon noodles;pesto;ricotta;Fish;B;5.00
+224;Smoky Seitan over quinoa;Vegetarian;seitan;carrots;quinoa;pesto;greek yogurt;Vegetarian;B;5.10
+225;Meatballs with bulgur, sweet corn, broccoli & onions;Red meat;meatballs;sweet corn | broccoli | onions;bulgur;olive oil dressing;none;Red meat;B;5.10
+226;Cod wild rice plate with spinach;Fish;cod;spinach | bell peppers;wild rice;ginger soy glaze;greek yogurt;Fish;B;5.00
+227;Whitefish in tahini sauce over polenta;Fish;whitefish;beetroot | carrots;polenta;tahini sauce;none;Fish;B;5.10
+228;Pork in olive oil dressing over gnocchi;Red meat;pork;bell peppers | peas | cauliflower;gnocchi;olive oil dressing;none;Red meat;B;5.10
+229;Smoked turkey in tomato sauce over potatoes;Poultry;smoked turkey;mushrooms;potatoes;tomato sauce;greek yogurt;Poultry;B;5.00
+230;Turkey with potatoes, leeks, squash & carrots;Poultry;turkey;leeks | squash | carrots;potatoes;lemon herb sauce;none;Poultry;B;5.00
+231;Duck over bulgur with bell peppers, asparagus & sweet corn;Poultry;duck;bell peppers | asparagus | sweet corn;bulgur;ginger soy glaze;mozzarella;Poultry;B;5.30
+232;Buttery Roasted ham over rice;Red meat;roasted ham;tomatoes;rice;tahini sauce;greek yogurt;Red meat;B;5.50
+233;BBQ ribs with couscous, carrots & asparagus;Red meat;bbq ribs;carrots | asparagus;couscous;chimichurri;ricotta;Red meat;B;5.00
+234;Chickpeas with polenta, peas & beetroot;Vegetarian;chickpeas;peas | beetroot;polenta;tomato sauce;none;Vegetarian;B;5.10
+235;Herb Seitan with onions & brown rice;Vegetarian;seitan;onions;brown rice;tomato sauce;ricotta;Vegetarian;B;5.00
+236;Trout with barley, squash & cabbage;Fish;trout;squash | cabbage;barley;soy sauce;mozzarella;Fish;B;5.20
+237;Duck with gnocchi and mushrooms;Poultry;duck;mushrooms;gnocchi;soy sauce;mozzarella;Poultry;B;5.40
+238;Shrimp tempura with pasta, celery, bell peppers & leeks;Shellfish;shrimp tempura;celery | bell peppers | leeks;pasta;olive oil dressing;greek yogurt;Shellfish;B;5.30
+239;Tempeh with wild rice, green beans & eggplant;Vegetarian;tempeh;green beans | eggplant;wild rice;soy sauce;mozzarella;Vegetarian;B;5.30
+240;Chicken with pasta, kale & cabbage;Poultry;chicken;kale | cabbage;pasta;olive oil dressing;none;Poultry;B;5.40
+241;Sausage bulgur plate with fried onions;Red meat;sausage;fried onions;bulgur;cream sauce;parmesan;Red meat;C;5.10
+242;Smoky cheese omelette with peas, leeks, broccoli & loaded fries;Vegetarian;cheese omelette;peas | leeks | broccoli;loaded fries;lemon herb sauce;greek yogurt;Vegetarian;C;5.10
+243;Buttery Pork belly over creamy pasta;Red meat;pork belly;beetroot | bell peppers;creamy pasta;spicy mayo;mozzarella;Red meat;C;5.10
+244;Fried fish with bulgur, green beans & broccoli;Fish;fried fish;green beans | broccoli;bulgur;bbq sauce;ricotta;Fish;C;5.30
+245;Duck with butter rice, buttered corn, sweet corn & peas;Poultry;duck;buttered corn | sweet corn | peas;butter rice;cream sauce;greek yogurt;Poultry;C;5.40
+246;Meatballs with quinoa, kale, tomatoes & leeks;Red meat;meatballs;kale | tomatoes | leeks;quinoa;bbq sauce;ricotta;Red meat;C;5.50
+247;Chicken in soy sauce over creamy pasta;Poultry;chicken;beetroot | eggplant | zucchini;creamy pasta;soy sauce;cottage cheese;Poultry;C;5.50
+248;Zesty Cod with caramelized onions & butter rice;Fish;cod;caramelized onions;butter rice;spicy mayo;greek yogurt;Fish;C;5.00
+249;Steak strips with udon noodles, tomatoes, broccoli & buttered corn;Red meat;steak strips;tomatoes | broccoli | buttered corn;udon noodles;honey mustard;gouda;Red meat;C;5.30
+250;Lentils with rice, fried onions & tomatoes;Vegetarian;lentils;fried onions | tomatoes;rice;basil sauce;cream cheese;Vegetarian;C;5.50
+251;Mediterranean chicken with butter rice, squash, eggplant & tomatoes;Poultry;chicken;squash | eggplant | tomatoes;butter rice;chimichurri;parmesan;Poultry;C;5.40
+252;Roasted Sausage bowl with kale;Red meat;sausage;kale;buttery mashed potatoes;honey mustard;blue cheese;Red meat;C;5.40
+253;Zesty Fried chicken with green beans & garlic butter noodles;Poultry;fried chicken;green beans;garlic butter noodles;spicy mayo;mozzarella;Poultry;C;5.10
+254;Roasted ham with quinoa, sweet corn, cauliflower & bell peppers;Red meat;roasted ham;sweet corn | cauliflower | bell peppers;quinoa;pesto;parmesan;Red meat;C;5.50
+255;Meatballs in pesto over buttery mashed potatoes;Red meat;meatballs;fried onions | sweet corn;buttery mashed potatoes;pesto;mozzarella;Red meat;C;5.00
+256;Crispy Mackerel bowl with spinach;Fish;mackerel;spinach;cheesy potatoes;cream sauce;heavy cream;Fish;C;5.00
+257;Turkey in pesto over mac and cheese;Poultry;turkey;creamed spinach | carrots | eggplant;mac and cheese;pesto;feta;Poultry;C;5.10
+258;Fried tofu with cheesy potatoes, beetroot & creamed spinach;Vegetarian;fried tofu;beetroot | creamed spinach;cheesy potatoes;honey mustard;none;Vegetarian;C;5.00
+259;Lamb with quinoa, peas & zucchini;Red meat;lamb;peas | zucchini;quinoa;spicy mayo;cheddar;Red meat;C;5.10
+260;Lamb bowl with rice & kale;Red meat;lamb;kale;rice;honey mustard;blue cheese;Red meat;C;5.00
+261;Zesty Salmon over quinoa;Fish;salmon;buttered corn | celery | onions;quinoa;chimichurri;ricotta;Fish;C;5.30
+262;Calamari with potatoes, carrots & broccoli;Shellfish;calamari;carrots | broccoli;potatoes;honey mustard;cottage cheese;Shellfish;C;5.30
+263;Trout in soy sauce over wild rice;Fish;trout;fried peppers;wild rice;soy sauce;mozzarella;Fish;C;5.20
+264;Beef with fried rice and cauliflower;Red meat;beef;cauliflower;fried rice;butter sauce;parmesan;Red meat;C;5.20
+265;Anchovies with butter rice and roasted garlic;Fish;anchovies;roasted garlic | green beans | peas;butter rice;pesto;heavy cream;Fish;C;5.30
+266;BBQ ribs with cheesy potatoes, eggplant, leeks & celery;Red meat;bbq ribs;eggplant | leeks | celery;cheesy potatoes;four cheese sauce;none;Red meat;C;5.00
+267;Eggs and celery wild rice mix;Vegetarian;eggs;celery;wild rice;spicy mayo;gouda;Vegetarian;C;5.10
+268;Mackerel with brown rice, roasted garlic & squash;Fish;mackerel;roasted garlic | squash;brown rice;ginger soy glaze;ricotta;Fish;C;5.50
+269;Creamy Steak strips with fried onions & garlic butter noodles;Red meat;steak strips;fried onions | celery | zucchini;garlic butter noodles;spicy mayo;none;Red meat;C;5.20
+270;Lamb in pesto over polenta;Red meat;lamb;beetroot | leeks;polenta;pesto;ricotta;Red meat;C;5.40
+271;Pork in lemon herb sauce over mac and cheese;Red meat;pork;squash;mac and cheese;lemon herb sauce;cheddar;Red meat;C;5.00
+272;rispy sausage with wild rice, cauliflower & tomatoes;Red meat;sausage;cauliflower | tomatoes;wild rice;ginger soy glaze;gouda;Red meat;C;5.10
+273;Steak strips with bulgur, tomatoes & sweet corn;Red meat;steak strips;tomatoes | sweet corn;bulgur;lemon herb sauce;none;Red meat;C;5.50
+274;Tangy Pork belly over quinoa;Red meat;pork belly;carrots | leeks | squash;quinoa;butter sauce;cottage cheese;Red meat;C;5.40
+275;Cheese omelette with sweet potatoes and leeks;Vegetarian;cheese omelette;leeks;sweet potatoes;chimichurri;heavy cream;Vegetarian;C;5.30
+276;Kidney beans with sweet potatoes, celery, onions & peas;Vegetarian;kidney beans;celery | onions | peas;sweet potatoes;cheese sauce;mozzarella;Vegetarian;C;5.00
+277;Tofu with cheesy potatoes, onions, asparagus & eggplan;Vegetarian;tofu;onions | asparagus | eggplant;cheesy potatoes;honey mustard;cheddar;Vegetarian;C;5.40
+278;Crispy Hake over garlic butter noodles;Fish;hake;kale | spinach;garlic butter noodles;bbq sauce;cream cheese;Fish;C;5.50
+279;Duck brown rice plate with mushrooms;Poultry;duck;mushrooms | fried onions;brown rice;alfredo sauce;gouda;Poultry;C;5.40
+280;Fried chicken with loaded fries, fried onions & cauliflower;Poultry;fried chicken;fried onions | cauliflower;loaded fries;honey mustard;parmesan;Poultry;C;5.50
+281;Mediterranean Mackerel over cheesy potatoes;Fish;mackerel;kale | creamed spinach;cheesy potatoes;tomato sauce;parmesan;Fish;C;5.00
+282;Grilled Salmon over garlic butter noodles;Fish;salmon;spinach | caramelized onions | leeks;garlic butter noodles;lemon herb sauce;blue cheese;Fish;C;5.20
+283;Sausage with cheesy potatoes, carrots, roasted garlic & beetroot;Red meat;sausage;carrots | roasted garlic | beetroot;cheesy potatoes;lemon herb sauce;none;Red meat;C;5.50
+284;Cheese omelette bowl with kale;Vegetarian;cheese omelette;kale | buttered corn;barley;butter sauce;cheddar;Vegetarian;C;5.40
+285;Grilled Salmon over udon noodles;Fish;salmon;cabbage;udon noodles;pesto;cream cheese;Fish;C;5.40
+286;Sausage with quinoa, asparagus & beetroot;Red meat;sausage;asparagus | beetroot;quinoa;cheese sauce;none;Red meat;C;5.30
+287;Seared tuna with butter rice and cabbage;Fish;seared tuna;cabbage | bell peppers | kale;butter rice;chimichurri;ricotta;Fish;C;5.10
+288;Mackerel and buttered corn creamy pasta mix;Fish;mackerel;buttered corn | peas;creamy pasta;ginger soy glaze;cream cheese;Fish;C;5.30
+289;Fried tofu and caramelized onions loaded fries mix;Vegetarian;fried tofu;caramelized onions | celery;loaded fries;bbq sauce;heavy cream;Vegetarian;C;5.50
+290;Tempeh in ginger soy glaze over mac and cheese;Vegetarian;tempeh;squash;mac and cheese;ginger soy glaze;heavy cream;Vegetarian;C;5.40
+291;Cheese omelette bowl with beetroot;Vegetarian;cheese omelette;beetroot;buttery mashed potatoes;alfredo sauce;none;Vegetarian;C;5.00
+292;Black beans with cabbage & cheesy potatoes;Vegetarian;black beans;cabbage;cheesy potatoes;chimichurri;heavy cream;Vegetarian;C;5.00
+293;Buttery Sausage with squash & polenta;Red meat;sausage;squash;polenta;bbq sauce;heavy cream;Red meat;C;5.40
+294;Duck brown rice plate with bell peppers;Poultry;duck;bell peppers;brown rice;tahini sauce;feta;Poultry;C;5.40
+295;Roasted seitan with cheesy potatoes, caramelized onions, celery & squash;Vegetarian;seitan;caramelized onions | celery | squash;cheesy potatoes;tahini sauce;blue cheese;Vegetarian;C;5.10
+296;Lamb and fried eggplant cheesy potatoes mix;Red meat;lamb;fried eggplant | carrots;cheesy potatoes;soy sauce;ricotta;Red meat;C;5.50
+297;Crispy Meatballs bowl with buttered corn;Red meat;meatballs;buttered corn;udon noodles;four cheese sauce;none;Red meat;C;5.00
+298;Fried chicken in pesto over polenta;Poultry;fried chicken;bell peppers | fried eggplant | green beans;polenta;pesto;greek yogurt;Poultry;C;5.40
+299;Grilled Sausage with sweet corn & gnocchi;Red meat;sausage;sweet corn;gnocchi;olive oil dressing;blue cheese;Red meat;C;5.40
+300;Sesame Smoked turkey over bulgur;Poultry;smoked turkey;roasted garlic | cauliflower;bulgur;basil sauce;heavy cream;Poultry;C;5.20
+301;Roasted Tempeh over gnocchi;Vegetarian;tempeh;fried onions | roasted garlic | fried eggplant;gnocchi;spicy mayo;blue cheese;Vegetarian;C;5.10
+302;Black beans with polenta, spinach, eggplant & leeks;Vegetarian;black beans;spinach | eggplant | leeks;polenta;spicy mayo;none;Vegetarian;C;5.20
+303;Duck with potatoes and zucchini;Poultry;duck;zucchini;potatoes;chimichurri;cottage cheese;Poultry;C;5.00
+304;Tempeh with bell peppers & brown rice;Vegetarian;tempeh;bell peppers;brown rice;ginger soy glaze;none;Vegetarian;C;5.10
+305;Tofu with creamy pasta, broccoli & cabbage;Vegetarian;tofu;broccoli | cabbage;creamy pasta;butter sauce;mozzarella;Vegetarian;C;5.00
+306;Roasted ham and cauliflower udon noodles mix;Red meat;roasted ham;cauliflower;udon noodles;cheese sauce;blue cheese;Red meat;C;5.00
+307;Creamy Fried chicken over buttery mashed potatoes;Poultry;fried chicken;creamed spinach;buttery mashed potatoes;butter sauce;cottage cheese;Poultry;C;5.00
+308;Lentils in soy sauce over loaded fries;Vegetarian;lentils;celery | carrots | leeks;loaded fries;soy sauce;heavy cream;Vegetarian;C;5.30
+309;Calamari in tahini sauce over udon noodles;Shellfish;calamari;onions | cauliflower | leeks;udon noodles;tahini sauce;none;Shellfish;C;5.50
+310;Paneer wild rice plate with beetroot;Vegetarian;paneer;beetroot;wild rice;soy sauce;mozzarella;Vegetarian;C;5.10
+311;Smoked turkey and asparagus loaded fries mix;Poultry;smoked turkey;asparagus;loaded fries;tahini sauce;heavy cream;Poultry;C;5.10
+312;Fried tofu with bulgur, zucchini & caramelized onions;Vegetarian;fried tofu;zucchini | caramelized onions;bulgur;tahini sauce;blue cheese;Vegetarian;C;5.40
+313;Tangy Chickpeas over pasta;Vegetarian;chickpeas;peas;pasta;ginger soy glaze;cheddar;Vegetarian;C;5.40
+314;Veal with couscous, kale, cauliflower & tomatoes;Red meat;veal;kale | cauliflower | tomatoes;couscous;ranch sauce;cottage cheese;Red meat;C;5.40
+315;Salmon and cauliflower creamy pasta mix;Fish;salmon;cauliflower;creamy pasta;olive oil dressing;cream cheese;Fish;C;5.10
+316;Crispy black beans with udon noodles, onions, leeks & creamed spinachs;Vegetarian;black beans;onions | leeks | creamed spinach;udon noodles;soy sauce;heavy cream;Vegetarian;C;5.50
+317;Cheesy chickpeas with potatoes & roasted garlic;Vegetarian;chickpeas;roasted garlic;potatoes;four cheese sauce;cream cheese;Vegetarian;C;5.40
+318;Zesty Lentils with fried eggplant & bulgur;Vegetarian;lentils;fried eggplant;bulgur;olive oil dressing;feta;Vegetarian;C;5.50
+319;Hake with gnocchi, tomatoes, fried eggplant & cauliflower;Fish;hake;tomatoes | fried eggplant | cauliflower;gnocchi;olive oil dressing;cottage cheese;Fish;C;5.00
+320;Shrimp tempura with couscous and bell peppers;Shellfish;shrimp tempura;bell peppers;couscous;alfredo sauce;heavy cream;Shellfish;C;5.00
+321;Chickpeas in chimichurri over polenta;Vegetarian;chickpeas;spinach | carrots;polenta;chimichurri;gouda;Vegetarian;C;5.50
+322;Black beans gnocchi plate with asparagus;Vegetarian;black beans;asparagus;gnocchi;spicy mayo;parmesan;Vegetarian;C;5.20
+323;Cod and onions creamy pasta mix;Fish;cod;onions | roasted garlic | caramelized onions;creamy pasta;ginger soy glaze;cottage cheese;Fish;C;5.20
+324;Cheesy trout with quinoa, asparagus & broccoli;Fish;trout;asparagus | broccoli;quinoa;four cheese sauce;cottage cheese;Fish;C;5.20
+325;Creamy Fried tofu over garlic butter noodles;Vegetarian;fried tofu;mushrooms;garlic butter noodles;olive oil dressing;gouda;Vegetarian;C;5.10
+326;Cheese omelette in ginger soy glaze over mac and cheese;Vegetarian;cheese omelette;onions;mac and cheese;ginger soy glaze;gouda;Vegetarian;C;5.00
+327;Trout couscous plate with spinach;Fish;trout;spinach;couscous;ginger soy glaze;heavy cream;Fish;C;5.10
+328;Cheesy lamb with fried rice, beetroot, sweet corn & onions;Red meat;lamb;beetroot | sweet corn | onions;fried rice;four cheese sauce;cheddar;Red meat;C;5.30
+329;Tuna with rice, cauliflower, kale & celery;Fish;tuna;cauliflower | kale | celery;rice;tomato sauce;parmesan;Fish;C;5.40
+330;Tangy Pork belly over brown rice;Red meat;pork belly;kale;brown rice;alfredo sauce;cottage cheese;Red meat;C;5.40
+331;Crispy lamb with gnocchi, celery & cauliflower;Red meat;lamb;celery | cauliflower;gnocchi;tahini sauce;parmesan;Red meat;C;5.40
+332;Meatballs and eggplant polenta mix;Red meat;meatballs;eggplant;polenta;lemon herb sauce;cream cheese;Red meat;C;5.20
+333;Crispy Tuna with squash & sweet potatoes;Fish;tuna;squash | spinach;sweet potatoes;chimichurri;cottage cheese;Fish;C;5.20
+334;Tempeh in ranch sauce over polenta;Vegetarian;tempeh;roasted garlic | spinach | caramelized onions;polenta;ranch sauce;cheddar;Vegetarian;C;5.10
+335;Mediterranean Cheese omelette with asparagus & potatoes;Vegetarian;cheese omelette;asparagus;potatoes;tomato sauce;parmesan;Vegetarian;C;5.40
+336;Fried tofu in ranch sauce over creamy pasta;Vegetarian;fried tofu;spinach | fried eggplant;creamy pasta;ranch sauce;greek yogurt;Vegetarian;C;5.50
+337;Chicken and broccoli loaded fries mix;Poultry;chicken;broccoli | sweet corn;loaded fries;alfredo sauce;cheddar;Poultry;C;5.50
+338;Steak strips with garlic butter noodles, asparagus, bell peppers & peas;Red meat;steak strips;asparagus | bell peppers | peas;garlic butter noodles;basil sauce;cheddar;Red meat;C;5.00
+339;Shrimp tempura with loaded fries, mushrooms, bell peppers & broccoli;Shellfish;shrimp tempura;mushrooms | bell peppers | broccoli;loaded fries;tahini sauce;ricotta;Shellfish;C;5.10
+340;Tangy Shrimp tempura over butter rice;Shellfish;shrimp tempura;cabbage;butter rice;tomato sauce;ricotta;Shellfish;C;5.30
+341;Buttery Turkey with bell peppers & bulgur;Poultry;turkey;bell peppers;bulgur;basil sauce;mozzarella;Poultry;C;5.10
+342;Shrimp with bulgur, creamed spinach & buttered corn;Shellfish;shrimp;sweet corn | creamed spinach | buttered corn;bulgur;bbq sauce;cream cheese;Shellfish;C;5.40
+343;Pork belly with wild rice, caramelized onions, peas & broccoli;Red meat;pork belly;caramelized onions | peas | broccoli;wild rice;tahini sauce;mozzarella;Red meat;C;5.20
+344;Whitefish with sweet potatoes and asparagus;Fish;whitefish;asparagus | carrots | sweet corn;sweet potatoes;basil sauce;heavy cream;Fish;C;5.30
+345;Smoked turkey fried rice plate with peas;Poultry;smoked turkey;peas;fried rice;four cheese sauce;gouda;Poultry;C;5.20
+346;Paneer in four cheese sauce over couscous;Vegetarian;paneer;peas | buttered corn;couscous;four cheese sauce;cheddar;Vegetarian;C;5.20
+347;Chickpeas with sweet potatoes, leeks & creamed spinach;Vegetarian;chickpeas;leeks | creamed spinach;sweet potatoes;ranch sauce;mozzarella;Vegetarian;C;5.40
+348;Sausage over cheesy potatoes;Red meat;sausage;onions;cheesy potatoes;soy sauce;parmesan;Red meat;C;5.30
+349;Black beans fried rice plate with leeks;Vegetarian;black beans;leeks | roasted garlic;fried rice;cream sauce;cheddar;Vegetarian;C;5.00
+350;Bbq ribs in basil sauce over butter rice;Red meat;bbq ribs;spinach | mushrooms;butter rice;basil sauce;mozzarella;Red meat;C;5.00
+351;Beef in ginger soy glaze over cheesy potatoes;Red meat;beef;beetroot | cauliflower | peas;cheesy potatoes;ginger soy glaze;cheddar;Red meat;C;5.50
+352;Tuna in four cheese sauce over pasta;Fish;tuna;roasted garlic;pasta;four cheese sauce;cheddar;Fish;C;5.30
+353;Black beans with pasta, carrots, spinach & roasted garlic;Vegetarian;black beans;carrots | spinach | roasted garlic;pasta;lemon herb sauce;blue cheese;Vegetarian;C;5.00
+354;Chicken and bell peppers sweet potatoes mix;Poultry;chicken;bell peppers;sweet potatoes;basil sauce;cheddar;Poultry;C;5.40
+355;Sesame Fried fish bowl with kale;Fish;fried fish;kale;brown rice;cheese sauce;greek yogurt;Fish;C;5.10
+356;Herb Veal over polenta;Red meat;veal;cauliflower | broccoli;polenta;chimichurri;gouda;Red meat;C;5.50
+357;Anchovies with cheesy potatoes, cabbage, eggplant & mushrooms;Fish;anchovies;cabbage | eggplant | mushrooms;cheesy potatoes;lemon herb sauce;feta;Fish;C;5.30
+358;Pork belly loaded fries plate with sweet corn;Red meat;pork belly;sweet corn | caramelized onions;loaded fries;ranch sauce;mozzarella;Red meat;C;5.50
+359;Pork with pasta and fried eggplant;Red meat;pork;fried eggplant | peas;pasta;ranch sauce;ricotta;Red meat;C;5.10
+360;Cheesy mackerel with gnocchi, leeks & peas;Fish;mackerel;leeks | peas;gnocchi;cheese sauce;none;Fish;C;5.10
+361;Mackerel with butter rice, caramelized onions & buttered corn;Fish;mackerel;caramelized onions | buttered corn;butter rice;honey mustard;parmesan;Fish;D;5.20
+362;Anchovies with loaded fries, green beans, creamed spinach & peas;Fish;anchovies;green beans | creamed spinach | peas;loaded fries;bbq sauce;cheddar;Fish;D;5.30
+363;Lentils with mashed potatoes, beetroot & onions;Vegetarian;lentils;beetroot | onions;buttery mashed potatoes;spicy mayo;parmesan;Vegetarian;D;5.40
+364;Fried tofu buttery mashed potatoes plate with creamed spinach;Vegetarian;fried tofu;creamed spinach | caramelized onions;buttery mashed potatoes;four cheese sauce;cheddar;Vegetarian;D;5.50
+365;Seitan with garlic butter noodles and cabbage;Vegetarian;seitan;cabbage | fried onions;garlic butter noodles;cream sauce;heavy cream;Vegetarian;D;5.20
+366;Veal with buttery mashed potatoes and buttered corn;Red meat;veal;buttered corn | roasted garlic;buttery mashed potatoes;alfredo sauce;heavy cream;Red meat;D;5.40
+367;Smoky Tuna over mac and cheese;Fish;tuna;celery | bell peppers;mac and cheese;cream sauce;blue cheese;Fish;D;5.00
+368;Tangy Whitefish with mushrooms & fried rice;Fish;whitefish;mushrooms | squash | asparagus;fried rice;honey mustard;parmesan;Fish;D;5.10
+369;Calamari and caramelized onions loaded fries mix;Shellfish;calamari;caramelized onions | green beans;loaded fries;alfredo sauce;blue cheese;Shellfish;D;5.40
+370;Fried chicken and fried eggplant garlic butter noodles mix;Poultry;fried chicken;fried eggplant | sweet corn;garlic butter noodles;butter sauce;parmesan;Poultry;D;5.40
+371;Turkey with creamy pasta, peas, asparagus & tomatoes;Poultry;turkey;peas | asparagus | tomatoes;creamy pasta;butter sauce;cheddar;Poultry;D;5.50
+372;Lamb with butter rice, leeks, sweet corn & eggplant;Red meat;lamb;leeks | sweet corn | eggplant;butter rice;spicy mayo;cream cheese;Red meat;D;5.30
+373;Duck with loaded fries and bell peppers;Poultry;duck;bell peppers | green beans | kale;loaded fries;cheese sauce;heavy cream;Poultry;D;5.20
+374;Smoked turkey over loaded fries;Poultry;smoked turkey;sweet corn | peas | beetroot;loaded fries;honey mustard;cheddar;Poultry;D;5.20
+375;Duck and buttered corn mac and cheese mix;Poultry;duck;buttered corn | mushrooms | green beans;mac and cheese;bbq sauce;parmesan;Poultry;D;5.20
+376;Tangy Sausage over creamy pasta;Red meat;sausage;buttered corn | green beans;creamy pasta;spicy mayo;parmesan;Red meat;D;5.00
+377;Smoked turkey bowl with cabbage;Poultry;smoked turkey;cabbage | zucchini;butter rice;honey mustard;heavy cream;Poultry;D;5.10
+378;Crispy Shrimp over creamy pasta;Shellfish;shrimp;bell peppers | broccoli | buttered corn;creamy pasta;cheese sauce;parmesan;Shellfish;D;5.50
+379;Cheesy kidney beans with buttered corn, roasted garlic & creamed spinach;Vegetarian;kidney beans;buttered corn | roasted garlic | creamed spinach;cheesy potatoes;cream sauce;blue cheese;Vegetarian;D;5.00
+380;Grilled Shrimp tempura bowl with squash;Shellfish;shrimp tempura;squash | leeks | fried peppers;buttery mashed potatoes;honey mustard;blue cheese;Shellfish;D;5.50
+381;Salmon with creamy pasta ;Fish;salmon;carrots | kale | peas;creamy pasta;honey mustard;gouda;Fish;D;5.20
+382;Pork belly in bbq sauce over cheesy potatoes;Red meat;pork belly;roasted garlic | carrots;cheesy potatoes;bbq sauce;gouda;Red meat;D;5.40
+383;Tangy Meatballs with buttered corn & fried rice;Red meat;meatballs;buttered corn | peas | celery;fried rice;ranch sauce;parmesan;Red meat;D;5.20
+384;Tangy Kidney beans over fried rice;Vegetarian;kidney beans;mushrooms | spinach;fried rice;cream sauce;cream cheese;Vegetarian;D;5.30
+385;Lentils with fried eggplant & garlic butter noodles;Vegetarian;lentils;fried eggplant | carrots | green beans;garlic butter noodles;four cheese sauce;cheddar;Vegetarian;D;5.20
+386;Smoky Pork belly with buttered corn & creamy pasta;Red meat;pork belly;buttered corn | celery | tomatoes;creamy pasta;honey mustard;heavy cream;Red meat;D;5.20
+387;Roasted Veal bowl with caramelized onions;Red meat;veal;caramelized onions | mushrooms | bell peppers;fried rice;butter sauce;cheddar;Red meat;D;5.20
+388;Calamari in cream sauce over creamy pasta;Shellfish;calamari;bell peppers | carrots;creamy pasta;cream sauce;parmesan;Shellfish;D;5.50
+389;Paneer in alfredo sauce over mac and cheese;Vegetarian;paneer;peas | asparagus;mac and cheese;alfredo sauce;gouda;Vegetarian;D;5.50
+390;Roasted Duck bowl with fried peppers;Poultry;duck;fried peppers | sweet corn;buttery mashed potatoes;butter sauce;blue cheese;Poultry;D;5.50
+391;Paneer in honey mustard over loaded fries;Vegetarian;paneer;squash | broccoli;loaded fries;honey mustard;gouda;Vegetarian;D;5.40
+392;Fried fish in alfredo sauce over cheesy potatoes;Fish;fried fish;spinach | roasted garlic;cheesy potatoes;alfredo sauce;parmesan;Fish;D;5.40
+393;Buttery Fried chicken with fried peppers & mac and cheese;Poultry;fried chicken;fried peppers | peas | zucchini;mac and cheese;cream sauce;heavy cream;Poultry;D;5.50
+394;Tangy Fried tofu with roasted garlic & creamy pasta;Vegetarian;fried tofu;roasted garlic | fried onions;creamy pasta;spicy mayo;heavy cream;Vegetarian;D;5.10
+395;Shrimp with fried rice, sweet corn & bell peppers;Shellfish;shrimp;sweet corn | bell peppers;fried rice;butter sauce;heavy cream;Shellfish;D;5.30
+396;Cheese omelette in four cheese sauce over loaded fries;Vegetarian;cheese omelette;green beans | zucchini | caramelized onions;loaded fries;four cheese sauce;cream cheese;Vegetarian;D;5.10
+397;Turkey with loaded fries, leeks & creamed spinach;Poultry;turkey;leeks | creamed spinach;loaded fries;ranch sauce;parmesan;Poultry;D;5.10
+398;Crispy Black beans with caramelized onions & butter rice;Vegetarian;black beans;caramelized onions | zucchini;butter rice;honey mustard;gouda;Vegetarian;D;5.50
+399;Grilled Shrimp tempura with eggplant & cheesy potatoes;Shellfish;shrimp tempura;eggplant | roasted garlic | caramelized onions;cheesy potatoes;four cheese sauce;gouda;Shellfish;D;5.10
+400;Lentils with buttery mashed potatoes, fried peppers & fried eggplant;Vegetarian;lentils;fried peppers | fried eggplant;buttery mashed potatoes;cream sauce;cream cheese;Vegetarian;D;5.30
+401;Duck in cream sauce over cheesy potatoes;Poultry;duck;fried peppers | mushrooms;cheesy potatoes;cream sauce;blue cheese;Poultry;D;5.00
+402;Pork belly with garlic butter noodles and bell peppers;Red meat;pork belly;bell peppers | kale | celery;garlic butter noodles;honey mustard;heavy cream;Red meat;D;5.30
+403;Creamy veal with buttery mashed potatoes, celery, beetroot & mushrooms;Red meat;veal;celery | beetroot | mushrooms;buttery mashed potatoes;alfredo sauce;heavy cream;Red meat;D;5.00
+404;Tangy Trout with creamed spinach & creamy pasta;Fish;trout;creamed spinach | fried peppers | celery;creamy pasta;butter sauce;parmesan;Fish;D;5.50
+405;Creamy Chickpeas with asparagus & mac and cheese;Vegetarian;chickpeas;asparagus | green beans | buttered corn;mac and cheese;four cheese sauce;gouda;Vegetarian;D;5.40
+406;Turkey in bbq sauce over buttery mashed potatoes;Poultry;turkey;mushrooms | fried onions;buttery mashed potatoes;bbq sauce;blue cheese;Poultry;D;5.30
+407;Tuna with loaded fries, zucchini & fried peppers;Fish;tuna;zucchini | fried peppers;loaded fries;alfredo sauce;blue cheese;Fish;D;5.00
+408;Sesame Paneer over butter rice;Vegetarian;paneer;bell peppers | peas;butter rice;bbq sauce;heavy cream;Vegetarian;D;5.10
+409;Cheese omelette with cheesy potatoes, broccoli & creamed spinach;Vegetarian;cheese omelette;broccoli | creamed spinach;cheesy potatoes;four cheese sauce;cheddar;Vegetarian;D;5.30
+410;Creamy black beans with cheesy potatoes, fried peppers & cauliflower;Vegetarian;black beans;fried peppers | cauliflower;cheesy potatoes;cream sauce;cream cheese;Vegetarian;D;5.30
+411;Fried chicken with cheesy potatoes, sweet corn & creamed spinach;Poultry;fried chicken;sweet corn | creamed spinach;cheesy potatoes;bbq sauce;blue cheese;Poultry;D;5.30
+412;Chickpeas with loaded fries, roasted garlic, asparagus & cabbage;Vegetarian;chickpeas;roasted garlic | asparagus | cabbage;loaded fries;butter sauce;cream cheese;Vegetarian;D;5.30
+413;Veal with mac and cheese and tomatoes;Red meat;veal;tomatoes | carrots;mac and cheese;ranch sauce;blue cheese;Red meat;D;5.40
+414;Smoky Roasted ham over fried rice;Red meat;roasted ham;carrots | fried peppers | zucchini;fried rice;cream sauce;blue cheese;Red meat;D;5.40
+415;Tuna with loaded fries, fried peppers & cauliflower;Fish;tuna;fried peppers | cauliflower;loaded fries;four cheese sauce;blue cheese;Fish;D;5.30
+416;Paneer in cheese sauce over cheesy potatoes;Vegetarian;paneer;carrots | beetroot;cheesy potatoes;cheese sauce;blue cheese;Vegetarian;D;5.50
+417;Mediterranean Turkey over cheesy potatoes;Poultry;turkey;onions | mushrooms | zucchini;cheesy potatoes;bbq sauce;cream cheese;Poultry;D;5.10
+418;Roasted whitefish over fried rice;Fish;whitefish;asparagus | broccoli | fried peppers;fried rice;butter sauce;gouda;Fish;D;5.00
+419;Anchovies creamy pasta plate;Fish;anchovies;onions | beetroot | sweet corn;creamy pasta;alfredo sauce;parmesan;Fish;D;5.10
+420;Fried tofu with buttery mashed potatoes, celery & spinach;Vegetarian;fried tofu;celery | spinach;buttery mashed potatoes;bbq sauce;parmesan;Vegetarian;D;5.40
+421;Zesty Fried fish with onions & mac and cheese;Fish;fried fish;onions | bell peppers;mac and cheese;cheese sauce;blue cheese;Fish;D;5.50
+422;Chickpeas over mac and cheese;Vegetarian;chickpeas;celery | leeks;mac and cheese;four cheese sauce;blue cheese;Vegetarian;D;5.50
+423;Fried fish with mac and cheese, beetroot & asparagus;Fish;fried fish;beetroot | asparagus;mac and cheese;cheese sauce;blue cheese;Fish;D;5.40
+424;Smoky Pork belly over creamy pasta;Red meat;pork belly;spinach | asparagus | creamed spinach;creamy pasta;butter sauce;cream cheese;Red meat;D;5.20
+425;Cod with fried rice, roasted garlic & creamed spinach;Fish;cod;roasted garlic | peas | creamed spinach;fried rice;butter sauce;gouda;Fish;D;5.10
+426;Mediterranean Black beans over garlic butter noodles;Vegetarian;black beans;onions | sweet corn | mushrooms;garlic butter noodles;cream sauce;heavy cream;Vegetarian;D;5.10
+427;Creamy Hake over butter rice;Fish;hake;beetroot | peas;butter rice;cheese sauce;cream cheese;Fish;D;5.10
+428;Creamy tempeh with pasta, fried peppers & eggplant;Vegetarian;tempeh;fried peppers | fried eggplant;creamy pasta;alfredo sauce;blue cheese;Vegetarian;D;5.00
+429;Tuna in four cheese sauce over loaded fries;Fish;tuna;kale | broccoli;loaded fries;four cheese sauce;cream cheese;Fish;D;5.20
+430;Sausage and asparagus fried rice mix;Red meat;sausage;asparagus | leeks | mushrooms;fried rice;four cheese sauce;blue cheese;Red meat;D;5.20
+431;Sesame Kidney beans bowl with eggplant;Vegetarian;kidney beans;eggplant | onions | tomatoes;loaded fries;ranch sauce;blue cheese;Vegetarian;D;5.20
+432;Zesty Tempeh over buttery mashed potatoes;Vegetarian;tempeh;sweet corn | spinach;buttery mashed potatoes;four cheese sauce;heavy cream;Vegetarian;D;5.20
+433;Mediterranean Smoked turkey with fried onions & garlic butter noodles;Poultry;smoked turkey;fried onions | sweet corn | caramelized onions;garlic butter noodles;butter sauce;heavy cream;Poultry;D;5.50
+434;Herb Pork belly with creamed spinach & creamy pasta;Red meat;pork belly;creamed spinach | mushrooms;creamy pasta;ranch sauce;heavy cream;Red meat;D;5.50
+435;Lentils with garlic butter noodles, leeks, fried eggplant & tomatoes;Vegetarian;lentils;leeks | fried eggplant | tomatoes;garlic butter noodles;bbq sauce;cheddar;Vegetarian;D;5.30
+436;Buttery Pork over mac and cheese;Red meat;pork;fried peppers | cabbage;mac and cheese;butter sauce;blue cheese;Red meat;D;5.40
+437;Chicken cheesy potatoes plate with beetroot;Poultry;chicken;beetroot | carrots | bell peppers;cheesy potatoes;bbq sauce;cream cheese;Poultry;D;5.50
+438;Veal with garlic butter noodles, cauliflower, & eggplant ;Red meat;veal;cauliflower | eggplant | onions;garlic butter noodles;spicy mayo;cheddar;Red meat;D;5.40
+439;Shrimp tempura & butter rice mix;Shellfish;shrimp tempura;peas | asparagus;butter rice;alfredo sauce;gouda;Shellfish;D;5.20
+440;Lentils with creamy pasta and kale;Vegetarian;lentils;kale | caramelized onions | roasted garlic;creamy pasta;alfredo sauce;parmesan;Vegetarian;D;5.10
+441;Cod with loaded fries, caramelized onions & zucchini;Fish;cod;caramelized onions | zucchini;loaded fries;bbq sauce;parmesan;Fish;D;5.40
+442;Lentils with cheesy potatoes, celery, carrots & eggplant;Vegetarian;lentils;celery | carrots | eggplant;cheesy potatoes;spicy mayo;cheddar;Vegetarian;D;5.00
+443;Seared tuna over cheesy potatoes;Fish;seared tuna;cauliflower | fried onions;cheesy potatoes;four cheese sauce;parmesan;Fish;D;5.40
+444;Grilled Tempeh over garlic butter noodles;Vegetarian;tempeh;green beans | cabbage | broccoli;garlic butter noodles;alfredo sauce;parmesan;Vegetarian;D;5.50
+445;Fried chicken over butter rice;Poultry;fried chicken;carrots | celery | sweet corn;butter rice;bbq sauce;cream cheese;Poultry;D;5.50
+446;Veal and spinach cheesy potatoes mix;Red meat;veal;spinach | cauliflower | tomatoes;cheesy potatoes;honey mustard;gouda;Red meat;D;5.00
+447;Tofu with butter rice, sweet corn & fried eggplant;Vegetarian;tofu;sweet corn | fried eggplant;butter rice;cheese sauce;gouda;Vegetarian;D;5.50
+448;Paneer with creamy pasta & vegetables;Vegetarian;paneer;caramelized onions | bell peppers | eggplant;creamy pasta;butter sauce;cheddar;Vegetarian;D;5.10
+449;Pork bowl with creamy pasta & vegetables;Red meat;pork;onions | bell peppers | peas;creamy pasta;honey mustard;cheddar;Red meat;D;5.30
+450;Veal with butter rice, spinach & fried eggplant;Red meat;veal;spinach | fried eggplant | caramelized onions;butter rice;four cheese sauce;cream cheese;Red meat;D;5.10
+451;Trout bowl with cheesy potatoes, leeks & asparagus;Fish;trout;leeks | asparagus;cheesy potatoes;four cheese sauce;gouda;Fish;D;5.00
+452;Grilled Cod bowl with cabbage;Fish;cod;cabbage | green beans;loaded fries;butter sauce;cheddar;Fish;D;5.00
+453;Hake cheesy potatoes plate with creamed spinach;Fish;hake;creamed spinach | green beans;cheesy potatoes;cream sauce;cheddar;Fish;D;5.20
+454;Lentils in butter sauce over fried rice;Vegetarian;lentils;broccoli | cabbage | zucchini;fried rice;butter sauce;cream cheese;Vegetarian;D;5.20
+455;Shrimp and buttered corn cheesy potatoes mix;Shellfish;shrimp;buttered corn | zucchini;cheesy potatoes;cheese sauce;cheddar;Shellfish;D;5.00
+456;Salmon and roasted garlic buttery mashed potatoes mix;Fish;salmon;roasted garlic | fried peppers | onions;buttery mashed potatoes;spicy mayo;parmesan;Fish;D;5.20
+457;Hake in cheese sauce over buttery mashed potatoes;Fish;hake;squash | creamed spinach | bell peppers;buttery mashed potatoes;cheese sauce;parmesan;Fish;D;5.10
+458;Cheesy beef bowl ;Red meat;beef;zucchini | carrots | bell peppers;buttery mashed potatoes;four cheese sauce;gouda;Red meat;D;5.10
+459;Shrimp loaded fries plate;Shellfish;shrimp;peas | bell peppers | roasted garlic;loaded fries;cheese sauce;heavy cream;Shellfish;D;5.20
+460;Tangy Kidney beans with buttered corn & creamy pasta;Vegetarian;kidney beans;buttered corn | sweet corn;creamy pasta;cream sauce;blue cheese;Vegetarian;D;5.10
+461;Pork garlic butter noodles plate with zucchini;Red meat;pork;zucchini | bell peppers;garlic butter noodles;four cheese sauce;blue cheese;Red meat;D;5.30
+462;Salmon bowl with mac and cheese, onions & mushrooms;Fish;salmon;onions | mushrooms;mac and cheese;alfredo sauce;cheddar;Fish;D;5.40
+463;Trout and buttery mashed potatoes mix;Fish;trout;celery | cabbage | asparagus;buttery mashed potatoes;cream sauce;cream cheese;Fish;D;5.20
+464;Crispy Beef over butter rice;Red meat;beef;tomatoes | eggplant | celery;butter rice;butter sauce;cream cheese;Red meat;D;5.30
+465;Seared tuna over buttery mashed potatoes;Fish;seared tuna;broccoli | beetroot;buttery mashed potatoes;honey mustard;cheddar;Fish;D;5.20
+466;Herb Roasted ham over buttery mashed potatoes;Red meat;roasted ham;carrots | fried onions;buttery mashed potatoes;cream sauce;parmesan;Red meat;D;5.50
+467;Shrimp with loaded fries and fried eggplant;Shellfish;shrimp;fried eggplant;loaded fries;alfredo sauce;parmesan;Shellfish;D;5.40
+468;Cheese omelette and sweet corn butter rice mix;Vegetarian;cheese omelette;sweet corn | spinach | kale;butter rice;cream sauce;cream cheese;Vegetarian;D;5.30
+469;Mackerel and bell peppers cheesy potatoes mix;Fish;mackerel;bell peppers | kale | cabbage;cheesy potatoes;honey mustard;parmesan;Fish;D;5.20
+470;Shrimp with loaded fries & vegetables;Shellfish;shrimp;creamed spinach | broccoli | cauliflower;loaded fries;cream sauce;gouda;Shellfish;D;5.00
+471;Zesty Black beans over creamy pasta;Vegetarian;black beans;fried onions | leeks | tomatoes;creamy pasta;butter sauce;heavy cream;Vegetarian;D;5.00
+472;Roasted Fried tofu bowl with caramelized onions;Vegetarian;fried tofu;caramelized onions | leeks;buttery mashed potatoes;bbq sauce;cheddar;Vegetarian;D;5.30
+473;Salmon mac and cheese plate with carrots;Fish;salmon;carrots | roasted garlic;mac and cheese;spicy mayo;blue cheese;Fish;D;5.20
+474;Tempeh with loaded fries, peas & cauliflower;Vegetarian;tempeh;peas | onions | cauliflower;loaded fries;four cheese sauce;cream cheese;Vegetarian;D;5.10
+475;Seared tuna fried rice plate with cabbage;Fish;seared tuna;cabbage | green beans;fried rice;butter sauce;cheddar;Fish;D;5.20
+476;Beef garlic butter noodles plate with fried onions;Red meat;beef;fried onions | cauliflower | creamed spinach;garlic butter noodles;four cheese sauce;blue cheese;Red meat;D;5.20
+477;Creamy Lamb bowl with caramelized onions;Red meat;lamb;caramelized onions | green beans;buttery mashed potatoes;alfredo sauce;blue cheese;Red meat;D;5.00
+478;Seared tuna and spinach buttery mashed potatoes mix;Fish;seared tuna;spinach | fried eggplant | tomatoes;buttery mashed potatoes;cheese sauce;cheddar;Fish;D;5.40
+479;Tangy Pork belly over butter rice;Red meat;pork belly;cabbage | broccoli;butter rice;ranch sauce;parmesan;Red meat;D;5.30
+480;Creamy Turkey with zucchini & butter rice;Poultry;turkey;zucchini | celery;butter rice;four cheese sauce;gouda;Poultry;D;5.10
+481;Seared tuna fried rice plate ;Fish;seared tuna;celery | squash | tomatoes;fried rice;spicy mayo;heavy cream;Fish;E;5.50
+482;Mackerel with cheesy potatoes and sweet corn;Fish;mackerel;sweet corn | fried onions;cheesy potatoes;bbq sauce;gouda;Fish;E;5.50
+483;Salmon in ranch sauce over mac and cheese;Fish;salmon;cabbage | caramelized onions | spinach;mac and cheese;ranch sauce;parmesan;Fish;E;5.20
+484;Kidney beans garlic butter noodles plate with zucchini;Vegetarian;kidney beans;zucchini | broccoli | spinach;garlic butter noodles;honey mustard;heavy cream;Vegetarian;E;5.00
+485;Bbq ribs with cheesy potatoes ;Red meat;bbq ribs;mushrooms | zucchini;cheesy potatoes;cream sauce;cream cheese;Red meat;E;5.10
+486;Shrimp tempura with buttery mashed potatoes and squash;Shellfish;shrimp tempura;squash | creamed spinach;buttery mashed potatoes;honey mustard;gouda;Shellfish;E;5.50
+487;Roasted Eggs with fried peppers & garlic butter noodles;Vegetarian;eggs;fried peppers | leeks;garlic butter noodles;cheese sauce;cream cheese;Vegetarian;E;5.20
+488;Kidney beans and buttered corn loaded fries mix;Vegetarian;kidney beans;buttered corn | onions;loaded fries;four cheese sauce;cheddar;Vegetarian;E;5.20
+489;Shrimp and tomatoes butter rice mix;Shellfish;shrimp;tomatoes | roasted garlic | beetroot;butter rice;cream sauce;cheddar;Shellfish;E;5.30
+490;Pork belly in ranch sauce over cheesy potatoes;Red meat;pork belly;zucchini | kale | sweet corn;cheesy potatoes;ranch sauce;blue cheese;Red meat;E;5.10
+491;Meatballs and loaded fries mix;Red meat;meatballs;carrots | green beans | zucchini;loaded fries;ranch sauce;gouda;Red meat;E;5.00
+492;Tangy Mackerel bowl with asparagus;Fish;mackerel;asparagus | green beans;loaded fries;cheese sauce;cream cheese;Fish;E;5.30
+493;Herb Black beans bowl with bell peppers;Vegetarian;black beans;bell peppers | broccoli;loaded fries;butter sauce;parmesan;Vegetarian;E;5.00
+494;Meatballs in cream sauce over garlic butter noodles;Red meat;meatballs;carrots | eggplant | asparagus;garlic butter noodles;cream sauce;heavy cream;Red meat;E;5.20
+495;Tangy Duck bowl with roasted garlic;Poultry;duck;roasted garlic | cauliflower | creamed spinach;buttery mashed potatoes;honey mustard;parmesan;Poultry;E;5.10
+496;Shrimp tempura cheesy potatoes plate ;Shellfish;shrimp tempura;tomatoes | squash | asparagus;cheesy potatoes;bbq sauce;parmesan;Shellfish;E;5.10
+497;Pork belly and beetroot mac and cheese mix;Red meat;pork belly;beetroot | mushrooms | kale;mac and cheese;cheese sauce;heavy cream;Red meat;E;5.30
+498;Tuna loaded fries plate with tomatoes;Fish;tuna;tomatoes | cauliflower | fried onions;loaded fries;cream sauce;cream cheese;Fish;E;5.50
+499;Sausage with mac and cheese and broccoli;Red meat;sausage;broccoli;mac and cheese;cheese sauce;parmesan;Red meat;E;5.10
+500;Tofu fried rice plate with squash;Vegetarian;tofu;squash | tomatoes;fried rice;bbq sauce;heavy cream;Vegetarian;E;5.30
+501;Kidney beans and mac and cheese mix;Vegetarian;kidney beans;beetroot | zucchini | onions;mac and cheese;ranch sauce;heavy cream;Vegetarian;E;5.10
+502;Lentils in alfredo sauce over buttery mashed potatoes;Vegetarian;lentils;kale | sweet corn;buttery mashed potatoes;alfredo sauce;parmesan;Vegetarian;E;5.10
+503;Pork with mac and cheese, beetroot & fried eggplant;Red meat;pork;beetroot | fried eggplant;mac and cheese;butter sauce;gouda;Red meat;E;5.00
+504;Buttery Seitan with broccoli & mac and cheese;Vegetarian;seitan;broccoli | kale | peas;mac and cheese;cheese sauce;parmesan;Vegetarian;E;5.50
+505;Kidney beans and zucchini buttery mashed potatoes mix;Vegetarian;kidney beans;zucchini | onions | kale;buttery mashed potatoes;ranch sauce;gouda;Vegetarian;E;5.50
+506;Salmon with garlic butter noodles and fried eggplant;Fish;salmon;fried eggplant | green beans;garlic butter noodles;spicy mayo;heavy cream;Fish;E;5.30
+507;Roasted ham in bbq sauce over loaded fries;Red meat;roasted ham;zucchini | onions;loaded fries;bbq sauce;cream cheese;Red meat;E;5.40
+508;Zesty Meatballs bowl with creamed spinach;Red meat;meatballs;creamed spinach | fried onions | bell peppers;mac and cheese;four cheese sauce;cheddar;Red meat;E;5.20
+509;Black beans and buttery mashed potatoes mix;Vegetarian;black beans;celery | buttered corn;buttery mashed potatoes;alfredo sauce;blue cheese;Vegetarian;E;5.00
+510;Shrimp and zucchini cheesy potatoes mix;Shellfish;shrimp;zucchini | celery;cheesy potatoes;alfredo sauce;cheddar;Shellfish;E;5.20
+511;Cheesy fried fish bowl with squash & spinach;Fish;fried fish;squash | spinach;garlic butter noodles;alfredo sauce;cheddar;Fish;E;5.10
+512;Cheesy meatballs bowl with vegetables;Red meat;meatballs;spinach | peas | sweet corn;creamy pasta;four cheese sauce;cream cheese;Red meat;E;5.00
+513;Tofu with butter rice, cauliflower & broccoli;Vegetarian;tofu;cauliflower | broccoli;butter rice;spicy mayo;cheddar;Vegetarian;E;5.40
+514;Seared tuna in alfredo sauce over cheesy potatoes;Fish;seared tuna;beetroot | cabbage | zucchini;cheesy potatoes;alfredo sauce;cheddar;Fish;E;5.00
+515;Cheese omelette and caramelized onions mac and cheese mix;Vegetarian;cheese omelette;caramelized onions | cauliflower;mac and cheese;alfredo sauce;blue cheese;Vegetarian;E;5.40
+516;Smoked turkey and asparagus creamy pasta mix;Poultry;smoked turkey;asparagus | mushrooms;creamy pasta;bbq sauce;heavy cream;Poultry;E;5.50
+517;Cheese omelette creamy pasta plate with broccoli;Vegetarian;cheese omelette;broccoli | roasted garlic;creamy pasta;alfredo sauce;gouda;Vegetarian;E;5.20
+518;Grilled Shrimp bowl with mushrooms;Shellfish;shrimp;mushrooms | caramelized onions;buttery mashed potatoes;ranch sauce;gouda;Shellfish;E;5.50
+519;Kidney beans with buttery mashed potatoes and carrots;Vegetarian;kidney beans;carrots | green beans;buttery mashed potatoes;spicy mayo;gouda;Vegetarian;E;5.00
+520;Creamy calamari with pasta & vegetables;Shellfish;calamari;leeks | cabbage | tomatoes;creamy pasta;cheese sauce;cheddar;Shellfish;E;5.40
+521;Cheesy lentils with vegetables & cheesy potatoes;Vegetarian;lentils;tomatoes | peas | cauliflower;cheesy potatoes;cheese sauce;heavy cream;Vegetarian;E;5.40
+522;Sesame Bbq ribs bowl with eggplant;Red meat;bbq ribs;eggplant | mushrooms;fried rice;bbq sauce;gouda;Red meat;E;5.20
+523;Whitefish bowl with cheesy potatoes & vegetables;Fish;whitefish;asparagus | onions | eggplant;cheesy potatoes;honey mustard;heavy cream;Fish;E;5.20
+524;Sausage with garlic butter noodles & vegetables;Red meat;sausage;cauliflower | zucchini | cabbage;garlic butter noodles;cheese sauce;cheddar;Red meat;E;5.50
+525;Fried tofu in ranch sauce over creamy pasta;Vegetarian;fried tofu;asparagus | cabbage;creamy pasta;ranch sauce;gouda;Vegetarian;E;5.10
+526;Trout in cream sauce over cheesy potatoes;Fish;trout;asparagus | sweet corn | caramelized onions;cheesy potatoes;cream sauce;parmesan;Fish;E;5.10
+527;Seitan in bbq sauce over mac and cheese;Vegetarian;seitan;mushrooms | asparagus;mac and cheese;bbq sauce;blue cheese;Vegetarian;E;5.10
+528;Grilled Lentils over creamy pasta;Vegetarian;lentils;carrots | leeks | cauliflower;creamy pasta;ranch sauce;gouda;Vegetarian;E;5.20
+529;Creamy paneer with butter rice & vegetables;Vegetarian;paneer;peas | onions | asparagus;butter rice;alfredo sauce;gouda;Vegetarian;E;5.10
+530;Cod and leeks garlic butter noodles mix;Fish;cod;leeks | buttered corn | cabbage;garlic butter noodles;cheese sauce;cheddar;Fish;E;5.30
+531;Trout fillet over creamy cheesy potatoes & roasted veggies;Fish;trout;roasted garlic | cabbage | eggplant;cheesy potatoes;butter sauce;gouda;Fish;E;5.00
+532;Tempeh and cauliflower cheesy potatoes mix;Vegetarian;tempeh;cauliflower | kale | buttered corn;cheesy potatoes;ranch sauce;cheddar;Vegetarian;E;5.50
+533;Steak strips and tomatoes fried rice mix;Red meat;steak strips;tomatoes | peas;fried rice;ranch sauce;cream cheese;Red meat;E;5.00
+534;Buttery Seitan with fried eggplant & creamy pasta;Vegetarian;seitan;fried eggplant | zucchini | roasted garlic;creamy pasta;four cheese sauce;blue cheese;Vegetarian;E;5.00
+535;Lamb in ranch sauce over butter rice;Red meat;lamb;bell peppers | cabbage;butter rice;ranch sauce;heavy cream;Red meat;E;5.00
+536;Creamy Cheese omelette over garlic butter noodles;Vegetarian;cheese omelette;tomatoes | spinach;garlic butter noodles;alfredo sauce;blue cheese;Vegetarian;E;5.40
+537;Mediterranean Fried tofu with roasted garlic & fried rice;Vegetarian;fried tofu;roasted garlic | celery | eggplant;fried rice;honey mustard;parmesan;Vegetarian;E;5.50
+538;Pork with buttery mashed potatoes and asparagus;Red meat;pork;asparagus | green beans;buttery mashed potatoes;ranch sauce;cheddar;Red meat;E;5.40
+539;Black beans in honey mustard over buttery mashed potatoes;Vegetarian;black beans;fried eggplant | mushrooms | kale;buttery mashed potatoes;honey mustard;heavy cream;Vegetarian;E;5.40
+540;Duck in spicy mayo over fried rice;Poultry;duck;eggplant | creamed spinach;fried rice;spicy mayo;gouda;Poultry;E;5.50
+541;Beef and buttered corn butter rice mix;Red meat;beef;buttered corn | carrots | broccoli;butter rice;bbq sauce;cream cheese;Red meat;E;5.00
+542;Seitan with butter rice & fried peppers;Vegetarian;seitan;peas | fried peppers;butter rice;honey mustard;blue cheese;Vegetarian;E;5.50
+543;Eggs in honey mustard over creamy pasta;Vegetarian;eggs;leeks | beetroot;creamy pasta;honey mustard;blue cheese;Vegetarian;E;5.30
+544;Mediterranean Beef with sweet corn & fried rice;Red meat;beef;sweet corn | mushrooms;fried rice;cheese sauce;cheddar;Red meat;E;5.30
+545;Buttery Calamari over fried rice;Shellfish;calamari;mushrooms | caramelized onions;fried rice;cheese sauce;heavy cream;Shellfish;E;5.50
+546;Tangy Fried chicken with spinach & cheesy potatoes;Poultry;fried chicken;spinach | eggplant | roasted garlic;cheesy potatoes;cheese sauce;parmesan;Poultry;E;5.10
+547;Creamy whitefish pasta with vegetables;Fish;whitefish;leeks | cauliflower | zucchini;creamy pasta;spicy mayo;gouda;Fish;E;5.30
+548;Tempeh and creamed spinach cheesy potatoes mix;Vegetarian;tempeh;creamed spinach | kale;cheesy potatoes;cream sauce;gouda;Vegetarian;E;5.50
+549;Lentils in ranch sauce over buttery mashed potatoes;Vegetarian;lentils;roasted garlic | creamed spinach | cabbage;buttery mashed potatoes;ranch sauce;blue cheese;Vegetarian;E;5.50
+550;Tuna and mushrooms butter rice mix;Fish;tuna;mushrooms | sweet corn;butter rice;butter sauce;cream cheese;Fish;E;5.10
+551;Crispy Mackerel over cheesy potatoes;Fish;mackerel;zucchini | cabbage;cheesy potatoes;alfredo sauce;gouda;Fish;E;5.10
+552;Creamy chicken with butter rice & vegetables;Poultry;chicken;leeks | creamed spinach;butter rice;spicy mayo;parmesan;Poultry;E;5.20
+553;Cod garlic butter noodles plate with caramelized onions;Fish;cod;caramelized onions | bell peppers;garlic butter noodles;butter sauce;parmesan;Fish;E;5.50
+554;Smoky Anchovies over buttery mashed potatoes;Fish;anchovies;fried eggplant | bell peppers | tomatoes;buttery mashed potatoes;cream sauce;cheddar;Fish;E;5.50
+555;Turkey and buttered corn buttery mashed potatoes mix;Poultry;turkey;buttered corn | squash;buttery mashed potatoes;honey mustard;gouda;Poultry;E;5.20
+556;Hake cheesy potatoes plate with cauliflower;Fish;hake;cauliflower | spinach;cheesy potatoes;bbq sauce;parmesan;Fish;E;5.40
+557;Roasted Meatballs over mac and cheese;Red meat;meatballs;fried onions | bell peppers;mac and cheese;honey mustard;cheddar;Red meat;E;5.20
+558;Meatballs & spicy mayo over cheesy potatoes;Red meat;meatballs;squash | leeks | cabbage;cheesy potatoes;spicy mayo;gouda;Red meat;E;5.00
+559;Mediterranean Mackerel with cabbage & creamy pasta;Fish;mackerel;cabbage | roasted garlic;creamy pasta;four cheese sauce;heavy cream;Fish;E;5.20
+560;Cheesy crispy tempeh bowl;Vegetarian;tempeh;asparagus | buttered corn;creamy pasta;four cheese sauce;blue cheese;Vegetarian;E;5.30
+561;Tuna in cheese sauce over creamy pasta;Fish;tuna;spinach | sweet corn;creamy pasta;cheese sauce;blue cheese;Fish;E;5.30
+562;Herb Tuna bowl with bell peppers;Fish;tuna;bell peppers | tomatoes;fried rice;four cheese sauce;blue cheese;Fish;E;5.00
+563;Shrimp tempura with fried rice and squash;Shellfish;shrimp tempura;squash | kale;fried rice;honey mustard;heavy cream;Shellfish;E;5.20
+564;Shrimp tempura and fried peppers butter rice mix;Shellfish;shrimp tempura;fried peppers | beetroot | leeks;butter rice;cheese sauce;gouda;Shellfish;E;5.50
+565;Fried tofu with fried rice and beetroot;Vegetarian;fried tofu;beetroot | buttered corn | spinach;fried rice;butter sauce;gouda;Vegetarian;E;5.10
+566;Hake in cheese sauce over mac and cheese;Fish;hake;celery | creamed spinach;mac and cheese;cheese sauce;parmesan;Fish;E;5.20
+567;Creamy black bean bowl with fried rice & eggplant;Vegetarian;black beans;green beans | fried eggplant;fried rice;cream sauce;gouda;Vegetarian;E;5.10
+568;Creamy black bean & cheesy potato bowl with peas & asparagus;Vegetarian;black beans;peas | asparagus;cheesy potatoes;alfredo sauce;gouda;Vegetarian;E;5.30
+569;Smoked turkey in cheese sauce over garlic butter noodles;Poultry;smoked turkey;broccoli | tomatoes | green beans;garlic butter noodles;cheese sauce;parmesan;Poultry;E;5.00
+570;Creamy Fried tofu over mac and cheese;Vegetarian;fried tofu;spinach | caramelized onions;mac and cheese;honey mustard;blue cheese;Vegetarian;E;5.00
+571;Lentils mac and cheese plate with tomatoes;Vegetarian;lentils;tomatoes | buttered corn | kale;mac and cheese;bbq sauce;parmesan;Vegetarian;E;5.30
+572;Roasted ham and spinach mac and cheese mix;Red meat;roasted ham;spinach | cauliflower;mac and cheese;alfredo sauce;cheddar;Red meat;E;5.20
+573;Crispy Trout bowl with squash;Fish;trout;squash | celery | bell peppers;butter rice;bbq sauce;cream cheese;Fish;E;5.50
+574;Kidney beans and green beans buttery mashed potatoes mix;Vegetarian;kidney beans;green beans | buttered corn;buttery mashed potatoes;cream sauce;parmesan;Vegetarian;E;5.50
+575;Fried fish with loaded fries and cauliflower;Fish;fried fish;cauliflower | leeks;loaded fries;alfredo sauce;heavy cream;Fish;E;5.30
+576;Lentils with mac and cheese and mushrooms;Vegetarian;lentils;mushrooms | onions | caramelized onions;mac and cheese;spicy mayo;cheddar;Vegetarian;E;5.30
+577;Trout and caramelized onions butter rice mix;Fish;trout;caramelized onions | cabbage;butter rice;cheese sauce;cream cheese;Fish;E;5.30
+578;Shrimp tempura over butter rice;Shellfish;shrimp tempura;fried onions | fried peppers;butter rice;cream sauce;parmesan;Shellfish;E;5.30
+579;Smoky Chickpeas with buttered corn & mac and cheese;Vegetarian;chickpeas;buttered corn | mushrooms | zucchini;mac and cheese;four cheese sauce;blue cheese;Vegetarian;E;5.00
+580;Buttery duck bowl with vegetables;Poultry;duck;celery | fried eggplant | squash;butter rice;bbq sauce;gouda;Poultry;E;5.40
+581;Fried fish in ranch sauce over loaded fries;Fish;fried fish;green beans | eggplant | fried onions;loaded fries;ranch sauce;blue cheese;Fish;E;5.20
+582;Shrimp and asparagus cheesy potatoes mix;Shellfish;shrimp;asparagus | squash | peas;cheesy potatoes;four cheese sauce;blue cheese;Shellfish;E;5.20
+583;Creamy cheesy mackerel mac & cheese with cauliflower & spinach;Fish;mackerel;cauliflower | creamed spinach;mac and cheese;butter sauce;gouda;Fish;E;5.00
+584;Hake in cheese sauce over creamy pasta;Fish;hake;broccoli | squash;creamy pasta;cheese sauce;parmesan;Fish;E;5.20
+585;Chicken bowl with fried rice, tomatoes, asparagus & fried peppers;Poultry;chicken;tomatoes | asparagus | fried peppers;fried rice;honey mustard;parmesan;Poultry;E;5.40
+586;Buttery Roasted ham with buttered corn & garlic butter noodles;Red meat;roasted ham;buttered corn | eggplant;garlic butter noodles;four cheese sauce;cream cheese;Red meat;E;5.30
+587;Sausage with fried rice & vegetables in creamy sauce;Red meat;sausage;green beans | cabbage | caramelized onions;fried rice;alfredo sauce;gouda;Red meat;E;5.00
+588;Herb Tofu bowl with cauliflower;Vegetarian;tofu;cauliflower | bell peppers;mac and cheese;ranch sauce;blue cheese;Vegetarian;E;5.00
+589;Creamy smoked turkey bowl with cabbage;Poultry;smoked turkey;cabbage | mushrooms;mac and cheese;honey mustard;cheddar;Poultry;E;5.10
+590;Crispy Veal over buttery mashed potatoes;Red meat;veal;buttered corn | kale;buttery mashed potatoes;bbq sauce;gouda;Red meat;E;5.10
+591;Zesty Black beans over garlic butter noodles;Vegetarian;black beans;bell peppers | carrots;garlic butter noodles;cream sauce;parmesan;Vegetarian;E;5.20
+592;Whitefish bowl with fried eggplant;Fish;whitefish;fried eggplant | buttered corn | green beans;garlic butter noodles;four cheese sauce;parmesan;Fish;E;5.50
+593;Bbq ribs mac and cheese plate with fried eggplant;Red meat;bbq ribs;fried eggplant | squash;mac and cheese;butter sauce;cream cheese;Red meat;E;5.40
+594;Eggs with fried rice & vegetables;Vegetarian;eggs;onions | carrots | buttered corn;fried rice;spicy mayo;gouda;Vegetarian;E;5.10
+595;Mediterranean Meatballs with squash & creamy pasta;Red meat;meatballs;squash | beetroot | bell peppers;creamy pasta;cream sauce;cheddar;Red meat;E;5.30
+596;Pork in four cheese sauce over butter rice;Red meat;pork;spinach | mushrooms;butter rice;four cheese sauce;parmesan;Red meat;E;5.40
+597;Shrimp in ranch sauce over loaded fries;Shellfish;shrimp;fried peppers | caramelized onions | onions;loaded fries;ranch sauce;cream cheese;Shellfish;E;5.30
+598;Crispy Beef bowl with beetroot;Red meat;beef;beetroot | spinach | tomatoes;loaded fries;honey mustard;heavy cream;Red meat;E;5.30
+599;Paneer creamy pasta with leeks, sweet corn & broccoli;Vegetarian;paneer;leeks | sweet corn | broccoli;creamy pasta;butter sauce;parmesan;Vegetarian;E;5.40
+600;Kidney beans over loaded fries;Vegetarian;kidney beans;fried onions | onions | buttered corn;loaded fries;cream sauce;gouda;Vegetarian;E;5.40

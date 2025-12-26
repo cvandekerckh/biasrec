@@ -15,7 +15,7 @@ USER_FILENAME = 'users_conditions.csv'
 
 # RAW
 #PRODUCT_FILENAME = 'products.csv'
-PRODUCT_FILENAME = 'products_new.csv'
+PRODUCT_FILENAME = 'products_final.csv'
 ASSIGNMENTS_FILENAME = 'assignments.csv'
 
 #Supprime toutes les lignes d’une table (sans supprimer la table).
