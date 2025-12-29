@@ -90,3 +90,8 @@ body{
     background-color: transparent !important;
     color: inherit !important;  /* pour garder la même couleur de texte */
 }
+
+.navbar-logo {
+    display: block;
+    margin-top: 10px;   /* ajuste si nécessaire */
+}

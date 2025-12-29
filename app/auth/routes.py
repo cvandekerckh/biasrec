@@ -33,7 +33,7 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
         if user is None:
             user = User(
                 code=prolific_pid,
-                qualtrics_url=f"https://lourim.eu.qualtrics.com/jfe/form/SV_testQ1_{prolific_pid}",
+                #qualtrics_url=f"https://lourim.eu.qualtrics.com/jfe/form/SV_testQ1_{prolific_pid}",
                 qualtrics_url_phase2=f"https://lourim.eu.qualtrics.com/jfe/form/SV_testQ2_{prolific_pid}",
                 condition_id=0
             )
