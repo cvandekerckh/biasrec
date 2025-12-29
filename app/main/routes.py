@@ -89,7 +89,7 @@ def rate():
     if ('product_order' not in session or len(session['product_order']) != len(all_products)):
         product_ids = [p.id for p in all_products]
         random.shuffle(product_ids)
-        session['product_order'] = product_ids[:37]  # sélectionne 37 produits seulement
+        session['product_order'] = product_ids[:40]  # sélectionne 40 produits seulement
 
     ids = session['product_order']
     products = [all_products_dict[pid] for pid in ids if pid in all_products_dict]
