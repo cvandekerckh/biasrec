@@ -3,6 +3,7 @@ from flask import render_template, flash, redirect, url_for, current_app
 from app.auth.forms import LoginForm, Close
 from flask_login import current_user, login_user, login_required, logout_user
 from flask import request
+from flask import session
 from app import db
 import csv
 from app.models import User, Product
@@ -53,6 +54,7 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
             db.session.commit()
 
         # connect user
+        session.pop('product_order', None) 
         login_user(user)
         return redirect(url_for(current_app.config['MAIN_PAGE']))
     
