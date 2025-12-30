@@ -25,10 +25,9 @@
                     <table class="table table-borderless">
                         <tr>
                             <td style="float:left;width:50%;">
-                                <h4 class="titlecolor"><b>£{{ product.price }}0</b></h4>
+                                <h4 class="titlecolor"><b>£{{ product.price_formatted}}</b></h4>
                                 <p> <b>Ingredients : </b></p>
                                 <ul>
-                                    <li><b>ID:</b> {{ product.id }}</li>
                                     <li><b>Proteins:</b> {{ product.protein }}</li>
                                     <li><b>Vegetables:</b> {{ product.vegetables }}</li>
                                     <li><b>Starches:</b> {{ product.starches }}</li>
@@ -70,13 +69,12 @@
                     <ul class="nav navbar-nav">
                       {% if unrated_products %}
                       <p class="identtext">Some products have not yet been evaluated.</p>
-                      <p class="identtext">Please evaluate all products before proceeding to the survey.</p>
+                      <p class="identtext">Please evaluate all products before proceeding to the end of the survey.</p>
                       {% else %}
                       <p class="identtext">Thank you for evaluating all the products!</p>
                       <p class="identtext">
-                        Merci de bien vouloir <a href="{{ url_for('auth.close') }}"  style="color: red;" >cliquer ici pour répondre à notre enquête. </a>.
+                        Please click <a href="{{ url_for('auth.close') }}"  style="color: red;" >here to complete the survey. </a>.
                       </p>
-                      <p class="identtext">Nous aimerions maintenant en savoir un peu plus sur vous.</p>
                       {% endif %}     
                     </ul>
                     <br>

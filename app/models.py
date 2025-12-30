@@ -142,9 +142,15 @@ class Product(db.Model):
 
         return " ".join(components) if components else "A simple and delicious option!"
 
-
+    @property
+    def price_formatted(self):
+        try:
+            return f"{float(self.price):.2f}"
+        except (ValueError, TypeError):
+            return self.price
+    
     def __repr__(self):
-        return f'<Product {self.name} - Id {self.id}>'
+            return f'<Product {self.name} - Id {self.id}>'
 
 
 # Ratings table
