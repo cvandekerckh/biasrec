@@ -13,7 +13,7 @@
             {% endif %}
             
             <td ALIGN="CENTER" style="width:20%;">
-                <img src="{{ url_for('static', filename='img/product/prod_{}.jpg'.format(reco.id)) }}" height="250px">
+                <img src="{{ url_for('static', filename='img/prodnew/meal_{}.jpg'.format(reco.id)) }}" height="250px">
                 <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
                 <table class="table table-borderless">
                     <tr>
@@ -27,6 +27,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
+                            <h5 class="titlecolor"><b>ID:</b> {{ reco.id }}</h5>
                             <h5 class="titlecolor"><b>Protéines:</b> {{ reco.protein }}</h5>
                             <h5 class="titlecolor"><b>Légumes:</b> {{ reco.vegetables }}</h5>
                             <h5 class="titlecolor"><b>Féculents:</b> {{ reco.starches }}</h5>

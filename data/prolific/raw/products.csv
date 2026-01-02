@@ -1,0 +1,307 @@
+﻿name;category;protein;vegetables;starches;dairy_products;sauce;price;nutri_score;id
+Salade poulet César ;Salades;Poulet;Laitue | Tomates cerises;Croûtons;Parmesan;Vinaigrette;4.99 €;B;1
+Salade italian style;Salades;Poulet;Laitue | Tomates cerises | Concombre | Olives;Non;Parmesan;Sauce pesto;4.99 €;B;2
+Salade jambon & fromage;Salades;Jambon | Oeufs;Laitue | Concombre | Raisins secs;Croûtons;Gouda;Vinaigrette;4.99 €;B;3
+Salade thaïlandaise;Salades;Crevettes;Laitue | Radis | Carottes | Haricots verts | Concombre;Nouilles;Non;Vinaigrette orientale;4.99 €;A;4
+Salade au thon;Salades;Thon | Oeufs;Laitue | Tomates cerises | Haricots verts | Oignons;Pommes de terre;Non;Vinaigrette;4.99 €;A;5
+Salade au poulet;Salades;Poulet;Laitue | Poivrons | Carottes | Radis | Chou;Pâtes;Non;Vinaigrette;4.99 €;A;6
+Salade libanaise;Salades;Falafels;Épinards | Carottes | Poivrons | Oignons | Roquette;Couscous;Non;Vinaigrette orientale;4.99 €;A;7
+Salade de pâtes au thon;Salades;Thon | Oeufs;Tomates cerises | Oignons | Olives;Pâtes;Non;Vinaigrette;4.99 €;A;8
+Salade de chou blanc et pommes;Salades;Non;Chou | Pommes | Oignons | Noix;Non;Non;Vinaigrette;4.99 €;A;9
+Salade de brocoli & chou-fleur;Salades;Non;Brocoli | Chou-fleur | Chou | Radis | Concombre | Oignons;Non;Non;Vinaigrette;4.99 €;A;10
+Salade de chou blanc et poireaux;Salades;Non;Chou | Carottes | Poireaux | Oignons;Non;Non;Vinaigrette;4.99 €;A;11
+Salade composée au bacon;Salades;Bacon | Oeufs;Laitue | Tomates cerises | Oignons;Croûtons;Non;Vinaigrette;4.99 €;B;12
+Salade composée au saumon;Salades;Saumon;Laitue | Tomates cerises | Concombre | Edamame | Oignons;Pâtes;Non;Vinaigrette;4.99 €;A;13
+Salade de poulet au curry;Salades;Poulet;Laitue | Tomates cerises | Carottes | Pois chiches | Raisins secs | Poivrons | Olives;Couscous;Non;Sauce au curry;4.99 €;B;14
+Salade mexicaine;Salades;Poulet;Laitue | Haricots rouges | Avocat | Épinards | Tomates | Poivrons;Nachos;Non;Vinaigrette;4.99 €;A;15
+Salade de pâtes au poulet et bacon;Salades;Poulet | Bacon;Tomates | Oignons | Épinards | Basilic;Pâtes;Non;Vinaigrette;4.99 €;A;16
+Salade de betteraves rouges et pommes;Salades;Non;Betteraves rouges | Pommes | Oignons;Non;Non;Vinaigrette;4.99 €;A;17
+Salade de chou blanc et carottes (Coleslaw);Salades;Non;Chou | Carottes | Oignons;Non;Non;Vinaigrette;4.99 €;A;18
+Salade de pommes de terre;Salades;Non;Oignons;Pommes de terre;Non;Mayonnaise;4.99 €;C;19
+Salade de concombre;Salades;Non;Concombre | Oignons;Non;Non;Sauce yaourt;4.99 €;B;20
+Salade de pêches au thon;Salades;Thon | Oeufs;Laitue |  Maïs | Tomates cerises | Pêches;Pommes de terre;Non;Mayonnaise;4.99 €;B;21
+Salade de poulet, pommes et curry;Salades;Poulet;Laitue | Concombre | Haricots verts | Pommes | Amandes;Riz;Non;Sauce au curry;4.99 €;A;22
+Salade composée aux scampis;Salades;Scampis;Laitue | Poivrons | Concombre | Oignons | Carottes | Radis | Chou;Pâtes;Non;Vinaigrette;4.99 €;A;23
+Salade de pâtes au jambon;Salades;Jambon;Tomates | Maïs;Pâtes;Non;Mayonnaise;4.99 €;B;24
+Salade de poulet et bacon;Salades;Poulet | Bacon;Laitue | Tomates;Croûtons;Non;Vinaigrette;4.99 €;B;25
+Salade tomates et mozzarella;Salades;Non;Laitue | Tomates | Poivrons | Olives;Pâtes;Mozzarella;Vinaigrette;4.99 €;C;26
+Salade composée au fromage de chèvre;Salades;Non;Laitue | Betteraves rouges | Chou | Noix | Raisins secs;Pâtes;Fromage de chèvre;Vinaigrette;4.99 €;C;27
+Salade de pâtes au poulet;Salades;Poulet;Poivrons | Carottes | Roquette;Pâtes;Non;Vinaigrette;4.99 €;A;28
+Salade de poulet et thon;Salades;Poulet | Thon;Tomates séchées | Roquette;Pâtes;Non;Mayonnaise;4.99 €;C;29
+Salade verte de pâtes aux épinards et edamame;Salades;Poulet;Edamame | Épinards;Pâtes;Non;Vinaigrette;4.99 €;B;30
+Salade de nouilles au poulet;Salades;Poulet;Poivrons | Carottes | Petits pois | Haricots verts;Nouilles;Non;Sauce aigre-douce;4.99 €;B;31
+Salade composée au poulet et oeufs;Salades;Poulet | Oeufs | Bacon;Laitue;Croûtons;Non;Vinaigrette;4.99 €;B;32
+Salade de taboulé au poulet;Salades;Poulet;Tomates | Concombre | Poivrons | Oignons | cacahuètes | Edamame;Couscous;Non;Vinaigrette;4.99 €;B;33
+Salade grecque;Salades;Non;Laitue | Tomates cerises | Tomates séchées | Poivrons | Olives | Oignons;Pâtes;Feta;Vinaigrette;4.99 €;B;34
+Salade de légumes rôtis;Salades;Non;Laitue | Tomates cerises | Poivrons | Oignons | Courgettes | Aubergines;Pâtes;Mozzarella;Vinaigrette;4.99;B;35
+Pizza BBQ Burger & Bacon;Pizzas et quiches;Viande hachée | Bacon;Oignons;Pâte à pizza;Mozzarella | Cheddar;Sauce barbecue;4.99 €;D;36
+Pizza poulet & bacon;Pizzas et quiches;Poulet | Bacon;Tomates;Pâte à pizza;Mozzarella | Crème;Sauce au cheddar;4.99 €;C;37
+Pizza Burger ;Pizzas et quiches;Viande hachée;Tomates | Oignons | Cornichons;Pâte à pizza;Mozzarella;Sauce tomate | Sauce hamburger;4.99 €;C;38
+Pizza pepperoni;Pizzas et quiches;Pepperoni;Oignons | Poivrons | Piments;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;C;39
+Pizza raclette authentique;Pizzas et quiches;Bacon;Oignons;Pâte à pizza  | Pommes de terre;Mozzarella | Crème | Fromage à raclette;Non;4.99 €;D;40
+Méga pizza cannibale;Pizzas et quiches;Poulet | Pepperoni | Viande hachée;Non;Pâte à pizza;Mozzarella;Sauce barbecue;4.99 €;D;41
+Pizza cannibale harissa;Pizzas et quiches;Poulet | Viande hachée;Non;Pâte à pizza;Mozzarella;Sauce harissa;4.99 €;D;42
+Pizza cannibale croustillante;Pizzas et quiches;Poulet | Viande hachée;Oignons frits;Pâte à pizza;Mozzarella;Sauce barbecue;4.99 €;D;43
+Pizza 4 fromages;Pizzas et quiches;Non;Non;Pâte à pizza;Mozzarella | Fromage emmental | Gouda | Fromage à raclette;Sauce au cheddar;4.99 €;D;44
+Pizza fromage de chèvre et miel;Pizzas et quiches;Non;Non;Pâte à pizza;Fromage de chèvre | Mozzarella | Crème;Miel;4.99 €;D;45
+Pizza bacon, fromage de chèvre et miel;Pizzas et quiches;Bacon;Non;Pâte à pizza;Fromage de chèvre | Mozzarella | Crème;Miel;4.99 €;D;46
+Pizza savoyarde;Pizzas et quiches;Bacon;Non;Pâte à pizza  | Pommes de terre;Fromage à raclette | Mozzarella | Fromage emmental | Crème;Non;4.99 €;D;47
+Pizza Bacon Groovy ;Pizzas et quiches;Bacon | Poulet;Oignons;Pâte à pizza;Mozzarella | Crème;Sauce barbecue;4.99 €;D;48
+Pizza original pepperoni;Pizzas et quiches;Pepperoni;Non;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;D;49
+Pizza poulet barbecue;Pizzas et quiches;Poulet;Oignons frits | Poivrons;Pâte à pizza;Mozzarella;Sauce barbecue;4.99 €;D;50
+Pizza barbecue lovers;Pizzas et quiches;Poulet | Pepperoni | Bacon;Non;Pâte à pizza;Mozzarella;Sauce barbecue;4.99 €;D;51
+Pizza Océane ;Pizzas et quiches;Thon;Oignons | Olives;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;D;52
+Pizza orientale;Pizzas et quiches;Pepperoni;Oignons | Poivrons;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;C;53
+Pizza sublime au curry;Pizzas et quiches;Poulet;Oignons | Poivrons;Pâte à pizza;Mozzarella | Crème;Sauce au curry;4.99 €;C;54
+Pizza hawaïenne;Pizzas et quiches;Poulet;Ananas;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;C;55
+Pizza Queen ;Pizzas et quiches;Jambon;Champignons;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;C;56
+Pizza Margherita;Pizzas et quiches;Non;Non;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;D;57
+Pizza indienne;Pizzas et quiches;Poulet;Champignons | Oignons;Pâte à pizza;Mozzarella | Crème | Fromage emmental;Non;4.99 €;C;58
+Pizza au jambon classique;Pizzas et quiches;Jambon;Non;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;D;59
+Pizza forestière;Pizzas et quiches;Jambon | Bacon;Champignons | Oignons;Pâte à pizza;Mozzarella | Crème;Non;4.99 €;D;60
+Pizza spéciale aux champignons ;Pizzas et quiches;Non;Champignons;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;C;61
+Pizza peppina;Pizzas et quiches;Non;Champignons | Oignons | Poivrons | Olives | Tomates;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;C;62
+Super Veggie Pizza;Pizzas et quiches;Non;Champignons | Oignons | Poivrons | Tomates;Pâte à pizza;Mozzarella | Fromage de chèvre;Sauce tomate;4.99 €;C;63
+Pizza bolognaise;Pizzas et quiches;Viande hachée;Non;Pâte à pizza;Fromage emmental;Sauce tomate;4.99 €;C;64
+Pizza mozzarella & pesto;Pizzas et quiches;Non;Tomates cerises;Pâte à pizza;Mozzarella;Sauce tomate | Sauce pesto;4.99 €;B;65
+Pizza aux épinards;Pizzas et quiches;Non;Épinards | Oignons;Pâte à pizza;Mozzarella;Sauce tomate;4.99 €;B;66
+Quiche au bacon;Pizzas et quiches;Bacon | Oeufs;Oignons;Pâte brisée;Fromage emmental | Crème;Non;4.99 €;D;67
+Quiche saumon et brocoli;Pizzas et quiches;Saumon | Oeufs;Brocoli;Pâte brisée;Fromage emmental | Crème;Non;4.99 €;D;68
+Quiche poireau et jambon;Pizzas et quiches;Jambon | Oeufs;Poireaux | Oignons;Pâte brisée;Fromage emmental | Crème;Non;4.99 €;D;69
+Quiche fromage de chèvre et épinards;Pizzas et quiches;Oeufs;Épinards | Oignons;Pâte brisée;Fromage de chèvre | Crème;Non;4.99 €;D;70
+Quiche tomate et mozzarella;Pizzas et quiches;Oeufs;Tomates;Pâte brisée;Mozzarella | Crème;Non;4.99 €;D;71
+Quiche saumon et épinards;Pizzas et quiches;Saumon | Oeufs;Épinards;Pâte brisée;Fromage emmental | Crème;Non;4.99 €;D;72
+Quiche aux légumes du soleil et fromage de chèvre;Pizzas et quiches;Oeufs;Tomates cerises | Courgettes | Poivrons;Pâte brisée;Fromage de chèvre | Crème;Non;4.99 €;D;73
+Quiche aux champignons;Pizzas et quiches;Oeufs;Champignons;Pâte brisée;Fromage emmental | Crème;Non;4.99 €;D;74
+Focaccia poivrons olives;Pizzas et quiches;Non;Poivrons | Olives;Pâte à pizza;Mozzarella;Huile d'olive;4.99 €;C;75
+Focaccia tomates cerises et basilic;Pizzas et quiches;Non;Tomates cerises | Basilic;Pâte à pizza;Mozzarella;Huile d'olive;4.99 €;C;76
+Calzone barbecue;Pizzas et quiches;Viande hachée | Pepperoni;Non;Pâte à pizza;Mozzarella;Sauce barbecue;4.99 €;D;77
+Calzone spicy (piquante);Pizzas et quiches;Poulet | Pepperoni;Non;Pâte à pizza;Mozzarella;Sauce harissa;4.99 €;D;78
+Calzone poulet curry ;Pizzas et quiches;Poulet;Non;Pâte à pizza;Mozzarella;Sauce au curry;4.99 €;D;79
+Calzone burger;Pizzas et quiches;Viande hachée;Non;Pâte à pizza;Mozzarella;Sauce hamburger;4.99 €;D;80
+Calzone poulet et cheddar;Pizzas et quiches;Poulet;Non;Pâte à pizza;Mozzarella | Cheddar;Sauce au cheddar;4.99 €;D;81
+Calzone fromage de chèvre et miel;Pizzas et quiches;Non;Non;Pâte à pizza;Fromage de chèvre | Mozzarella;Miel;4.99 €;D;82
+Calzone jambon et fromage;Pizzas et quiches;Jambon;Non;Pâte à pizza;Mozzarella | Fromage emmental;Non;4.99 €;D;83
+Soupe aux tomates et basilic;Soupes;Non;Tomates | Oignons | Carottes | Basilic;Non;Crème;Non;4.99 €;B;84
+Soupe aux tomates et mascarpone;Soupes;Non;Tomates | Oignons | Poireaux;Pommes de terre;Mascarpone;Non;4.99 €;B;85
+Soupe aux tomates et boulettes de viande;Soupes;Boulettes de viande;Tomates | Carottes | Oignons;Non;Lait;Non;4.99 €;B;86
+Soupe au poulet;Soupes;Poulet;Céleri | Carottes | Poireaux | Oignons;Pâtes;Non;Bouillon de légumes;4.99 €;A;87
+Soupe  thaïlandaise au curry;Soupes;Non;Tomates cerises | Oignons | Poireaux | Carottes | Céleri;Non;Crème | Lait de coco;Sauce au curry;4.99 €;B;88
+Soupe aux carottes;Soupes;Non;Carottes | Oignons | Poireaux;Pommes de terre;Lait;Bouillon de légumes;4.99 €;A;89
+Soupe au cerfeuil;Soupes;Non;Cerfeuil | Oignons | Poireaux | Brocoli | Céleri;Pommes de terre;Non;Non;4.99 €;A;90
+Gaspacho vert;Soupes;Non;Concombre | Courgettes | Petits pois | Oignons | Poivrons;Non;Lait;Huile d'olive;4.99 €;B;91
+Gaspacho à la tomate;Soupes;Non;Tomates | Poivrons | Concombre | Oignons;Non;Non;Huile d'olive;4.99 €;A;92
+Soupe de patates douces et poivrons;Soupes;Non;Poivrons | Carottes | Oignons;Patates douces;Crème;Bouillon de légumes;4.99 €;B;93
+Soupe butternut;Soupes;Non;Butternut | Carottes | Oignons;Non;Non;Non;4.99 €;A;94
+Soupe aux asperges;Soupes;Non;Asperges;Non;Lait;Bouillon de légumes;4.99 €;B;95
+Soupe aux légumes verts;Soupes;Non;Courgettes | Céleri | Oignons | Poireaux | Petits pois | Épinards;Non;Crème;Bouillon de légumes;4.99 €;B;96
+Minestrone;Soupes;Non;Tomates | Oignons | Céleri-rave | Carottes | Petits pois | Haricots verts | Poivrons;Pâtes;Non;Bouillon de légumes;4.99 €;B;97
+Gaspacho aux poivrons;Soupes;Non;Tomates cerises | Poivrons | Oignons | Pastèque;Non;Non;Huile d'olive;4.99 €;B;98
+Soupe de poisson;Soupes;Cabillaud;Tomates | Carottes | Oignons;Non;Crème;Huile d'olive;4.99 €;C;99
+Soupe marocaine;Soupes;Non;Tomates | Carottes | Céleri | Oignons | Pois chiches;Non;Non;Bouillon de légumes;4.99 €;A;100
+Soupe chinoise;Soupes;Poulet | Oeufs;Tomates | Champignons;Nouilles;Crème;Bouillon de légumes;4.99 €;C;101
+Soupe thaïlandaise;Soupes;Poulet;Poivrons | Oignons | Poireaux | Champignons;Non;Crème | Lait de coco;Bouillon de légumes;4.99 €;C;102
+Soupe espagnole;Soupes;Non;Tomates | Poivrons | Haricots rouges;Non;Crème | Lait de coco;Bouillon de légumes;4.99 €;C;103
+Soupe bacon et pois;Soupes;Bacon;Petits pois | Oignons | Poireaux;Non;Non;Non;4.99 €;B;104
+Soupe de tomates à la crème et boulettes de viande;Soupes;Boulettes de viande;Tomates | Carottes | Céleri-rave | Oignons | Poireaux;Non;Crème;Non;4.99 €;C;105
+Soupe de tomates et autres légumes avec boulettes de viande;Soupes;Boulettes de viande;Tomates | Carottes | Poireaux | Céleri | Oignons | Poivrons | Petits pois | Panais;Non;Non;Non;4.99 €;C;106
+Soupe aux légumes et boulettes de viande;Soupes;Boulettes de viande;Panais | Céleri-rave | Butternut | Petits pois | Oignons | Poireaux;Pommes de terre;Crème;Non;4.99 €;C;107
+Soupe de tomates et mozzarella;Soupes;Non;Tomates | Oignons;Non;Mozzarella | Crème;Non;4.99 €;C;108
+Soupe à l'oignon;Soupes;Non;Oignons;Pommes de terre;Lait;Non;4.99 €;B;109
+Soupe aux brocolis;Soupes;Non;Brocoli | Oignons | Courgettes;Non;Crème;Non;4.99 €;B;110
+Soupe de poireaux;Soupes;Non;Poireaux | Oignons;Pommes de terre;Non;Non;4.99 €;B;111
+Soupe aux endives;Soupes;Non;Endives;Pommes de terre;Non;Huile d'olive;4.99 €;B;112
+Soupe de butternut, carottes et poivre;Soupes;Non;Butternut | Carottes | Poivrons | Céleri;Pommes de terre;Non;Non;4.99 €;B;113
+Soupe d'oignons et poireaux;Soupes;Non;Oignons | Poireaux;Pommes de terre;Non;Non;4.99 €;B;114
+Soupe de carottes, butternut et boulettes de viande;Soupes;Boulettes de viande;Tomates | Carottes | Oignons | Butternut;Pommes de terre;Crème;Non;4.99 €;B;115
+Soupe aux 8 légumes;Soupes;Non;Tomates | Carottes | Oignons | Butternut | Poireaux | Céleri-rave | Petits pois | Panais;Pommes de terre;Non;Non;4.99 €;B;116
+Soupe crémeuse à la courgette;Soupes;Non;Courgettes | Oignons | Épinards;Pommes de terre;Crème;Non;4.99 €;B;117
+Soupe aux pois, brocolis et courgettes;Soupes;Non;Petits pois | Brocoli | Courgettes | Oignons;Non;Crème;Non;4.99 €;A;118
+Soupe aux légumes au soleil;Soupes;Non;Tomates | Poivrons | Carottes | Courgettes | Aubergines | Oignons | Haricots verts;Pommes de terre;Crème;Non;4.99 €;B;119
+Soupe crémeuse aux champignons;Soupes;Non;Champignons;Non;Crème;Non;4.99 €;C;120
+Soupe crémeuses aux épinards ;Soupes;Non;Épinards;Pommes de terre;Crème;Non;4.99 €;C;121
+Soupe crémeuse de chou-fleur;Soupes;Non;Chou-fleur | Oignons;Non;Crème;Non;4.99 €;B;122
+Taboulé à la feta;Plats préparés;Non;Tomates séchées | Oignons | Amandes;Couscous;Feta;Vinaigrette orientale;4.99 €;B;123
+Pâtes au pesto;Plats préparés;Non;Tomates cerises | Tomates séchées | Basilic | Roquette | Épinards;Pâtes;Non;Sauce pesto;4.99 €;B;124
+Pâtes à la feta;Plats préparés;Non;Tomates séchées | Olives | Roquette | Amandes | Basilic;Pâtes;Feta;Huile d'olive;4.99 €;B;125
+Pâtes au saumon et pesto ;Plats préparés;Saumon;Tomates séchées | Épinards | Roquette | Basilic;Pâtes;Non;Sauce pesto;4.99 €;A;126
+Poke Bowl au saumon ;Plats préparés;Saumon;Carottes | Poivrons | Roquette | Mangue | Noix | Edamame;Riz;Non;Vinaigrette;4.99 €;B;127
+Poke Bowl au poulet ;Plats préparés;Poulet;Carottes | Poivrons | Radis | Edamame | Mangue;Riz;Non;Vinaigrette;4.99 €;A;128
+Pâtes au thon sauce cocktail;Plats préparés;Thon | Oeufs;Tomates | Oignons | Épinards | Basilic;Pâtes;Non;Sauce cocktail;4.99 €;A;129
+Pâtes de poulet;Plats préparés;Poulet;Carottes | Poivrons;Pâtes;Non;Sauce tomate;4.99 €;A;130
+Pâtes à l'arrabbiata;Plats préparés;Non;Tomates | Tomates cerises | Oignons | Basilic | Piments;Pâtes;Parmesan;Sauce tomate épicée;4.99 €;B;131
+Nouilles aux légumes;Plats préparés;Non;Carottes | Brocoli | Courgettes | Oignons | Noisettes;Nouilles;Non;Sauce soja;4.99 €;B;132
+Lasagne végétarienne aux légumes;Plats préparés;Non;Oignons | Courgettes | Carottes | Poivrons;Pâtes;Mozzarella;Sauce tomate;4.99 €;A;133
+Plat préparé avec du filet de poulet, pâtes et légumes;Plats préparés;Poulet;Champignons | Tomates | Poivrons | Edamame | Petits pois;Pâtes;Non;Sauce tomate;4.99 €;A;134
+Scampis au curry rouge et légumes au four;Plats préparés;Scampis;Butternut | Courgettes | Carottes | Poivrons | Oignons;Nouilles;Lait de coco;Sauce au curry;4.99 €;B;135
+Pâtes aux légumes d'hiver;Plats préparés;Non;Butternut |  Petits pois | Poivrons | Courgettes | Tomates séchées;Pâtes;Parmesan;Huile d'olive;4.99 €;B;136
+Plat préparé avec hamburger de boeuf et purée de patates douces;Plats préparés;Burger de boeuf;Haricots verts | Oignons;Purée de patates douces;Non;Sauce au vin;4.99 €;B;137
+Pâtes au poulet et légumes grillés;Plats préparés;Poulet;Courgettes | Tomates cerises;Pâtes;Non;Huile d'olive;4.99 €;A;138
+Poulet à la sauce tomate et au chou-fleur;Plats préparés;Poulet;Chou-fleur | Butternut | Tomates cerises | Oignons | Edamame;Non;Non;Sauce tomate;4.99 €;A;139
+Pâtes au poulet et pesto;Plats préparés;Poulet;Courgettes | Épinards | Basilic;Pâtes;Parmesan;Sauce pesto;4.99 €;A;140
+Riz avec viande de bœuf à la sauce tomate;Plats préparés;Bœuf;Champignons | Poivrons | Oignons;Riz;Non;Sauce tomate;4.99 €;A;141
+Plat préparé avec du poulet, brocoli et purée de patates douces;Plats préparés;Poulet;Brocoli;Purée de patates douces;Non;Non;4.99 €;A;142
+Nouilles au poulet et légumes;Plats préparés;Poulet | Oeufs;Poivrons | Carottes | Edamame | Haricots verts;Nouilles;Non;Sauce soja;4.99 €;A;143
+Plat préparé avec du poulet, riz et brocoli;Plats préparés;Poulet;Brocoli;Riz;Non;Sauce tomate;4.99 €;B;144
+Moussaka;Plats préparés;Viande hachée;Aubergines | Oignons;Pommes de terre;Lait;Sauce tomate;4.99 €;B;145
+Gratin d'endives au jambon;Plats préparés;Jambon;Endives;Purée de pommes de terre;Fromage emmental;Sauce au fromage;4.99 €;C;146
+Plat préparé à la viande hachée et épinards;Plats préparés;Viande hachée;Épinards | Oignons;Pommes de terre;Fromage emmental;Non;4.99 €;B;147
+Plat préparé à la viande hachée, purée de pommes de terre et chou-fleur;Plats préparés;Viande hachée;Chou-fleur | Oignons;Purée de pommes de terre;Fromage emmental;Sauce tomate;4.99 €;C;148
+Boulettes de viande à la sauce tomate;Plats préparés;Boulettes de viande;Oignons;Purée de pommes de terre;Non;Sauce tomate;4.99 €;B;149
+Lasagne à la moussaka;Plats préparés;Viande hachée;Aubergines | Tomates | Oignons;Pommes de terre | Pâtes;Fromage emmental;Sauce au beurre | Sauce tomate;4.99 €;C;150
+Waterzooi de poulet ;Plats préparés;Poulet;Poireaux | Carottes | Céleri;Pommes de terre;Non;Bouillon de légumes;4.99 €;A;151
+Carbonnades de boeuf;Plats préparés;Bœuf;Oignons | Champignons;Pommes de terre;Non;Sauce à la bière;4.99 €;A;152
+Hachis Parmentier;Plats préparés;Viande hachée;Poireaux | Épinards | Oignons | Endives | Chou-fleur;Purée de pommes de terre;Non;Sauce au beurre;4.99 €;C;153
+Légumes à l'italienne;Plats préparés;Non;Tomates | Poivrons | Courgettes | Aubergines | Oignons | Basilic;Pommes de terre;Lait;Sauce tomate;4.99 €;B;154
+Plat préparé avec des boulettes de viande et pommes de terre;Plats préparés;Boulettes de viande;Petits pois | Carottes | Chou-fleur | Oignons;Pommes de terre;Non;Non;4.99 €;B;155
+Paella;Plats préparés;Poulet | Crevettes;Petits pois | Poivrons | Oignons | Haricots verts | Tomates;Riz;Non;Bouillon de légumes;4.99 €;B;156
+Caillaud sauce au beurre;Plats préparés;Cabillaud;Brocoli | Tomates cerises | Poireaux | Oignons;Purée de pommes de terre;Non;Sauce au beurre;4.99 €;C;157
+Plat préparé avec des saucisses et chou-fleur;Plats préparés;Saucisse;Chou-fleur;Pommes de terre;Fromage emmental;Non;4.99 €;B;158
+Mix de poissons et purée de pommes de terre;Plats préparés;Saumon | Cabillaud | Crevettes;Tomates | Poireaux | Champignons | Oignons;Purée de pommes de terre;Non;Bouillon de légumes;4.99 €;A;159
+Pâtes aux tomates et jambon italien;Plats préparés;Jambon italien;Champignons | Courgettes;Pâtes;Mozzarella;Sauce tomate;4.99 €;B;160
+Saumon sauce au beurre;Plats préparés;Saumon;Poireaux | Oignons;Purée de pommes de terre;Non;Sauce au beurre;4.99 €;C;161
+Boulettes de viande à la sauce provençale;Plats préparés;Boulettes de viande;Tomates | Poivrons | Oignons | Aubergines;Purée de pommes de terre;Non;Sauce tomate;4.99 €;C;162
+Jambon sauce moutarde;Plats préparés;Jambon;Petits pois | Carottes | Oignons;Purée de pommes de terre;Non;Moutarde;4.99 €;B;163
+Vol au vent;Plats préparés;Poulet;Champignons;Purée de pommes de terre;Non;Sauce bouillon;4.99 €;B;164
+Poulet sauce à la bière;Plats préparés;Poulet;Chou-fleur;Pommes de terre;Non;Sauce à la bière;4.99 €;B;165
+Pâtes aux boulettes de viande à la sauce tomate;Plats préparés;Boulettes de viande;Oignons;Pâtes;Non;Sauce tomate;4.99 €;B;166
+Filet de poulet à l'italienne;Plats préparés;Poulet;Poivrons | Oignons | Aubergines | Courgettes | Basilic;Pâtes;Non;Sauce tomate;4.99 €;A;167
+Pâtes au jambon et fromage;Plats préparés;Jambon;Non;Pâtes;Fromage emmental;Sauce au fromage;4.99 €;C;168
+Lasagne;Plats préparés;Viande hachée;Épinards | Carottes | Oignons;Pâtes;Fromage emmental;Sauce tomate;4.99 €;B;169
+Pâtes au saumon;Plats préparés;Saumon;Poireaux;Pâtes;Non;Sauce à la crème;4.99 €;C;170
+Pâtes à la provençale;Plats préparés;Viande hachée;Tomates | Courgettes | Carottes | Poivrons | Oignons;Pâtes;Fromage emmental;Sauce tomate;4.99 €;B;171
+Pâtes aux aubergines;Plats préparés;Non;Aubergines | Tomates | Carottes | Oignons;Pâtes;Fromage emmental;Sauce tomate;4.99 €;A;172
+Tortellonis à la ricotta;Plats préparés;Non;Épinards;Pâtes;Ricotta | Mozzarella;Sauce tomate;4.99 €;C;173
+Pâtes aux crevettes;Plats préparés;Crevettes;Courgettes | Tomates;Pâtes;Crème;Sauce tomate;4.99 €;B;174
+Lasagne végétarienne mascarpone et ricotta;Plats préparés;Non;Tomates | Aubergines | Poivrons | Carottes;Pâtes;Ricotta | Mascarpone;Sauce tomate;4.99 €;C;175
+Lasagnes au saumon;Plats préparés;Saumon;Épinards | Poireaux | Carottes;Pâtes;Ricotta | Fromage emmental;Sauce à la crème;4.99 €;C;176
+Pâtes crémeuses au jambon et tomates;Plats préparés;Jambon;Tomates | Champignons;Pâtes;Mascarpone | Fromage emmental;Sauce à la crème;4.99 €;C;177
+Lasagne poulet et mascarpone;Plats préparés;Poulet;Tomates | Champignons;Pâtes;Mascarpone | Fromage emmental;Sauce tomate;4.99 €;C;178
+Pâtes au poulet et mascarpone;Plats préparés;Poulet;Tomates;Pâtes;Mascarpone | Fromage emmental;Sauce tomate;4.99 €;C;179
+Lasagne végétarienne bolognaise;Plats préparés;Viande végétarienne;Tomates | Chou-fleur | Champignons | Courgettes | Poivrons;Pâtes;Fromage emmental;Sauce au beurre | Sauce tomate;4.99 €;C;180
+Cannelloni à la bolognaise;Plats préparés;Viande hachée;Tomates | Oignons | Carottes | Poivrons;Pâtes;Fromage emmental;Sauce tomate;4.99 €;C;181
+Cannellonis ricotta et épinards;Plats préparés;Non;Épinards | Tomates | Oignons;Pâtes;Ricotta | Fromage emmental;Sauce tomate;4.99 €;C;182
+Lasagne bolognaise;Plats préparés;Viande hachée;Tomates | Carottes;Pâtes;Fromage emmental;Sauce au beurre | Sauce tomate;4.99 €;C;183
+Pâtes bolognaise;Plats préparés;Viande hachée;Carottes | Oignons;Pâtes;Fromage emmental;Sauce tomate;4.99 €;B;184
+Lasagne sauce tomate ;Plats préparés;Viande hachée;Oignons | Carottes | Courgettes;Pâtes;Fromage emmental;Sauce tomate;4.99 €;A;185
+Pâtes à carbonara;Plats préparés;Bacon;Non;Pâtes;Fromage emmental;Sauce à la crème;4.99 €;C;186
+Lasagne bolognaise au blé complet ;Plats préparés;Viande hachée;Tomates | Carottes | Oignons | Courgettes;Pâtes;Fromage emmental;Sauce au beurre | Sauce tomate;4.99 €;B;187
+Wrap tomate et mozzarella;Wraps;Non;Tomates | Roquette | Tomates séchées;Wrap;Mozzarella;Vinaigrette;4.99 €;B;188
+Wrap tomate, mozzarella et pesto ;Wraps;Non;Roquette | Tomates | Épinards | Basilic;Wrap;Mozzarella;Sauce pesto;4.99 €;B;189
+Wrap au thon ;Wraps;Thon | Oeufs;Laitue | Oignons | Olives;Wrap;Non;Vinaigrette;4.99 €;B;190
+Wrap poulet césar ;Wraps;Poulet;Laitue | Tomates | Endives;Wrap;Parmesan;Vinaigrette;4.99 €;B;191
+Wrap au saumon ;Wraps;Saumon | Oeufs;Laitue | Concombre;Wrap;Non;Vinaigrette;4.99 €;C;192
+Wrap au poulet tex mex ;Wraps;Poulet pané croustillant;Laitue | Carottes | Chou | Maïs | Poivrons;Wrap;Gouda;Sauce tomate;4.99 €;C;193
+Wrap poulet tandoori;Wraps;Poulet;Carottes | Épinards | Tomates | Piments;Wrap;Fromage de chèvre;Vinaigrette orientale;4.99 €;B;194
+Wrap BLT ;Wraps;Bacon;Laitue | Tomates | Endives;Wrap;Cream cheese ;Vinaigrette;4.99 €;C;195
+Wrap poulet pesto ;Wraps;Poulet;Laitue | Tomates séchées;Wrap;Non;Sauce pesto;4.99 €;B;196
+Wrap aux falafels ;Wraps;Falafels;Carottes | Épinards;Wrap;Non;Houmous;4.99 €;A;197
+Wrap tomate et feta ;Wraps;Non;Laitue | Tomates | Tomates séchées | Basilic;Wrap;Feta;Vinaigrette;4.99 €;C;198
+Wrap au poulet et piment doux;Wraps;Poulet;Chou | Maïs | Poivrons | Piments;Wrap;Non;Sauce épicée;4.99 €;B;199
+Wrap thon épicé ;Wraps;Thon;Chou | Poivrons | Oignons;Wrap;Non;Sauce épicée;4.99 €;B;200
+Wrap au couscous et cream cheese ;Wraps;Non;Tomates | Poivrons | Chou | Oignons;Wrap | Couscous;Cream cheese ;Sauce tomate;4.99 €;C;201
+Wrap au saumon et cream cheese ;Wraps;Saumon;Laitue | Carottes;Wrap;Cream cheese ;Non;4.99 €;B;202
+Wrap jambon et cheddar ;Wraps;Jambon;Laitue | Tomates;Wrap;Cheddar;Sauce hamburger;4.99 €;B;203
+Wrap jambon et Tzatziki ;Wraps;Jambon;Laitue | Concombre;Wrap;Non;Sauce yaourt;4.99 €;B;204
+Wrap au thon et tomates séchées;Wraps;Thon;Laitue | Tomates séchées | Tomates | Carottes;Wrap;Non;Sauce yaourt;4.99 €;A;205
+Wrap au fromage de chèvre et tomates séchées;Wraps;Non;Laitue | Tomates séchées | Concombre | Poivrons;Wrap;Fromage de chèvre;Sauce yaourt;4.99 €;B;206
+Wrap au bacon et œufs ;Wraps;Bacon | Oeufs;Laitue | Tomates | Tomates séchées;Wrap;Non;Vinaigrette;4.99 €;B;207
+Wrap jambon et fromage ;Wraps;Jambon;Laitue | Tomates;Wrap;Fromage emmental;Mayonnaise;4.99 €;B;208
+Wrap au poulet façon Fajitas;Wraps;Poulet;Laitue | Tomates | Poivrons | Oignons;Wrap;Cheddar;Sauce tomate;4.99 €;B;209
+Wrap master poulet ;Wraps;Poulet pané croustillant;Laitue | Tomates;Wrap | Galette de pomme de terre ;Cheddar;Sauce hamburger;4.99 €;C;210
+Wrap master poulet épicé ;Wraps;Poulet pané croustillant;Laitue | Tomates;Wrap | Galette de pomme de terre ;Cheddar;Sauce épicée;4.99 €;C;211
+Wrap végétarien ;Wraps;Viande végétarienne;Laitue | Tomates;Wrap | Galette de pomme de terre ;Cheddar;Mayonnaise;4.99 €;B;212
+Wrap au poulet croustillant et bacon ;Wraps;Poulet pané croustillant | Bacon;Laitue | Tomates;Wrap;Cheddar;Sauce hamburger;4.99 €;C;213
+Wrap au poulet ;Wraps;Poulet;Laitue | Tomates;Wrap;Non;Mayonnaise;4.99 €;B;214
+Wrap au poulet pané croustillant et moutarde;Wraps;Poulet pané croustillant;Carottes | Maïs | Oignons frits;Wrap;Cheddar;Moutarde;4.99 €;C;215
+Wrap au poulet, cheddar et moutarde ;Wraps;Poulet;Laitue | Tomates | Carottes;Wrap;Cheddar;Moutarde;4.99 €;B;216
+Wrap aux légumes façon fajita;Wraps;Non;Poivrons | Maïs | Oignons;Wrap;Cheddar;Sauce épicée;4.99 €;C;217
+Wrap au poulet, épinards et sauce curry;Wraps;Poulet;Épinards | Poivrons | Carottes | Raisins secs;Wrap;Non;Sauce au curry;4.99 €;B;218
+Wrap au jambon et fromage de chèvre ;Wraps;Jambon;Laitue;Wrap;Fromage de chèvre;Sauce yaourt;4.99 €;C;219
+Wrap au fromage de chèvre et moutarde ;Wraps;Non;Oignons frits | Tomates | Maïs;Wrap;Fromage de chèvre;Moutarde;4.99 €;C;220
+Wrap au poulet et guacamole ;Wraps;Poulet;Avocat | Maïs | Tomates | Poivrons | Oignons;Wrap;Non;Non;4.99 €;A;221
+The hamburger;Snacks et hamburgers;Burger de boeuf;Oignons | Cornichons;Pain hamburger;Non;Moutarde | Ketchup;4.99 €;C;222
+Le Big hamburger;Snacks et hamburgers;Burger de boeuf;Laitue | Oignons | Cornichons;Pain hamburger;Cheddar;Sauce hamburger;4.99 €;C;223
+Le Fish Burger ;Snacks et hamburgers;Burger de poisson;Non;Pain hamburger;Non;Ketchup;4.99 €;B;224
+Le Fish Burger mayonnaise ;Snacks et hamburgers;Burger de poisson;Non;Pain hamburger;Non;Mayonnaise;4.99 €;B;225
+Le Fish Burger au fromage;Snacks et hamburgers;Burger de poisson;Non;Pain hamburger;Cheddar;Sauce hamburger;4.99 €;C;226
+Le savoureux Fish Burger;Snacks et hamburgers;Burger de poisson;Laitue | Tomates;Pain hamburger;Cheddar;Sauce hamburger | Ketchup;4.99 €;C;227
+Le royal de luxe burger;Snacks et hamburgers;Burger de boeuf;Laitue | Tomates | Oignons;Pain hamburger;Cheddar;Moutarde;4.99 €;C;228
+Le royal burger au bacon;Snacks et hamburgers;Burger de boeuf | Bacon;Oignons | Cornichons;Pain hamburger;Cheddar;Moutarde | Ketchup;4.99 €;D;229
+Le royal burger au fromage;Snacks et hamburgers;Burger de boeuf;Oignons | Cornichons;Pain hamburger;Cheddar;Moutarde | Ketchup;4.99 €;D;230
+Le savoureux burger;Snacks et hamburgers;Burger de boeuf;Laitue | Tomates | Oignons;Pain hamburger;Fromage emmental;Sauce hamburger;4.99 €;D;231
+Le hamburger original;Snacks et hamburgers;Burger de boeuf;Laitue | Tomates;Pain hamburger;Cheddar;Sauce hamburger | Ketchup;4.99 €;C;232
+Le burger barbecue ;Snacks et hamburgers;Burger de boeuf | Bacon;Oignons frits | Cornichons;Pain hamburger;Cheddar;Sauce barbecue;4.99 €;D;233
+Le hamburger français;Snacks et hamburgers;Burger de boeuf;Tomates | Oignons;Baguette française;Fromage emmental;Sauce hamburger | Ketchup;4.99 €;D;234
+Le simple chicken burger;Snacks et hamburgers;Poulet;Laitue;Pain hamburger;Non;Sauce hamburger;4.99 €;B;235
+Le original chicken burger ;Snacks et hamburgers;Poulet pané croustillant;Laitue;Pain hamburger;Cheddar;Sauce hamburger;4.99 €;D;236
+Le crunchy  burger;Snacks et hamburgers;Poulet pané croustillant;Non;Pain hamburger;Cheddar;Sauce hamburger;4.99 €;C;237
+Le burger poulet et bacon;Snacks et hamburgers;Poulet pané croustillant | Bacon;Oignons frits;Pain hamburger;Cheddar;Sauce barbecue;4.99 €;D;238
+Le burger végétarien;Snacks et hamburgers;Viande végétarienne;Laitue;Pain hamburger;Cheddar;Sauce hamburger;4.99 €;D;239
+Le burger de poulet et de bacon original;Snacks et hamburgers;Poulet pané croustillant | Bacon;Laitue;Pain hamburger;Cheddar;Sauce hamburger;4.99 €;D;240
+Le burger spicy tower  ;Snacks et hamburgers;Poulet pané croustillant;Non;Pain hamburger | Galette de pomme de terre ;Cheddar;Sauce épicée;4.99 €;D;241
+Le savoureux burger de poulet;Snacks et hamburgers;Poulet pané croustillant;Roquette | Tomates | Oignons;Pain hamburger;Fromage emmental;Sauce hamburger;4.99 €;D;242
+Le savoureux burger de poulet et bacon;Snacks et hamburgers;Poulet pané croustillant | Bacon;Roquette | Tomates | Oignons;Pain hamburger;Fromage emmental;Sauce hamburger;4.99 €;D;243
+Le croque monsieur;Snacks et hamburgers;Jambon;Non;Pain hamburger;Fromage emmental;Non;4.99 €;D;244
+Muffin œuf et cheddar;Snacks et hamburgers;Oeufs;Non;Pain hamburger;Cheddar;Non;4.99 €;B;245
+Muffin œuf, bacon et cheddar;Snacks et hamburgers;Bacon | Oeufs;Non;Pain hamburger;Cheddar;Non;4.99 €;C;246
+Hot-dog;Snacks et hamburgers;Saucisse;Non;Baguette française;Non;Moutarde | Ketchup;4.99 €;D;247
+Frites façon burger ;Snacks et hamburgers;Viande hachée;Tomates | Oignons;Pommes de terre;Mozzarella;Sauce hamburger;4.99 €;D;248
+Frites épicées;Snacks et hamburgers;Pepperoni;Oignons;Pommes de terre;Mozzarella;Sauce harissa;4.99 €;D;249
+Frites au cheddar;Snacks et hamburgers;Non;Oignons frits;Pommes de terre;Cheddar;Non;4.99 €;C;250
+Frites barbecue ;Snacks et hamburgers;Viande hachée | Bacon;Non;Pommes de terre;Mozzarella;Sauce barbecue;4.99 €;D;251
+Frites;Snacks et hamburgers;Non;Non;Pommes de terre;Non;Non;4.99 €;C;252
+Potatoes;Snacks et hamburgers;Non;Non;Pommes de terre;Non;Mayonnaise | Ketchup;4.99 €;C;253
+Morceaux de poulet croustillant;Snacks et hamburgers;Poulet pané croustillant;Non;Non;Non;Mayonnaise | Ketchup | Sauce hamburger;4.99 €;D;254
+Ailes de poulet;Snacks et hamburgers;Poulet;Non;Non;Non;Mayonnaise | Ketchup | Sauce hamburger;4.99 €;C;255
+Ailes de poulet épicées;Snacks et hamburgers;Poulet;Non;Non;Non;Sauce harissa;4.99 €;D;256
+Ailes de poulet au miel;Snacks et hamburgers;Poulet;Non;Non;Non;Miel;4.99 €;D;257
+Ailes de poulet sauce barbecue ;Snacks et hamburgers;Poulet;Non;Non;Non;Sauce barbecue;4.99 €;D;258
+Pizza hot-dog ;Snacks et hamburgers;Saucisse;Non;Pâte à pizza;Mozzarella;Ketchup;4.99 €;C;259
+Pizza hot-dog cheddar et oignons frits;Snacks et hamburgers;Saucisse;Oignons frits;Pâte à pizza;Cheddar;Ketchup;4.99 €;C;260
+Pain au fromage;Snacks et hamburgers;Non;Non;Pâte à pizza;Mozzarella | Gouda | Fromage emmental;Non;4.99 €;D;261
+Croquettes de fromage;Snacks et hamburgers;Non;Non;Non;Gouda;Non;4.99 €;E;262
+Sandwich au fromage fitness;Sandwichs;Non;Laitue | Carottes | Concombre;Baguette française fitness;Gouda;Moutarde;4.99 €;C;263
+Sandwich au jambon fitness;Sandwichs;Jambon;Laitue | Concombre;Baguette française fitness;Non;Vinaigrette;4.99 €;B;264
+Club sandwich;Sandwichs;Jambon | Oeufs;Laitue | Tomates;Baguette française;Gouda;Mayonnaise;4.99 €;C;265
+Sandwich tomate et mozzarella fitness;Sandwichs;Non;Laitue | Tomates séchées;Baguette française fitness;Mozzarella;Vinaigrette;4.99 €;C;266
+Sandwich au poulet curry;Sandwichs;Poulet;Laitue | Carottes;Baguette française;Non;Sauce au curry;4.99 €;B;267
+Sandwich au jambon et pepperoni;Sandwichs;Jambon | Pepperoni;Laitue;Baguette française;Non;Mayonnaise;4.99 €;C;268
+Sandwich au poulet;Sandwichs;Poulet;Laitue | Tomates;Baguette française;Non;Mayonnaise;4.99 €;C;269
+Sandwich au jambon et fromage;Sandwichs;Jambon;Non;Baguette française;Fromage emmental;Mayonnaise;4.99 €;C;270
+Sandwich au thon et cream cheese ;Sandwichs;Thon;Non;Baguette française;Cream cheese ;Non;4.99 €;C;271
+Sandwich au poulet et fromage;Sandwichs;Poulet;Non;Baguette française;Fromage emmental;Mayonnaise;4.99 €;C;272
+Sandwich au poulet et oeufs;Sandwichs;Poulet | Oeufs;Laitue;Baguette française;Non;Mayonnaise;4.99 €;B;273
+Sandwich au thon, oeufs et sauce cocktail;Sandwichs;Thon | Oeufs;Laitue;Baguette française;Non;Sauce cocktail;4.99 €;B;274
+Sandwich au jambon et cheddar;Sandwichs;Jambon;Laitue;Baguette française;Cheddar;Sauce hamburger;4.99 €;C;275
+Sandwich au jambon, fromage et beurre;Sandwichs;Jambon;Non;Baguette française;Fromage emmental | Beurre;Non;4.99 €;D;276
+Sandwich au saumon et cream cheese ;Sandwichs;Saumon;Concombre;Baguette française;Cream cheese ;Sauce yaourt;4.99 €;D;277
+Sandwich au thon et tomates séchées;Sandwichs;Thon;Tomates séchées;Baguette française fitness;Non;Mayonnaise;4.99 €;B;278
+Sandwich au thon et oeufs;Sandwichs;Thon | Oeufs;Tomates;Baguette française;Non;Mayonnaise;4.99 €;B;279
+Sandwich au boeuf et fromage;Sandwichs;Bœuf;Laitue | Tomates;Baguette française;Cheddar;Sauce barbecue;4.99 €;B;280
+Sandwich steakhouse;Sandwichs;Burger de boeuf;Laitue | Tomates | Oignons;Baguette française;Mozzarella;Sauce barbecue;4.99 €;B;281
+Sandwich au pastrami de boeuf;Sandwichs;Bœuf;Laitue | Tomates | Cornichons;Baguette française fitness;Cheddar;Moutarde;4.99 €;B;282
+Sandwich à la viande végétarienne;Sandwichs;Viande végétarienne;Laitue | Tomates | Poivrons | Oignons;Baguette française fitness;Non;Vinaigrette;4.99 €;A;283
+Sandwich aux légumes;Sandwichs;Non;Laitue | Tomates | Concombre | Poivrons | Oignons;Baguette française;Non;Non;4.99 €;B;284
+Le sandwich JPM;Sandwichs;Jambon | Pepperoni;Laitue | Tomates | Oignons;Baguette française;Mozzarella;Sauce hamburger;4.99 €;D;285
+Le sandwich mix;Sandwichs;Jambon | Poulet | Bacon;Laitue | Tomates | Oignons;Baguette française;Cheddar;Sauce barbecue;4.99 €;B;286
+Sandwich au thon;Sandwichs;Thon;Tomates | Concombre;Baguette française;Non;Mayonnaise;4.99 €;B;287
+Le sandwich mexicain fitness;Sandwichs;Poulet;Laitue | Tomates | Avocat | Maïs | Poivrons | Oignons | Concombre;Baguette française fitness;Cheddar;Non;4.99 €;A;288
+Sandwich super pastrami;Sandwichs;Bœuf | Poulet;Laitue | Tomates | Oignons | Cornichons;Baguette française;Fromage emmental;Moutarde;4.99 €;B;289
+Sandwich au jambon et oeufs;Sandwichs;Jambon | Oeufs;Laitue;Baguette française;Non;Sauce hamburger;4.99 €;B;290
+Sandwich au fromage de chèvre et tomates séchées;Sandwichs;Non;Laitue | Tomates séchées;Baguette française;Fromage de chèvre;Non;4.99 €;B;291
+Sandwich au bacon et au fromage emmental;Sandwichs;Bacon;Laitue | Tomates;Baguette française;Fromage emmental;Mayonnaise;4.99 €;C;292
+Sandwich à la feta;Sandwichs;Non;Laitue | Tomates | Concombre | Olives;Baguette française;Cream cheese  | Feta;Non;4.99 €;C;293
+Sandwich au poulet et pommes;Sandwichs;Poulet;Laitue | Pommes;Baguette française;Cream cheese ;Non;4.99 €;B;294
+Sandwich au concombre;Sandwichs;Non;Concombre;Baguette française;Cream cheese ;Non;4.99 €;C;295
+Sandwich aux oeufs;Sandwichs;Oeufs;Laitue | Carottes | Chou;Baguette française fitness;Non;Mayonnaise;4.99 €;B;296
+Sandwich italien;Sandwichs;Jambon italien;Roquette;Baguette française;Mozzarella | Beurre;Huile d'olive;4.99 €;E;297
+Sandwich au fromage de chèvre crémeux;Sandwichs;Non;Roquette | Concombre | Tomates séchées;Baguette française;Fromage de chèvre | Cream cheese ;Non;4.99 €;B;298
+Sandwich au saumon;Sandwichs;Saumon;Laitue | Concombre | Oignons;Baguette française fitness;Cream cheese ;Non;4.99 €;C;299
+Sandwich au bœuf;Sandwichs;Bœuf;Laitue | Tomates;Baguette française;Non;Mayonnaise | Moutarde;4.99 €;B;300
+Sandwich au saucisson;Sandwichs;Saucisson;Cornichons;Baguette française;Beurre;Non;4.99 €;E;301
+Sandwich au poulet et ananas;Sandwichs;Poulet;Laitue | Ananas | Poivrons;Baguette française;Non;Mayonnaise;4.99 €;B;302
+Sandwich aux légumes rôtis;Sandwichs;Non;Roquette | Aubergines | Poivrons | Tomates | Courgettes | Basilic;Baguette française fitness;Non;Huile d'olive;4.99 €;A;303
+Sandwich au jambon italien;Sandwichs;Jambon italien;Non;Baguette française;Beurre;Non;4.99 €;E;304
+Sandwich au saucisson fitness ;Sandwichs;Saucisson;Cornichons;Baguette française fitness;Beurre;Non;4.99 €;E;305
+Sandwich au bœuf et cream cheese ;Sandwichs;Bœuf;Laitue | Oignons;Baguette française;Cream cheese ;Non;4.99 €;B;306

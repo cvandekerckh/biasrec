@@ -34,7 +34,7 @@ def before_request():
             model_file = current_app.config['MODEL_PATH'] / current_app.config['MODEL_FILENAME']
             product_list_per_user = pickle.load(open(model_file, 'rb'))
             n_recommendations = current_app.config['N_RECOMMENDATIONS']
-            g.reco_list = product_list_per_user[current_user.id][:n_recommendations]
+            g.reco_list = product_list_per_user[str(current_user.id)][:n_recommendations]
             g.reco_list = [product for product, _ in g.reco_list]
         else:
             g.reco_list = None
