@@ -9,6 +9,7 @@ from app.auth.forms import Close
 from app import db
 import pickle
 import random
+import hashlib
 
 
 category_tag_to_name = {
@@ -56,21 +57,43 @@ def recommendation():
 @bp.route('/product_category/<category_name>')
 @login_required
 def product_category(category_name):
+
     form = PurchaseForm()
     category_name_label = category_tag_to_name[category_name]
-    products = Product.query.filter_by(category = category_name_label)
-    page = request.args.get('page', 1, type = int)
-    product_page = products.paginate(
-        page=page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False)
-    next_url = url_for(f'main.product_category', category_name=category_name, page=product_page.next_num) \
-        if product_page.has_next else None
-    prev_url = url_for(f'main.product_category', category_name=category_name, page=product_page.prev_num) \
-        if product_page.has_prev else None
-    
+
+    # 1️⃣ Récupération
+    products = Product.query.filter_by(category=category_name_label).all()
+
+    # 2️⃣ Mélange déterministe
+    def deterministic_key(product):
+        key = f"{category_name}_{product.id}"
+        return hashlib.md5(key.encode()).hexdigest()
+
+    products = sorted(products, key=deterministic_key)
+
+    # 3️⃣ Pagination
+    page = request.args.get('page', 1, type=int)
+    per_page = current_app.config['POSTS_PER_PAGE']
+    start = (page - 1) * per_page
+    end = start + per_page
+    product_items = products[start:end]
+
+    next_url = url_for('main.product_category', category_name=category_name, page=page + 1) \
+        if end < len(products) else None
+    prev_url = url_for('main.product_category', category_name=category_name, page=page - 1) \
+        if page > 1 else None
+
     n_product_in_cart = get_n_product_in_cart()
 
-    return render_template('main/product_category.html', products=product_page.items, category_name_label=category_name_label, next_url=next_url,
-                           prev_url=prev_url, form = form, n_product_in_cart = n_product_in_cart)
+    return render_template(
+        'main/product_category.html',
+        products=product_items,
+        category_name_label=category_name_label,
+        next_url=next_url,
+        prev_url=prev_url,
+        form=form,
+        n_product_in_cart=n_product_in_cart
+    )
 
 
 @bp.route('/rate')
