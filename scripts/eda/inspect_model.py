@@ -36,10 +36,10 @@ with open(path, "rb") as f:
 print("Type:", type(data))
 print("Nb users:", len(data))
 
-u = list(data.keys())[0]
+u = list(data.keys())[17]
 print("\nUser:", u)
 print("First 3 recommendations:")
-for product, score in data[u][:3]:
+for product, score in data[u][:5]:
     print(f"- {product.name} (id={product.id}) | score={score}")
 
 print("Type of keys:", type(next(iter(data.keys()))))
