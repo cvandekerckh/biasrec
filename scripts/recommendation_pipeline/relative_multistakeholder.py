@@ -5,6 +5,7 @@ from collections import defaultdict
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 from config import Config as Cf
 from app import create_app
 from app.models import User, Product
@@ -36,6 +37,7 @@ CONDITION_FILENAME = 'conditions.csv'
 PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / '4_predictions'
 PREDICTIONS_FILENAME = f'predictions_{RATINGS_VERSION}.p'
 
+#Charge le fichier .p contenant les prédictions content-based non biaisées.
 def load_predictions():
     with open(PREDICTIONS_PATH / PREDICTIONS_FILENAME, "rb") as f:
         predictions = pickle.load(f)
@@ -45,7 +47,7 @@ def load_predictions():
 # ---------------------------------------------------------
 # Helper functions
 # ---------------------------------------------------------
-
+#Transformer une liste d’erreurs continues en distribution discrète (tableau de fréquences).
 def compute_error_table(errors, step):
     """
     Compute the bucketed error distribution table in the same format
@@ -105,6 +107,13 @@ def get_ordered_items(predictions):
 
     return ordered_items
 
+#Jointure SR ↔ base de données produits, permet d’accéder à nutri_score
+#{
+  #user_id: [
+    #(Product, predicted_rating, nutri_weight),
+    #...
+  #]
+#} --> C’est ici que le second objectif devient manipulable.
 def get_product_list(ordered_items):
     product_list_per_user = {}
     for uid in ordered_items:
@@ -116,6 +125,7 @@ def get_product_list(ordered_items):
         product_list_per_user[uid] = product_list_uid
     return product_list_per_user
 
+#Mesurer le biais nutritionnel d’une recommandation
 def compute_bias(recommendation, bias_type):
     if bias_type == "mean":
         recommendation_bias = sum(c for _, _, c in recommendation) / len(recommendation)
@@ -123,6 +133,7 @@ def compute_bias(recommendation, bias_type):
         recommendation_bias = np.min([bias for _, _, bias in recommendation])
     return recommendation_bias
 
+#Calculer le biais nutritionnel pour chaque utilisateur.
 def get_bias_per_user(product_list_per_user, n_recommendations, bias_type):
     bias_per_user = {}
     for user in product_list_per_user:
@@ -131,6 +142,7 @@ def get_bias_per_user(product_list_per_user, n_recommendations, bias_type):
         bias_per_user[user] =  compute_bias(recommendation, bias_type)
     return bias_per_user
 
+#Filtrer les utilisateurs exploitables expérimentalement. --> Permet de ne garder que les participants ayant un moins bon profil nutri score 
 def get_eligible_users(bias_per_user_unbiased, keep_bias_below):
     eligible_users = []
     for user in bias_per_user_unbiased:
@@ -154,6 +166,7 @@ def add_linear_bias(product_list_per_user_initial, beta):
         product_list_per_user_biased[user] = biased
     return product_list_per_user_biased
 
+#Simuler : “Si j’applique β à cet utilisateur, quel biais vais-je obtenir ?”
 def compute_bias_for_beta(product_list_user, beta, n_recommendations, bias_type):
     """
     product_list_user: list of (product, predicted_rating, weight)
@@ -168,6 +181,8 @@ def compute_bias_for_beta(product_list_user, beta, n_recommendations, bias_type)
     topn = ranked[:n_recommendations]
     return compute_bias(topn, bias_type), topn
 
+#Trouver le β optimal pour un utilisateur donné et une condition donnée.
+#Trouver la valeur de β ∈ [0,1] telle que le Nutri-Score moyen du Top-K soit le plus proche possible de la valeur cible target.
 def find_beta_for_user(product_list_user, initial_bias, delta, n_recommendations,
                        bias_type="mean", tol=1e-3, max_iter=30):
     """
@@ -203,6 +218,7 @@ def find_beta_for_user(product_list_user, initial_bias, delta, n_recommendations
             break
     return best  # (beta, bias, topN)
 
+#Appliquer le β optimal propre à chaque utilisateur.
 def add_linear_bias_per_user(product_list_per_user_initial, beta_per_user):
     """
     Apply per-user beta and re-rank lists.
@@ -367,3 +383,9 @@ def create_recommendations():
                 }
         
         return biased_recommendation
+
+if __name__ == "__main__":
+    biased_recommendations = create_recommendations()
+    print(f"{len(biased_recommendations)} recommandations générées")
+    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test.p", "wb") as f:
+        pickle.dump(biased_recommendations, f)

@@ -20,6 +20,7 @@ certbot = "*"
 certbot-nginx = "*"
 scikit-learn = "*"
 gunicorn = "*"
+matplotlib = "*"
 
 [dev-packages]
 ipython = "*"
