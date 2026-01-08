@@ -19,6 +19,7 @@ class Config(object):
     MODEL_PATH = DATA_PATH_OUT / 'versioning'/ '6_models'
     MODEL_FILENAME = 'model_prolific_flask_compatible.p'
     N_RECOMMENDATIONS = 5
+    N_INTERACTIONS = 1
     PROLIFIC_STUDY_ID = '688889840ef7e7483d59d667' #test
 
 class RateConfig(Config):
@@ -29,14 +30,22 @@ class FixedRecommendationConfig(Config):
     MAIN_PAGE='main.recommendation'
     RECOMMENDATION='fixed'
 
-class TrainedRecommendationConfig(Config):
-    MAIN_PAGE='main.recommendation'
-    RECOMMENDATION='trained'
+class TrainedRecommendation1Interaction(Config):
+    MAIN_PAGE = 'main.recommendation'
+    RECOMMENDATION = 'trained'
+    N_INTERACTIONS = 1
+
+class TrainedRecommendation3Interactions(Config):
+    MAIN_PAGE = 'main.recommendation'
+    RECOMMENDATION = 'trained'
+    N_INTERACTIONS = 3
+
 
 
 configs = {
   'rate'  : RateConfig,
   'fixedrec' : FixedRecommendationConfig,
-  'trainrec' : TrainedRecommendationConfig,
+  'trainrec_1': TrainedRecommendation1Interaction,
+  'trainrec_3': TrainedRecommendation3Interactions,
   'default'  :RateConfig,
 }

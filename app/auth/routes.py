@@ -56,6 +56,8 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
         # connect user
         session.pop('product_order', None) 
         login_user(user)
+        # 🔑 DÉBUT DE LA PHASE 2
+        session["interaction_count"] = 0
         return redirect(url_for(current_app.config['MAIN_PAGE']))
     
     # authentification through db

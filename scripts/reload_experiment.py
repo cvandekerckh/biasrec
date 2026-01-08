@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 from app import create_app
 from flask import current_app
-from app.models import User, Product
+from app.models import User, Product, PurchaseLog
 from app import db
 from config import Config as Cf
 from sqlalchemy import inspect

@@ -10,6 +10,8 @@ from app import db
 import pickle
 import random
 import hashlib
+from app.models import PurchaseLog
+
 
 
 category_tag_to_name = {
@@ -32,10 +34,19 @@ def before_request():
         g.reco_list = [Product.query.filter_by(id = id).first() for id in ids]
     elif current_app.config['RECOMMENDATION'] == 'trained':
         if current_user.is_authenticated:
+
             model_file = current_app.config['MODEL_PATH'] / current_app.config['MODEL_FILENAME']
             product_list_per_user = pickle.load(open(model_file, 'rb'))
-            n_recommendations = current_app.config['N_RECOMMENDATIONS']
-            g.reco_list = product_list_per_user[str(current_user.id)][:n_recommendations]
+
+            n = current_app.config['N_RECOMMENDATIONS']
+            interaction = session.get("interaction_count", 0)
+
+
+            start = interaction * n
+            end = (interaction + 1) * n
+
+
+            g.reco_list = product_list_per_user[str(current_user.id)][start:end]
             g.reco_list = [product for product, _ in g.reco_list]
         else:
             g.reco_list = None
@@ -163,6 +174,41 @@ def cart():
         form2 = form2,
         n_product_in_cart=len(cart_products),
     )
+
+@bp.route('/validate_interaction', methods=['POST'])
+@login_required
+def validate_interaction():
+
+    query = current_user.purchases.select()
+    cart_products = db.session.scalars(query).all()
+
+    interaction_count = session.get("interaction_count", 0)
+
+    # 🔹 LOG DB (safe GCloud)
+    for product in cart_products:
+        log = PurchaseLog(
+            user_id=current_user.id,
+            product_id=product.id,
+            interaction=interaction_count,
+            condition_id=current_user.condition_id
+        )
+        db.session.add(log)
+
+    # 🔹 vider le panier
+    for product in cart_products:
+        current_user.remove_from_cart(product)
+
+    db.session.commit()
+
+    # 🔹 incrément après validation
+    session["interaction_count"] = interaction_count + 1
+
+    if session["interaction_count"] >= current_app.config["N_INTERACTIONS"]:
+        return redirect(url_for('auth.surveyp2'))
+
+    return redirect(url_for('main.recommendation'))
+
+
 
 @bp.route('/reminderreco', methods=['GET', 'POST'])
 @login_required

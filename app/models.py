@@ -165,3 +165,11 @@ class Rating(db.Model):
 
     def __repr__(self):
         return '<Rating id={}, user_id={}, product_id={}, rating={}>'.format(self.id, self.user_id, self.product_id, self.rating)
+
+class PurchaseLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    product_id = db.Column(db.Integer, nullable=False)
+    interaction = db.Column(db.Integer, nullable=False)
+    condition_id = db.Column(db.Integer, nullable=False)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
