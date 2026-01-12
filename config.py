@@ -17,7 +17,7 @@ class Config(object):
     DATA_PATH_RAW = DATA_PATH / 'raw'
     DATA_PATH_OUT = DATA_PATH / 'out'
     MODEL_PATH = DATA_PATH_OUT / 'versioning'/ '6_models'
-    MODEL_FILENAME = 'model_prolific_flask_compatible.p'
+    MODEL_FILENAME = 'biased_recommendations_test_prolific.p'
     N_RECOMMENDATIONS = 5
     N_INTERACTIONS = 1
     PROLIFIC_STUDY_ID = '688889840ef7e7483d59d667' #test

@@ -68,6 +68,8 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
             flash('Invalid code')
             return redirect(url_for('auth.login'))
         login_user(user)
+        session["interaction_count"] = 0
+        session.pop("product_order", None)
         return redirect(url_for(current_app.config['MAIN_PAGE'])) #On redirige vers la page main 
     
     return render_template('auth/login.html', form=form)

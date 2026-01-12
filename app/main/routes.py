@@ -29,29 +29,55 @@ def get_n_product_in_cart():
 
 @bp.before_app_request
 def before_request():
+    g.user_recs = None
     if current_app.config['RECOMMENDATION'] == 'fixed':
-        ids = range(1, current_app.config['N_RECOMMENDATIONS']+1)
-        g.reco_list = [Product.query.filter_by(id = id).first() for id in ids]
+        ids = range(1, current_app.config['N_RECOMMENDATIONS'] + 1)
+        g.reco_list = [Product.query.filter_by(id=id).first() for id in ids]
+
     elif current_app.config['RECOMMENDATION'] == 'trained':
         if current_user.is_authenticated:
 
             model_file = current_app.config['MODEL_PATH'] / current_app.config['MODEL_FILENAME']
-            product_list_per_user = pickle.load(open(model_file, 'rb'))
+            recs = pickle.load(open(model_file, "rb"))
+            # 🔍 DEBUG — TEMPORAIRE
+            print("🔍 DEBUG FLASK RECOMMENDATION")
+            print("current_user.id =", current_user.id)
+            print("current_user.code (str) =", str(current_user.code))
+            print("First keys in pickle =", list(recs.keys())[:5])
+            print("User in pickle =", str(current_user.code) in recs)
+            print("-" * 50)
 
-            n = current_app.config['N_RECOMMENDATIONS']
-            interaction = session.get("interaction_count", 0)
+            user_recs = recs.get(str(current_user.code))
 
+            if user_recs is None:
+                g.reco_list = None
+                return
 
-            start = interaction * n
-            end = (interaction + 1) * n
+            g.user_recs = user_recs
 
+            # 🔹 interaction courante (0,1,2) → (1,2,3)
+            interaction_idx = session.get("interaction_count", 0) + 1
 
-            g.reco_list = product_list_per_user[str(current_user.id)][start:end]
-            g.reco_list = [product for product, _ in g.reco_list]
+            # 🔹 sécurité : ne pas dépasser le nombre d’interactions prévues
+            if interaction_idx > user_recs["n_interactions"]:
+                g.reco_list = None
+                return
+
+            # 🔹 liste complète re-rankée pour cette interaction
+            full_ranked_list = user_recs["interactions"][interaction_idx]
+
+            # 🔹 Top-5
+            top_k = full_ranked_list[:current_app.config['N_RECOMMENDATIONS']]
+
+            # 🔹 Flask attend juste des Product
+            g.reco_list = [product for product, _, _ in top_k]
+
         else:
             g.reco_list = None
+
     elif current_app.config['RECOMMENDATION'] is None:
         g.reco_list = None
+
 
 @bp.route('/recommendation')
 @login_required
@@ -184,13 +210,17 @@ def validate_interaction():
 
     interaction_count = session.get("interaction_count", 0)
 
+    user_recs = g.user_recs
+    condition_id = user_recs["condition_id"]
+    n_interactions = user_recs["n_interactions"]
+
     # 🔹 LOG DB (safe GCloud)
     for product in cart_products:
         log = PurchaseLog(
-            user_id=current_user.id,
+            user_id=current_user.code,
             product_id=product.id,
             interaction=interaction_count,
-            condition_id=current_user.condition_id
+            condition_id=condition_id
         )
         db.session.add(log)
 
@@ -203,7 +233,7 @@ def validate_interaction():
     # 🔹 incrément après validation
     session["interaction_count"] = interaction_count + 1
 
-    if session["interaction_count"] >= current_app.config["N_INTERACTIONS"]:
+    if session["interaction_count"] >= n_interactions:
         return redirect(url_for('auth.surveyp2'))
 
     return redirect(url_for('main.recommendation'))

@@ -71,9 +71,9 @@
                       <p class="identtext">Some products have not yet been evaluated.</p>
                       <p class="identtext">Please evaluate all products before proceeding to the end of the survey.</p>
                       {% else %}
-                      <p class="identtext">Thank you for evaluating all the products!</p>
+                      <p class="identtext">Thank you! All the products have been evaluated.</p>
                       <p class="identtext">
-                        Please click <a href="{{ url_for('auth.close') }}"  style="color: red;" >here to complete the survey. </a>.
+                        Please click <a href="{{ url_for('auth.close') }}"  style="color: rgb(0, 255, 76);" >here to complete the survey. </a>.
                       </p>
                       {% endif %}     
                     </ul>
