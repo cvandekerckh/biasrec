@@ -55,9 +55,9 @@ PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / '4_predictions'
     #3: f'predictions_{RATINGS_VERSION_3}.p',
 #}
 PREDICTIONS_FILES = {
-    1: f'predictions_set1_raw.pkl',
-    2: f'predictions_set2_raw.pkl',
-    3: f'predictions_set3_raw.pkl',
+    1: f'predictions_set1.pkl',
+    2: f'predictions_set2.pkl',
+    3: f'predictions_set3.pkl',
 }
 
 
@@ -521,6 +521,6 @@ if __name__ == "__main__":
 
     print(f"{len(recs)} utilisateurs éligibles")
 
-    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific.p", "wb") as f:
+    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_final.p", "wb") as f:
         pickle.dump(recs, f)
 
