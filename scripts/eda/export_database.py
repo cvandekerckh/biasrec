@@ -3,7 +3,7 @@ from datetime import datetime
 import pandas as pd
 from app import db
 from app import create_app
-from app.models import User, Product, Rating, purchases, training
+from app.models import User, Product, Rating, purchases, training, PurchaseLog
 
 app = create_app()
 
@@ -22,6 +22,7 @@ def export_database_to_csv():
             'Rating': Rating,
             'Purchases': purchases,
             'Training': training,
+            'PurchaseLog': PurchaseLog,
         }
 
         for name, table in tables.items():
@@ -88,5 +89,28 @@ def export_database_to_csv():
             os.path.join(export_dir, "Purchases_with_prolific_pid.csv"),
             index=False
         )
+    
+        # ---------- PurchaseLog + PROLIFIC_PID ----------
+
+        purchase_log_query = (
+            db.session.query(
+                PurchaseLog.user_id,
+                User.code.label("prolific_pid"),
+                PurchaseLog.product_id,
+                PurchaseLog.interaction,
+                PurchaseLog.condition_id,
+                PurchaseLog.created_at
+            )
+            .join(User, User.id == PurchaseLog.user_id)
+        )
+
+        pd.read_sql(
+            purchase_log_query.statement,
+            db.engine
+        ).to_csv(
+            os.path.join(export_dir, "PurchaseLog_with_prolific_pid.csv"),
+            index=False
+        )
 
     print(f"Export completed! Files are in: {export_dir}")
+
