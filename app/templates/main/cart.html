@@ -50,11 +50,12 @@
     {% if number_of_products == 2 %}
     <p>
         <form action="{{ url_for('main.validate_interaction') }}" method="post">
-            <button type="submit"
-                    class="btn btn-success mb-2 btn-lg w-100"
-                    style="padding: 30px; font-size: 3rem;">
-                Finir et valider mon panier
-            </button>
+            {{ form2.hidden_tag() }}
+            {{ form2.submit(
+                value="Finir et valider mon panier",
+                class_="btn btn-success mb-2 btn-lg w-100",
+                style="padding: 30px; font-size: 3rem;"
+            ) }}
         </form>
     </p>
 {% elif number_of_products < 2 %}
