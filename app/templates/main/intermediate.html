@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Shopping Session</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        body {
+            background-color: rgb(237, 245, 213);
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .text-block {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta a {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: #ffffff;
+            padding: 14px 32px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .cta a:hover {
+            background-color: #256628;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>New Shopping Session</h1>
+        
+        <div class="text-block">
+            <h4>
+                Please imagine that <strong>two weeks have passed since your previous shopping
+                session </strong> on the DelCam website.
+            </h4>
+            <br>
+            <p>
+                You are once again benefiting from the same workplace lunch offer. As before, your employer
+                covers the cost of your meals, which you will eat during your lunch breaks at work.
+            </p>
+            <br>
+            <p>
+                Please complete the shopping task again as you did previously.
+            </p>
+
+            <p>
+                <strong>You will be asked to:</strong>
+            </p>
+            <ul style="margin-left: 20px;">
+                <li>Select <strong>two ready-to-eat prepared meals</strong>, one for each of the next two Mondays;</li>
+                <li>Add these meals to your shopping cart;</li>
+                <li>Confirm your shopping cart as if you were completing a real purchase.</li>
+            </ul>
+            <br>
+            <p>
+                Please make your choices <strong>as realistically as possible</strong>, as if you were
+                genuinely selecting meals for yourself.
+            </p>
+        </div>
+
+        <div class="cta">
+            <a href="{{ url_for('main.recommendation') }}">
+                Start Shopping
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

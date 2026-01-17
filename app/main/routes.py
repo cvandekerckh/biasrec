@@ -201,6 +201,11 @@ def cart():
         n_product_in_cart=len(cart_products),
     )
 
+@bp.route('/intermediate', methods=['GET'])
+@login_required
+def intermediate():
+    return render_template('main/intermediate.html')
+
 @bp.route('/validate_interaction', methods=['POST'])
 @login_required
 def validate_interaction():
@@ -236,7 +241,7 @@ def validate_interaction():
     if session["interaction_count"] >= n_interactions:
         return redirect(url_for('auth.surveyp2'))
 
-    return redirect(url_for('main.recommendation'))
+    return redirect(url_for('main.intermediate'))
 
 
 
