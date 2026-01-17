@@ -216,6 +216,11 @@ def validate_interaction():
     interaction_count = session.get("interaction_count", 0)
 
     user_recs = g.user_recs
+    if user_recs is None:
+        # Sécurité prod : éviter un crash
+        print("ERROR: user_recs is None for user", current_user.code)
+        return redirect(url_for('main.recommendation'))
+        
     condition_id = user_recs["condition_id"]
     n_interactions = user_recs["n_interactions"]
 
