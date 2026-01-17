@@ -11,6 +11,7 @@ import pickle
 import random
 import hashlib
 from app.models import PurchaseLog
+from flask_wtf.csrf import csrf_exempt
 
 
 
@@ -208,6 +209,7 @@ def intermediate():
 
 @bp.route('/validate_interaction', methods=['POST'])
 @login_required
+@csrf_exempt
 def validate_interaction():
 
     query = current_user.purchases.select()
