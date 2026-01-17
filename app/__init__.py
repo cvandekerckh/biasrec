@@ -18,6 +18,7 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     login.init_app(app)
     bootstrap.init_app(app)
+    app.config['WTF_CSRF_ENABLED'] = False
 
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp)
