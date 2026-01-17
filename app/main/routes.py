@@ -228,7 +228,7 @@ def validate_interaction():
     # 🔹 LOG DB (safe GCloud)
     for product in cart_products:
         log = PurchaseLog(
-            user_id=current_user.code,
+            user_id=current_user.id,
             product_id=product.id,
             interaction=interaction_count,
             condition_id=condition_id
