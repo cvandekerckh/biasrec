@@ -52,7 +52,8 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
                 user.assign_product(product)
 
             db.session.commit()
-
+        prolific_pid = prolific_pid.strip()
+        session["prolific_pid"] = prolific_pid
         # connect user
         session.pop('product_order', None) 
         login_user(user)

@@ -7,52 +7,56 @@
                 <h4 class="pnavbut"><b>Our recommendations for you:</b></h4>
             </td>
         </tr>
-        {% for reco in reco_list %}
-            {% if loop.index0 % 5 == 0 %}
-                <tr>
-            {% endif %}
-            
-            <td ALIGN="CENTER" style="width:20%;">
-                <img src="{{ url_for('static', filename='img/prodnew/meal_{}.jpg'.format(reco.id)) }}" height="250px">
-                <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
-                <table class="table table-borderless">
+        {% if reco_list %}
+            {% for reco in reco_list %}
+                {% if loop.index0 % 5 == 0 %}
                     <tr>
-                        <td style="width:50%;">
-                            <br>
-                            <h5 class="titlecolor"><b>£{{ reco.price_formatted}}</b></h5>
-                        </td>
-                        <td style="width:50%;" ALIGN="CENTER">
-                            <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="60px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <h5 class="titlecolor"><b>Proteins:</b> {{ reco.protein }}</h5>
-                            <h5 class="titlecolor"><b>Vegetables:</b> {{ reco.vegetables }}</h5>
-                            <h5 class="titlecolor"><b>Starches:</b> {{ reco.starches }}</h5>
-                            <h5 class="titlecolor"><b>Dairy products:</b> {{ reco.dairy_products }}</h5>
-                            <h5 class="titlecolor"><b>Sauce:</b> {{ reco.sauce }}</h5>
-                        </td>
-                    </tr>
-                </table>
-                {% if current_user.has_bought(reco) %}
-                        <p>
-                            <form action="{{ url_for('main.unpurchasereco', name=reco.name) }}" method="post">
-                                {{ form.hidden_tag() }}
-                                <span aria-hidden="true">{{ form.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg') }}</span>
-                            </form>
-                        </p>
-                {% else %}
-                    <form action="{{ url_for('main.purchasereco', name=reco.name) }}" method="post">
-                        {{ form.hidden_tag() }}
-                        {{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}
-                    </form>   
                 {% endif %}
-            </td>
+                
+                <td ALIGN="CENTER" style="width:20%;">
+                    <img src="{{ url_for('static', filename='img/prodnew/meal_{}.jpg'.format(reco.id)) }}" height="250px">
+                    <h3><b><a class="titlecolor" href="{{ url_for('main.product', name=reco.name) }}">{{ reco.name }}</a></b></h3>
+                    <table class="table table-borderless">
+                        <tr>
+                            <td style="width:50%;">
+                                <br>
+                                <h5 class="titlecolor"><b>£{{ reco.price_formatted}}</b></h5>
+                            </td>
+                            <td style="width:50%;" ALIGN="CENTER">
+                                <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="60px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h5 class="titlecolor"><b>Proteins:</b> {{ reco.protein }}</h5>
+                                <h5 class="titlecolor"><b>Vegetables:</b> {{ reco.vegetables }}</h5>
+                                <h5 class="titlecolor"><b>Starches:</b> {{ reco.starches }}</h5>
+                                <h5 class="titlecolor"><b>Dairy products:</b> {{ reco.dairy_products }}</h5>
+                                <h5 class="titlecolor"><b>Sauce:</b> {{ reco.sauce }}</h5>
+                            </td>
+                        </tr>
+                    </table>
+                    {% if current_user.has_bought(reco) %}
+                            <p>
+                                <form action="{{ url_for('main.unpurchasereco', name=reco.name) }}" method="post">
+                                    {{ form.hidden_tag() }}
+                                    <span aria-hidden="true">{{ form.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg') }}</span>
+                                </form>
+                            </p>
+                    {% else %}
+                        <form action="{{ url_for('main.purchasereco', name=reco.name) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            {{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}
+                        </form>   
+                    {% endif %}
+                </td>
 
-            {% if loop.index0 % 5 == 4 or loop.last %}
-                </tr>
-            {% endif %}
-        {% endfor %}
+                {% if loop.index0 % 5 == 4 or loop.last %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No recommendations available.</p>
+        {% endif %}
     </table>
 </div>
