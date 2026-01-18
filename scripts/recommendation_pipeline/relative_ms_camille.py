@@ -55,9 +55,9 @@ PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / '4_predictions'
     #3: f'predictions_{RATINGS_VERSION_3}.p',
 #}
 PREDICTIONS_FILES = {
-    1: f'predictions_set1.pkl',
-    2: f'predictions_set2.pkl',
-    3: f'predictions_set3.pkl',
+    1: f'predictions_set1_prolific.pkl',
+    2: f'predictions_set2_prolific.pkl',
+    3: f'predictions_set3_prolific.pkl',
 }
 
 
@@ -365,13 +365,18 @@ def create_recommendations():
                 if user in eligible_users:
                     condition_id = user_conditions[user]
                     delta = EXPERIMENTAL_CONDITIONS[condition_id]["delta"]
-                    beta, achieved_bias, _ = find_beta_for_user(
-                        product_list_user=plist,
-                        initial_bias=initial_bias,
-                        delta=delta,
-                        n_recommendations=Cf.N_RECOMMENDATIONS,
-                        bias_type=BIAS_TYPE,
-                    )
+                    # For delta = 0 conditions, recommendations are strictly identical
+                    # to the initial content-based recommendations (no re-ranking applied).
+                    if delta == 0.0:
+                        beta = 0.0
+                    else:
+                        beta, achieved_bias, _ = find_beta_for_user(
+                            product_list_user=plist,
+                            initial_bias=initial_bias,
+                            delta=delta,
+                            n_recommendations=Cf.N_RECOMMENDATIONS,
+                            bias_type=BIAS_TYPE,
+                        )
                 else:
                     beta = 0.0
 
