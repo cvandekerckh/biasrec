@@ -4,7 +4,7 @@
     <table class="table table-borderless">
         <tr> 
             <td ALIGN="CENTER" colspan="5">
-                <h4 class="pnavbut"><b>Voici ce que nous vous recommandons :</b></h4>
+                <h4 class="pnavbut"><b>Our recommendations for you:</b></h4>
             </td>
         </tr>
         {% for reco in reco_list %}
@@ -19,7 +19,7 @@
                     <tr>
                         <td style="width:50%;">
                             <br>
-                            <h5 class="titlecolor"><b>{{ reco.price }}</b></h5>
+                            <h5 class="titlecolor"><b>£{{ reco.price_formatted}}</b></h5>
                         </td>
                         <td style="width:50%;" ALIGN="CENTER">
                             <img src="{{ url_for('static', filename='img/nutri_{}.jpg'.format(reco.nutri_score)) }}" height="60px">
@@ -27,11 +27,10 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <h5 class="titlecolor"><b>ID:</b> {{ reco.id }}</h5>
-                            <h5 class="titlecolor"><b>Protéines:</b> {{ reco.protein }}</h5>
-                            <h5 class="titlecolor"><b>Légumes:</b> {{ reco.vegetables }}</h5>
-                            <h5 class="titlecolor"><b>Féculents:</b> {{ reco.starches }}</h5>
-                            <h5 class="titlecolor"><b>Produits laitiers:</b> {{ reco.dairy_products }}</h5>
+                            <h5 class="titlecolor"><b>Proteins:</b> {{ reco.protein }}</h5>
+                            <h5 class="titlecolor"><b>Vegetables:</b> {{ reco.vegetables }}</h5>
+                            <h5 class="titlecolor"><b>Starches:</b> {{ reco.starches }}</h5>
+                            <h5 class="titlecolor"><b>Dairy products:</b> {{ reco.dairy_products }}</h5>
                             <h5 class="titlecolor"><b>Sauce:</b> {{ reco.sauce }}</h5>
                         </td>
                     </tr>
@@ -40,13 +39,13 @@
                         <p>
                             <form action="{{ url_for('main.unpurchasereco', name=reco.name) }}" method="post">
                                 {{ form.hidden_tag() }}
-                                <span aria-hidden="true">{{ form.submit(value='Retirer de mon panier', class_='btn btn-success mb-2 btn-lg') }}</span>
+                                <span aria-hidden="true">{{ form.submit(value='Remove from cart', class_='btn btn-success mb-2 btn-lg') }}</span>
                             </form>
                         </p>
                 {% else %}
                     <form action="{{ url_for('main.purchasereco', name=reco.name) }}" method="post">
                         {{ form.hidden_tag() }}
-                        {{ form.submit(value='Ajouter à mon panier', class_='btn btn-success mb-2 btn-lg') }}
+                        {{ form.submit(value='Add to cart', class_='btn btn-success mb-2 btn-lg') }}
                     </form>   
                 {% endif %}
             </td>
