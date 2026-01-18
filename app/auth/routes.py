@@ -31,6 +31,7 @@ def login(): #mettre le code de ce qu'il y a à faire sur cette page "login" = n
     #study_id = request.args.get("STUDY_ID")
     # check if there is a prolific_pid in the URL and the study_id matches the expected one
     if prolific_pid:
+        prolific_pid = prolific_pid.strip()
         # check if the prolific_pid exists in the database
         user = User.query.filter_by(code=prolific_pid).first()
 

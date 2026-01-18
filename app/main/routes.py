@@ -220,7 +220,7 @@ def validate_interaction():
     if user_recs is None:
         # Sécurité prod : éviter un crash
         print("ERROR: user_recs is None for user", current_user.code)
-        return redirect(url_for('main.recommendation'))
+        return redirect(url_for('auth.surveyp2'))
         
     condition_id = user_recs["condition_id"]
     n_interactions = user_recs["n_interactions"]
