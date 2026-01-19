@@ -110,25 +110,23 @@ def product_category(category_name):
     products = sorted(products, key=deterministic_key)
 
     # 3️⃣ Pagination
-    page = request.args.get('page', 1, type=int)
-    per_page = current_app.config['POSTS_PER_PAGE']
-    start = (page - 1) * per_page
-    end = start + per_page
-    product_items = products[start:end]
+    #page = request.args.get('page', 1, type=int)
+    #per_page = current_app.config['POSTS_PER_PAGE']
+    #start = (page - 1) * per_page
+    #end = start + per_page
+    #product_items = products[start:end]
 
-    next_url = url_for('main.product_category', category_name=category_name, page=page + 1) \
-        if end < len(products) else None
-    prev_url = url_for('main.product_category', category_name=category_name, page=page - 1) \
-        if page > 1 else None
+    #next_url = url_for('main.product_category', category_name=category_name, page=page + 1) \
+        #if end < len(products) else None
+    #prev_url = url_for('main.product_category', category_name=category_name, page=page - 1) \
+        #if page > 1 else None
 
     n_product_in_cart = get_n_product_in_cart()
 
     return render_template(
         'main/product_category.html',
-        products=product_items,
+        products=products,
         category_name_label=category_name_label,
-        next_url=next_url,
-        prev_url=prev_url,
         form=form,
         n_product_in_cart=n_product_in_cart
     )
