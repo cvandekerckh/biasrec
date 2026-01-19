@@ -1,7 +1,7 @@
 {% extends "main/base_navigate.html" %}
 
 {% block app_content %}
-    <h1 class = "titlecolor" style="text-align: center;"> <b>Découvrez notre délicieuse sélection de {{category_name_label}} :</b> </h1>
+    <h1 class = "titlecolor" style="text-align: center;"> <b>Discover our delicious selection of ready-to-eat prepared meals in the {{category_name_label}} category:</b> </h1>
         <div class ="recommendations">
                 <table class="table table-borderless">
                     <tr>
@@ -23,10 +23,6 @@
                                             <h4 class="titlecolor"> <b>Starches:</b> {{ product.starches }}</h4>
                                             <h4 class="titlecolor"> <b>Dairy products:</b> {{ product.dairy_products }}</h4>
                                             <h4 class="titlecolor"> <b>Sauce:</b> {{ product.sauce }}</h4>
-                                            <br> <br> <br> <br> 
-                                            <h4 class="titlecolor"> <b>{{ product.id }}</b></h4>
-
-
                                         </td>
                                         <td style="float:left; width:40%; text-align:left;">
                                             <br><br><br><br>
