@@ -27,7 +27,7 @@ NUTRISCORE_TO_WEIGHT = {
     'E': 1,
 }
 N_INTERACTIONS_CONDITIONS = [1, 3]
-KEEP_BIAS_BELOW = 3.5 # Users have to be bias lower than 3.5
+KEEP_BIAS_BELOW = 2.5 # Users have to be bias lower than 3.5
 CONDITION_RULE = {
     1: 0.0, # add nothing to 
     2: 0.5, # add 0.5 to the
@@ -436,16 +436,25 @@ def create_recommendations():
             condition_id = user_data["condition_id"]
             delta = EXPERIMENTAL_CONDITIONS[condition_id]["delta"]
 
-            bias_target[user_id] = min(
-                5.0,
-                bias_per_user_initial[user_id] + delta
-            )
+            observed_biases = []
+            target_biases = []
 
-            bias_observed[user_id] = compute_mean_bias_across_interactions(
-                user_data,
-                Cf.N_RECOMMENDATIONS,
-                BIAS_TYPE
-            )
+            for i in range(1, user_data["n_interactions"] + 1):
+
+                # --- AVANT (content-based, set i)
+                initial_list = product_lists_per_set[i][user_id][:Cf.N_RECOMMENDATIONS]
+                bias_before = compute_bias(initial_list, BIAS_TYPE)
+
+                # --- APRÈS (multi-stakeholder)
+                final_list = user_data["interactions"][i][:Cf.N_RECOMMENDATIONS]
+                bias_after = compute_bias(final_list, BIAS_TYPE)
+
+                observed_biases.append(bias_after)
+                target_biases.append(min(5.0, bias_before + delta))
+
+            bias_observed[user_id] = float(np.mean(observed_biases))
+            bias_target[user_id] = float(np.mean(target_biases))
+
 
         # 2️⃣ Users that can actually be evaluated (safety)
         users_eval = sorted(set(bias_observed) & set(bias_target))
