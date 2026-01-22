@@ -95,7 +95,7 @@ def survey():
 
 @bp.route('/surveyp2', methods=['GET', 'POST'])
 def surveyp2():
-    base_qualtrics_url = "https://lourim.eu.qualtrics.com/jfe/form/SV_erCgZ63De8AuFDM"
+    base_qualtrics_url = "https://lourim.eu.qualtrics.com/jfe/form/SV_2gmCFMtg5mRu6DI"
     prolific_pid = current_user.code
     qualtrics_url_phase2 = f"{base_qualtrics_url}?PROLIFIC_PID={prolific_pid}"
     logout_user()

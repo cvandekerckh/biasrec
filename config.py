@@ -47,5 +47,5 @@ configs = {
   'fixedrec' : FixedRecommendationConfig,
   'trainrec_1': TrainedRecommendation1Interaction,
   'trainrec_3': TrainedRecommendation3Interactions,
-  'default'  :RateConfig,
+  'default'  :TrainedRecommendation1Interaction,
 }
