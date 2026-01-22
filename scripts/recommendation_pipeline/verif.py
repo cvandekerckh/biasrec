@@ -67,7 +67,7 @@ def extract_user_level_content_based_vs_multistakeholder():
         # MULTI-STAKEHOLDER
         # -------------------------------------------------
         with open(
-            Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_21_01_2026_final.p",
+            Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_22_01_2026_2.p",
             "rb"
         ) as f:
             multistakeholder = pickle.load(f)
@@ -174,9 +174,9 @@ if __name__ == "__main__":
     df = extract_user_level_content_based_vs_multistakeholder()
 
     df.to_csv(
-        Cf.DATA_PATH_OUT / "content_based_vs_multistakeholder_user_level.csv",
+        Cf.DATA_PATH_OUT / "content_based_vs_multistakeholder_user_level_22_01_2026.csv",
         index=False,
     )
 
     print(df.head(30))
-    print("Saved content_based_vs_multistakeholder_user_level.csv")
+    print("Saved content_based_vs_multistakeholder_user_level_22_01_2026.csv")

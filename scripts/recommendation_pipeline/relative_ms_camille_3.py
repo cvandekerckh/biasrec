@@ -447,6 +447,7 @@ def create_recommendations():
         # 2️⃣ Users that can actually be evaluated (safety)
         users_eval = sorted(set(bias_observed) & set(bias_target))
 
+
         # ---------------------------------------------------------
         # Global evaluation
         # ---------------------------------------------------------
@@ -456,7 +457,25 @@ def create_recommendations():
             for u in users_eval
         ])
 
-        step = 1.0 / Cf.N_RECOMMENDATIONS
+        #step = 1.0 / Cf.N_RECOMMENDATIONS
+        step = 0.1
+
+        users_per_error_per_condition = defaultdict(
+            lambda: defaultdict(list)
+        )
+
+        for u in users_eval:
+            condition_id = final_recommendations[u]["condition_id"]
+
+            # erreur continue
+            err = abs(bias_observed[u] - bias_target[u])
+
+            # discrétisation (identique à compute_error_table)
+            k = int(np.rint(err / step))
+            err_bin = k * step
+
+            users_per_error_per_condition[condition_id][err_bin].append(u)
+
         tbl_global = compute_error_table(errors, step)
 
         print("\n=== Global error distribution (mean over interactions) ===")
@@ -490,6 +509,20 @@ def create_recommendations():
             else:
                 print_error_table(tbl)
 
+        print("\n=== Users per error (by condition) ===")
+
+        for condition_id in sorted(users_per_error_per_condition.keys()):
+            print(
+                f"\n--- Condition {condition_id} "
+                f"(delta={EXPERIMENTAL_CONDITIONS[condition_id]['delta']}, "
+                f"n_interactions={EXPERIMENTAL_CONDITIONS[condition_id]['n_interactions']}) ---"
+            )
+
+            for err_bin in sorted(users_per_error_per_condition[condition_id].keys()):
+                users = users_per_error_per_condition[condition_id][err_bin]
+                print(f"Error {err_bin:.2f} → {len(users)} users")
+                print(f"Users: {users}")
+
         # ---------------------------------------------------------
         # Save evaluation table
         # ---------------------------------------------------------
@@ -509,7 +542,45 @@ def create_recommendations():
             Cf.DATA_PATH_OUT / "evaluation_multi_interaction.csv",
             index=False
         )
-            
+
+        # ---------------------------------------------------------
+        # Export users per error bin (for advanced analysis)
+        # ---------------------------------------------------------
+
+        rows = []
+
+        for condition_id, bins in users_per_error_per_condition.items():
+            for err_bin, users in bins.items():
+                for u in users:
+                    rows.append({
+                        "user_id": u,
+                        "condition_id": condition_id,
+                        "n_interactions": final_recommendations[u]["n_interactions"],
+                        "error_bin": err_bin,
+                        "error_continuous": abs(bias_observed[u] - bias_target[u]),
+                        "bias_target": bias_target[u],
+                        "bias_observed": bias_observed[u],
+                        "signed_error": bias_observed[u] - bias_target[u],
+                    })
+
+        df_users_by_error = pd.DataFrame(rows)
+
+        df_users_by_error = df_users_by_error[
+            [
+                "user_id",
+                "condition_id",
+                "n_interactions",
+                "error_bin",
+                "error_continuous",
+                "bias_target",
+                "bias_observed",
+                "signed_error",
+            ]
+        ]
+        df_users_by_error.to_csv(
+            Cf.DATA_PATH_OUT / "users_by_error_bin_and_condition.csv",
+            index=False
+        )    
         return final_recommendations
 
 
@@ -522,6 +593,6 @@ if __name__ == "__main__":
 
     print(f"{len(recs)} utilisateurs éligibles")
 
-    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_21_01_2026_final.p", "wb") as f:
+    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_22_01_2026_2.p", "wb") as f:
         pickle.dump(recs, f)
 
