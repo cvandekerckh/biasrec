@@ -55,9 +55,9 @@ PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / '4_predictions'
     #3: f'predictions_{RATINGS_VERSION_3}.p',
 #}
 PREDICTIONS_FILES = {
-    1: f'predictions_set1_prolific_final.pkl',
-    2: f'predictions_set2_prolific_final.pkl',
-    3: f'predictions_set3_prolific_final.pkl',
+    1: f'predictions_set1_22_01_2026.pkl',
+    2: f'predictions_set2_22_01_2026.pkl',
+    3: f'predictions_set3_22_01_2026.pkl',
 }
 
 
@@ -578,7 +578,7 @@ def create_recommendations():
             ]
         ]
         df_users_by_error.to_csv(
-            Cf.DATA_PATH_OUT / "users_by_error_bin_and_condition.csv",
+            Cf.DATA_PATH_OUT / "users_by_error_bin_and_condition_22_01_2026.csv",
             index=False
         )    
         return final_recommendations
@@ -593,6 +593,6 @@ if __name__ == "__main__":
 
     print(f"{len(recs)} utilisateurs éligibles")
 
-    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_22_01_2026_2.p", "wb") as f:
+    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_22_01_2026_final.p", "wb") as f:
         pickle.dump(recs, f)
 
