@@ -27,23 +27,23 @@ NUTRISCORE_TO_WEIGHT = {
     'E': 1,
 }
 N_INTERACTIONS_CONDITIONS = [1, 3]
-KEEP_BIAS_BELOW = 3.5 # Users have to be bias lower than 3.5
+KEEP_BIAS_BELOW = 3.2 # Users have to be bias lower than 3.2
 CONDITION_RULE = {
     1: 0.0, # add nothing to 
-    2: 0.5, # add 0.5 to the
-    3: 1.0, # add 1 to the bias
-    4: 1.5, # add 1.5 to the bias. Check that this value + KEEP_BIAS_BELOW <= 5
+    2: 1, # add 0.5 to the
+    3: 1.5, # add 1 to the bias
+    4: 4, # add 1.5 to the bias. Check that this value + KEEP_BIAS_BELOW <= 5
 }
 CONDITION_FILENAME = 'conditions.csv'
 EXPERIMENTAL_CONDITIONS = {
     1: {"delta": 0.0, "n_interactions": 1},
-    2: {"delta": 0.5, "n_interactions": 1},
-    3: {"delta": 1.0, "n_interactions": 1},
-    4: {"delta": 1.5, "n_interactions": 1},
+    2: {"delta": 1.0, "n_interactions": 1},
+    3: {"delta": 1.5, "n_interactions": 1},
+    4: {"delta": 4, "n_interactions": 1},
     5: {"delta": 0.0, "n_interactions": 3},
-    6: {"delta": 0.5, "n_interactions": 3},
-    7: {"delta": 1.0, "n_interactions": 3},
-    8: {"delta": 1.5, "n_interactions": 3},
+    6: {"delta": 1.0, "n_interactions": 3},
+    7: {"delta": 1.5, "n_interactions": 3},
+    8: {"delta": 4, "n_interactions": 3},
 }
 
 # Inputs
@@ -55,9 +55,9 @@ PREDICTIONS_PATH = Cf.DATA_PATH_OUT / 'versioning' / '4_predictions'
     #3: f'predictions_{RATINGS_VERSION_3}.p',
 #}
 PREDICTIONS_FILES = {
-    1: f'predictions_set1_22_01_2026.pkl',
-    2: f'predictions_set2_22_01_2026.pkl',
-    3: f'predictions_set3_22_01_2026.pkl',
+    1: f'predictions_set1_25_01_2026.pkl',
+    2: f'predictions_set2_25_01_2026.pkl',
+    3: f'predictions_set3_25_01_2026.pkl',
 }
 
 
@@ -578,7 +578,7 @@ def create_recommendations():
             ]
         ]
         df_users_by_error.to_csv(
-            Cf.DATA_PATH_OUT / "users_by_error_bin_and_condition_22_01_2026.csv",
+            Cf.DATA_PATH_OUT / "users_by_error_bin_and_condition_24_01_2026_2.csv",
             index=False
         )    
         return final_recommendations
@@ -593,6 +593,6 @@ if __name__ == "__main__":
 
     print(f"{len(recs)} utilisateurs éligibles")
 
-    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_22_01_2026_final.p", "wb") as f:
+    with open(Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_24_01_2026_test2.p", "wb") as f:
         pickle.dump(recs, f)
 

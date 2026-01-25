@@ -26,9 +26,9 @@ NUTRI_MAP = {
 # =====================================================
 def load_predictions(set_id):
     filename = {
-        1: "predictions_set1_prolific_final.pkl",
-        2: "predictions_set2_prolific_final.pkl",
-        3: "predictions_set3_prolific_final.pkl",
+        1: "predictions_set1_25_01_2026.pkl",
+        2: "predictions_set2_25_01_2026.pkl",
+        3: "predictions_set3_25_01_2026.pkl",
     }[set_id]
 
     with open(
@@ -67,7 +67,7 @@ def extract_user_level_content_based_vs_multistakeholder():
         # MULTI-STAKEHOLDER
         # -------------------------------------------------
         with open(
-            Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_22_01_2026_2.p",
+            Cf.DATA_PATH_OUT / "biased_recommendations_test_prolific_25_01_2026_final.p",
             "rb"
         ) as f:
             multistakeholder = pickle.load(f)
@@ -174,9 +174,9 @@ if __name__ == "__main__":
     df = extract_user_level_content_based_vs_multistakeholder()
 
     df.to_csv(
-        Cf.DATA_PATH_OUT / "content_based_vs_multistakeholder_user_level_22_01_2026.csv",
+        Cf.DATA_PATH_OUT / "content_based_vs_multistakeholder_user_level_25_01_2026.csv",
         index=False,
     )
 
     print(df.head(30))
-    print("Saved content_based_vs_multistakeholder_user_level_22_01_2026.csv")
+    print("Saved content_based_vs_multistakeholder_user_level_25_01_2026.csv")
